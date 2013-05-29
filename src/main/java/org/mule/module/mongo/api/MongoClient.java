@@ -16,7 +16,6 @@ import javax.validation.constraints.NotNull;
 
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
-import com.mongodb.WriteResult;
 
 /**
  * @author flbulgarelli
@@ -56,7 +55,11 @@ public interface MongoClient
 
     long countObjects(@NotNull String collection, DBObject query);
 
-    Iterable<DBObject> findObjects(@NotNull String collection, DBObject query, List<String> fields, Integer numToSkip, Integer limit);
+    Iterable<DBObject> findObjects(@NotNull String collection,
+                                   DBObject query,
+                                   List<String> fields,
+                                   Integer numToSkip,
+                                   Integer limit);
 
     DBObject findOneObject(@NotNull String collection, DBObject query, List<String> fields);
 
@@ -77,7 +80,7 @@ public interface MongoClient
     Iterable<DBObject> listFiles(DBObject query);
 
     void removeFiles(DBObject query);
-    
+
     DBObject executeComamnd(DBObject command);
 
     void addUser(String username, String password);
