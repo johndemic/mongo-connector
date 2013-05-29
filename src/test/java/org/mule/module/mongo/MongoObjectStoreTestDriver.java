@@ -8,6 +8,11 @@
 
 package org.mule.module.mongo;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 import java.io.Serializable;
 import java.math.BigInteger;
 
@@ -16,7 +21,7 @@ import org.apache.commons.lang.math.RandomUtils;
 import org.mule.api.store.ObjectDoesNotExistException;
 import org.mule.api.store.ObjectStoreException;
 import org.mule.api.store.PartitionableExpirableObjectStore;
-import org.mule.tck.FunctionalTestCase;
+import org.mule.tck.junit4.FunctionalTestCase;
 
 public class MongoObjectStoreTestDriver extends FunctionalTestCase
 {
