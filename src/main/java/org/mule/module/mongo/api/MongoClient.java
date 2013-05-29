@@ -8,6 +8,7 @@
 
 package org.mule.module.mongo.api;
 
+import java.io.Closeable;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.List;
@@ -20,9 +21,8 @@ import com.mongodb.DBObject;
 /**
  * @author flbulgarelli
  */
-public interface MongoClient
+public interface MongoClient extends Closeable
 {
-
     Collection<String> listCollections();
 
     DBCollection getCollection(@NotNull String name);

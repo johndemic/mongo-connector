@@ -176,6 +176,8 @@ public class MongoCloudConnector
 
     private String database;
 
+    private Mongo mongo;
+
     private MongoClient client;
 
     /**
@@ -1080,8 +1082,6 @@ public class MongoCloudConnector
         return input.toMap();
     }
 
-    private Mongo mongo;
-
     /**
      * Method invoked when a {@link MongoSession} needs to be created.
      * 
@@ -1181,11 +1181,23 @@ public class MongoCloudConnector
 
     /**
      * Method invoked when the {@link MongoSession} is to be destroyed.
+     * 
+     * @throws IOException in case something goes wrong when disconnecting.
      */
     @Disconnect
-    public void disconnect()
+    public void disconnect() throws IOException
     {
-        this.client = null;
+        if (client != null)
+        {
+            client.close();
+            client = null;
+        }
+
+        if (mongo != null)
+        {
+            mongo.close();
+            mongo = null;
+        }
     }
 
     @ValidateConnection
@@ -1197,7 +1209,7 @@ public class MongoCloudConnector
     @ConnectionIdentifier
     public String connectionId()
     {
-        return "unknown";
+        return mongo == null ? "n/a" : Mongo.class.getName() + System.identityHashCode(mongo);
     }
 
     private DB getDatabase(final Mongo mongo,
