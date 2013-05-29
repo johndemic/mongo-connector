@@ -103,7 +103,7 @@ public class MongoClientImpl implements MongoClient
             dbCursor = dbCursor.limit(limit);
         }
 
-        return bug5588Workaournd(dbCursor);
+        return bug5588Workaround(dbCursor);
     }
 
     public DBObject findOneObject(@NotNull String collection, DBObject query, List<String> fields)
@@ -145,7 +145,7 @@ public class MongoClientImpl implements MongoClient
         Validate.notNull(collection);
         Validate.notEmpty(mapFunction);
         Validate.notEmpty(reduceFunction);
-        return bug5588Workaournd(openSession().getCollection(collection)
+        return bug5588Workaround(openSession().getCollection(collection)
             .mapReduce(mapFunction, reduceFunction, outputCollection, outputTypeFor(outputCollection), null)
             .results());
     }
@@ -219,7 +219,7 @@ public class MongoClientImpl implements MongoClient
 
     public Iterable<DBObject> findFiles(DBObject query)
     {
-        return bug5588Workaournd(getGridFs().find(query));
+        return bug5588Workaround(getGridFs().find(query));
     }
 
     public DBObject findOneFile(DBObject query)
@@ -241,7 +241,7 @@ public class MongoClientImpl implements MongoClient
 
     public Iterable<DBObject> listFiles(DBObject query)
     {
-        return bug5588Workaournd(getGridFs().getFileList(query));
+        return bug5588Workaround(getGridFs().getFileList(query));
     }
 
     public void removeFiles(DBObject query)
@@ -263,7 +263,7 @@ public class MongoClientImpl implements MongoClient
      * see http://www.mulesoft.org/jira/browse/MULE-5588
      */
     @SuppressWarnings("unchecked")
-    private Iterable<DBObject> bug5588Workaournd(final Iterable<? extends DBObject> o)
+    private Iterable<DBObject> bug5588Workaround(final Iterable<? extends DBObject> o)
     {
         if (o instanceof Collection<?>)
         {
