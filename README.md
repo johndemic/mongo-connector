@@ -8,6 +8,16 @@ Installation and Usage
 
 For information about usage and installation you can check our documentation at http://mulesoft.github.com/mongo-connector
 
+Running the Tests
+-----------------
+
+Connect to your locally running MongoDB (on port `27017`) with `mongo` and run:
+
+    use test
+    db.addUser( { user: "admin", pwd: "pepe", roles: ["dbAdmin"] })
+    use mongo-connector-test
+    db.addUser( { user: "foobar", pwd: "1234", roles: ["readWrite"] })
+
 Reporting Issues
 ----------------
 
