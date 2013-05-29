@@ -492,8 +492,8 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>MongoDB is an open source, high-performance, schema-free, document-oriented database that manages collections of
- BSON documents.</p>
+<p>MongoDB is an open source, high-performance, schema-free, document-oriented database that manages
+ collections of BSON documents.</p>
 
 
 
@@ -609,7 +609,8 @@ Summary:
           
           Integer</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../org/mule/module/mongo/MongoCloudConnector.html#connectTimeout">connectTimeout</a></td>
-          <td class="jd-descrcol" width="100%">The connection timeout in milliseconds; this is for establishing the socket connections (open).</td>
+          <td class="jd-descrcol" width="100%">The connection timeout in milliseconds; this is for establishing the socket connections
+ (open).</td>
       </tr>
       
     
@@ -661,17 +662,6 @@ Summary:
     
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
-          private
-          static
-          final
-          Logger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../org/mule/module/mongo/MongoCloudConnector.html#logger">logger</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
           public
           
           
@@ -681,7 +671,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -692,7 +682,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -704,7 +694,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           
@@ -715,7 +705,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -726,7 +716,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -737,7 +727,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           
@@ -749,7 +739,7 @@ Summary:
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           
@@ -760,7 +750,7 @@ Summary:
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           
@@ -953,8 +943,8 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/mongo/MongoCloudConnector.html#createFileFromPayload(java.lang.Object, java.lang.String, java.lang.String, com.mongodb.DBObject)">createFileFromPayload</a></span>(Object payload, String filename, String contentType, DBObject metadata)</nobr>
         
-        <div class="jd-descrdiv">Creates a new GridFSFile in the database, saving the given content, filename,
- contentType, and extraData, and answers it.</div>
+        <div class="jd-descrdiv">Creates a new GridFSFile in the database, saving the given content, filename, contentType,
+ and extraData, and answers it.</div>
   
   </td></tr>
 
@@ -1067,7 +1057,6 @@ Summary:
         <div class="jd-descrdiv">Drop the current database
  <p/>
  
-
 </div>
   
   </td></tr>
@@ -1377,8 +1366,7 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/mongo/MongoCloudConnector.html#getFileContent(com.mongodb.DBObject)">getFileContent</a></span>(DBObject query)</nobr>
         
-        <div class="jd-descrdiv">Answers an inputstream to the contents of the first file that matches the
- given query.</div>
+        <div class="jd-descrdiv">Answers an inputstream to the contents of the first file that matches the given query.</div>
   
   </td></tr>
 
@@ -1396,8 +1384,8 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/mongo/MongoCloudConnector.html#getFileContentUsingQueryMap(java.util.Map<java.lang.String, java.lang.Object>)">getFileContentUsingQueryMap</a></span>(Map&lt;String,&nbsp;Object&gt; queryAttributes)</nobr>
         
-        <div class="jd-descrdiv">Answers an inputstream to the contents of the first file that matches the
- given queryAttributes.</div>
+        <div class="jd-descrdiv">Answers an inputstream to the contents of the first file that matches the given
+ queryAttributes.</div>
   
   </td></tr>
 
@@ -1742,10 +1730,10 @@ Summary:
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../org/mule/module/mongo/MongoCloudConnector.html#mapReduceObjects(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">mapReduceObjects</a></span>(String collection, String mapFunction, String reduceFunction, String outputCollection)</nobr>
         
-        <div class="jd-descrdiv">Transforms a collection into a collection of aggregated groups, by applying a
- supplied element-mapping function to each element, that transforms each one
- into a key-value pair, grouping the resulting pairs by key, and finally
- reducing values in each group applying a suppling 'reduce' function.</div>
+        <div class="jd-descrdiv">Transforms a collection into a collection of aggregated groups, by applying a supplied
+ element-mapping function to each element, that transforms each one into a key-value pair,
+ grouping the resulting pairs by key, and finally reducing values in each group applying a
+ suppling 'reduce' function.</div>
   
   </td></tr>
 
@@ -2733,7 +2721,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>The connection timeout in milliseconds; this is for establishing the socket connections (open). 0 is default and infinite.
+  <div class="jd-tagdata jd-tagdescr"><p>The connection timeout in milliseconds; this is for establishing the socket connections
+ (open). 0 is default and infinite.
 </p></div>
 
     
@@ -2858,36 +2847,6 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>The host of the Mongo server, it can also be a list of comma separated hosts for replicas
 </p></div>
-
-    
-    </div>
-</div>
-
-
-
-<A NAME="logger"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-        static 
-        final 
-        Logger
-      </span>
-        logger
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     
     </div>
@@ -3353,11 +3312,13 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>username</td>
-          <td>The username to use for authentication. NOTE: Please use a dummy user if you have disabled Mongo authentication</td>
+          <td>The username to use for authentication. NOTE: Please use a dummy user if you
+            have disabled Mongo authentication</td>
         </tr>
         <tr>
           <th>password</td>
-          <td>The password to use for authentication. NOTE: Please use a dummy password if you have disabled Mongo authentication</td>
+          <td>The password to use for authentication. NOTE: Please use a dummy password if
+            you have disabled Mongo authentication</td>
         </tr>
         <tr>
           <th>database</td>
@@ -3439,8 +3400,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Counts the number of objects that match the given query. If no query is
- passed, returns the number of elements in the collection
+  <div class="jd-tagdata jd-tagdescr"><p>Counts the number of objects that match the given query. If no query is passed, returns the
+ number of elements in the collection
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -3452,9 +3413,8 @@ From class
         </tr>
         <tr>
           <th>query</td>
-          <td>The optional DBObject query for counting objects. Only
-                   objects matching it will be counted. If unspecified, all objects
-                   are counted.</td>
+          <td>The optional DBObject query for counting objects. Only objects matching
+            it will be counted. If unspecified, all objects are counted.</td>
         </tr>
       </table>
   </div>
@@ -3493,8 +3453,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Counts the number of objects that match the given query. If no query is
- passed, returns the number of elements in the collection
+  <div class="jd-tagdata jd-tagdescr"><p>Counts the number of objects that match the given query. If no query is passed, returns the
+ number of elements in the collection
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -3506,9 +3466,8 @@ From class
         </tr>
         <tr>
           <th>queryAttributes</td>
-          <td>The optional query for counting objects. Only objects
-                        matching it will be counted. If unspecified, all objects are
-                        counted.</td>
+          <td>The optional query for counting objects. Only objects matching it will
+            be counted. If unspecified, all objects are counted.</td>
         </tr>
       </table>
   </div>
@@ -3547,8 +3506,7 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a new collection. If the collection already exists, a MongoException
- will be thrown.
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new collection. If the collection already exists, a MongoException will be thrown.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -3564,8 +3522,7 @@ From class
         </tr>
         <tr>
           <th>maxObjects</td>
-          <td>The maximum number of documents the new collection is able
-                   to contain</td>
+          <td>The maximum number of documents the new collection is able to contain</td>
         </tr>
         <tr>
           <th>size</td>
@@ -3604,8 +3561,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a new GridFSFile in the database, saving the given content, filename,
- contentType, and extraData, and answers it.
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a new GridFSFile in the database, saving the given content, filename, contentType,
+ and extraData, and answers it.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -3613,8 +3570,8 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>payload</td>
-          <td>The mandatory content of the new gridfs file. It may be a
-                    java.io.File, a byte[] or an InputStream.</td>
+          <td>The mandatory content of the new gridfs file. It may be a java.io.File, a
+            byte[] or an InputStream.</td>
         </tr>
         <tr>
           <th>filename</td>
@@ -3819,8 +3776,17 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Method invoked when the <code><a href="../../../../../java/org/mule/module/mongo/MongoSession.html">MongoSession</a></code> is to be destroyed.
-</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Method invoked when the <code><a href="../../../../../java/org/mule/module/mongo/MongoSession.html">MongoSession</a></code> is to be destroyed.</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>IOException</td>
+            <td>in case something goes wrong when disconnecting.
+</td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
@@ -3851,8 +3817,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Deletes a collection and all the objects it contains. If the collection does
- not exist, does nothing.
+  <div class="jd-tagdata jd-tagdescr"><p>Deletes a collection and all the objects it contains. If the collection does not exist, does
+ nothing.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -3898,7 +3864,6 @@ From class
   <div class="jd-tagdata jd-tagdescr"><p>Drop the current database
  <p/>
  
-
 </p></div>
 
     </div>
@@ -3977,8 +3942,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Executes a dump of the database to the specified output directory. If no output directory is provided
- then the default /dump directory is used.
+  <div class="jd-tagdata jd-tagdescr"><p>Executes a dump of the database to the specified output directory. If no output directory is
+ provided then the default /dump directory is used.
  <p/>
  <p/>
  </p></div>
@@ -3987,7 +3952,8 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>outputDirectory</td>
-          <td>Output directory path, if no output directory is provided the default /dump directory is assumed</td>
+          <td>Output directory path, if no output directory is provided the default
+            /dump directory is assumed</td>
         </tr>
         <tr>
           <th>outputName</td>
@@ -4240,9 +4206,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Finds all objects that match a given query. If no query is specified, all
- objects of the collection are retrieved. If no fields object is specified, all
- fields are retrieved.
+  <div class="jd-tagdata jd-tagdescr"><p>Finds all objects that match a given query. If no query is specified, all objects of the
+ collection are retrieved. If no fields object is specified, all fields are retrieved.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4254,8 +4219,8 @@ From class
         </tr>
         <tr>
           <th>query</td>
-          <td>The optional DBObject query object. If unspecified, all
-                   documents are returned.</td>
+          <td>The optional DBObject query object. If unspecified, all documents are
+            returned.</td>
         </tr>
         <tr>
           <th>fields</td>
@@ -4306,9 +4271,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Finds all objects that match a given query. If no query is specified, all
- objects of the collection are retrieved. If no fields object is specified, all
- fields are retrieved.
+  <div class="jd-tagdata jd-tagdescr"><p>Finds all objects that match a given query. If no query is specified, all objects of the
+ collection are retrieved. If no fields object is specified, all fields are retrieved.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4320,8 +4284,7 @@ From class
         </tr>
         <tr>
           <th>queryAttributes</td>
-          <td>The optional query object. If unspecified, all
-                        documents are returned.</td>
+          <td>The optional query object. If unspecified, all documents are returned.</td>
         </tr>
         <tr>
           <th>fields</td>
@@ -4372,8 +4335,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers the first file that matches the given query. If no object matches it,
- a MongoException is thrown.
+  <div class="jd-tagdata jd-tagdescr"><p>Answers the first file that matches the given query. If no object matches it, a
+ MongoException is thrown.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4420,8 +4383,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers the first file that matches the given query. If no object matches it,
- a MongoException is thrown.
+  <div class="jd-tagdata jd-tagdescr"><p>Answers the first file that matches the given query. If no object matches it, a
+ MongoException is thrown.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4468,8 +4431,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Finds the first object that matches a given query. Throws a
- MongoException if no one matches the given query
+  <div class="jd-tagdata jd-tagdescr"><p>Finds the first object that matches a given query. Throws a MongoException if no one
+ matches the given query
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4481,8 +4444,7 @@ From class
         </tr>
         <tr>
           <th>query</td>
-          <td>The mandatory DBObject query object that the returned
-                   object matches.</td>
+          <td>The mandatory DBObject query object that the returned object matches.</td>
         </tr>
         <tr>
           <th>fields</td>
@@ -4525,8 +4487,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Finds the first object that matches a given query. Throws a
- MongoException if no one matches the given query
+  <div class="jd-tagdata jd-tagdescr"><p>Finds the first object that matches a given query. Throws a MongoException if no one
+ matches the given query
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4538,8 +4500,7 @@ From class
         </tr>
         <tr>
           <th>queryAttributes</td>
-          <td>The mandatory query object that the returned object
-                        matches.</td>
+          <td>The mandatory query object that the returned object matches.</td>
         </tr>
         <tr>
           <th>fields</td>
@@ -4706,8 +4667,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers an inputstream to the contents of the first file that matches the
- given query. If no object matches it, a MongoException is thrown.
+  <div class="jd-tagdata jd-tagdescr"><p>Answers an inputstream to the contents of the first file that matches the given query. If no
+ object matches it, a MongoException is thrown.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -4754,8 +4715,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers an inputstream to the contents of the first file that matches the
- given queryAttributes. If no object matches it, a MongoException is thrown.
+  <div class="jd-tagdata jd-tagdescr"><p>Answers an inputstream to the contents of the first file that matches the given
+ queryAttributes. If no object matches it, a MongoException is thrown.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5121,11 +5082,13 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>outputDirectory</td>
-          <td>Output directory path, if no output directory is provided the default /dump directory is assumed</td>
+          <td>Output directory path, if no output directory is provided the default
+            /dump directory is assumed</td>
         </tr>
         <tr>
           <th>incrementalTimestampFile</td>
-          <td>File that keeps track of the last timestamp processed, if no file is provided one is created on the output directory</td>
+          <td>File that keeps track of the last timestamp processed, if no
+            file is provided one is created on the output directory</td>
         </tr>
       </table>
   </div>
@@ -5226,8 +5189,8 @@ From class
       
   <div class="jd-tagdata jd-tagdescr"><p>Inserts an object in a collection, setting its id if necessary.
  <p/>
- A shallow conversion into DBObject is performed - that is, no conversion is
- performed to its values.
+ A shallow conversion into DBObject is performed - that is, no conversion is performed to its
+ values.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5239,8 +5202,8 @@ From class
         </tr>
         <tr>
           <th>elementAttributes</td>
-          <td>Alternative way of specifying the element as a
-                          literal Map inside a Mule Flow</td>
+          <td>Alternative way of specifying the element as a literal Map inside a
+            Mule Flow</td>
         </tr>
         <tr>
           <th>writeConcern</td>
@@ -5399,8 +5362,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Lists all the files that match the given query, sorting them by filename. If
- no query is specified, all files are listed.
+  <div class="jd-tagdata jd-tagdescr"><p>Lists all the files that match the given query, sorting them by filename. If no query is
+ specified, all files are listed.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5447,8 +5410,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Lists all the files that match the given query, sorting them by filename. If
- no query is specified, all files are listed.
+  <div class="jd-tagdata jd-tagdescr"><p>Lists all the files that match the given query, sorting them by filename. If no query is
+ specified, all files are listed.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5542,15 +5505,15 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Transforms a collection into a collection of aggregated groups, by applying a
- supplied element-mapping function to each element, that transforms each one
- into a key-value pair, grouping the resulting pairs by key, and finally
- reducing values in each group applying a suppling 'reduce' function.
+  <div class="jd-tagdata jd-tagdescr"><p>Transforms a collection into a collection of aggregated groups, by applying a supplied
+ element-mapping function to each element, that transforms each one into a key-value pair,
+ grouping the resulting pairs by key, and finally reducing values in each group applying a
+ suppling 'reduce' function.
  <p/>
  Each supplied function is coded in JavaScript.
  <p/>
- Note that the correct way of writing those functions may not be obvious;
- please consult MongoDB documentation for writing them.
+ Note that the correct way of writing those functions may not be obvious; please consult
+ MongoDB documentation for writing them.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5570,18 +5533,16 @@ From class
         </tr>
         <tr>
           <th>outputCollection</td>
-          <td>The name of the output collection to write the
-                         results, replacing previous collection if existed, mandatory when
-                         results may be larger than 16MB. If outputCollection is
-                         unspecified, the computation is performed in-memory and not
-                         persisted.</td>
+          <td>The name of the output collection to write the results, replacing
+            previous collection if existed, mandatory when results may be larger than 16MB. If
+            outputCollection is unspecified, the computation is performed in-memory and not
+            persisted.</td>
         </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>an iterable that retrieves the resulting collection of
-         DBObject
+      <ul class="nolist"><li>an iterable that retrieves the resulting collection of DBObject
 </li></ul>
   </div>
 
@@ -5661,8 +5622,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all the files that match the given query. If no query is specified,
- all files are removed
+  <div class="jd-tagdata jd-tagdescr"><p>Removes all the files that match the given query. If no query is specified, all files are
+ removed
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5705,8 +5666,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all the files that match the given query. If no query is specified,
- all files are removed
+  <div class="jd-tagdata jd-tagdescr"><p>Removes all the files that match the given query. If no query is specified, all files are
+ removed
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5749,10 +5710,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all the objects that match the a given optional query. If query is not
- specified, all objects are removed. However, please notice that this is
- normally less performant that dropping the collection and creating it and its
- indices again
+  <div class="jd-tagdata jd-tagdescr"><p>Removes all the objects that match the a given optional query. If query is not specified, all
+ objects are removed. However, please notice that this is normally less performant that
+ dropping the collection and creating it and its indices again
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5764,8 +5724,8 @@ From class
         </tr>
         <tr>
           <th>query</td>
-          <td>The optional DBObject query object. Objects that match it
-                     will be removed.</td>
+          <td>The optional DBObject query object. Objects that match it will be
+            removed.</td>
         </tr>
         <tr>
           <th>writeConcern</td>
@@ -5804,10 +5764,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all the objects that match the a given optional query. If query is not
- specified, all objects are removed. However, please notice that this is
- normally less performant that dropping the collection and creating it and its
- indices again
+  <div class="jd-tagdata jd-tagdescr"><p>Removes all the objects that match the a given optional query. If query is not specified, all
+ objects are removed. However, please notice that this is normally less performant that
+ dropping the collection and creating it and its indices again
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -5819,8 +5778,7 @@ From class
         </tr>
         <tr>
           <th>queryAttributes</td>
-          <td>The query object. Objects that match it will be
-                        removed.</td>
+          <td>The query object. Objects that match it will be removed.</td>
         </tr>
         <tr>
           <th>writeConcern</td>
@@ -5859,8 +5817,8 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Takes the output from the dump and restores it. Indexes will be created on a restore.
- It only does inserts with the data to restore, if existing data is there, it will not be replaced.
+  <div class="jd-tagdata jd-tagdescr"><p>Takes the output from the dump and restores it. Indexes will be created on a restore. It only
+ does inserts with the data to restore, if existing data is there, it will not be replaced.
  <p/>
  <p/>
  </p></div>
@@ -5869,7 +5827,8 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>inputPath</td>
-          <td>Input path to the dump files, it can be a directory, a zip file or just a bson file</td>
+          <td>Input path to the dump files, it can be a directory, a zip file or just a
+            bson file</td>
         </tr>
         <tr>
           <th>drop</td>
@@ -6583,9 +6542,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to
- false, only the first document matching it will be updated. Otherwise, all the
- documents matching it will be updated.
+  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to false, only the
+ first document matching it will be updated. Otherwise, all the documents matching it will be
+ updated.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -6597,13 +6556,12 @@ From class
         </tr>
         <tr>
           <th>query</td>
-          <td>The DBObject query object used to detect the element to
-                     update.</td>
+          <td>The DBObject query object used to detect the element to update.</td>
         </tr>
         <tr>
           <th>element</td>
-          <td>The DBObject mandatory object that will replace that
-                     one which matches the query.</td>
+          <td>The DBObject mandatory object that will replace that one which matches
+            the query.</td>
         </tr>
         <tr>
           <th>upsert</td>
@@ -6611,8 +6569,7 @@ From class
         </tr>
         <tr>
           <th>multi</td>
-          <td>If all or just the first object matching the query will be
-                     updated</td>
+          <td>If all or just the first object matching the query will be updated</td>
         </tr>
         <tr>
           <th>writeConcern</td>
@@ -6668,13 +6625,12 @@ From class
         </tr>
         <tr>
           <th>query</td>
-          <td>The DBObject query object used to detect the element to
-                     update.</td>
+          <td>The DBObject query object used to detect the element to update.</td>
         </tr>
         <tr>
           <th>element</td>
-          <td>The DBObject mandatory object that will replace that
-                     one which matches the query.</td>
+          <td>The DBObject mandatory object that will replace that one which matches
+            the query.</td>
         </tr>
         <tr>
           <th>upsert</td>
@@ -6682,8 +6638,7 @@ From class
         </tr>
         <tr>
           <th>multi</td>
-          <td>If all or just the first object matching the query will be
-                     updated</td>
+          <td>If all or just the first object matching the query will be updated</td>
         </tr>
         <tr>
           <th>writeConcern</td>
@@ -6743,8 +6698,8 @@ From class
         </tr>
         <tr>
           <th>elementAttributes</td>
-          <td>The mandatory object that will replace that one which
-                          matches the query.</td>
+          <td>The mandatory object that will replace that one which matches the
+            query.</td>
         </tr>
         <tr>
           <th>upsert</td>
@@ -6752,8 +6707,7 @@ From class
         </tr>
         <tr>
           <th>multi</td>
-          <td>If all or just the first object matching the query will be
-                          updated</td>
+          <td>If all or just the first object matching the query will be updated</td>
         </tr>
         <tr>
           <th>writeConcern</td>
@@ -6792,9 +6746,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to
- false, only the first document matching it will be updated. Otherwise, all the
- documents matching it will be updated.
+  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to false, only the
+ first document matching it will be updated. Otherwise, all the documents matching it will be
+ updated.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -6810,8 +6764,8 @@ From class
         </tr>
         <tr>
           <th>elementAttributes</td>
-          <td>The mandatory object that will replace that one which
-                          matches the query.</td>
+          <td>The mandatory object that will replace that one which matches the
+            query.</td>
         </tr>
         <tr>
           <th>upsert</td>
@@ -6819,8 +6773,7 @@ From class
         </tr>
         <tr>
           <th>multi</td>
-          <td>If all or just the first object matching the query will be
-                          updated</td>
+          <td>If all or just the first object matching the query will be updated</td>
         </tr>
         <tr>
           <th>writeConcern</td>
@@ -6859,9 +6812,9 @@ From class
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to
- false, only the first document matching it will be updated. Otherwise, all the
- documents matching it will be updated.
+  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to false, only the
+ first document matching it will be updated. Otherwise, all the documents matching it will be
+ updated.
  <p/>
  </p></div>
   <div class="jd-tagdata">
@@ -6877,8 +6830,8 @@ From class
         </tr>
         <tr>
           <th>element</td>
-          <td>The DBObject mandatory object that will replace that
-                        one which matches the query.</td>
+          <td>The DBObject mandatory object that will replace that one which matches
+            the query.</td>
         </tr>
         <tr>
           <th>upsert</td>
@@ -6886,8 +6839,7 @@ From class
         </tr>
         <tr>
           <th>multi</td>
-          <td>If all or just the first object matching the query will be
-                        updated</td>
+          <td>If all or just the first object matching the query will be updated</td>
         </tr>
         <tr>
           <th>writeConcern</td>

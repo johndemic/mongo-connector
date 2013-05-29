@@ -998,7 +998,8 @@ org.mule.api.lifecycle.Stoppable
           
           Integer</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/MongoCloudConnector.html#connectTimeout">connectTimeout</a></td>
-          <td class="jd-descrcol" width="100%">The connection timeout in milliseconds; this is for establishing the socket connections (open).</td>
+          <td class="jd-descrcol" width="100%">The connection timeout in milliseconds; this is for establishing the socket connections
+ (open).</td>
       </tr>
       
     
@@ -1050,17 +1051,6 @@ org.mule.api.lifecycle.Stoppable
     
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
-          private
-          static
-          final
-          Logger</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/MongoCloudConnector.html#logger">logger</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
           public
           
           
@@ -1070,7 +1060,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -1081,7 +1071,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -1093,7 +1083,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           
@@ -1104,7 +1094,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -1115,7 +1105,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
           
@@ -1126,7 +1116,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           
@@ -1138,7 +1128,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           
@@ -1149,7 +1139,7 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           public
           
@@ -1718,8 +1708,8 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/mongo/MongoCloudConnector.html#createFileFromPayload(java.lang.Object, java.lang.String, java.lang.String, com.mongodb.DBObject)">createFileFromPayload</a></span>(Object payload, String filename, String contentType, DBObject metadata)</nobr>
         
-        <div class="jd-descrdiv">Creates a new GridFSFile in the database, saving the given content, filename,
- contentType, and extraData, and answers it.</div>
+        <div class="jd-descrdiv">Creates a new GridFSFile in the database, saving the given content, filename, contentType,
+ and extraData, and answers it.</div>
   
   </td></tr>
 
@@ -1832,7 +1822,6 @@ From class
         <div class="jd-descrdiv">Drop the current database
  <p/>
  
-
 </div>
   
   </td></tr>
@@ -2142,8 +2131,7 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/mongo/MongoCloudConnector.html#getFileContent(com.mongodb.DBObject)">getFileContent</a></span>(DBObject query)</nobr>
         
-        <div class="jd-descrdiv">Answers an inputstream to the contents of the first file that matches the
- given query.</div>
+        <div class="jd-descrdiv">Answers an inputstream to the contents of the first file that matches the given query.</div>
   
   </td></tr>
 
@@ -2161,8 +2149,8 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/mongo/MongoCloudConnector.html#getFileContentUsingQueryMap(java.util.Map<java.lang.String, java.lang.Object>)">getFileContentUsingQueryMap</a></span>(Map&lt;String,&nbsp;Object&gt; queryAttributes)</nobr>
         
-        <div class="jd-descrdiv">Answers an inputstream to the contents of the first file that matches the
- given queryAttributes.</div>
+        <div class="jd-descrdiv">Answers an inputstream to the contents of the first file that matches the given
+ queryAttributes.</div>
   
   </td></tr>
 
@@ -2507,10 +2495,10 @@ From class
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/mongo/MongoCloudConnector.html#mapReduceObjects(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">mapReduceObjects</a></span>(String collection, String mapFunction, String reduceFunction, String outputCollection)</nobr>
         
-        <div class="jd-descrdiv">Transforms a collection into a collection of aggregated groups, by applying a
- supplied element-mapping function to each element, that transforms each one
- into a key-value pair, grouping the resulting pairs by key, and finally
- reducing values in each group applying a suppling 'reduce' function.</div>
+        <div class="jd-descrdiv">Transforms a collection into a collection of aggregated groups, by applying a supplied
+ element-mapping function to each element, that transforms each one into a key-value pair,
+ grouping the resulting pairs by key, and finally reducing values in each group applying a
+ suppling 'reduce' function.</div>
   
   </td></tr>
 

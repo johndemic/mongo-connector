@@ -246,8 +246,8 @@
       &lt;xs:complexContent&gt;
         &lt;xs:extension base=&quot;mule:abstractExtensionType&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;MongoDB is an open source, high-performance, schema-free, document-oriented database that manages collections of
-BSON documents.&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;MongoDB is an open source, high-performance, schema-free, document-oriented database that manages
+collections of BSON documents.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
           &lt;xs:sequence&gt;
             &lt;xs:element name=&quot;connection-pooling-profile&quot; minOccurs=&quot;0&quot; type=&quot;mule:poolingProfileType&quot;&gt;
@@ -293,7 +293,8 @@ BSON documents.&lt;/xs:documentation&gt;
           &lt;/xs:attribute&gt;
           &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; name=&quot;connectTimeout&quot; default=&quot;30000&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
             &lt;xs:annotation&gt;
-              &lt;xs:documentation&gt;The connection timeout in milliseconds; this is for establishing the socket connections (open). 0 is default and infinite.&lt;/xs:documentation&gt;
+              &lt;xs:documentation&gt;The connection timeout in milliseconds; this is for establishing the socket connections
+(open). 0 is default and infinite.&lt;/xs:documentation&gt;
             &lt;/xs:annotation&gt;
           &lt;/xs:attribute&gt;
           &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; name=&quot;socketTimeout&quot; use=&quot;optional&quot; type=&quot;integerType&quot;&gt;
@@ -495,8 +496,8 @@ BSON documents.&lt;/xs:documentation&gt;
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;drop-collection&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;DropCollectionType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Deletes a collection and all the objects it contains. If the collection does
-not exist, does nothing.
+      &lt;xs:documentation&gt;Deletes a collection and all the objects it contains. If the collection does not exist, does
+nothing.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -533,8 +534,7 @@ not exist, does nothing.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;create-collection&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;CreateCollectionType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Creates a new collection. If the collection already exists, a MongoException
-will be thrown.
+      &lt;xs:documentation&gt;Creates a new collection. If the collection already exists, a MongoException will be thrown.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -635,8 +635,8 @@ will be thrown.
     &lt;xs:annotation&gt;
       &lt;xs:documentation&gt;Inserts an object in a collection, setting its id if necessary.
 &amp;lt;p/&amp;gt;
-A shallow conversion into DBObject is performed - that is, no conversion is
-performed to its values.
+A shallow conversion into DBObject is performed - that is, no conversion is performed to its
+values.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -709,9 +709,9 @@ performed to its values.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;update-objects&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;UpdateObjectsType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Updates objects that matches the given query. If parameter multi is set to
-false, only the first document matching it will be updated. Otherwise, all the
-documents matching it will be updated.
+      &lt;xs:documentation&gt;Updates objects that matches the given query. If parameter multi is set to false, only the
+first document matching it will be updated. Otherwise, all the documents matching it will be
+updated.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -773,9 +773,9 @@ documents matching it will be updated.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;update-objects-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;UpdateObjectsUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Updates objects that matches the given query. If parameter multi is set to
-false, only the first document matching it will be updated. Otherwise, all the
-documents matching it will be updated.
+      &lt;xs:documentation&gt;Updates objects that matches the given query. If parameter multi is set to false, only the
+first document matching it will be updated. Otherwise, all the documents matching it will be
+updated.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -863,9 +863,9 @@ documents matching it will be updated.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;update-objects-using-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;UpdateObjectsUsingMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Updates objects that matches the given query. If parameter multi is set to
-false, only the first document matching it will be updated. Otherwise, all the
-documents matching it will be updated.
+      &lt;xs:documentation&gt;Updates objects that matches the given query. If parameter multi is set to false, only the
+first document matching it will be updated. Otherwise, all the documents matching it will be
+updated.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1283,10 +1283,9 @@ documents matching it will be updated.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;remove-objects&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;RemoveObjectsType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Removes all the objects that match the a given optional query. If query is not
-specified, all objects are removed. However, please notice that this is
-normally less performant that dropping the collection and creating it and its
-indices again
+      &lt;xs:documentation&gt;Removes all the objects that match the a given optional query. If query is not specified, all
+objects are removed. However, please notice that this is normally less performant that
+dropping the collection and creating it and its indices again
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1333,10 +1332,9 @@ indices again
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;remove-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;RemoveUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Removes all the objects that match the a given optional query. If query is not
-specified, all objects are removed. However, please notice that this is
-normally less performant that dropping the collection and creating it and its
-indices again
+      &lt;xs:documentation&gt;Removes all the objects that match the a given optional query. If query is not specified, all
+objects are removed. However, please notice that this is normally less performant that
+dropping the collection and creating it and its indices again
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1409,15 +1407,15 @@ indices again
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;map-reduce-objects&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;MapReduceObjectsType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Transforms a collection into a collection of aggregated groups, by applying a
-supplied element-mapping function to each element, that transforms each one
-into a key-value pair, grouping the resulting pairs by key, and finally
-reducing values in each group applying a suppling 'reduce' function.
+      &lt;xs:documentation&gt;Transforms a collection into a collection of aggregated groups, by applying a supplied
+element-mapping function to each element, that transforms each one into a key-value pair,
+grouping the resulting pairs by key, and finally reducing values in each group applying a
+suppling 'reduce' function.
 &amp;lt;p/&amp;gt;
 Each supplied function is coded in JavaScript.
 &amp;lt;p/&amp;gt;
-Note that the correct way of writing those functions may not be obvious;
-please consult MongoDB documentation for writing them.
+Note that the correct way of writing those functions may not be obvious; please consult
+MongoDB documentation for writing them.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1469,8 +1467,8 @@ please consult MongoDB documentation for writing them.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;count-objects&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;CountObjectsType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Counts the number of objects that match the given query. If no query is
-passed, returns the number of elements in the collection
+      &lt;xs:documentation&gt;Counts the number of objects that match the given query. If no query is passed, returns the
+number of elements in the collection
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1512,8 +1510,8 @@ passed, returns the number of elements in the collection
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;count-objects-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;CountObjectsUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Counts the number of objects that match the given query. If no query is
-passed, returns the number of elements in the collection
+      &lt;xs:documentation&gt;Counts the number of objects that match the given query. If no query is passed, returns the
+number of elements in the collection
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1581,9 +1579,8 @@ passed, returns the number of elements in the collection
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;find-objects&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;FindObjectsType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Finds all objects that match a given query. If no query is specified, all
-objects of the collection are retrieved. If no fields object is specified, all
-fields are retrieved.
+      &lt;xs:documentation&gt;Finds all objects that match a given query. If no query is specified, all objects of the
+collection are retrieved. If no fields object is specified, all fields are retrieved.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1660,9 +1657,8 @@ fields are retrieved.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;find-objects-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;FindObjectsUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Finds all objects that match a given query. If no query is specified, all
-objects of the collection are retrieved. If no fields object is specified, all
-fields are retrieved.
+      &lt;xs:documentation&gt;Finds all objects that match a given query. If no query is specified, all objects of the
+collection are retrieved. If no fields object is specified, all fields are retrieved.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1763,8 +1759,8 @@ fields are retrieved.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;find-one-object&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;FindOneObjectType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Finds the first object that matches a given query. Throws a
- if no one matches the given query
+      &lt;xs:documentation&gt;Finds the first object that matches a given query. Throws a  if no one
+matches the given query
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -1831,8 +1827,8 @@ fields are retrieved.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;find-one-object-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;FindOneObjectUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Finds the first object that matches a given query. Throws a
- if no one matches the given query
+      &lt;xs:documentation&gt;Finds the first object that matches a given query. Throws a  if no one
+matches the given query
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2049,8 +2045,8 @@ fields are retrieved.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;create-file-from-payload&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;CreateFileFromPayloadType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Creates a new GridFSFile in the database, saving the given content, filename,
-contentType, and extraData, and answers it.
+      &lt;xs:documentation&gt;Creates a new GridFSFile in the database, saving the given content, filename, contentType,
+and extraData, and answers it.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2197,8 +2193,8 @@ contentType, and extraData, and answers it.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;find-one-file&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;FindOneFileType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Answers the first file that matches the given query. If no object matches it,
-a MongoException is thrown.
+      &lt;xs:documentation&gt;Answers the first file that matches the given query. If no object matches it, a
+MongoException is thrown.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2235,8 +2231,8 @@ a MongoException is thrown.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;find-one-file-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;FindOneFileUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Answers the first file that matches the given query. If no object matches it,
-a MongoException is thrown.
+      &lt;xs:documentation&gt;Answers the first file that matches the given query. If no object matches it, a
+MongoException is thrown.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2299,8 +2295,8 @@ a MongoException is thrown.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-file-content&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetFileContentType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Answers an inputstream to the contents of the first file that matches the
-given query. If no object matches it, a MongoException is thrown.
+      &lt;xs:documentation&gt;Answers an inputstream to the contents of the first file that matches the given query. If no
+object matches it, a MongoException is thrown.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2337,8 +2333,8 @@ given query. If no object matches it, a MongoException is thrown.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-file-content-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetFileContentUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Answers an inputstream to the contents of the first file that matches the
-given queryAttributes. If no object matches it, a MongoException is thrown.
+      &lt;xs:documentation&gt;Answers an inputstream to the contents of the first file that matches the given
+queryAttributes. If no object matches it, a MongoException is thrown.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2401,8 +2397,8 @@ given queryAttributes. If no object matches it, a MongoException is thrown.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;list-files&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;ListFilesType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Lists all the files that match the given query, sorting them by filename. If
-no query is specified, all files are listed.
+      &lt;xs:documentation&gt;Lists all the files that match the given query, sorting them by filename. If no query is
+specified, all files are listed.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2439,8 +2435,8 @@ no query is specified, all files are listed.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;list-files-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;ListFilesUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Lists all the files that match the given query, sorting them by filename. If
-no query is specified, all files are listed.
+      &lt;xs:documentation&gt;Lists all the files that match the given query, sorting them by filename. If no query is
+specified, all files are listed.
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2503,8 +2499,8 @@ no query is specified, all files are listed.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;remove-files&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;RemoveFilesType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Removes all the files that match the given query. If no query is specified,
-all files are removed
+      &lt;xs:documentation&gt;Removes all the files that match the given query. If no query is specified, all files are
+removed
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2541,8 +2537,8 @@ all files are removed
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;remove-files-using-query-map&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;RemoveFilesUsingQueryMapType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Removes all the files that match the given query. If no query is specified,
-all files are removed
+      &lt;xs:documentation&gt;Removes all the files that match the given query. If no query is specified, all files are
+removed
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
@@ -2648,8 +2644,8 @@ all files are removed
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;dump&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;DumpType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Executes a dump of the database to the specified output directory. If no output directory is provided
-then the default /dump directory is used.
+      &lt;xs:documentation&gt;Executes a dump of the database to the specified output directory. If no output directory is
+provided then the default /dump directory is used.
 &amp;lt;p/&amp;gt;
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
@@ -2750,8 +2746,8 @@ then the default /dump directory is used.
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;restore&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;RestoreType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Takes the output from the dump and restores it. Indexes will be created on a restore.
-It only does inserts with the data to restore, if existing data is there, it will not be replaced.
+      &lt;xs:documentation&gt;Takes the output from the dump and restores it. Indexes will be created on a restore. It only
+does inserts with the data to restore, if existing data is there, it will not be replaced.
 &amp;lt;p/&amp;gt;
 &amp;lt;p/&amp;gt;&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
