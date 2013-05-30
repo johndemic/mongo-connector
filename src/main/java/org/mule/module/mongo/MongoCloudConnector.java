@@ -76,7 +76,7 @@ import com.mongodb.util.JSON;
 @Connector(name = "mongo", schemaVersion = "2.0", friendlyName = "Mongo DB", minMuleVersion = "3.4", metaData = MetaDataSwitch.OFF)
 public class MongoCloudConnector
 {
-    private static final Logger LOGGER = LoggerFactory.getLogger(MongoCollection.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MongoCloudConnector.class);
 
     private static final String CAPPED_DEFAULT_VALUE = "false";
     private static final String WRITE_CONCERN_DEFAULT_VALUE = "DATABASE_DEFAULT";

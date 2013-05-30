@@ -17,6 +17,8 @@ import javax.validation.constraints.NotNull;
 
 import org.apache.commons.lang.Validate;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -32,6 +34,8 @@ import com.mongodb.gridfs.GridFSInputFile;
 
 public class MongoClientImpl implements MongoClient
 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MongoClientImpl.class);
+
     private final DB db;
 
     public MongoClientImpl(final DB db)
@@ -42,7 +46,23 @@ public class MongoClientImpl implements MongoClient
 
     public void close() throws IOException
     {
-        db.cleanCursors(true);
+        try
+        {
+            db.cleanCursors(true);
+        }
+        catch (final Exception e)
+        {
+            LOGGER.warn("Failed to properly clean cursors of db: " + db, e);
+        }
+
+        try
+        {
+            db.requestDone();
+        }
+        catch (final Exception e)
+        {
+            LOGGER.warn("Failed to properly set request done for db: " + db, e);
+        }
     }
 
     public long countObjects(@NotNull final String collection, final DBObject query)
