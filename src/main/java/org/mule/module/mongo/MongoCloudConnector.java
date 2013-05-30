@@ -56,6 +56,8 @@ import org.mule.module.mongo.tools.IncrementalMongoDump;
 import org.mule.module.mongo.tools.MongoDump;
 import org.mule.module.mongo.tools.MongoRestore;
 import org.mule.transformer.types.MimeTypes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.mongodb.DB;
 import com.mongodb.DBObject;
@@ -74,6 +76,8 @@ import com.mongodb.util.JSON;
 @Connector(name = "mongo", schemaVersion = "2.0", friendlyName = "Mongo DB", minMuleVersion = "3.4", metaData = MetaDataSwitch.OFF)
 public class MongoCloudConnector
 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(MongoCollection.class);
+
     private static final String CAPPED_DEFAULT_VALUE = "false";
     private static final String WRITE_CONCERN_DEFAULT_VALUE = "DATABASE_DEFAULT";
     private static final String BACKUP_THREADS = "5";
@@ -1189,14 +1193,34 @@ public class MongoCloudConnector
     {
         if (client != null)
         {
-            client.close();
-            client = null;
+            try
+            {
+                client.close();
+            }
+            catch (final Exception e)
+            {
+                LOGGER.warn("Failed to properly close client: " + client, e);
+            }
+            finally
+            {
+                client = null;
+            }
         }
 
         if (mongo != null)
         {
-            mongo.close();
-            mongo = null;
+            try
+            {
+                mongo.close();
+            }
+            catch (final Exception e)
+            {
+                LOGGER.warn("Failed to properly close mongo: " + mongo, e);
+            }
+            finally
+            {
+                mongo = null;
+            }
         }
     }
 
