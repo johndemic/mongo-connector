@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <groupId>org.mule.tools.devkit</groupId>
         <artifactId>mule-devkit-parent</artifactId>
@@ -24,12 +25,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.mule.transports</groupId>
-            <artifactId>mule-transport-vm</artifactId>
-            <version>${mule.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mule.modules</groupId>
             <artifactId>mule-module-json</artifactId>
             <version>${mule.version}</version>
@@ -43,13 +38,27 @@
             <version>${mongo.version}</version>
         </dependency>
 
-	<!-- Eclipse support -->
-	<dependency>
-           <groupId>eclipse</groupId>
-           <artifactId>eclipse-runtime</artifactId>
-           <version>2.1.0</version>
+	    <!-- Eclipse support -->
+        <dependency>
+            <groupId>eclipse</groupId>
+            <artifactId>eclipse-runtime</artifactId>
+            <version>2.1.0</version>
+            <scope>provided</scope>
         </dependency>
 
+        <!-- Test -->
+        <dependency>
+            <groupId>org.mule.transports</groupId>
+            <artifactId>mule-transport-vm</artifactId>
+            <version>${mule.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-module-client</artifactId>
+            <version>${mule.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <repositories>
@@ -69,9 +78,7 @@
 
     <scm>
         <connection>scm:git:git://github.com:mulesoft/mongo-connector.git</connection>
-        <developerConnection>
-            scm:git:git@github.com:mulesoft/mongo-connector.git
-        </developerConnection>
+        <developerConnection>scm:git:git@github.com:mulesoft/mongo-connector.git</developerConnection>
         <url>http://github.com/mulesoft/mongo-connector</url>
     </scm>
 </project>
