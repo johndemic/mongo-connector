@@ -22,9 +22,11 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.Validate;
 import org.bson.types.ObjectId;
+import org.mule.api.MuleContext;
 import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
+import org.mule.api.context.MuleContextAware;
 import org.mule.api.store.ObjectDoesNotExistException;
 import org.mule.api.store.ObjectStoreException;
 import org.mule.api.store.PartitionableExpirableObjectStore;
@@ -46,7 +48,7 @@ import com.mongodb.QueryBuilder;
  * 
  * @author MuleSoft Inc.
  */
-public class MongoObjectStore implements PartitionableExpirableObjectStore<Serializable>
+public class MongoObjectStore implements PartitionableExpirableObjectStore<Serializable>, MuleContextAware
 {
     private static final String OBJECTSTORE_COLLECTION_PREFIX = "mule.objectstore.";
     private static final String OBJECTSTORE_DEFAULT_PARTITION_NAME = "_default";
@@ -106,6 +108,8 @@ public class MongoObjectStore implements PartitionableExpirableObjectStore<Seria
     private WriteConcern writeConcern;
 
     private MongoClient mongoClient;
+
+    private MuleContext context;
 
     @PostConstruct
     public void initialize() throws UnknownHostException
@@ -384,6 +388,12 @@ public class MongoObjectStore implements PartitionableExpirableObjectStore<Seria
         }
 
         final DBObject dbObject = iterator.next();
-        return (Serializable) SerializationUtils.deserialize((byte[]) dbObject.get(VALUE_FIELD));
+
+        return (Serializable) SerializationUtils.deserialize((byte[]) dbObject.get(VALUE_FIELD), context);
+    }
+
+    @Override
+    public void setMuleContext(MuleContext context) {
+        this.context = context;
     }
 }
