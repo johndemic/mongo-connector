@@ -10,8 +10,15 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	
 	<context:property-placeholder location="automation-credentials.properties" />
 	
-	<mongo:config name="Mongo_DB" username="${mongo.username}"
-		password="${mongo.password}" database="${mongo.database}" host="${mongo.host}"
+<!-- 	<mongo:config name="Mongo_DB" username="${mongo.username}" -->
+<!-- 		password="${mongo.password}" database="${mongo.database}" host="${mongo.host}" -->
+<!-- 		port="${mongo.port}" doc:name="Mongo DB"> -->
+<!-- 		<mongo:connection-pooling-profile -->
+<!-- 			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" /> -->
+<!-- 	</mongo:config> -->
+	
+	<mongo:config name="Mongo_DB" 
+		host="${mongo.host}"
 		port="${mongo.port}" doc:name="Mongo DB">
 		<mongo:connection-pooling-profile
 			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" />
@@ -46,7 +53,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collectionName]" index="#[payload.index]" />
 		<logger level="INFO" message="### drop-index #[payload]" doc:name="Logger" />
 	</flow>
-	
+		
 	<!-- UNTESTED -->
 	<flow name="list-indices" doc:name="list-indices">
 	    <mongo:list-indices config-ref="Mongo_DB" collection="#[payload.collectionName]" />

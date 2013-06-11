@@ -55,6 +55,11 @@
         <entry key="index" value="myField_1" />
     </util:map>
     
+    <!-- list indices -->
+    <util:map id="listIndices" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
+    </util:map>
+    
     <!-- insert object -->
     <util:map id="insertObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection" />
