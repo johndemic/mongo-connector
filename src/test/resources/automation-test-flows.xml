@@ -10,8 +10,14 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	
 	<context:property-placeholder location="automation-credentials.properties" />
 	
-	<mongo:config name="Mongo_DB" username="${mongo.username}"
-		password="${mongo.password}" database="${mongo.database}" host="${mongo.host}"
+<!-- 	<mongo:config name="Mongo_DB" username="${mongo.username}" -->
+<!-- 		password="${mongo.password}" database="${mongo.database}" host="${mongo.host}" -->
+<!-- 		port="${mongo.port}" doc:name="Mongo DB"> -->
+<!-- 		<mongo:connection-pooling-profile -->
+<!-- 			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" /> -->
+<!-- 	</mongo:config> -->
+	<mongo:config name="Mongo_DB" 
+		host="${mongo.host}"
 		port="${mongo.port}" doc:name="Mongo DB">
 		<mongo:connection-pooling-profile
 			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" />
@@ -42,6 +48,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### create-index #[payload]" doc:name="Logger" />
 	</flow>
 	
+	<flow name="count-objects" doc:name="count-objects">
+	    <mongo:count-objects config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.queryRef]" />
+		<logger level="INFO" message="### count-objects #[payload]" doc:name="Logger" />
+	</flow>
+	
 	<!-- UNTESTED -->
 	<flow name="drop-index" doc:name="drop-index">
 	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collectionName]" index="#[payload.index]" />
@@ -57,7 +68,8 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	<!-- UNTESTED -->
 	<flow name="insert-object" doc:name="insert-object">
 	    <mongo:insert-object config-ref="Mongo_DB" 
-	        collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" dbObject-ref="#[payload.dbObject]" />
+	        collection="#[payload.collectionName]" dbObject-ref="#[payload.dbObject]" />
+<!-- 	        collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" dbObject-ref="#[payload.dbObject]" /> -->
 		<logger level="INFO" message="### insert-object #[payload]" doc:name="Logger" />
 	</flow>
 	

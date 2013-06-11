@@ -27,7 +27,7 @@ public class MongoTestParent extends FunctionalTestCase {
 	
     @BeforeClass
     public static void beforeClass(){    	
-    	context = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILES);    	
+    	context = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILES);
     }
 
 }
