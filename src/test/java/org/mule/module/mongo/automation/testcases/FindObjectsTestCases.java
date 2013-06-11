@@ -38,7 +38,7 @@ public class FindObjectsTestCases extends MongoTestParent {
 
 	@Category({SanityTests.class})
 	@Test
-	public void testListObjects() {
+	public void testFindObjects() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("find-objects");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
