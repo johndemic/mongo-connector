@@ -1,6 +1,6 @@
 package org.mule.module.mongo.automation.testcases;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
@@ -34,7 +34,7 @@ public class InsertObjectTestCases extends MongoTestParent {
 			MuleMessage message = flow.process(getTestEvent(testObjects)).getMessage();
 			String objectID = message.getPayload().toString();
 			
-			assertTrue(objectID != null && !objectID.equals("") && !objectID.trim().equals(""));						
+			assertTrue(objectID != null && !objectID.equals("") && !objectID.trim().equals(""));
 		}
 		catch (Exception ex) {
 			ex.printStackTrace();
