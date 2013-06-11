@@ -9,7 +9,9 @@ import java.util.Iterator;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.api.MuleEvent;
 import org.mule.api.MuleMessage;
+import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.MongoCollection;
 
 import com.mongodb.DBObject;
@@ -25,8 +27,8 @@ public class AddUserTestCases extends MongoTestParent {
 
 			String newUsername = testObjects.get("newUsername").toString();
 			
-			flow = lookupFlowConstruct("add-user");
-			response = flow.process(getTestEvent(testObjects));
+			MessageProcessor flow = lookupFlowConstruct("add-user");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
 			// Nothing is returned - http://www.mulesoft.org/jira/browse/CLDCONNECT-915
 			// Check that user was added
 			

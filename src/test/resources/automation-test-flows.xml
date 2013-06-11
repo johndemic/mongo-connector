@@ -79,7 +79,6 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### find-one-object #[payload]" doc:name="Logger" />
 	</flow>
 	
-	<!-- WORKS BUT NO ASSERTS -->
 	<flow name="add-user" doc:name="add-user">
 	    <mongo:add-user config-ref="Mongo_DB" newPassword="#[payload.newPassword]" newUsername="#[payload.newUsername]"/>
 		<logger level="INFO" message="### add-user #[payload]" doc:name="Logger" />	    

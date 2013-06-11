@@ -11,7 +11,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.api.MuleEvent;
 import org.mule.api.MuleMessage;
+import org.mule.api.processor.MessageProcessor;
 
 public class ListCollectionTestCases extends MongoTestParent {
 
@@ -22,10 +24,11 @@ public class ListCollectionTestCases extends MongoTestParent {
 		try {
 			testObjects = new HashMap<String, Object>();
 			collectionNames = (List<String>) context.getBean("listCollections");
-			flow = lookupFlowConstruct("create-collection");			
+			
+			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			for (String collectionName : collectionNames) {
 				testObjects.put("collectionName", collectionName);
-				response = flow.process(getTestEvent(testObjects));
+				MuleEvent response = flow.process(getTestEvent(testObjects));
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -37,8 +40,8 @@ public class ListCollectionTestCases extends MongoTestParent {
 	@Test
 	public void testListCollections() {
 		try {
-			flow = lookupFlowConstruct("list-collections");
-			response = flow.process(getTestEvent(null));
+			MessageProcessor flow = lookupFlowConstruct("list-collections");
+			MuleEvent response = flow.process(getTestEvent(null));
 			MuleMessage message = response.getMessage();
 			Collection<String> payload = (Collection<String>) message.getPayload();
 			
@@ -56,10 +59,11 @@ public class ListCollectionTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+
 			for (String collectionName : collectionNames) {
 				testObjects.put("collectionName", collectionName);
-				response = flow.process(getTestEvent(testObjects));
+				MuleEvent response = flow.process(getTestEvent(testObjects));
 			}
 		}
 		catch (Exception ex) {

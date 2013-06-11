@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleMessage;
+import org.mule.api.processor.MessageProcessor;
 
 public class InsertObjectTestCases extends MongoTestParent {
 
@@ -17,7 +18,7 @@ public class InsertObjectTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("insertObject");
-			flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -29,7 +30,7 @@ public class InsertObjectTestCases extends MongoTestParent {
 	@Test
 	public void testInsertObject() {
 		try {
-			flow = lookupFlowConstruct("insert-object");
+			MessageProcessor flow = lookupFlowConstruct("insert-object");
 			MuleMessage message = flow.process(getTestEvent(testObjects)).getMessage();
 			String objectID = message.getPayload().toString();
 			
@@ -44,8 +45,9 @@ public class InsertObjectTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			flow = lookupFlowConstruct("remove-objects");
+			MessageProcessor flow = lookupFlowConstruct("remove-objects");
 			flow.process(getTestEvent(testObjects));
+			
 			flow = lookupFlowConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}

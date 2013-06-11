@@ -10,6 +10,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.mule.api.MuleEvent;
+import org.mule.api.processor.MessageProcessor;
 import org.mule.construct.Flow;
 
 import com.mongodb.DBObject;
@@ -20,8 +22,8 @@ public class CreateIndexTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("createIndex");
-			flow = (Flow) lookupFlowConstruct("create-collection");
-			response = flow.process(getTestEvent(testObjects));
+			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -36,8 +38,8 @@ public class CreateIndexTestCases extends MongoTestParent {
 
 			String indexName = testObjects.get("field").toString();
 			
-			flow = lookupFlowConstruct("create-index");
-			response = flow.process(getTestEvent(testObjects));
+			MessageProcessor flow = lookupFlowConstruct("create-index");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
 						
 			flow = lookupFlowConstruct("list-indices");
 			response = flow.process(getTestEvent(testObjects));
@@ -66,8 +68,8 @@ public class CreateIndexTestCases extends MongoTestParent {
 		try {
 //			flow = (Flow) lookupFlowConstruct("drop-index");
 //			response = flow.process(getTestEvent(testObjects));
-			flow = (Flow) lookupFlowConstruct("drop-collection");
-			response = flow.process(getTestEvent(testObjects));
+			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();

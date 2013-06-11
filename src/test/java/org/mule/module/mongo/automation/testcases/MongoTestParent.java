@@ -13,8 +13,6 @@ public class MongoTestParent extends FunctionalTestCase {
 
 	protected static final String[] SPRING_CONFIG_FILES  = new String[] {"AutomationSpringBeans.xml"};
 	protected static ApplicationContext context;
-	protected MessageProcessor flow;
-	protected MuleEvent response;
 	protected Map<String,Object> testObjects;
 
 	
