@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.4.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/2.0/mule-mongo.xsd">
+	
+	<context:property-placeholder location="automation-credentials.properties" />
+	
+	<mongo:config name="Mongo_DB" username="${mongo.username}"
+		password="${mongo.password}" database="${mongo.database}" host="${mongo.host}"
+		port="${mongo.port}" doc:name="Mongo DB">
+		<mongo:connection-pooling-profile
+			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" />
+	</mongo:config>
+	
+    <flow name="create-collection" doc:name="create-collection">
+        <mongo:create-collection config-ref="Mongo_DB" collection="#[payload.collectionName]" doc:name="Mongo DB"/>
+        <logger level="INFO" message="### create-collection #[payload]" doc:name="Logger"/>
+    </flow>
+	
+	<flow name="drop-collection" doc:name="drop-collection">
+		<mongo:drop-collection config-ref="Mongo_DB" collection="#[payload.collectionName]" doc:name="Mongo DB" />
+		<logger level="INFO" message="### drop-collection #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="exists-collection" doc:name="collection-exists">
+	    <mongo:exists-collection config-ref="Mongo_DB" collection="#[payload.collectionName]" doc:name="Mongo_DB" />
+		<logger level="INFO" message="### exists-collection #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="list-collections" doc:name="list-collections">
+	    <mongo:list-collections config-ref="Mongo_DB" />
+		<logger level="INFO" message="### list-collections #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="create-index" doc:name="create-index">
+	    <mongo:create-index config-ref="Mongo_DB" collection="#[payload.collectionName]" field="#[payload.field]" />
+		<logger level="INFO" message="### create-index #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<!-- UNTESTED -->
+	<flow name="drop-index" doc:name="drop-index">
+	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collectionName]" index="#[payload.index]" />
+		<logger level="INFO" message="### drop-index #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<!-- UNTESTED -->
+	<flow name="list-indices" doc:name="list-indices">
+	    <mongo:list-indices config-ref="Mongo_DB" collection="#[payload.collectionName]" />
+		<logger level="INFO" message="### list-indices #[payload]" doc:name="Logger" />
+	</flow>
+		
+	<!-- UNTESTED -->
+	<flow name="insert-object" doc:name="insert-object">
+	    <mongo:insert-object config-ref="Mongo_DB" 
+	        collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" dbObject-ref="#[payload.dbObject]" />
+		<logger level="INFO" message="### insert-object #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<!-- UNTESTED -->
+	<flow name="remove-objects" doc:name="remove-objects">
+	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
+		<logger level="INFO" message="### remove-objects #[payload]" doc:name="Logger" />	    
+	</flow>
+	
+	<!-- UNTESTED -->
+	<flow name="find-objects" doc:name="find-objects">
+	    <mongo:find-objects config-ref="Mongo_DB" collection="#[payload.collectionName]"/>
+		<logger level="INFO" message="### find-objects #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<!-- UNTESTED -->
+	<flow name="find-one-object" doc:name="find-one-object">
+	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
+		<logger level="INFO" message="### find-one-object #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<!-- WORKS BUT NO ASSERTS -->
+	<flow name="add-user" doc:name="add-user">
+	    <mongo:add-user config-ref="Mongo_DB" newPassword="#[payload.newPassword]" newUsername="#[payload.newUsername]"/>
+		<logger level="INFO" message="### add-user #[payload]" doc:name="Logger" />	    
+	</flow>
+	
+</mule>

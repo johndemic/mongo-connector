@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>automation-credentials.properties</value>
+		</property>
+	</bean>
+	
+	<bean id="myDbObject" class="com.mongodb.BasicDBObject" />
+	
+    <!-- create collection -->
+    <util:map id="createCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="collectionName" value="testCollection" />
+    </util:map>
+    
+    <!-- drop collection -->
+    <util:map id="dropCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="collectionName" value="testCollection" />
+    </util:map>
+    
+    <!-- exists collection -->
+    <util:map id="existsCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="collectionName" value="testCollection" />
+    </util:map>        
+    
+    <!-- list collection -->
+    <util:list id="listCollections" value-type="java.lang.String">
+        <value>FirstCollection</value>
+        <value>SecondCollection</value>
+        <value>ThirdCollection</value>
+    </util:list>
+    
+    <!-- create index -->
+    <util:map id="createIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="dbObject" value-ref="myDbObject" />
+        <entry key="collectionName" value="testCollection" />
+        <entry key="field" value="aField" />
+    </util:map>
+        
+    <!-- drop index -->
+    <util:map id="dropIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="dbObject" value-ref="myDbObject" />
+        <entry key="collectionName" value="testCollection" />
+        <entry key="index" value="aField" />
+    </util:map>
+    
+    <!-- insert object -->
+    <util:map id="insertObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="dbObject" value-ref="myDbObject" />
+    </util:map>
+    
+    <!-- remove objects -->
+    <util:map id="removeObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection"/>
+        <entry key="queryRef" value-ref="myDbObject"/>
+    </util:map>
+    
+    <!-- add user -->
+    <util:map id="addUser" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="newUsername" value="newUsername"/>
+        <entry key="newPassword" value="newPassword" />
+    </util:map>
+    
+    <!-- count objects -->
+    <util:map id="countObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="collectionName" value="testCollection" />
+        <entry key="dbObject" value-ref="myDbObject" />
+    </util:map>
+        
+    <!-- HELPER STUFF BELOW -->
+    
+    <!-- Helper bean to count the number of users -->
+    <util:map id="getUsers" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
+        <entry key="collectionName" value="system.users" />
+        <entry key="dbObject" value-ref="myDbObject" />
+    </util:map>
+    
+    
+	<!--   	Message source -->
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<value>automation-error-messages</value>
+		</property>
+	</bean>
+
+</beans>
