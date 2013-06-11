@@ -17,7 +17,7 @@
 	</bean>
 	
 	<bean id="myDbObject" class="com.mongodb.BasicDBObject" />
-	
+		
     <!-- create collection -->
     <util:map id="createCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="collectionName" value="testCollection" />
@@ -44,14 +44,15 @@
     <util:map id="createIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="dbObject" value-ref="myDbObject" />
         <entry key="collectionName" value="testCollection" />
-        <entry key="field" value="aField" />
+        <entry key="field" value="myField" />
+        <entry key="order" value="ASC" />
     </util:map>
         
     <!-- drop index -->
     <util:map id="dropIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="dbObject" value-ref="myDbObject" />
         <entry key="collectionName" value="testCollection" />
-        <entry key="index" value="aField" />
+        <entry key="index" value="myField_1" />
     </util:map>
     
     <!-- insert object -->
