@@ -88,6 +88,15 @@
         <entry key="queryRef" value-ref="myDbObject"/>
     </util:map>
     
+    <!-- save object -->
+    <util:map id="saveObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection"/>
+        <entry key="element" value-ref="myDbObject" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="key" value="mykey" />
+        <entry key="value" value="myvalue" />
+    </util:map>
+    
     <!-- add user -->
     <util:map id="addUser" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="newUsername" value="newUsername"/>
