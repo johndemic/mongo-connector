@@ -72,13 +72,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### remove-objects #[payload]" doc:name="Logger" />	    
 	</flow>
 	
-	<!-- UNTESTED -->
 	<flow name="find-objects" doc:name="find-objects">
 	    <mongo:find-objects config-ref="Mongo_DB" collection="#[payload.collectionName]"/>
 		<logger level="INFO" message="### find-objects #[payload]" doc:name="Logger" />
 	</flow>
-	
-	<!-- UNTESTED -->
+		
 	<flow name="find-one-object" doc:name="find-one-object">
 	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
 		<logger level="INFO" message="### find-one-object #[payload]" doc:name="Logger" />
