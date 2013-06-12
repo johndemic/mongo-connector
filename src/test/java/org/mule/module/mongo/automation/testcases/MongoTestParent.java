@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.junit.BeforeClass;
 import org.mule.api.processor.MessageProcessor;
+import org.mule.module.mongo.api.WriteConcern;
 import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -48,11 +49,8 @@ public class MongoTestParent extends FunctionalTestCase {
 	@SuppressWarnings("unchecked")
 	protected void insertObjects(List<DBObject> objs) {
 		try {
-			if(testObjects == null) {
-				testObjects = (HashMap<String, Object>) context.getBean("createCollection");
-			}
 			MessageProcessor insertFlow = lookupFlowConstruct("insert-object");
-
+			
 			for (DBObject obj : objs) {
 				testObjects.put("dbObject", obj);
 				insertFlow.process(getTestEvent(testObjects));
