@@ -15,32 +15,32 @@
 			<value>automation-credentials.properties</value>
 		</property>
 	</bean>
-	
+
 	<!-- Dummy BasicDBObject -->
 	<bean id="myDbObject" class="com.mongodb.BasicDBObject" />
-	
+
     <!-- create collection -->
     <util:map id="createCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="collectionName" value="testCollection" />
     </util:map>
-    
+
     <!-- drop collection -->
     <util:map id="dropCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="collectionName" value="testCollection" />
     </util:map>
-    
+
     <!-- exists collection -->
     <util:map id="existsCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="collectionName" value="testCollection" />
-    </util:map>        
-    
+    </util:map>
+
     <!-- list collection -->
     <util:list id="listCollections" value-type="java.lang.String">
         <value>FirstCollection</value>
         <value>SecondCollection</value>
         <value>ThirdCollection</value>
     </util:list>
-    
+
     <!-- create index -->
     <util:map id="createIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="dbObject" value-ref="myDbObject" />
@@ -48,7 +48,7 @@
         <entry key="field" value="myField" />
         <entry key="order" value="ASC" />
     </util:map>
-        
+
     <!-- drop index -->
     <util:map id="dropIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="dbObject" value-ref="myDbObject" />
@@ -60,14 +60,14 @@
     <util:map id="listIndices" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection" />
     </util:map>
-    
+
     <!-- insert object -->
     <util:map id="insertObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
-    
+
     <!-- find one object -->
     <util:map id="findOneObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection" />
@@ -103,7 +103,7 @@
         <entry key="username" value="newUsername"/>
         <entry key="password" value="newPassword" />
     </util:map>
-    
+
     <!-- count objects -->
     <util:map id="countObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="collectionName" value="testCollection" />
@@ -117,18 +117,17 @@
         <entry key="commandValue" value="newCollection" />
     </util:map>
         
-        
     <!-- HELPER STUFF BELOW -->
-    
+
     <!-- Helper bean to count the number of users -->
     <util:map id="getUsers" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="collectionName" value="system.users" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
-    
-    
+
+
 	<!--   	Message source -->
-	
+
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basenames">
 			<value>automation-error-messages</value>
