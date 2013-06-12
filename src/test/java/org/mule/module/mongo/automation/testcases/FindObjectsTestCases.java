@@ -3,7 +3,9 @@ package org.mule.module.mongo.automation.testcases;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,8 +15,13 @@ import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.MongoCollection;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+
 public class FindObjectsTestCases extends MongoTestParent {
 
+	private List<String> objectIDs = new ArrayList<String>();
+	
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
@@ -25,10 +32,20 @@ public class FindObjectsTestCases extends MongoTestParent {
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// create sample objects			
-			// TODO: create other objects, in a loop
-			testObjects = (HashMap<String, Object>) context.getBean("insertObject");
 			flow = lookupFlowConstruct("insert-object");
-			response = flow.process(getTestEvent(testObjects));
+			testObjects = (HashMap<String, Object>) context.getBean("insertMultipleObjects");
+
+			int numberOfObjects = Integer.parseInt(testObjects.get("numberOfObjects").toString());
+			
+			for (int i = 0; i < numberOfObjects; i++) {
+				BasicDBObject dbObject = new BasicDBObject();
+				testObjects.put("dbObject", dbObject);
+				response = flow.process(getTestEvent(testObjects));
+				
+				String payload = response.getMessage().getPayload().toString();
+				objectIDs.add(payload);
+			}
+			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -44,7 +61,12 @@ public class FindObjectsTestCases extends MongoTestParent {
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection payload = (MongoCollection) response.getMessage().getPayload();
-			assertTrue(payload.size() == 1); // size() consumes payload	
+			
+			assertTrue(objectIDs.size() == payload.size());
+			for (DBObject obj : payload) { 
+				String dbObjectID = obj.get("_id").toString();
+				assertTrue(objectIDs.contains(dbObjectID));
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();

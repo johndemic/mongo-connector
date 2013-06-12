@@ -54,7 +54,6 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### drop-index #[payload]" doc:name="Logger" />
 	</flow>
 		
-	<!-- UNTESTED -->
 	<flow name="list-indices" doc:name="list-indices">
 	    <mongo:list-indices config-ref="Mongo_DB" collection="#[payload.collectionName]" />
 		<logger level="INFO" message="### list-indices #[payload]" doc:name="Logger" />

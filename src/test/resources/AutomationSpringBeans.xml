@@ -67,6 +67,13 @@
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
     
+    <!-- insert multiple objects -->
+    <util:map id="insertMultipleObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="numberOfObjects" value="25" />
+    </util:map>
+               
     <!-- remove objects -->
     <util:map id="removeObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection"/>
