@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -12,7 +13,10 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-public class CountObjectsTestCases extends MongoTestParent {
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+
+public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 
 	@SuppressWarnings("unchecked")
 	@Before
@@ -39,16 +43,16 @@ public class CountObjectsTestCases extends MongoTestParent {
 			fail();
 		}
 	}
-
+	
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
-	public void testCountObjects() {
+	public void testCountObjectsUsingQueryMap_without_map() {
+
 		insertObjects(getEmptyDBObjects(2));
-		
+
 		MuleEvent response = null;
 		try {
-			MessageProcessor countFlow = lookupFlowConstruct("count-objects");
-			testObjects.put("queryRef", null);
+			MessageProcessor countFlow = lookupFlowConstruct("count-objects-using-query-map-without-query");
 			response = countFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,5 +60,28 @@ public class CountObjectsTestCases extends MongoTestParent {
 		}
 		assertEquals(new Long(2), response.getMessage().getPayload());
 	}
-	
+
+	@Category({ SmokeTests.class, SanityTests.class })
+	@Test
+	public void testCountObjectsUsingQueryMap_with_map() {
+
+		List<DBObject> list = getEmptyDBObjects(2);
+		DBObject dbObj = new BasicDBObject();
+		dbObj.put("foo", "bar");
+		list.add(dbObj);
+
+		insertObjects(list);
+
+		MuleEvent response = null;
+		try {
+			MessageProcessor countFlow = lookupFlowConstruct("count-objects-using-query-map-with-query");
+			testObjects.put("queryAttrib", "foo");
+			response = countFlow.process(getTestEvent(testObjects));
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+		assertEquals(new Long(1), response.getMessage().getPayload());
+	}
+
 }

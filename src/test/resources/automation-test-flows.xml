@@ -53,6 +53,20 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### count-objects #[payload]" doc:name="Logger" />
 	</flow>
 	
+	<flow name="count-objects-using-query-map-without-query" doc:name="count-objects-using-query-map-without-query">
+	    <mongo:count-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" />
+		<logger level="INFO" message="### count-objects-using-query-map #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="count-objects-using-query-map-with-query" doc:name="count-objects-using-query-map-with-query">
+	    <mongo:count-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]">
+	    	<mongo:query-attributes>
+		        <mongo:query-attribute key="#[payload.queryAttrib]">bar</mongo:query-attribute>
+		    </mongo:query-attributes>
+	    </mongo:count-objects-using-query-map>
+		<logger level="INFO" message="### count-objects-using-query-map #[payload]" doc:name="Logger" />
+	</flow>
+	
 	<!-- UNTESTED -->
 	<flow name="drop-index" doc:name="drop-index">
 	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collectionName]" index="#[payload.index]" />
