@@ -1,5 +1,6 @@
 package org.mule.module.mongo.automation.testcases;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -40,27 +41,23 @@ public class ExecuteCommandTestCases extends MongoTestParent {
 		try {
 			// Drop the collection using command
 			testObjects = (HashMap<String, Object>) context.getBean("executeCommand");
+			
+			String collectionName = testObjects.get("collectionName").toString();
+			
 			MessageProcessor flow = lookupFlowConstruct("execute-command");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			CommandResult cmdResult = (CommandResult) response.getMessage().getPayload();
 			assertTrue(cmdResult.ok());
+			
+			flow = lookupFlowConstruct("exists-collection");
+			response = flow.process(getTestEvent(testObjects));
+			Boolean exists = (Boolean) response.getMessage().getPayload();
+			assertFalse(exists);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 	}
-	
-	@After
-	public void tearDown() {
-		try {
-//			MessageProcessor flow = lookupFlowConstruct("drop-collection");
-//			MuleEvent response = flow.process(getTestEvent(testObjects));
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
-	}
-	
+		
 }
