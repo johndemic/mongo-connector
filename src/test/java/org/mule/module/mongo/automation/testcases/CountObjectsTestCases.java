@@ -19,7 +19,7 @@ public class CountObjectsTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			// Create collection
-			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
+			testObjects = (HashMap<String, Object>) context.getBean("insertObject");
 			lookupFlowConstruct("create-collection").process(getTestEvent(testObjects));
 		} catch (Exception ex) {
 			ex.printStackTrace();

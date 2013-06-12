@@ -23,8 +23,10 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			// Create collection
-			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
+			testObjects = (HashMap<String, Object>) context.getBean("insertObject");
 			lookupFlowConstruct("create-collection").process(getTestEvent(testObjects));
+			
+//			testObjects = (HashMap<String, Object>) context.getBean("");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			fail();
