@@ -15,12 +15,7 @@
 			<value>automation-credentials.properties</value>
 		</property>
 	</bean>
-<<<<<<< HEAD
-
-=======
 	
-	<!-- Dummy BasicDBObject -->
->>>>>>> bbf094e725862b5e69aae18648fd43b0e6910e0f
 	<bean id="myDbObject" class="com.mongodb.BasicDBObject" />
 
     <!-- create collection -->
@@ -71,9 +66,6 @@
         <entry key="writeConcern" value="SAFE" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
-<<<<<<< HEAD
-
-=======
     
     <!-- find one object -->
     <util:map id="findOneObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
@@ -89,15 +81,11 @@
         <entry key="numberOfObjects" value="25" />
     </util:map>
                
->>>>>>> bbf094e725862b5e69aae18648fd43b0e6910e0f
     <!-- remove objects -->
     <util:map id="removeObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection"/>
         <entry key="queryRef" value-ref="myDbObject"/>
     </util:map>
-<<<<<<< HEAD
-
-=======
     
     <!-- save object -->
     <util:map id="saveObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
@@ -108,7 +96,6 @@
         <entry key="value" value="myvalue" />
     </util:map>
     
->>>>>>> bbf094e725862b5e69aae18648fd43b0e6910e0f
     <!-- add user -->
     <util:map id="addUser" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="newUsername" value="newUsername"/>
