@@ -15,7 +15,12 @@
 			<value>automation-credentials.properties</value>
 		</property>
 	</bean>
+<<<<<<< HEAD
 
+=======
+	
+	<!-- Dummy BasicDBObject -->
+>>>>>>> bbf094e725862b5e69aae18648fd43b0e6910e0f
 	<bean id="myDbObject" class="com.mongodb.BasicDBObject" />
 
     <!-- create collection -->
@@ -44,14 +49,20 @@
     <util:map id="createIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="dbObject" value-ref="myDbObject" />
         <entry key="collectionName" value="testCollection" />
-        <entry key="field" value="aField" />
+        <entry key="field" value="myField" />
+        <entry key="order" value="ASC" />
     </util:map>
 
     <!-- drop index -->
     <util:map id="dropIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="dbObject" value-ref="myDbObject" />
         <entry key="collectionName" value="testCollection" />
-        <entry key="index" value="aField" />
+        <entry key="index" value="myField_1" />
+    </util:map>
+    
+    <!-- list indices -->
+    <util:map id="listIndices" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
     </util:map>
 
     <!-- insert object -->
@@ -60,13 +71,44 @@
         <entry key="writeConcern" value="SAFE" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
+<<<<<<< HEAD
 
+=======
+    
+    <!-- find one object -->
+    <util:map id="findOneObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="dbObject" value-ref="myDbObject" />
+    </util:map>
+    
+    <!-- insert multiple objects -->
+    <util:map id="insertMultipleObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="numberOfObjects" value="25" />
+    </util:map>
+               
+>>>>>>> bbf094e725862b5e69aae18648fd43b0e6910e0f
     <!-- remove objects -->
     <util:map id="removeObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection"/>
         <entry key="queryRef" value-ref="myDbObject"/>
     </util:map>
+<<<<<<< HEAD
 
+=======
+    
+    <!-- save object -->
+    <util:map id="saveObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection"/>
+        <entry key="element" value-ref="myDbObject" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="key" value="mykey" />
+        <entry key="value" value="myvalue" />
+    </util:map>
+    
+>>>>>>> bbf094e725862b5e69aae18648fd43b0e6910e0f
     <!-- add user -->
     <util:map id="addUser" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="newUsername" value="newUsername"/>

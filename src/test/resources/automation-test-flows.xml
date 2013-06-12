@@ -44,8 +44,18 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="create-index" doc:name="create-index">
-	    <mongo:create-index config-ref="Mongo_DB" collection="#[payload.collectionName]" field="#[payload.field]" />
+	    <mongo:create-index config-ref="Mongo_DB" collection="#[payload.collectionName]" field="#[payload.field]" order="#[payload.order]" />
 		<logger level="INFO" message="### create-index #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="drop-index" doc:name="drop-index">
+	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collectionName]" index="#[payload.index]" />
+		<logger level="INFO" message="### drop-index #[payload]" doc:name="Logger" />
+	</flow>
+		
+	<flow name="list-indices" doc:name="list-indices">
+	    <mongo:list-indices config-ref="Mongo_DB" collection="#[payload.collectionName]" />
+		<logger level="INFO" message="### list-indices #[payload]" doc:name="Logger" />
 	</flow>
 	
 	<flow name="count-objects" doc:name="count-objects">
@@ -66,43 +76,32 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	    </mongo:count-objects-using-query-map>
 		<logger level="INFO" message="### count-objects-using-query-map #[payload]" doc:name="Logger" />
 	</flow>
-	
-	<!-- UNTESTED -->
-	<flow name="drop-index" doc:name="drop-index">
-	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collectionName]" index="#[payload.index]" />
-		<logger level="INFO" message="### drop-index #[payload]" doc:name="Logger" />
-	</flow>
-	
-	<!-- UNTESTED -->
-	<flow name="list-indices" doc:name="list-indices">
-	    <mongo:list-indices config-ref="Mongo_DB" collection="#[payload.collectionName]" />
-		<logger level="INFO" message="### list-indices #[payload]" doc:name="Logger" />
-	</flow>
 		
 	<!-- UNTESTED -->
 	<flow name="insert-object" doc:name="insert-object">
 	    <mongo:insert-object config-ref="Mongo_DB" 
-	        collection="#[payload.collectionName]" dbObject-ref="#[payload.dbObject]" />
-<!-- 	        collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" dbObject-ref="#[payload.dbObject]" /> -->
+	        collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" dbObject-ref="#[payload.dbObject]" />
 		<logger level="INFO" message="### insert-object #[payload]" doc:name="Logger" />
 	</flow>
 	
-	<!-- UNTESTED -->
 	<flow name="remove-objects" doc:name="remove-objects">
 	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
 		<logger level="INFO" message="### remove-objects #[payload]" doc:name="Logger" />	    
 	</flow>
 	
-	<!-- UNTESTED -->
 	<flow name="find-objects" doc:name="find-objects">
 	    <mongo:find-objects config-ref="Mongo_DB" collection="#[payload.collectionName]"/>
 		<logger level="INFO" message="### find-objects #[payload]" doc:name="Logger" />
 	</flow>
-	
-	<!-- UNTESTED -->
+		
 	<flow name="find-one-object" doc:name="find-one-object">
 	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
 		<logger level="INFO" message="### find-one-object #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="save-object" doc:name="save-object">
+	    <mongo:save-object config-ref="Mongo_DB" collection="#[payload.collectionName]" element-ref="#[payload.element]" writeConcern="#[payload.writeConcern]" />
+	    <logger level="INFO" message="### save-object #[payload]" doc:name="Logger" />
 	</flow>
 	
 	<flow name="add-user" doc:name="add-user">
