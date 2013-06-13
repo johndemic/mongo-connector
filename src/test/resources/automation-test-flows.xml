@@ -118,6 +118,21 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### remove-objects #[payload]" doc:name="Logger" />	    
 	</flow>
 	
+	<flow name="remove-using-query-map-with-query-map" doc:name="remove-using-query-maps">
+	    <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]">
+	        <mongo:query-attributes>
+	            <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
+	        </mongo:query-attributes>
+	    </mongo:remove-using-query-map>
+		<logger level="INFO" message="### remove-using-query-map-with-query-map #[payload]" doc:name="Logger" />	    
+	</flow>
+	
+	<!-- THIS IS NOT SUPPORTED, WHEN IN FACT, IT SHOULD BE -->
+<!-- 	<flow name="remove-using-query-map-without-query-map" doc:name="remove-using-query-map-without-query-map">	     -->
+<!-- 	    <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" /> -->
+<!-- 		<logger level="INFO" message="### remove-using-query-map-without-query-map #[payload]" doc:name="Logger" />	     -->
+<!-- 	</flow> -->
+	
 	<flow name="find-objects" doc:name="find-objects">
 	    <mongo:find-objects config-ref="Mongo_DB" collection="#[payload.collectionName]"/>
 		<logger level="INFO" message="### find-objects #[payload]" doc:name="Logger" />
