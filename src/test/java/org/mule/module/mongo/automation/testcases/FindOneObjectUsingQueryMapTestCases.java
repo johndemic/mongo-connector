@@ -14,7 +14,7 @@ import org.mule.api.processor.MessageProcessor;
 
 import com.mongodb.DBObject;
 
-public class FindOneObjectUsingQueryMap extends MongoTestParent {
+public class FindOneObjectUsingQueryMapTestCases extends MongoTestParent {
 
 	@Before
 	public void setUp() {
