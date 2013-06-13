@@ -21,7 +21,6 @@ public class ExecuteCommandTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			// Get the collectionName and create a collection
-			// Create user
 			testObjects = (HashMap<String, Object>) context.getBean("executeCommand");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));	
