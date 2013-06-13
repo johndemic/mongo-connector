@@ -102,9 +102,25 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### find-one-object #[payload]" doc:name="Logger" />
 	</flow>
 	
+	<flow name="find-one-object-using-query-map" doc:name="find-one-object-using-query-map">
+	    <mongo:find-one-object-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]">
+	        <mongo:query-attributes>
+	            <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
+	        </mongo:query-attributes>
+	    </mongo:find-one-object-using-query-map>
+	</flow>
+
 	<flow name="save-object" doc:name="save-object">
 	    <mongo:save-object config-ref="Mongo_DB" collection="#[payload.collectionName]" element-ref="#[payload.element]" writeConcern="#[payload.writeConcern]" />
 	    <logger level="INFO" message="### save-object #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="save-object-from-map" doc:name="save-object-from-map">
+	    <mongo:save-object-from-map collection="#[payload.collectionName]">
+	        <mongo:element-attributes>
+	            <mongo:element-attribute key="#[payload.key]">#[payload.value]</mongo:element-attribute>
+	        </mongo:element-attributes>
+	    </mongo:save-object-from-map>
 	</flow>
 	
 	<flow name="add-user" doc:name="add-user">
