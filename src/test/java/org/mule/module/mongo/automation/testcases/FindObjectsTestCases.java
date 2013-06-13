@@ -27,13 +27,12 @@ public class FindObjectsTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			// create collection
-			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
+			testObjects = (HashMap<String, Object>) context.getBean("insertMultipleObjects");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// create sample objects			
 			flow = lookupFlowConstruct("insert-object");
-			testObjects = (HashMap<String, Object>) context.getBean("insertMultipleObjects");
 
 			int numberOfObjects = Integer.parseInt(testObjects.get("numberOfObjects").toString());
 			

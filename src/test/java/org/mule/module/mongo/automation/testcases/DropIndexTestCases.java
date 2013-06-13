@@ -1,10 +1,12 @@
 package org.mule.module.mongo.automation.testcases;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,6 +17,7 @@ import org.mule.api.processor.MessageProcessor;
 import org.mule.construct.Flow;
 import org.mule.module.mongo.api.IndexOrder;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
 public class DropIndexTestCases extends MongoTestParent {
@@ -24,7 +27,7 @@ public class DropIndexTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			// Create the collection
-			testObjects = (HashMap<String, Object>) context.getBean("createIndex");
+			testObjects = (HashMap<String, Object>) context.getBean("dropIndex");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
@@ -46,31 +49,36 @@ public class DropIndexTestCases extends MongoTestParent {
 
 			testObjects = (HashMap<String, Object>) context.getBean("dropIndex");
 			
-			String indexName = testObjects.get("index").toString();
+			String indexKey = testObjects.get("field").toString();
+			IndexOrder indexOrder = IndexOrder.valueOf(testObjects.get("order").toString());
+			
+			String indexName = indexKey + "_" + indexOrder.getValue();
+			
+			testObjects.put("index", indexName);
 			
 			MessageProcessor flow = lookupFlowConstruct("drop-index");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 						
 			flow = lookupFlowConstruct("list-indices");
 			response = flow.process(getTestEvent(testObjects));
-			Collection<DBObject> payload = (Collection<DBObject>) response.getMessage().getPayload();
+			List<DBObject> payload = (List<DBObject>) response.getMessage().getPayload();
 						
-			boolean found = false;
 			
-			for (DBObject obj : payload) {
-				String name = obj.get("name").toString();
-				if (name.equals(indexName)) {
-					found = true;
-					break;
-				}
-			}
-			
-			assertTrue(!found);
+			assertFalse(existsInList(payload, indexName));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
+	}
+	
+	private boolean existsInList(List<DBObject> objects, String indexName) {
+		for (DBObject obj : objects) {
+			if (obj.get("name").equals(indexName)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	@After

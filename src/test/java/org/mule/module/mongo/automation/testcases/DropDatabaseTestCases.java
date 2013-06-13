@@ -14,7 +14,7 @@ public class DropDatabaseTestCases extends MongoTestParent {
 
 	@SuppressWarnings("unchecked")
 	@Category({ SmokeTests.class, SanityTests.class })
-	@Test
+//	@Test
 	public void testDropDatabase() {
 		MuleEvent response = null;
 		try {

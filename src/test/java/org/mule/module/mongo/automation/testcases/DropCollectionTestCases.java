@@ -18,7 +18,7 @@ public class DropCollectionTestCases extends MongoTestParent {
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
+			testObjects = (HashMap<String, Object>) context.getBean("dropCollection");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 		}
@@ -33,7 +33,6 @@ public class DropCollectionTestCases extends MongoTestParent {
 	public void testDropCollection() {
 		
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("dropCollection");			
 			MessageProcessor flow = lookupFlowConstruct("drop-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			

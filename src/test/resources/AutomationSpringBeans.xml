@@ -55,12 +55,17 @@
     <util:map id="dropIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="dbObject" value-ref="myDbObject" />
         <entry key="collectionName" value="testCollection" />
-        <entry key="index" value="myField_1" />
+        <entry key="field" value="myField" />
+        <entry key="order" value="ASC" />
     </util:map>
     
     <!-- list indices -->
     <util:map id="listIndices" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection" />
+        <!-- index to search for -->
+        <entry key="dbObject" value-ref="myDbObject" />
+        <entry key="field" value="myField" />
+        <entry key="order" value="ASC" />
     </util:map>
 
     <!-- insert object -->
@@ -121,6 +126,18 @@
         <entry key="queryRef" value-ref="myDbObject"/>
     </util:map>
     
+    <util:map id="removeUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="key" value="someKey" />
+        <entry key="value" value="someValue" />
+        
+        <!-- Empty DBObjects to create -->
+        <entry key="extraObjects" value="25" />
+        <!-- DBObjects to create with the above key-value pair -->
+        <entry key="numberOfObjects" value="100" />
+    </util:map>
+    
     <!-- save object -->
     <util:map id="saveObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection"/>
@@ -156,6 +173,16 @@
         <entry key="collectionName" value="newCollection" />
         <entry key="commandName" value="drop" />
         <entry key="commandValue" value="newCollection" />
+    </util:map>
+    
+    <!-- update object -->
+    <util:map id="updateObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="newCollection" />
+        <entry key="dbObject" value-ref="myDbObject" />
+		<entry key="writeConcern" value="SAFE" />
+		<!-- Key value pair to be written to the object/s for update -->
+		<entry key="key" value="myKey" />
+		<entry key="value" value="myValue" />	
     </util:map>
         
     <!-- HELPER STUFF BELOW -->

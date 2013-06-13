@@ -22,7 +22,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
+			testObjects = (HashMap<String, Object>) context.getBean("saveObject");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));				
 		}
@@ -36,7 +36,6 @@ public class SaveObjectTestCases extends MongoTestParent {
 	@Test
 	public void testSaveObject() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("saveObject");
 			MessageProcessor flow = lookupFlowConstruct("save-object");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			

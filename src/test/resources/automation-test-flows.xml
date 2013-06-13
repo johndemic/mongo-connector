@@ -124,6 +124,21 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### remove-objects #[payload]" doc:name="Logger" />	    
 	</flow>
 	
+	<flow name="remove-using-query-map-with-query-map" doc:name="remove-using-query-maps">
+	    <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]">
+	        <mongo:query-attributes>
+	            <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
+	        </mongo:query-attributes>
+	    </mongo:remove-using-query-map>
+		<logger level="INFO" message="### remove-using-query-map-with-query-map #[payload]" doc:name="Logger" />	    
+	</flow>
+	
+	<!-- THIS IS NOT SUPPORTED, WHEN IN FACT, IT SHOULD BE -->
+<!-- 	<flow name="remove-using-query-map-without-query-map" doc:name="remove-using-query-map-without-query-map">	     -->
+<!-- 	    <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" /> -->
+<!-- 		<logger level="INFO" message="### remove-using-query-map-without-query-map #[payload]" doc:name="Logger" />	     -->
+<!-- 	</flow> -->
+	
 	<flow name="find-objects" doc:name="find-objects">
 	    <mongo:find-objects config-ref="Mongo_DB" collection="#[payload.collectionName]"/>
 		<logger level="INFO" message="### find-objects #[payload]" doc:name="Logger" />
@@ -159,6 +174,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	            <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
 	        </mongo:query-attributes>
 	    </mongo:find-one-object-using-query-map>
+		<logger level="INFO" message="### find-one-object-using-query-map #[payload]" doc:name="Logger" />	    
 	</flow>
 
 	<flow name="save-object" doc:name="save-object">
@@ -172,6 +188,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	            <mongo:element-attribute key="#[payload.key]">#[payload.value]</mongo:element-attribute>
 	        </mongo:element-attributes>
 	    </mongo:save-object-from-map>
+		<logger level="INFO" message="### save-object-from-map #[payload]" doc:name="Logger" />	    
 	</flow>
 	
 	<flow name="add-user" doc:name="add-user">
@@ -184,5 +201,10 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### execute-command #[payload]" doc:name="Logger" />	    
 	</flow>
 	
+	<flow name="update-objects-single-object" doc:name="update-objects">
+	    <mongo:update-objects collection="#[payload.collectionName]" multi="false" config-ref="Mongo_DB" query-ref="#[payload.dbObject]"
+	        	writeConcern="#[payload.writeConcern]" element-ref="#[payload.elementRef]" />
+		<logger level="INFO" message="### update-objects #[payload]" doc:name="Logger" />	    
+	</flow>
 	
 </mule>
