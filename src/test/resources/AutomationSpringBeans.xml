@@ -70,12 +70,33 @@
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
     
+    <util:map id="findObjectsUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
+        <entry key="writeConcern" value="SAFE" />
+        <!-- Number of objects without the key-value pair -->
+        <entry key="extraObjects" value="25" />
+        <entry key="numObjects" value="100" /> 
+        <!-- The following key-value pair are set to each and every DBObject -->
+        <!-- Number of DBObjects is defined using the "numObjects" value in this bean -->
+        <entry key="queryKey" value="myKey" />
+        <entry key="queryValue" value="myValue" />
+        <!-- This value is only used in the "testFindObjectsUsingQueryMap_WithLimit" test -->
+        <entry key="limit" value="10" />
+    </util:map>
 
     <!-- find one object -->
     <util:map id="findOneObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <entry key="dbObject" value-ref="myDbObject" />
+    </util:map>
+    
+    <!-- find one object using query map -->
+    <util:map id="findOneObjectUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="key" value="foo" />
+        <entry key="value" value="bar" />
     </util:map>
     
     <!-- insert multiple objects -->
@@ -101,6 +122,14 @@
         <entry key="value" value="myvalue" />
     </util:map>
     
+    <!-- save object -->
+    <util:map id="saveObjectFromMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
+        <entry key="collectionName" value="testCollection"/>
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="key" value="someKey" />
+        <entry key="value" value="someValue" />
+    </util:map>
+        
     <!-- add user -->
     <util:map id="addUser" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String">
         <entry key="username" value="newUsername"/>
