@@ -88,8 +88,8 @@
         <entry key="collectionName" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <!-- Number of objects without the key-value pair -->
-        <entry key="extraObjects" value="25" />
-        <entry key="numObjects" value="100" /> 
+        <entry key="extraObjects" value="10" />
+        <entry key="numObjects" value="25" /> 
         <!-- The following key-value pair are set to each and every DBObject -->
         <!-- Number of DBObjects is defined using the "numObjects" value in this bean -->
         <entry key="queryKey" value="myKey" />
@@ -133,9 +133,9 @@
         <entry key="value" value="someValue" />
         
         <!-- Empty DBObjects to create -->
-        <entry key="extraObjects" value="25" />
+        <entry key="extraObjects" value="10" />
         <!-- DBObjects to create with the above key-value pair -->
-        <entry key="numberOfObjects" value="100" />
+        <entry key="numberOfObjects" value="25" />
     </util:map>
     
     <!-- save object -->
