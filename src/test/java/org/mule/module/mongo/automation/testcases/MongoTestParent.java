@@ -3,13 +3,11 @@ package org.mule.module.mongo.automation.testcases;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.junit.BeforeClass;
 import org.mule.api.processor.MessageProcessor;
-import org.mule.module.mongo.api.WriteConcern;
 import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -37,7 +35,7 @@ public class MongoTestParent extends FunctionalTestCase {
 	public static void beforeClass() {
 		context = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILES);
 	}
-
+		
 	protected List<DBObject> getEmptyDBObjects(int num) {
 		List<DBObject> list = new ArrayList<DBObject>();
 		for (int i = 0; i < num; i++) {
@@ -46,7 +44,6 @@ public class MongoTestParent extends FunctionalTestCase {
 		return list;
 	}
 
-	@SuppressWarnings("unchecked")
 	protected void insertObjects(List<DBObject> objs) {
 		try {
 			MessageProcessor insertFlow = lookupFlowConstruct("insert-object");
