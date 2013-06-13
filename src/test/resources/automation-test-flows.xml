@@ -99,6 +99,20 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### insert-object #[payload]" doc:name="Logger" />
 	</flow>
 	
+	<flow name="insert-object-from-map-with-elements" doc:name="insert-object-from-map-with-elements">
+	    <mongo:insert-object-from-map config-ref="Mongo_DB" writeConcern="#[payload.writeConcern]" collection="#[payload.collectionName]">
+	        <mongo:element-attributes>
+	            <mongo:element-attribute key="#[payload.key]">#[payload.value]</mongo:element-attribute>
+	        </mongo:element-attributes>
+	    </mongo:insert-object-from-map>
+		<logger level="INFO" message="### insert-object-from-map-with-elements #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="insert-object-from-map-without-elements" doc:name="insert-object-from-map-with-elements">
+	    <mongo:insert-object-from-map config-ref="Mongo_DB" writeConcern="#[payload.writeConcern]" collection="#[payload.collectionName]" />
+	    <logger level="INFO" message="### insert-object-from-map-without-elements #[payload]" doc:name="Logger" />
+	</flow>
+	
 	<flow name="remove-objects" doc:name="remove-objects">
 	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
 		<logger level="INFO" message="### remove-objects #[payload]" doc:name="Logger" />	    
@@ -147,7 +161,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="save-object-from-map" doc:name="save-object-from-map">
-	    <mongo:save-object-from-map collection="#[payload.collectionName]">
+	    <mongo:save-object-from-map config-ref="Mongo_DB" collection="#[payload.collectionName]">
 	        <mongo:element-attributes>
 	            <mongo:element-attribute key="#[payload.key]">#[payload.value]</mongo:element-attribute>
 	        </mongo:element-attributes>
