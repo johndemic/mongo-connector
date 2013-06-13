@@ -73,7 +73,7 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 			String key = testObjects.get("key").toString();
 			
 			// Remove all records matching key-value pair
-			MessageProcessor flow = lookupFlowConstruct("remove-using-query-map");
+			MessageProcessor flow = lookupFlowConstruct("remove-using-query-map-with-query-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Get all objects
