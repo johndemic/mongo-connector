@@ -12,6 +12,8 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
+import com.mongodb.BasicDBObject;
+
 public class CountObjectsTestCases extends MongoTestParent {
 
 	@SuppressWarnings("unchecked")
@@ -48,7 +50,7 @@ public class CountObjectsTestCases extends MongoTestParent {
 		MuleEvent response = null;
 		try {
 			MessageProcessor countFlow = lookupFlowConstruct("count-objects");
-			testObjects.put("queryRef", null);
+			testObjects.put("queryRef", new BasicDBObject());
 			response = countFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();

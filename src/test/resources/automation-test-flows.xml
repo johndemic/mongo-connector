@@ -78,11 +78,15 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### drop-database #[payload]" doc:name="Logger" />
 	</flow>
 	
-<!-- 	UNUSED till now -->
-<!-- 	<flow name="remove-files" doc:name="remove-files"> -->
-<!-- 		<mongo:remove-files query-ref="#[payload.queryRef]"/> -->
-<!-- 		<logger level="INFO" message="### remove-files #[payload]" doc:name="Logger" /> -->
-<!-- 	</flow> -->
+	<flow name="remove-files" doc:name="remove-files">
+		<mongo:remove-files query-ref="#[payload.queryRef]"/>
+		<logger level="INFO" message="### remove-files #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="find-files" doc:name="find-files">
+		<mongo:find-files config-ref="Mongo_DB" />
+		<logger level="INFO" message="### find-files #[payload]" doc:name="Logger" />
+	</flow>
 	
 	<!-- UNTESTED -->
 	<flow name="drop-index" doc:name="drop-index">
