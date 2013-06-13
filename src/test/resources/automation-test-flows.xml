@@ -68,6 +68,18 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### count-objects-using-query-map #[payload]" doc:name="Logger" />
 	</flow>
 	
+	<flow name="create-file-from-payload" doc:name="create-file-from-payload">
+		<mongo:create-file-from-payload config-ref="Mongo_DB" doc:name="Mongo DB" filename="#[sessionVars.filename]"/>
+		<logger level="INFO" message="### create-file-from-payload #[payload]" doc:name="Logger" />
+	</flow>
+
+
+<!-- 	UNUSED till now -->
+<!-- 	<flow name="remove-files" doc:name="remove-files"> -->
+<!-- 		<mongo:remove-files query-ref="#[payload.queryRef]"/> -->
+<!-- 		<logger level="INFO" message="### remove-files #[payload]" doc:name="Logger" /> -->
+<!-- 	</flow> -->
+	
 	<!-- UNTESTED -->
 	<flow name="drop-index" doc:name="drop-index">
 	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collectionName]" index="#[payload.index]" />
