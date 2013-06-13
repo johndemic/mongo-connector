@@ -13,13 +13,13 @@ import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.MongoCollection;
 
-
+// TODO: Depends on the insertObject bean
 public class RemoveObjectsTestCases extends MongoTestParent {
 
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
+			testObjects = (HashMap<String, Object>) context.getBean("removeObjects");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			

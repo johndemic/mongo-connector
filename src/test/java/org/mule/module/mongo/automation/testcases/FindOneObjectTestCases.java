@@ -22,12 +22,11 @@ public class FindOneObjectTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			// create the collection
-			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
+			testObjects = (HashMap<String, Object>) context.getBean("findOneObject");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// create the object
-			testObjects = (HashMap<String, Object>) context.getBean("insertObject");
 			flow = lookupFlowConstruct("insert-object");
 			response = flow.process(getTestEvent(testObjects));
 			

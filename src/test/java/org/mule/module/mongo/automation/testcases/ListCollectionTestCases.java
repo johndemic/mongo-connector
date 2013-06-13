@@ -41,7 +41,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 	public void testListCollections() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("list-collections");
-			MuleEvent response = flow.process(getTestEvent(null));
+			MuleEvent response = flow.process(getTestEvent(testObjects));
 			MuleMessage message = response.getMessage();
 			Collection<String> payload = (Collection<String>) message.getPayload();
 			

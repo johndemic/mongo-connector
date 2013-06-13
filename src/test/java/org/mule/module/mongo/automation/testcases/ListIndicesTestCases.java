@@ -23,7 +23,7 @@ public class ListIndicesTestCases extends MongoTestParent {
 	@Before
 	public void setUp() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("createIndex");
+			testObjects = (HashMap<String, Object>) context.getBean("listIndices");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			

@@ -55,12 +55,17 @@
     <util:map id="dropIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="dbObject" value-ref="myDbObject" />
         <entry key="collectionName" value="testCollection" />
-        <entry key="index" value="myField_1" />
+        <entry key="field" value="myField" />
+        <entry key="order" value="ASC" />
     </util:map>
     
     <!-- list indices -->
     <util:map id="listIndices" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object">
         <entry key="collectionName" value="testCollection" />
+        <!-- index to search for -->
+        <entry key="dbObject" value-ref="myDbObject" />
+        <entry key="field" value="myField" />
+        <entry key="order" value="ASC" />
     </util:map>
 
     <!-- insert object -->
