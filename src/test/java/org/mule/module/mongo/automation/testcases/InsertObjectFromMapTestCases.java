@@ -62,7 +62,7 @@ public class InsertObjectFromMapTestCases extends MongoTestParent {
 		}
 	}
 
-	// This test fails since there are no elmeents defined
+	// This test fails since there are no elements defined
 	// Instead of creating a basic DBObject, the connector simply does not create one, resulting in an error
 	// Documentation states that the <mongo:element-attributes> segment of the message processor is optional
 	// Evidently, it is not and must be supplied. Otherwise, a NPE is thrown.
