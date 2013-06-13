@@ -96,6 +96,25 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	    <mongo:find-objects config-ref="Mongo_DB" collection="#[payload.collectionName]"/>
 		<logger level="INFO" message="### find-objects #[payload]" doc:name="Logger" />
 	</flow>
+	
+	<flow name="find-objects-using-query-map-without-query" doc:name="find-objects-using-query-map-without-query">
+	    <mongo:find-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" />
+	    <logger level="INFO" message="### find-objects-using-query-map-without-query #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="find-objects-using-query-map-with-limit" doc:name="find-objects-using-query-map-without-query">
+	    <mongo:find-objects-using-query-map config-ref="Mongo_DB" limit="#[payload.limit]" collection="#[payload.collectionName]" />
+	    <logger level="INFO" message="### find-objects-using-query-map-without-query #[payload]" doc:name="Logger" />
+	</flow>
+	
+	<flow name="find-objects-using-query-map-with-query" doc:name="find-objects-using-query-map-with-query">
+	    <mongo:find-objects-using-query-map collection="#[payload.collectionName]">
+	        <mongo:query-attributes>
+	            <mongo:query-attribute key="#[payload.queryKey]">#[payload.queryValue]</mongo:query-attribute>
+	        </mongo:query-attributes>
+	    </mongo:find-objects-using-query-map>
+	    <logger level="INFO" message="### find-objects-using-query-map-with-query #[payload]" doc:name="Logger" />
+	</flow>
 		
 	<flow name="find-one-object" doc:name="find-one-object">
 	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
