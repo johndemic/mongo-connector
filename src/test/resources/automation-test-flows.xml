@@ -56,16 +56,16 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	
 	<flow name="count-objects-using-query-map-without-query" doc:name="count-objects-using-query-map-without-query">
 	    <mongo:count-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" />
-		<logger level="INFO" message="### count-objects-using-query-map #[payload]" doc:name="Logger" />
+		<logger level="INFO" message="### count-objects-using-query-map-without-query #[payload]" doc:name="Logger" />
 	</flow>
 	
 	<flow name="count-objects-using-query-map-with-query" doc:name="count-objects-using-query-map-with-query">
 	    <mongo:count-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]">
 	    	<mongo:query-attributes>
-		        <mongo:query-attribute key="#[payload.queryAttrib]">bar</mongo:query-attribute>
+		        <mongo:query-attribute key="#[payload.queryAttribKey]">#[payload.queryAttribVal]</mongo:query-attribute>
 		    </mongo:query-attributes>
 	    </mongo:count-objects-using-query-map>
-		<logger level="INFO" message="### count-objects-using-query-map #[payload]" doc:name="Logger" />
+		<logger level="INFO" message="### count-objects-using-query-map-with-query #[payload]" doc:name="Logger" />
 	</flow>
 	
 	<flow name="create-file-from-payload" doc:name="create-file-from-payload">
@@ -73,7 +73,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### create-file-from-payload #[payload]" doc:name="Logger" />
 	</flow>
 
-
+	<flow name="drop-database" doc:name="drop-database">
+		<mongo:drop-database config-ref="Mongo_DB"  doc:name="Mongo DB" />
+		<logger level="INFO" message="### drop-database #[payload]" doc:name="Logger" />
+	</flow>
+	
 <!-- 	UNUSED till now -->
 <!-- 	<flow name="remove-files" doc:name="remove-files"> -->
 <!-- 		<mongo:remove-files query-ref="#[payload.queryRef]"/> -->
@@ -91,11 +95,9 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<logger level="INFO" message="### list-indices #[payload]" doc:name="Logger" />
 	</flow>
 		
-	<!-- UNTESTED -->
 	<flow name="insert-object" doc:name="insert-object">
 	    <mongo:insert-object config-ref="Mongo_DB" 
 	        collection="#[payload.collectionName]" dbObject-ref="#[payload.dbObject]" />
-<!-- 	        collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" dbObject-ref="#[payload.dbObject]" /> -->
 		<logger level="INFO" message="### insert-object #[payload]" doc:name="Logger" />
 	</flow>
 	

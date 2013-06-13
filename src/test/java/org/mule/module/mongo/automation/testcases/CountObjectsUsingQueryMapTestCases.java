@@ -25,8 +25,6 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 			// Create collection
 			testObjects = (HashMap<String, Object>) context.getBean("insertObject");
 			lookupFlowConstruct("create-collection").process(getTestEvent(testObjects));
-			
-//			testObjects = (HashMap<String, Object>) context.getBean("");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			fail();
@@ -49,7 +47,6 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
 	public void testCountObjectsUsingQueryMap_without_map() {
-
 		insertObjects(getEmptyDBObjects(2));
 
 		MuleEvent response = null;
@@ -66,7 +63,6 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
 	public void testCountObjectsUsingQueryMap_with_map() {
-
 		List<DBObject> list = getEmptyDBObjects(2);
 		DBObject dbObj = new BasicDBObject();
 		dbObj.put("foo", "bar");
@@ -77,7 +73,8 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 		MuleEvent response = null;
 		try {
 			MessageProcessor countFlow = lookupFlowConstruct("count-objects-using-query-map-with-query");
-			testObjects.put("queryAttrib", "foo");
+			testObjects.put("queryAttribKey", "foo");
+			testObjects.put("queryAttribVal", "bar");
 			response = countFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
