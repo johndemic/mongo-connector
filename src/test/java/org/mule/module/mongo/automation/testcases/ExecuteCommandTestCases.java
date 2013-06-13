@@ -39,9 +39,7 @@ public class ExecuteCommandTestCases extends MongoTestParent {
 		try {
 			// Drop the collection using command
 			testObjects = (HashMap<String, Object>) context.getBean("executeCommand");
-			
-			String collectionName = testObjects.get("collectionName").toString();
-			
+		
 			MessageProcessor flow = lookupFlowConstruct("execute-command");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			CommandResult cmdResult = (CommandResult) response.getMessage().getPayload();
