@@ -83,6 +83,14 @@
         <entry key="queryRef" value-ref="myDbObject" />
     </util:map>
     
+	<!-- find one file -->
+    <util:map id="findOneFileUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+    	<entry key="filename1" value="file1" />
+    	<entry key="filename2" value="file2" />
+    	<entry key="key" value="filename" />
+    	<entry key="value" value="file1" />
+    </util:map>
+    
 	<!-- find files using query map -->
     <util:map id="findFilesUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
     	<entry key="filename1" value="file1" />

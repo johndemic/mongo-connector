@@ -22,12 +22,12 @@ import org.mule.api.processor.MessageProcessor;
 
 import com.mongodb.DBObject;
 
-public class FindOneFileTestCases extends MongoTestParent {
+public class FindOneFileUsingQueryMapTestCases extends MongoTestParent {
 
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
-		testObjects = (HashMap<String, Object>) context.getBean("findOneFile");
+		testObjects = (HashMap<String, Object>) context.getBean("findOneFileUsingQueryMap");
 
 		assertEquals(
 				"There should be 0 files in total before setting up the test",
@@ -49,12 +49,11 @@ public class FindOneFileTestCases extends MongoTestParent {
 
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
-	public void testFindOneFile() {
+	public void testFindOneFileUsingQueryMap() {
 		try {
-			((DBObject) testObjects.get("queryRef")).put("filename", testObjects.get("filename1"));
-			MessageProcessor findOneFile = lookupFlowConstruct("find-one-file");
+			MessageProcessor findOneUsingQueryMapFile = lookupFlowConstruct("find-one-file-using-query-map");
 			
-			MuleEvent response = findOneFile.process(getTestEvent(testObjects));
+			MuleEvent response = findOneUsingQueryMapFile.process(getTestEvent(testObjects));
 			
 			DBObject dbObj = (DBObject) response.getMessage().getPayload();
 			
