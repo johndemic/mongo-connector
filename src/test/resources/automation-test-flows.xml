@@ -162,7 +162,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 
 	<flow name="save-object" doc:name="save-object">
-	    <mongo:save-object config-ref="Mongo_DB" collection="#[payload.collection]" element-ref="#[payload.element]" writeConcern="#[payload.writeConcern]" />
+	    <mongo:save-object config-ref="Mongo_DB" collection="#[payload.collection]" element-ref="#[payload.elementRef]" writeConcern="#[payload.writeConcern]" />
 	</flow>
 	
 	<flow name="save-object-from-map" doc:name="save-object-from-map">

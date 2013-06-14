@@ -140,7 +140,7 @@
     <!-- save object -->
     <util:map id="saveObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="testCollection"/>
-        <entry key="element" value-ref="myDbObject" />
+        <entry key="elementRef" value-ref="myDbObject" />
         <entry key="writeConcern" value="SAFE" />
         <!-- Add the following key/value pair to modify the object -->
         <entry key="key" value="mykey" />
@@ -187,6 +187,17 @@
 		<entry key="value" value="myValue" />	
     </util:map>
         
+    <!-- update object using query map -->
+    <util:map id="updateObjectsUsingQueryMap" map-class="java.util.HashMap" value-type="java.lang.Object" scope="prototype">
+        <entry key="collection" value="newCollection" />
+        <entry key="elementRef" value="myDbObject" />
+        <entry key="queryKey" value="key" />
+        <entry key="queryValue" value="oldValue" />
+        <entry key="elementKey" value="key" />
+        <entry key="elementValue" value="newValue" />
+        <entry key="operator" value="$set" />
+    </util:map>
+    
     <!-- update object using map -->
     <util:map id="updateObjectsUsingMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="newCollection" />
