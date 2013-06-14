@@ -36,8 +36,6 @@ public class MongoTestParent extends FunctionalTestCase {
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder();
 
-	protected static String FILENAME_FOR_TEST = "filename_for_test";
-	
 	protected static final String[] SPRING_CONFIG_FILES = new String[] { "AutomationSpringBeans.xml" };
 	protected static ApplicationContext context;
 	protected Map<String, Object> testObjects;
@@ -147,6 +145,10 @@ public class MongoTestParent extends FunctionalTestCase {
 		return createFileFromPayload(new BasicDBObject(), filename);
 	}
 	
+	protected GridFSInputFile createFileFromPayload(Object filename) {
+		return createFileFromPayload(filename.toString());
+	}
+	
 	protected void deleteFilesCreatedByCreateFileFromPayload() {
 		if(testObjects == null) {
 			setTestObjects(new HashMap<String, Object>());
@@ -164,4 +166,5 @@ public class MongoTestParent extends FunctionalTestCase {
 			fail();
 		}
 	}
+	
 }

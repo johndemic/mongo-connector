@@ -9,13 +9,26 @@
 package org.mule.module.mongo.automation.testcases;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import java.util.HashMap;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 public class FindFilesTestCases extends MongoTestParent {
+	
+	@SuppressWarnings("unchecked")
+	@Before
+	public void setUp() {
+		testObjects = (HashMap<String, Object>) context.getBean("findFiles");
+		
+		assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
+		
+		createFileFromPayload(testObjects.get("filename1"));
+		createFileFromPayload(testObjects.get("filename1"));
+	}
 	
 	@After
 	public void tearDown() {
@@ -25,18 +38,7 @@ public class FindFilesTestCases extends MongoTestParent {
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
 	public void testFindFiles() {
-		try {
-			assertEquals("There should be 0 files found before create-file-from-payload", 0, findFiles());
-			
-			createFileFromPayload(FILENAME_FOR_TEST);
-			createFileFromPayload(FILENAME_FOR_TEST);
-			
-			assertEquals("There should be 2 files found", 2, findFiles());
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			fail();
-		}
+		assertEquals("There should be 2 files found", 2, findFiles());
 	}
 	
 }

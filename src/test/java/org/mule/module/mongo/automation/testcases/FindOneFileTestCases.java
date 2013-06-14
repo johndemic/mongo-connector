@@ -20,22 +20,29 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-public class RemoveFilesTestCases extends MongoTestParent {
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+
+public class FindOneFileTestCases extends MongoTestParent {
 
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
-		testObjects = (HashMap<String, Object>) context.getBean("removeFiles");
-		
-		assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
-		
+		testObjects = (HashMap<String, Object>) context.getBean("findOneFile");
+
+		assertEquals(
+				"There should be 0 files in total before setting up the test",
+				0, findFiles());
+
 		createFileFromPayload(testObjects.get("filename1"));
 		createFileFromPayload(testObjects.get("filename1"));
+		createFileFromPayload(testObjects.get("filename2"));
 		
-		assertEquals("There should be 2 files in total after setting up the test", 2, findFiles());
+		assertEquals(
+				"There should be 3 files in total after setting up the test",
+				3, findFiles());
 	}
-	
-	
+
 	@After
 	public void tearDown() {
 		deleteFilesCreatedByCreateFileFromPayload();
@@ -43,19 +50,22 @@ public class RemoveFilesTestCases extends MongoTestParent {
 
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
-	public void testRemoveFiles() {
+	public void testFindOneFile() {
 		try {
-			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files");
-			MuleEvent event = getTestEvent(testObjects);
-			removeFilesFlow.process(event);
-
-			assertEquals("There should be 0 files found after remove-files", 0,
-					findFiles());
+			((DBObject) testObjects.get("queryRef")).put("filename", testObjects.get("filename1"));
+			MessageProcessor findOneFile = lookupFlowConstruct("find-one-file");
+			
+			MuleEvent response = findOneFile.process(getTestEvent(testObjects));
+			
+			DBObject dbObj = (DBObject) response.getMessage().getPayload();
+			
+			assertEquals("The file found should have the name " + testObjects.get("filename1"), testObjects.get("filename1"), dbObj.get("filename"));
+			assertEquals("There should be 3 files in total", 3, findFiles());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
-
+		
 	}
 
 }

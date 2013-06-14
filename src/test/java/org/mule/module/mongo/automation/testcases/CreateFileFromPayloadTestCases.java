@@ -11,13 +11,24 @@ package org.mule.module.mongo.automation.testcases;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.util.HashMap;
+
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 import com.mongodb.gridfs.GridFSInputFile;
 
 public class CreateFileFromPayloadTestCases extends MongoTestParent {
+
+	@SuppressWarnings("unchecked")
+	@Before
+	public void setUp() {
+		testObjects = (HashMap<String, Object>) context.getBean("createFileFromPayload");
+		
+		assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
+	}
 	
 	@After
 	public void tearDown() {
@@ -30,9 +41,9 @@ public class CreateFileFromPayloadTestCases extends MongoTestParent {
 		try {
 			assertEquals("There should be 0 files found before create-file-from-payload", 0, findFiles());
 			
-			GridFSInputFile res = createFileFromPayload(FILENAME_FOR_TEST);
+			GridFSInputFile res = createFileFromPayload(testObjects.get("filename1"));
 			
-			assertEquals("The created file should be named " + FILENAME_FOR_TEST, FILENAME_FOR_TEST, res.getFilename());
+			assertEquals("The created file should be named " + testObjects.get("filename1"), testObjects.get("filename1"), res.getFilename());
 			assertEquals("There should be 1 files found after create-file-from-payload", 1, findFiles());
 			
 		} catch (Exception e) {

@@ -3,6 +3,8 @@ package org.mule.module.mongo.automation.testcases;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.util.HashMap;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,24 +15,25 @@ import org.mule.api.processor.MessageProcessor;
 import com.mongodb.DBObject;
 
 public class FindFilesUsingQueryMapTestCases extends MongoTestParent {
-	
-	private static String DIFF_FILENAME_FOR_TEST = "diff_filename_for_test";
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
-		try {
-			assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
-			createFileFromPayload(FILENAME_FOR_TEST);
-			
-			// create another file with a different name
-			createFileFromPayload(DIFF_FILENAME_FOR_TEST);
-			assertEquals("There should be 2 files in total after setting up the test", 2, findFiles());
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			fail();
-		}
+		testObjects = (HashMap<String, Object>) context
+				.getBean("findFilesUsingQueryMap");
+
+		assertEquals(
+				"There should be 0 files in total before setting up the test",
+				0, findFiles());
+		createFileFromPayload(testObjects.get("filename1"));
+
+		// create another file with a different name
+		createFileFromPayload(testObjects.get("filename2"));
+		assertEquals(
+				"There should be 2 files in total after setting up the test",
+				2, findFiles());
 	}
-	
+
 	@After
 	public void tearDown() {
 		deleteFilesCreatedByCreateFileFromPayload();
@@ -40,26 +43,29 @@ public class FindFilesUsingQueryMapTestCases extends MongoTestParent {
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
 	public void testFindFilesUsingQueryMap() {
+		MuleEvent response = null;
 		try {
-			MuleEvent response = null;
-			try {
-				MessageProcessor findFilesUsingQueryMapFlow = lookupFlowConstruct("find-files-using-query-map");
-				testObjects.put("queryAttribKey", "filename");
-				testObjects.put("queryAttribVal", DIFF_FILENAME_FOR_TEST);
-				response = findFilesUsingQueryMapFlow.process(getTestEvent(testObjects));
-				Iterable<DBObject> iterable = (Iterable<DBObject>) response.getMessage().getPayload();
-				int filesFoundUsingQueryMap = iterableSize(iterable);
-				
-				assertEquals("There should be 1 file with the name " + DIFF_FILENAME_FOR_TEST, 1, filesFoundUsingQueryMap);
-				assertEquals("There should be 2 files in total", 2, findFiles());
-			} catch (Exception e) {
-				e.printStackTrace();
-				fail();
-			}
+			MessageProcessor findFilesUsingQueryMapFlow = lookupFlowConstruct("find-files-using-query-map");
+
+			// queryAttribKey and queryAttribVal in testObjects are used in
+			// findFilesUsingQueryMapFlow to query for a file with filename of
+			// 'file2'
+			// One such file should be found
+			response = findFilesUsingQueryMapFlow
+					.process(getTestEvent(testObjects));
+			Iterable<DBObject> iterable = (Iterable<DBObject>) response
+					.getMessage().getPayload();
+			int filesFoundUsingQueryMap = iterableSize(iterable);
+
+			assertEquals(
+					"There should be 1 file with the name "
+							+ testObjects.get("filename2"), 1,
+					filesFoundUsingQueryMap);
+			assertEquals("There should be 2 files in total", 2, findFiles());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 	}
-	
+
 }

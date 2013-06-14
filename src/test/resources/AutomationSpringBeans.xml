@@ -59,7 +59,38 @@
         <entry key="field" value="myField" />
         <entry key="order" value="ASC" />
     </util:map>
-
+    
+	<!-- create file from payload -->
+    <util:map id="createFileFromPayload" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+    	<entry key="filename1" value="file1" />
+    </util:map>
+    
+	<!-- remove files -->
+    <util:map id="removeFiles" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+    	<entry key="filename1" value="file1" />
+        <entry key="queryRef" value-ref="myDbObject" />
+    </util:map>
+    
+	<!-- find files -->
+    <util:map id="findFiles" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+    	<entry key="filename1" value="file1" />
+    </util:map>
+    
+	<!-- find one file -->
+    <util:map id="findOneFile" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+    	<entry key="filename1" value="file1" />
+    	<entry key="filename2" value="file2" />
+        <entry key="queryRef" value-ref="myDbObject" />
+    </util:map>
+    
+	<!-- find files using query map -->
+    <util:map id="findFilesUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+    	<entry key="filename1" value="file1" />
+    	<entry key="filename2" value="file2" />
+    	<entry key="queryAttribKey" value="filename" />
+    	<entry key="queryAttribVal" value="file2" />
+    </util:map>
+    
     <!-- insert object -->
     <util:map id="insertObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="testCollection" />

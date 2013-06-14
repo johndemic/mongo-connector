@@ -65,7 +65,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 
 	<flow name="drop-database" doc:name="drop-database">
-		<mongo:drop-database config-ref="Mongo_DB"  doc:name="Mongo DB" />
+		<mongo:drop-database config-ref="Mongo_DB" />
 	</flow>
 	
 	<flow name="remove-files" doc:name="remove-files">
@@ -82,9 +82,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		        <mongo:query-attribute key="#[payload.queryAttribKey]">#[payload.queryAttribVal]</mongo:query-attribute>
 		    </mongo:query-attributes>
 		</mongo:find-files-using-query-map>
-		<logger level="INFO" message="### find-files-using-query-map #[payload]" doc:name="Logger" />
 	</flow>
 	
+	<flow name="find-one-file" doc:name="find-one-file">
+		<mongo:find-one-file config-ref="Mongo_DB" query-ref="#[payload.queryRef]"/>
+	</flow>
 	
 	<!-- UNTESTED -->
 	<flow name="drop-index" doc:name="drop-index">
