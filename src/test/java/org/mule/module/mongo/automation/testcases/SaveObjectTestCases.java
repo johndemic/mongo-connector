@@ -46,7 +46,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("save-object");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			DBObject element = (DBObject) testObjects.get("element");
+			DBObject element = (DBObject) testObjects.get("elementRef");
 			
 			// Check that object was inserted
 			MongoCollection dbObjects = getObjects(testObjects);
