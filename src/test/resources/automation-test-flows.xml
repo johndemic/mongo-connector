@@ -97,7 +97,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		
 	<flow name="insert-object" doc:name="insert-object">
 	    <mongo:insert-object config-ref="Mongo_DB" 
-	        collection="#[payload.collection]" dbObject-ref="#[payload.dbObject]" />
+	        collection="#[payload.collection]" dbObject-ref="#[payload.dbObjectRef]" />
 	</flow>
 	
 	<flow name="insert-object-from-map-with-elements" doc:name="insert-object-from-map-with-elements">
@@ -113,7 +113,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="remove-objects" doc:name="remove-objects">
-	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.dbObject]" />
+	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.queryRef]" />
 	</flow>
 	
 	<flow name="remove-using-query-map-with-query-map" doc:name="remove-using-query-maps">
@@ -150,7 +150,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 		
 	<flow name="find-one-object" doc:name="find-one-object">
-	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.dbObject]" />
+	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.queryRef]" />
 	</flow>
 	
 	<flow name="find-one-object-using-query-map" doc:name="find-one-object-using-query-map">
@@ -174,7 +174,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="add-user" doc:name="add-user">
-	    <mongo:add-user config-ref="Mongo_DB" newPassword="#[payload.password]" newUsername="#[payload.username]"/>
+	    <mongo:add-user config-ref="Mongo_DB" newPassword="#[payload.newPassword]" newUsername="#[payload.newUsername]"/>
 	</flow>
 	
 	<flow name="execute-command" doc:name="execute-command">
@@ -182,7 +182,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="update-objects-single-object" doc:name="update-objects">
-	    <mongo:update-objects collection="#[payload.collection]" multi="false" config-ref="Mongo_DB" query-ref="#[payload.dbObject]"
+	    <mongo:update-objects collection="#[payload.collection]" multi="false" config-ref="Mongo_DB" query-ref="#[payload.queryRef]"
 	        	writeConcern="#[payload.writeConcern]" element-ref="#[payload.elementRef]" />
 	</flow>
 	

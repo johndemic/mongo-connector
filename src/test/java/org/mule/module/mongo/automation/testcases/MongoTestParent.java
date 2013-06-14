@@ -78,7 +78,7 @@ public class MongoTestParent extends FunctionalTestCase {
 			MessageProcessor insertFlow = lookupFlowConstruct("insert-object");
 
 			for (DBObject obj : objs) {
-				testObjects.put("dbObject", obj);
+				testObjects.put("dbObjectRef", obj);
 				insertFlow.process(getTestEvent(testObjects));
 			}
 		} catch (Exception e) {

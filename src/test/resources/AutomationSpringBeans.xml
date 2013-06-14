@@ -64,7 +64,8 @@
     <util:map id="insertObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
-        <entry key="dbObject" value-ref="myDbObject" />
+        <!-- used by insert-object flow -->
+        <entry key="dbObjectRef" value-ref="myDbObject" />
     </util:map>
     
     <!-- insert object from map -->
@@ -94,7 +95,10 @@
     <util:map id="findOneObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
-        <entry key="dbObject" value-ref="myDbObject" />
+        <!-- used by find-one-object flow -->
+        <entry key="queryRef" value-ref="myDbObject" />
+        <!-- used by insert-object flow -->
+        <entry key="dbObjectRef" value-ref="myDbObject" />
     </util:map>
     
     <!-- find one object using query map -->
@@ -115,7 +119,10 @@
     <!-- remove objects -->
     <util:map id="removeObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="testCollection"/>
+        <!-- used by remove-object flow -->
         <entry key="queryRef" value-ref="myDbObject"/>
+        <!-- used by insert-object flow -->
+        <entry key="dbObjectRef" value-ref="myDbObject" />
     </util:map>
     
     <util:map id="removeUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
@@ -150,8 +157,8 @@
         
     <!-- add user -->
     <util:map id="addUser" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
-        <entry key="username" value="newUsername"/>
-        <entry key="password" value="newPassword" />
+        <entry key="newUsername" value="newUsername"/>
+        <entry key="newPassword" value="newPassword" />
     </util:map>
 
     <!-- count objects -->
@@ -170,7 +177,10 @@
     <!-- update object -->
     <util:map id="updateObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object"  scope="prototype">
         <entry key="collection" value="newCollection" />
-        <entry key="dbObject" value-ref="myDbObject" />
+        <!-- used for insert-object flow -->
+        <entry key="dbObjectRef" value-ref="myDbObject" />
+		<!-- used for update-objects flow -->
+		<entry key="queryRef" value-ref="myDbObject" />
 		<entry key="writeConcern" value="SAFE" />
 		<!-- Key value pair to be written to the object/s for update -->
 		<entry key="key" value="myKey" />
