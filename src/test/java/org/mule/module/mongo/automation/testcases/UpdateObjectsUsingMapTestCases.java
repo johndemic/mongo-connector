@@ -73,7 +73,7 @@ public class UpdateObjectsUsingMapTestCases extends MongoTestParent {
 				assertTrue(obj.containsField(elementKey));
 				assertTrue(obj.get(elementKey).equals(elementValue));
 			}
-			assert(objects.size() == numberOfObjects);
+			assertTrue(objects.size() == numberOfObjects);
 			
 		}
 		catch (Exception ex) {
