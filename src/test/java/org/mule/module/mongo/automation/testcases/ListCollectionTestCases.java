@@ -35,7 +35,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 			
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			for (String collectionName : collectionNames) {
-				testObjects.put("collectionName", collectionName);
+				testObjects.put("collection", collectionName);
 				MuleEvent response = flow.process(getTestEvent(testObjects));
 			}
 		} catch (Exception ex) {
@@ -70,7 +70,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("drop-collection");
 
 			for (String collectionName : collectionNames) {
-				testObjects.put("collectionName", collectionName);
+				testObjects.put("collection", collectionName);
 				MuleEvent response = flow.process(getTestEvent(testObjects));
 			}
 		}

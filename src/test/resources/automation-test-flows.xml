@@ -25,15 +25,15 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</mongo:config>
 	
     <flow name="create-collection" doc:name="create-collection">
-        <mongo:create-collection config-ref="Mongo_DB" collection="#[payload.collectionName]" doc:name="Mongo DB"/>
+        <mongo:create-collection config-ref="Mongo_DB" collection="#[payload.collection]" doc:name="Mongo DB"/>
     </flow>
 	
 	<flow name="drop-collection" doc:name="drop-collection">
-		<mongo:drop-collection config-ref="Mongo_DB" collection="#[payload.collectionName]" doc:name="Mongo DB" />
+		<mongo:drop-collection config-ref="Mongo_DB" collection="#[payload.collection]" doc:name="Mongo DB" />
 	</flow>
 	
 	<flow name="exists-collection" doc:name="collection-exists">
-	    <mongo:exists-collection config-ref="Mongo_DB" collection="#[payload.collectionName]" doc:name="Mongo_DB" />
+	    <mongo:exists-collection config-ref="Mongo_DB" collection="#[payload.collection]" doc:name="Mongo_DB" />
 	</flow>
 	
 	<flow name="list-collections" doc:name="list-collections">
@@ -41,19 +41,19 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="create-index" doc:name="create-index">
-	    <mongo:create-index config-ref="Mongo_DB" collection="#[payload.collectionName]" field="#[payload.field]" order="#[payload.order]" />
+	    <mongo:create-index config-ref="Mongo_DB" collection="#[payload.collection]" field="#[payload.field]" order="#[payload.order]" />
 	</flow>
 	
 	<flow name="count-objects" doc:name="count-objects">
-	    <mongo:count-objects config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.queryRef]" />
+	    <mongo:count-objects config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.queryRef]" />
 	</flow>
 	
 	<flow name="count-objects-using-query-map-without-query" doc:name="count-objects-using-query-map-without-query">
-	    <mongo:count-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" />
+	    <mongo:count-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]" />
 	</flow>
 	
 	<flow name="count-objects-using-query-map-with-query" doc:name="count-objects-using-query-map-with-query">
-	    <mongo:count-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]">
+	    <mongo:count-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]">
 	    	<mongo:query-attributes>
 		        <mongo:query-attribute key="#[payload.queryAttribKey]">#[payload.queryAttribVal]</mongo:query-attribute>
 		    </mongo:query-attributes>
@@ -78,20 +78,20 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	
 	<!-- UNTESTED -->
 	<flow name="drop-index" doc:name="drop-index">
-	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collectionName]" index="#[payload.index]" />
+	    <mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collection]" index="#[payload.index]" />
 	</flow>
 		
 	<flow name="list-indices" doc:name="list-indices">
-	    <mongo:list-indices config-ref="Mongo_DB" collection="#[payload.collectionName]" />
+	    <mongo:list-indices config-ref="Mongo_DB" collection="#[payload.collection]" />
 	</flow>
 		
 	<flow name="insert-object" doc:name="insert-object">
 	    <mongo:insert-object config-ref="Mongo_DB" 
-	        collection="#[payload.collectionName]" dbObject-ref="#[payload.dbObject]" />
+	        collection="#[payload.collection]" dbObject-ref="#[payload.dbObject]" />
 	</flow>
 	
 	<flow name="insert-object-from-map-with-elements" doc:name="insert-object-from-map-with-elements">
-	    <mongo:insert-object-from-map config-ref="Mongo_DB" writeConcern="#[payload.writeConcern]" collection="#[payload.collectionName]">
+	    <mongo:insert-object-from-map config-ref="Mongo_DB" writeConcern="#[payload.writeConcern]" collection="#[payload.collection]">
 	        <mongo:element-attributes>
 	            <mongo:element-attribute key="#[payload.key]">#[payload.value]</mongo:element-attribute>
 	        </mongo:element-attributes>
@@ -99,15 +99,15 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="insert-object-from-map-without-elements" doc:name="insert-object-from-map-with-elements">
-	    <mongo:insert-object-from-map config-ref="Mongo_DB" writeConcern="#[payload.writeConcern]" collection="#[payload.collectionName]" />
+	    <mongo:insert-object-from-map config-ref="Mongo_DB" writeConcern="#[payload.writeConcern]" collection="#[payload.collection]" />
 	</flow>
 	
 	<flow name="remove-objects" doc:name="remove-objects">
-	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
+	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.dbObject]" />
 	</flow>
 	
 	<flow name="remove-using-query-map-with-query-map" doc:name="remove-using-query-maps">
-	    <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]">
+	    <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]" writeConcern="#[payload.writeConcern]">
 	        <mongo:query-attributes>
 	            <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
 	        </mongo:query-attributes>
@@ -116,23 +116,23 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	
 	<!-- THIS IS NOT SUPPORTED, WHEN IN FACT, IT SHOULD BE -->
 <!-- 	<flow name="remove-using-query-map-without-query-map" doc:name="remove-using-query-map-without-query-map">	     -->
-<!-- 	    <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" writeConcern="#[payload.writeConcern]" /> -->
+<!-- 	    <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]" writeConcern="#[payload.writeConcern]" /> -->
 <!-- 	</flow> -->
 	
 	<flow name="find-objects" doc:name="find-objects">
-	    <mongo:find-objects config-ref="Mongo_DB" collection="#[payload.collectionName]"/>
+	    <mongo:find-objects config-ref="Mongo_DB" collection="#[payload.collection]"/>
 	</flow>
 	
 	<flow name="find-objects-using-query-map-without-query" doc:name="find-objects-using-query-map-without-query">
-	    <mongo:find-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]" />
+	    <mongo:find-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]" />
 	</flow>
 	
 	<flow name="find-objects-using-query-map-with-limit" doc:name="find-objects-using-query-map-without-query">
-	    <mongo:find-objects-using-query-map config-ref="Mongo_DB" limit="#[payload.limit]" collection="#[payload.collectionName]" />
+	    <mongo:find-objects-using-query-map config-ref="Mongo_DB" limit="#[payload.limit]" collection="#[payload.collection]" />
 	</flow>
 	
 	<flow name="find-objects-using-query-map-with-query" doc:name="find-objects-using-query-map-with-query">
-	    <mongo:find-objects-using-query-map collection="#[payload.collectionName]">
+	    <mongo:find-objects-using-query-map collection="#[payload.collection]">
 	        <mongo:query-attributes>
 	            <mongo:query-attribute key="#[payload.queryKey]">#[payload.queryValue]</mongo:query-attribute>
 	        </mongo:query-attributes>
@@ -140,11 +140,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 		
 	<flow name="find-one-object" doc:name="find-one-object">
-	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collectionName]" query-ref="#[payload.dbObject]" />
+	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.dbObject]" />
 	</flow>
 	
 	<flow name="find-one-object-using-query-map" doc:name="find-one-object-using-query-map">
-	    <mongo:find-one-object-using-query-map config-ref="Mongo_DB" collection="#[payload.collectionName]">
+	    <mongo:find-one-object-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]">
 	        <mongo:query-attributes>
 	            <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
 	        </mongo:query-attributes>
@@ -152,11 +152,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 
 	<flow name="save-object" doc:name="save-object">
-	    <mongo:save-object config-ref="Mongo_DB" collection="#[payload.collectionName]" element-ref="#[payload.element]" writeConcern="#[payload.writeConcern]" />
+	    <mongo:save-object config-ref="Mongo_DB" collection="#[payload.collection]" element-ref="#[payload.element]" writeConcern="#[payload.writeConcern]" />
 	</flow>
 	
 	<flow name="save-object-from-map" doc:name="save-object-from-map">
-	    <mongo:save-object-from-map config-ref="Mongo_DB" collection="#[payload.collectionName]">
+	    <mongo:save-object-from-map config-ref="Mongo_DB" collection="#[payload.collection]">
 	        <mongo:element-attributes>
 	            <mongo:element-attribute key="#[payload.key]">#[payload.value]</mongo:element-attribute>
 	        </mongo:element-attributes>
@@ -172,7 +172,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="update-objects-single-object" doc:name="update-objects">
-	    <mongo:update-objects collection="#[payload.collectionName]" multi="false" config-ref="Mongo_DB" query-ref="#[payload.dbObject]"
+	    <mongo:update-objects collection="#[payload.collection]" multi="false" config-ref="Mongo_DB" query-ref="#[payload.dbObject]"
 	        	writeConcern="#[payload.writeConcern]" element-ref="#[payload.elementRef]" />
 	</flow>
 	

@@ -15,17 +15,17 @@
 
     <!-- create collection -->
     <util:map id="createCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
     </util:map>
 
     <!-- drop collection -->
     <util:map id="dropCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
     </util:map>
 
     <!-- exists collection -->
     <util:map id="existsCollection" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
     </util:map>
 
     <!-- list collection -->
@@ -38,7 +38,7 @@
     <!-- create index -->
     <util:map id="createIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="dbObject" value-ref="myDbObject" />
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="field" value="myField" />
         <entry key="order" value="ASC" />
     </util:map>
@@ -46,14 +46,14 @@
     <!-- drop index -->
     <util:map id="dropIndex" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="dbObject" value-ref="myDbObject" />
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="field" value="myField" />
         <entry key="order" value="ASC" />
     </util:map>
     
     <!-- list indices -->
     <util:map id="listIndices" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <!-- index to search for -->
         <entry key="dbObject" value-ref="myDbObject" />
         <entry key="field" value="myField" />
@@ -62,14 +62,14 @@
 
     <!-- insert object -->
     <util:map id="insertObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
     
     <!-- insert object from map -->
     <util:map id="insertObjectFromMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <entry key="key" value="objectKey" />
         <entry key="value" value="objectValue" />
@@ -77,7 +77,7 @@
     
     <!-- find objects using query map (with query | without query | with limit) -->
     <util:map id="findObjectsUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <!-- Number of objects without the key-value pair -->
         <entry key="extraObjects" value="10" />
@@ -92,14 +92,14 @@
 
     <!-- find one object -->
     <util:map id="findOneObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
     
     <!-- find one object using query map -->
     <util:map id="findOneObjectUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <entry key="key" value="foo" />
         <entry key="value" value="bar" />
@@ -107,19 +107,19 @@
     
     <!-- insert multiple objects -->
     <util:map id="insertMultipleObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <entry key="numberOfObjects" value="25" />
     </util:map>
                
     <!-- remove objects -->
     <util:map id="removeObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection"/>
+        <entry key="collection" value="testCollection"/>
         <entry key="queryRef" value-ref="myDbObject"/>
     </util:map>
     
     <util:map id="removeUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <entry key="key" value="someKey" />
         <entry key="value" value="someValue" />
@@ -132,7 +132,7 @@
     
     <!-- save object -->
     <util:map id="saveObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection"/>
+        <entry key="collection" value="testCollection"/>
         <entry key="element" value-ref="myDbObject" />
         <entry key="writeConcern" value="SAFE" />
         <!-- Add the following key/value pair to modify the object -->
@@ -142,7 +142,7 @@
     
     <!-- save object -->
     <util:map id="saveObjectFromMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-        <entry key="collectionName" value="testCollection"/>
+        <entry key="collection" value="testCollection"/>
         <entry key="writeConcern" value="SAFE" />
         <entry key="key" value="someKey" />
         <entry key="value" value="someValue" />
@@ -156,20 +156,20 @@
 
     <!-- count objects -->
     <util:map id="countObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
-        <entry key="collectionName" value="testCollection" />
+        <entry key="collection" value="testCollection" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
     
     <!-- execute command -->
     <util:map id="executeCommand" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
-        <entry key="collectionName" value="newCollection" />
+        <entry key="collection" value="newCollection" />
         <entry key="commandName" value="drop" />
         <entry key="commandValue" value="newCollection" />
     </util:map>
     
     <!-- update object -->
     <util:map id="updateObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object"  scope="prototype">
-        <entry key="collectionName" value="newCollection" />
+        <entry key="collection" value="newCollection" />
         <entry key="dbObject" value-ref="myDbObject" />
 		<entry key="writeConcern" value="SAFE" />
 		<!-- Key value pair to be written to the object/s for update -->
@@ -181,7 +181,7 @@
 
     <!-- Helper bean to count the number of users -->
     <util:map id="getUsers" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
-        <entry key="collectionName" value="system.users" />
+        <entry key="collection" value="system.users" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
 

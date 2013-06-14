@@ -145,10 +145,10 @@ public class MongoTestParent extends FunctionalTestCase {
 		try {
 			MessageProcessor dropCollectionFlow = lookupFlowConstruct("drop-collection");
 			
-			testObjects.put("collectionName", "fs.chunks");
+			testObjects.put("collection", "fs.chunks");
 			dropCollectionFlow.process(getTestEvent(testObjects));
 			
-			testObjects.put("collectionName", "fs.files");
+			testObjects.put("collection", "fs.files");
 			lookupFlowConstruct("drop-collection").process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
