@@ -64,6 +64,7 @@
     <util:map id="insertObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
+        <!-- used by insert-object flow -->
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
     
@@ -94,6 +95,9 @@
     <util:map id="findOneObject" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
+        <!-- used by find-one-object flow -->
+        <entry key="queryRef" value-ref="myDbObject" />
+        <!-- used by insert-object flow -->
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
     
@@ -115,7 +119,10 @@
     <!-- remove objects -->
     <util:map id="removeObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="testCollection"/>
+        <!-- used by remove-object flow -->
         <entry key="queryRef" value-ref="myDbObject"/>
+        <!-- used by insert-object flow -->
+        <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
     
     <util:map id="removeUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
@@ -170,7 +177,10 @@
     <!-- update object -->
     <util:map id="updateObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object"  scope="prototype">
         <entry key="collection" value="newCollection" />
+        <!-- used for insert-object flow -->
         <entry key="dbObject" value-ref="myDbObject" />
+		<!-- used for update-objects flow -->
+		<entry key="queryRef" value-ref="myDbObject" />
 		<entry key="writeConcern" value="SAFE" />
 		<!-- Key value pair to be written to the object/s for update -->
 		<entry key="key" value="myKey" />

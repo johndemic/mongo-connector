@@ -53,10 +53,7 @@ public class InsertObjectTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("remove-objects");
-			flow.process(getTestEvent(testObjects));
-			
-			flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupFlowConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {

@@ -103,7 +103,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="remove-objects" doc:name="remove-objects">
-	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.dbObject]" />
+	    <mongo:remove-objects config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.queryRef]" />
 	</flow>
 	
 	<flow name="remove-using-query-map-with-query-map" doc:name="remove-using-query-maps">
@@ -140,7 +140,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 		
 	<flow name="find-one-object" doc:name="find-one-object">
-	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.dbObject]" />
+	    <mongo:find-one-object config-ref="Mongo_DB" collection="#[payload.collection]" query-ref="#[payload.queryRef]" />
 	</flow>
 	
 	<flow name="find-one-object-using-query-map" doc:name="find-one-object-using-query-map">
@@ -172,7 +172,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="update-objects-single-object" doc:name="update-objects">
-	    <mongo:update-objects collection="#[payload.collection]" multi="false" config-ref="Mongo_DB" query-ref="#[payload.dbObject]"
+	    <mongo:update-objects collection="#[payload.collection]" multi="false" config-ref="Mongo_DB" query-ref="#[payload.queryRef]"
 	        	writeConcern="#[payload.writeConcern]" element-ref="#[payload.elementRef]" />
 	</flow>
 	
