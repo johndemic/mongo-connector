@@ -164,7 +164,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="add-user" doc:name="add-user">
-	    <mongo:add-user config-ref="Mongo_DB" newPassword="#[payload.password]" newUsername="#[payload.username]"/>
+	    <mongo:add-user config-ref="Mongo_DB" newPassword="#[payload.newPassword]" newUsername="#[payload.newUsername]"/>
 	</flow>
 	
 	<flow name="execute-command" doc:name="execute-command">

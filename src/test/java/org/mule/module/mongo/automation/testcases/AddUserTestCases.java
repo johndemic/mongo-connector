@@ -33,7 +33,7 @@ public class AddUserTestCases extends MongoTestParent {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("addUser");
 
-			String newUsername = testObjects.get("username").toString();
+			String newUsername = testObjects.get("newUsername").toString();
 			
 			MessageProcessor flow = lookupFlowConstruct("add-user");
 			MuleEvent response = flow.process(getTestEvent(testObjects));

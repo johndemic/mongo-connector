@@ -150,8 +150,8 @@
         
     <!-- add user -->
     <util:map id="addUser" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
-        <entry key="username" value="newUsername"/>
-        <entry key="password" value="newPassword" />
+        <entry key="newUsername" value="newUsername"/>
+        <entry key="newPassword" value="newPassword" />
     </util:map>
 
     <!-- count objects -->
