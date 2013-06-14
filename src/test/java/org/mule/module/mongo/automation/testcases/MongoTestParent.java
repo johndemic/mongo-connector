@@ -36,8 +36,8 @@ public class MongoTestParent extends FunctionalTestCase {
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder();
 
-	protected static String FILENAME_FOR_TEST = "fileForTest";
-
+	protected static String FILENAME_FOR_TEST = "filename_for_test";
+	
 	protected static final String[] SPRING_CONFIG_FILES = new String[] { "AutomationSpringBeans.xml" };
 	protected static ApplicationContext context;
 	protected Map<String, Object> testObjects;
@@ -102,10 +102,14 @@ public class MongoTestParent extends FunctionalTestCase {
 		}
 
 		iterable = (Iterable<DBObject>) response.getMessage().getPayload();
+		return iterableSize(iterable);
+	}
+	
+	protected int iterableSize(Iterable<?> iterable) {
 		if (iterable instanceof Collection<?>) {
 			return ((Collection<?>) iterable).size();
 		} else {
-			Iterator<DBObject> it = iterable.iterator();
+			Iterator<?> it = iterable.iterator();
 			int i = 0;
 			while (it.hasNext()) {
 				i++;
@@ -114,19 +118,20 @@ public class MongoTestParent extends FunctionalTestCase {
 		}
 	}
 
-	protected GridFSInputFile createFileFromPayload() {
+	protected GridFSInputFile createFileFromPayload(DBObject dbObj, String filename) {
 		if(testObjects == null) {
 			setTestObjects(new HashMap<String, Object>());
 		}
 		
 		GridFSInputFile res = null;
 		try {
-			File file = folder.newFile(FILENAME_FOR_TEST);
+			File file = folder.newFile(filename);
 
 			MessageProcessor createFileFromPayloadFlow = lookupFlowConstruct("create-file-from-payload");
-			testObjects.put("filename", FILENAME_FOR_TEST);
+			testObjects.put("filename", filename);
 			MuleEvent event = getTestEvent(file);
-			event.setSessionVariable("filename", FILENAME_FOR_TEST);
+			event.setSessionVariable("filename", filename);
+			event.setSessionVariable("metaDataRef", dbObj);
 
 			res = (GridFSInputFile) createFileFromPayloadFlow.process(event)
 					.getMessage().getPayload();
@@ -136,6 +141,10 @@ public class MongoTestParent extends FunctionalTestCase {
 		}
 
 		return res;
+	}
+	
+	protected GridFSInputFile createFileFromPayload(String filename) {
+		return createFileFromPayload(new BasicDBObject(), filename);
 	}
 	
 	protected void deleteFilesCreatedByCreateFileFromPayload() {

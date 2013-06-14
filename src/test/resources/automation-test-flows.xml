@@ -61,7 +61,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="create-file-from-payload" doc:name="create-file-from-payload">
-		<mongo:create-file-from-payload config-ref="Mongo_DB" doc:name="Mongo DB" filename="#[sessionVars.filename]"/>
+		<mongo:create-file-from-payload config-ref="Mongo_DB" doc:name="Mongo DB" filename="#[sessionVars.filename]" metadata-ref="#[sessionVars.metaDataRef]" />
 	</flow>
 
 	<flow name="drop-database" doc:name="drop-database">

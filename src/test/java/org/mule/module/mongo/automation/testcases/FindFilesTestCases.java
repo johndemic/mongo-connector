@@ -28,8 +28,8 @@ public class FindFilesTestCases extends MongoTestParent {
 		try {
 			assertEquals("There should be 0 files found before create-file-from-payload", 0, findFiles());
 			
-			createFileFromPayload();
-			createFileFromPayload();
+			createFileFromPayload(FILENAME_FOR_TEST);
+			createFileFromPayload(FILENAME_FOR_TEST);
 			
 			assertEquals("There should be 2 files found", 2, findFiles());
 			

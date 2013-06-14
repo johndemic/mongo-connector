@@ -30,7 +30,7 @@ public class CreateFileFromPayloadTestCases extends MongoTestParent {
 		try {
 			assertEquals("There should be 0 files found before create-file-from-payload", 0, findFiles());
 			
-			GridFSInputFile res = createFileFromPayload();
+			GridFSInputFile res = createFileFromPayload(FILENAME_FOR_TEST);
 			
 			assertEquals("The created file should be named " + FILENAME_FOR_TEST, FILENAME_FOR_TEST, res.getFilename());
 			assertEquals("There should be 1 files found after create-file-from-payload", 1, findFiles());
