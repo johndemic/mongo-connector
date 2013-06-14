@@ -34,7 +34,7 @@ public class RemoveFilesTestCases extends MongoTestParent {
 				"There should be 0 files found before create-file-from-payload",
 				0, findFiles());
 
-		createFileFromPayload();
+		createFileFromPayload(FILENAME_FOR_TEST);
 
 		assertEquals(
 				"There should be 1 files found after create-file-from-payload",
