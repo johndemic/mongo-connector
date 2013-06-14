@@ -187,6 +187,20 @@
 		<entry key="value" value="myValue" />	
     </util:map>
         
+    <!-- update object using map -->
+    <util:map id="updateObjectsUsingMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+        <entry key="collection" value="newCollection" />
+        <entry key="writeConcern" value="SAFE" />
+        <entry key="operator" value="$set" />
+        <!-- number of objects to create with queryKey and queryValue -->
+        <entry key="numberOfObjects" value="10" />
+        <entry key="queryKey" value="key" />
+        <entry key="queryValue" value="oldValue" />
+        <entry key="elementKey" value="key" />
+        <entry key="elementValue" value="newValue" />
+    </util:map>
+    
+    
     <!-- HELPER STUFF BELOW -->
 
     <!-- Helper bean to count the number of users -->
