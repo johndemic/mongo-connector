@@ -46,7 +46,7 @@ public class FindObjectsTestCases extends MongoTestParent {
 			
 			for (int i = 0; i < numberOfObjects; i++) {
 				BasicDBObject dbObject = new BasicDBObject();
-				testObjects.put("dbObject", dbObject);
+				testObjects.put("dbObjectRef", dbObject);
 				response = flow.process(getTestEvent(testObjects));
 				
 				String payload = response.getMessage().getPayload().toString();

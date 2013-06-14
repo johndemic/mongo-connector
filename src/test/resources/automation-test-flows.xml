@@ -87,7 +87,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		
 	<flow name="insert-object" doc:name="insert-object">
 	    <mongo:insert-object config-ref="Mongo_DB" 
-	        collection="#[payload.collection]" dbObject-ref="#[payload.dbObject]" />
+	        collection="#[payload.collection]" dbObject-ref="#[payload.dbObjectRef]" />
 	</flow>
 	
 	<flow name="insert-object-from-map-with-elements" doc:name="insert-object-from-map-with-elements">

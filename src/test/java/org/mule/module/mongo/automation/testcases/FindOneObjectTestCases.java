@@ -40,7 +40,7 @@ public class FindOneObjectTestCases extends MongoTestParent {
 			
 			// dbObject is modified in the insert-object flow, so just get a reference to it
 			// so we can compare with it later
-			myDbObject = (DBObject) testObjects.get("dbObject");
+			myDbObject = (DBObject) testObjects.get("dbObjectRef");
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

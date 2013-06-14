@@ -65,7 +65,7 @@
         <entry key="collection" value="testCollection" />
         <entry key="writeConcern" value="SAFE" />
         <!-- used by insert-object flow -->
-        <entry key="dbObject" value-ref="myDbObject" />
+        <entry key="dbObjectRef" value-ref="myDbObject" />
     </util:map>
     
     <!-- insert object from map -->
@@ -98,7 +98,7 @@
         <!-- used by find-one-object flow -->
         <entry key="queryRef" value-ref="myDbObject" />
         <!-- used by insert-object flow -->
-        <entry key="dbObject" value-ref="myDbObject" />
+        <entry key="dbObjectRef" value-ref="myDbObject" />
     </util:map>
     
     <!-- find one object using query map -->
@@ -122,7 +122,7 @@
         <!-- used by remove-object flow -->
         <entry key="queryRef" value-ref="myDbObject"/>
         <!-- used by insert-object flow -->
-        <entry key="dbObject" value-ref="myDbObject" />
+        <entry key="dbObjectRef" value-ref="myDbObject" />
     </util:map>
     
     <util:map id="removeUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
@@ -178,7 +178,7 @@
     <util:map id="updateObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object"  scope="prototype">
         <entry key="collection" value="newCollection" />
         <!-- used for insert-object flow -->
-        <entry key="dbObject" value-ref="myDbObject" />
+        <entry key="dbObjectRef" value-ref="myDbObject" />
 		<!-- used for update-objects flow -->
 		<entry key="queryRef" value-ref="myDbObject" />
 		<entry key="writeConcern" value="SAFE" />
