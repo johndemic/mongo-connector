@@ -115,6 +115,10 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<mongo:incremental-dump config-ref="Mongo_DB" outputDirectory="#[payload.outputDirectory]" />
 	</flow>
 	
+	<flow name="list-files" doc:name="listFiles">
+		<mongo:list-files config-ref="Mongo_DB" query-ref="#[payload.queryRef]" />
+	</flow>
+	
 	<flow name="get-file-content" doc:name="getFileContent">
 		<mongo:get-file-content config-ref="Mongo_DB" query-ref="#[payload.queryRef]" />
 	</flow>

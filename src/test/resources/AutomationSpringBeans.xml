@@ -288,6 +288,15 @@
     	<entry key="value" value="file1" />
     </util:map>
     
+	<!-- list files-->
+    <util:map id="listFiles" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+        <entry key="queryRef" value-ref="myDbObject" />
+    	<entry key="filename1" value="file1" />
+    	<entry key="filename2" value="file2" />
+    	<entry key="key" value="filename" />
+    	<entry key="value" value="file1" />
+    </util:map>
+    
     <!-- HELPER STUFF BELOW -->
 
     <!-- Helper bean to count the number of users -->
