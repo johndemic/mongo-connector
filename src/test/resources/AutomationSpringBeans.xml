@@ -250,6 +250,13 @@
         <entry key="elementValue" value="newValue" />
     </util:map>
     
+    <util:map id="dump" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+        <entry key="outputDirectory" value="dump" />
+        <entry key="outputName" value="test" />
+        <entry key="zip" value="false" />
+        <entry key="oplog" value="false" />
+        <entry key="threads" value="5" />
+    </util:map>
     
     <!-- HELPER STUFF BELOW -->
 
