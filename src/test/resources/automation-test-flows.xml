@@ -115,8 +115,20 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<mongo:incremental-dump config-ref="Mongo_DB" outputDirectory="#[payload.outputDirectory]" />
 	</flow>
 	
-	<flow name="list-files" doc:name="listFiles">
+	<flow name="list-files" doc:name="list-files">
 		<mongo:list-files config-ref="Mongo_DB" query-ref="#[payload.queryRef]" />
+	</flow>
+	
+	<flow name="list-files-using-query-map-empty-query" doc:name="list-files-using-query-map">
+		<mongo:list-files-using-query-map />
+	</flow>
+	
+	<flow name="list-files-using-query-map-non-empty-query" doc:name="list-files-using-query-map">
+		<mongo:list-files-using-query-map>
+		    <mongo:query-attributes>
+		        <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
+		    </mongo:query-attributes>
+		</mongo:list-files-using-query-map>
 	</flow>
 	
 	<flow name="get-file-content" doc:name="getFileContent">
@@ -124,11 +136,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 	
 	<flow name="get-file-content-using-query-map" doc:name="getFileContentUsingQueryMap">
-		<mongo:get-file-content-using-query-map config-ref="Mongo_DB">
-			<mongo:query-attributes>
-				<mongo:element-attribute key="#[payload.key]">#[payload.value]</mongo:element-attribute>
-		    </mongo:query-attributes>
-		</mongo:get-file-content-using-query-map>
+		<mongo:get-file-content-using-query-map config-ref="Mongo_DB" doc:name="Mongo DB" >
+            <mongo:query-attributes>
+                <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
+            </mongo:query-attributes>
+        </mongo:get-file-content-using-query-map>
 	</flow>
 	
 	<!-- UNTESTED -->
