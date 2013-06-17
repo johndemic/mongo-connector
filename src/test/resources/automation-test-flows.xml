@@ -224,6 +224,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			multi="false" config-ref="Mongo_DB" query-ref="#[payload.queryRef]"
 			writeConcern="#[payload.writeConcern]" element-ref="#[payload.elementRef]" />
 	</flow>
+	
+	<flow name="map-reduce-objects" doc:name="map-reduce-objects">
+	    <mongo:map-reduce-objects config-ref="Mongo_DB" collection="#[payload.collection]" mapFunction="#[payload.mapFunction]" 
+	        reduceFunction="#[payload.reduceFunction]" outputCollection="#[payload.outputCollection]" />
+	</flow>
 
 	<!-- THIS IS BROKEN -->
 	<!-- As a user of this connector, I should not have to set the $set operator 

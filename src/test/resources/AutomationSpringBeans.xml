@@ -250,6 +250,18 @@
         <entry key="elementValue" value="newValue" />
     </util:map>
     
+    <!-- map reduce objects -->
+    <util:map id="mapReduceObjects" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+        <entry key="collection" value="itemsCollection" />
+        <entry key="outputCollection" value="resultCollection" />
+    	<entry key="mapFunction" value="function() { emit(this.item, 1); }"/>
+    	<entry key="reduceFunction" value="function(key, values) { var result = 0;	values.forEach(function(value) { result += 1 }); return {count: result}; }" />
+<!--     	<entry key="objects" value-ref="mapReduceBeanList" /> -->
+    	<entry key="numApples" value="10" />
+    	<entry key="numOranges" value="5" />
+    </util:map>
+    
+    
     
     <!-- HELPER STUFF BELOW -->
 
@@ -258,5 +270,65 @@
         <entry key="collection" value="system.users" />
         <entry key="dbObject" value-ref="myDbObject" />
     </util:map>
-
+    
+    <!-- Helper beans to test map-reduction -->
+    
+    <util:list id="mapReduceBeanList" scope="prototype" value-type="com.mongodb.DBObject">
+		<ref bean="appleBean_1"/>
+		<ref bean="appleBean_2"/>
+		<ref bean="appleBean_3"/>
+		<ref bean="appleBean_4"/>
+		<ref bean="orangeBean_1"/>
+		<ref bean="orangeBean_2"/>
+    </util:list>
+    
+	<bean id="appleBean_1" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+		    <map key-type="java.lang.String" value-type="java.lang.Object">
+		        <entry key="item" value="apple" />
+		    </map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="appleBean_2" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+		    <map key-type="java.lang.String" value-type="java.lang.Object">
+		        <entry key="item" value="apple" />
+		    </map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="appleBean_3" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+		    <map key-type="java.lang.String" value-type="java.lang.Object">
+		        <entry key="item" value="apple" />
+		    </map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="appleBean_4" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+		    <map key-type="java.lang.String" value-type="java.lang.Object">
+		        <entry key="item" value="apple" />
+		    </map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="orangeBean_1" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+		    <map key-type="java.lang.String" value-type="java.lang.Object">
+		        <entry key="item" value="orange" />
+		    </map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="orangeBean_2" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+		    <map key-type="java.lang.String" value-type="java.lang.Object">
+		        <entry key="item" value="orange" />
+		    </map>
+		</constructor-arg>
+	</bean>
+	
+	
 </beans>
