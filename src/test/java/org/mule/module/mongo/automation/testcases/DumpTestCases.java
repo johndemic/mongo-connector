@@ -48,9 +48,9 @@ public class DumpTestCases extends MongoTestParent {
 	@Test
 	public void testDump() {
 		try {
-			MessageProcessor dump = lookupFlowConstruct("dump");
+			MessageProcessor dumpFlow = lookupFlowConstruct("dump");
 			
-			dump.process(getTestEvent(testObjects));
+			dumpFlow.process(getTestEvent(testObjects));
 			
 			File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
 			assertTrue("dump directory should exist after test runs", dumpOutputDir.exists());

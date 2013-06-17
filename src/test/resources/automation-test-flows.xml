@@ -110,7 +110,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<mongo:dump config-ref="Mongo_DB" outputDirectory="#[payload.outputDirectory]" outputName="#[payload.outputName]" zip="#[payload.zip]" 
 			oplog="#[payload.oplog]" threads="#[payload.threads]"/>
 	</flow>
-
+	
+	<flow name="getFileContent" doc:name="getFileContent">
+		<mongo:get-file-content config-ref="Mongo_DB" query-ref="#[payload.queryRef]" />
+	</flow>
+	
 	<!-- UNTESTED -->
 	<flow name="drop-index" doc:name="drop-index">
 		<mongo:drop-index config-ref="Mongo_DB" collection="#[payload.collection]"
