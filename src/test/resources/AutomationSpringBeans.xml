@@ -269,11 +269,23 @@
         <entry key="threads" value="5" />
     </util:map>
     
+    <util:map id="incrementalDump" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+        <entry key="outputDirectory" value="dump" />
+    </util:map>
+    
 	<!-- get file content -->
     <util:map id="getFileContent" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="queryRef" value-ref="myDbObject" />
     	<entry key="filename1" value="file1" />
     	<entry key="filename2" value="file2" />
+    </util:map>
+    
+	<!-- get file contents using query map -->
+    <util:map id="getFileContentUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+    	<entry key="filename1" value="file1" />
+    	<entry key="filename2" value="file2" />
+    	<entry key="key" value="filename" />
+    	<entry key="value" value="file1" />
     </util:map>
     
     <!-- HELPER STUFF BELOW -->

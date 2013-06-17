@@ -25,12 +25,12 @@ import org.mule.api.processor.MessageProcessor;
 
 import com.mongodb.DBObject;
 
-public class GetFileContentTestCases extends MongoTestParent {
+public class GetFileContentUsingQueryMapTestCases extends MongoTestParent {
 	
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
-		testObjects = (HashMap<String, Object>) context.getBean("getFileContent");
+		testObjects = (HashMap<String, Object>) context.getBean("getFileContentUsingQueryMap");
 		
 		assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
 		
@@ -48,12 +48,9 @@ public class GetFileContentTestCases extends MongoTestParent {
 
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
-	public void testGetFileContent() {
+	public void testGetFileContentUsingQueryMap() {
 		try {
-			MessageProcessor getFileContentFlow = lookupFlowConstruct("get-file-content");
-			
-			DBObject queryRef = (DBObject) testObjects.get("queryRef");
-			queryRef.put("filename", testObjects.get("filename1"));
+			MessageProcessor getFileContentFlow = lookupFlowConstruct("get-file-content-using-query-map");
 			
 			MuleEvent response = getFileContentFlow.process(getTestEvent(testObjects));
 			
