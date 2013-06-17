@@ -81,6 +81,18 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<mongo:remove-files query-ref="#[payload.queryRef]" />
 	</flow>
 
+	<flow name="remove-files-using-query-map-empty-query" doc:name="remove-files">
+		<mongo:remove-files-using-query-map />
+	</flow>
+
+	<flow name="remove-files-using-query-map-non-empty-query" doc:name="remove-files">
+		<mongo:remove-files-using-query-map>
+		    <mongo:query-attributes>
+		        <mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
+		    </mongo:query-attributes>
+		</mongo:remove-files-using-query-map>
+	</flow>
+	
 	<flow name="find-files" doc:name="find-files">
 		<mongo:find-files config-ref="Mongo_DB" />
 	</flow>

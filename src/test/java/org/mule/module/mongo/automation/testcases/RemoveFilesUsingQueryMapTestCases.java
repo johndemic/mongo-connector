@@ -20,9 +20,7 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-import com.mongodb.DBObject;
-
-public class RemoveFilesTestCases extends MongoTestParent {
+public class RemoveFilesUsingQueryMapTestCases extends MongoTestParent {
 
 	@SuppressWarnings("unchecked")
 	@Before
@@ -47,13 +45,13 @@ public class RemoveFilesTestCases extends MongoTestParent {
 
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
-	public void testRemoveFiles_emptyQuery() {
+	public void testRemoveFilesUsingQueryMap_emptyQuery() {
 		try {
-			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files");
+			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files-using-query-map-empty-query");
 			MuleEvent event = getTestEvent(testObjects);
 			removeFilesFlow.process(event);
 
-			assertEquals("There should be 0 files found after remove-files with an empty query", 0,
+			assertEquals("There should be 0 files found after remove-files-using-query-map with an empty query", 0,
 					findFiles());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -64,15 +62,13 @@ public class RemoveFilesTestCases extends MongoTestParent {
 
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
-	public void testRemoveFiles_nonemptyQuery() {
+	public void testRemoveFilesUsingQueryMap_nonemptyQuery() {
 		try {
-			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files");
-			DBObject queryRef = (DBObject) testObjects.get("queryRef");
-			queryRef.put((String) testObjects.get("key"), testObjects.get("value"));
+			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files-using-query-map-non-empty-query");
 			MuleEvent event = getTestEvent(testObjects);
 			removeFilesFlow.process(event);
 
-			assertEquals("There should be 1 files found after remove-files with an empty query", 1,
+			assertEquals("There should be 1 files found after removing files with a filename of " + testObjects.get("value"), 1,
 					findFiles());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,4 +76,5 @@ public class RemoveFilesTestCases extends MongoTestParent {
 		}
 
 	}
+
 }
