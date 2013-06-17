@@ -21,6 +21,7 @@ import java.util.Map;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.rules.TemporaryFolder;
+import org.junit.rules.Timeout;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.tck.junit4.FunctionalTestCase;
@@ -36,6 +37,10 @@ public class MongoTestParent extends FunctionalTestCase {
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder();
 
+	// Set global timeout of tests to 10minutes
+    @Rule
+    public Timeout globalTimeout = new Timeout(600000);
+    
 	protected static final String[] SPRING_CONFIG_FILES = new String[] { "AutomationSpringBeans.xml" };
 	protected static ApplicationContext context;
 	protected Map<String, Object> testObjects;
