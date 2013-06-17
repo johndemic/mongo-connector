@@ -13,7 +13,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 
 import org.apache.commons.io.FileUtils;
@@ -21,19 +20,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
 public class DumpTestCases extends MongoTestParent {
 	
-//	 <util:map id="dump" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-//     <entry key="outputDirectory" value="dump" />
-//     <entry key="outputName" value="test" />
-//     <entry key="zip" value="false" />
-//     <entry key="oplog" value="false" />
-//     <entry key="threads" value="5" />
-// </util:map>
-
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
@@ -60,7 +50,7 @@ public class DumpTestCases extends MongoTestParent {
 		try {
 			MessageProcessor dump = lookupFlowConstruct("dump");
 			
-			MuleEvent response = dump.process(getTestEvent(testObjects));
+			dump.process(getTestEvent(testObjects));
 			
 			File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
 			assertTrue("dump directory should exist after test runs", dumpOutputDir.exists());
