@@ -37,7 +37,9 @@ public class DumpTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			FileUtils.deleteDirectory(new File("./" + testObjects.get("outputDirectory")));
+			File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
+			FileUtils.deleteDirectory(dumpOutputDir);
+			assertFalse("dump directory should not exist after test runs", dumpOutputDir.exists());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

@@ -64,15 +64,6 @@ public class CreateIndexTestCases extends MongoTestParent {
 		}
 	}
 	
-	private boolean existsInList(List<DBObject> objects, String indexName) {
-		for (DBObject obj : objects) {
-			if (obj.get("name").equals(indexName)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
 	@After
 	public void tearDown() {
 		try {

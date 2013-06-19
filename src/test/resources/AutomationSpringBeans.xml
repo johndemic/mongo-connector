@@ -86,7 +86,7 @@
         <entry key="queryRef" value-ref="myDbObject" />
     </util:map>
     
-	<!-- find one file -->
+	<!-- find one file using query map -->
     <util:map id="findOneFileUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
     	<entry key="filename1" value="file1" />
     	<entry key="filename2" value="file2" />
@@ -291,7 +291,7 @@
     	<entry key="value" value="file1" />
     </util:map>
     
-	<!-- list files-->
+	<!-- list files -->
     <util:map id="listFiles" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
         <entry key="queryRef" value-ref="myDbObject" />
     	<entry key="filename1" value="file1" />
@@ -300,12 +300,27 @@
     	<entry key="value" value="file1" />
     </util:map>
     
-	<!-- list files-->
+	<!-- list files using query map -->
     <util:map id="listFilesUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
     	<entry key="filename1" value="file1" />
     	<entry key="filename2" value="file2" />
     	<entry key="key" value="filename" />
     	<entry key="value" value="file1" />
+    </util:map>
+    
+	<!-- restore -->
+    <util:map id="restore" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+    	<entry key="inputPath" value="dump" />
+    	<entry key="drop" value="false" />
+    	<entry key="oplogReplay" value="false" />
+    	<entry key="collection" value="testCollection" />
+        <entry key="outputDirectory" value="dump" />
+        <entry key="outputName" value="test" />
+        <entry key="zip" value="false" />
+        <entry key="oplog" value="false" />
+        <entry key="threads" value="5" />
+        <entry key="field" value="myField" />
+        <entry key="order" value="ASC" />
     </util:map>
     
     <!-- HELPER STUFF BELOW -->

@@ -24,6 +24,7 @@ import org.junit.rules.TemporaryFolder;
 import org.junit.rules.Timeout;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
+import org.mule.module.mongo.api.IndexOrder;
 import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -166,6 +167,33 @@ public class MongoTestParent extends FunctionalTestCase {
 			
 			testObjects.put("collection", "fs.files");
 			lookupFlowConstruct("drop-collection").process(getTestEvent(testObjects));
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+	}
+	
+	protected boolean existsInList(List<DBObject> objects, String indexName) {
+		for (DBObject obj : objects) {
+			if (obj.get("name").equals(indexName)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	protected String getIndexName() {
+		String indexKey = (String) testObjects.get("field");
+		IndexOrder indexOrder = IndexOrder.valueOf((String) testObjects.get("order"));
+		
+		return indexKey + "_" + indexOrder.getValue();
+	}
+	
+	protected void dropIndex(String indexName) {
+		testObjects.put("index", indexName);			
+		MessageProcessor dropIndexFlow = lookupFlowConstruct("drop-index");
+		try {
+			dropIndexFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
