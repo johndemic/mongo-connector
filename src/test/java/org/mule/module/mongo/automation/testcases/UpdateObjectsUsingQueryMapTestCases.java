@@ -18,18 +18,18 @@ import org.mule.module.mongo.api.MongoCollection;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
-public class UpdateObjectsUsingMapTestCases extends MongoTestParent {
-
+public class UpdateObjectsUsingQueryMapTestCases extends MongoTestParent {
+	
 	@Before
 	public void setUp() {
 		try {
 			// Create the collection
-			testObjects = (HashMap<String, Object>) context.getBean("updateObjectsUsingMap");
+			testObjects = (HashMap<String, Object>) context.getBean("updateObjectsUsingQueryMap");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 
-			String queryKey = testObjects.get("queryKey").toString();
-			String queryValue = testObjects.get("queryValue").toString();
+			String queryKey = (String) testObjects.get("queryKey");
+			String queryValue = (String) testObjects.get("queryValue");
 			int numberOfObjects = (Integer) testObjects.get("numberOfObjects");
 			
 			// Create the objects with the key-value pair
@@ -50,24 +50,25 @@ public class UpdateObjectsUsingMapTestCases extends MongoTestParent {
 
 	@Category({SmokeTests.class, SanityTests.class})
 	@Test
-	public void testUpdateObjectsUsingMap() {
+	public void testUpdateObjectsUsingQueryMap() {
 		try {
-			String elementKey = testObjects.get("elementKey").toString();
-			String elementValue = testObjects.get("elementValue").toString();
+			DBObject dbObj = (DBObject) testObjects.get("dbObject");
+			DBObject elementDbObj = (DBObject) dbObj.get("$set");
+			String queryKey = (String) testObjects.get("queryKey");
 			int numberOfObjects = (Integer) testObjects.get("numberOfObjects");
 			
 			// Update objects
-			MessageProcessor flow = lookupFlowConstruct("update-objects-using-map");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			MessageProcessor updateObjectsUsingQueryMapFlow = lookupFlowConstruct("update-objects-using-query-map");
+			MuleEvent response = updateObjectsUsingQueryMapFlow.process(getTestEvent(testObjects));
 			
 			// Get all objects
-			flow = lookupFlowConstruct("find-objects");
-			response = flow.process(getTestEvent(testObjects));
+			updateObjectsUsingQueryMapFlow = lookupFlowConstruct("find-objects");
+			response = updateObjectsUsingQueryMapFlow.process(getTestEvent(testObjects));
 			
 			MongoCollection objects = (MongoCollection) response.getMessage().getPayload();
 			for (DBObject obj : objects) {
-				assertTrue(obj.containsField(elementKey));
-				assertTrue(obj.get(elementKey).equals(elementValue));
+				assertTrue(obj.containsField(queryKey));
+				assertTrue(obj.get(queryKey).equals(elementDbObj.get(queryKey)));
 			}
 			assertTrue(objects.size() == numberOfObjects);
 			

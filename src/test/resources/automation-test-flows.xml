@@ -328,5 +328,14 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			</mongo:element-attributes>
 		</mongo:update-objects-using-map>
 	</flow>
+	
+	<flow name="update-objects-using-query-map">
+		<mongo:update-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]"
+			writeConcern="#[payload.writeConcern]" upsert="#[payload.upsert]" multi="#[payload.multi]" element-ref="#[payload.dbObject]">
+		    <mongo:query-attributes>
+		        <mongo:query-attribute key="#[payload.queryKey]">#[payload.queryValue]</mongo:query-attribute>
+		    </mongo:query-attributes>
+		</mongo:update-objects-using-query-map>
+	</flow>
 
 </mule>

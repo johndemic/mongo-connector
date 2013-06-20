@@ -232,12 +232,23 @@
     <!-- update object using query map -->
     <util:map id="updateObjectsUsingQueryMap" map-class="java.util.HashMap" value-type="java.lang.Object" scope="prototype">
         <entry key="collection" value="newCollection" />
-        <entry key="elementRef" value="myDbObject" />
+        <entry key="upsert" value="false" />
+        <entry key="multi" value="true" />
+        <entry key="writeConcern" value="DATABASE_DEFAULT" />
         <entry key="queryKey" value="key" />
         <entry key="queryValue" value="oldValue" />
-        <entry key="elementKey" value="key" />
-        <entry key="elementValue" value="newValue" />
-        <entry key="operator" value="$set" />
+        <entry key="numberOfObjects" value="#{10}" />
+        <entry key="dbObject">
+        	<bean class="com.mongodb.BasicDBObject">
+        		<constructor-arg index="0" value="$set" />
+        		<constructor-arg index="1">
+        			<bean class="com.mongodb.BasicDBObject">
+		        		<constructor-arg index="0" value="key" />
+		        		<constructor-arg index="1" value="newValue" />
+        			</bean>
+        		</constructor-arg>
+        	</bean>
+        </entry>
     </util:map>
     
     <!-- update object using map -->
@@ -246,11 +257,17 @@
         <entry key="writeConcern" value="SAFE" />
         <entry key="operator" value="$set" />
         <!-- number of objects to create with queryKey and queryValue -->
-        <entry key="numberOfObjects" value="10" />
+        <entry key="numberOfObjects" value="#{10}" />
         <entry key="queryKey" value="key" />
         <entry key="queryValue" value="oldValue" />
         <entry key="elementKey" value="key" />
         <entry key="elementValue" value="newValue" />
+        <entry key="dbObject">
+        	<bean class="com.mongodb.BasicDBObject">
+        		<constructor-arg index="0" value="key" />
+        		<constructor-arg index="1" value="newValue" />
+        	</bean>
+        </entry>
     </util:map>
     
     <!-- map reduce objects -->
