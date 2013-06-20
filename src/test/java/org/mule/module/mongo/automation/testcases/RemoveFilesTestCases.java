@@ -20,8 +20,6 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-import com.mongodb.DBObject;
-
 public class RemoveFilesTestCases extends MongoTestParent {
 
 	@SuppressWarnings("unchecked")
@@ -49,7 +47,7 @@ public class RemoveFilesTestCases extends MongoTestParent {
 	@Test
 	public void testRemoveFiles_emptyQuery() {
 		try {
-			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files");
+			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files-using-query-map-empty-query");
 			MuleEvent event = getTestEvent(testObjects);
 			removeFilesFlow.process(event);
 
@@ -66,13 +64,11 @@ public class RemoveFilesTestCases extends MongoTestParent {
 	@Test
 	public void testRemoveFiles_nonemptyQuery() {
 		try {
-			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files");
-			DBObject queryRef = (DBObject) testObjects.get("queryRef");
-			queryRef.put((String) testObjects.get("key"), testObjects.get("value"));
+			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files-using-query-map-non-empty-query");
 			MuleEvent event = getTestEvent(testObjects);
 			removeFilesFlow.process(event);
 
-			assertEquals("There should be 1 files found after remove-files with an empty query", 1,
+			assertEquals("There should be 1 files found after remove-files with a non-empty query, which deletes all files of name " + testObjects.get("value"), 1,
 					findFiles());
 		} catch (Exception e) {
 			e.printStackTrace();
