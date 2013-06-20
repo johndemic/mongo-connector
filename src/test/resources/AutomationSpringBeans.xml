@@ -283,6 +283,22 @@
 			</bean>
 		</entry>
 	</util:map>
+	
+	<!-- update objects by function using map -->
+	<util:map id="updateObjectsByFunctionUsingMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="newCollection" />
+		<entry key="upsert" value="false" />
+		<entry key="multi" value="true" />
+		<entry key="writeConcern" value="DATABASE_DEFAULT" />
+		<entry key="function" value="$set" />
+		<!-- number of objects to create with queryKey and queryValue -->
+		<entry key="numberOfObjects" value="#{10}" />
+		<entry key="queryKey" value="key" />
+		<entry key="queryValue" value="oldValue" />
+		<entry key="elementKey" value="key" />
+		<entry key="elementValue" value="newValue" />
+	</util:map>
 
 	<!-- update objects by function -->
 	<util:map id="updateObjectsByFunction" map-class="java.util.HashMap"

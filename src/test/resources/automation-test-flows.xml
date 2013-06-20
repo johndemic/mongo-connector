@@ -358,8 +358,23 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	<flow name="update-objects-by-function">
 		<mongo:update-objects-by-function
 			config-ref="Mongo_DB" collection="#[payload.collection]" element-ref="#[payload.elementRef]"
-			function="#[payload.function]" query-ref="#[payload.queryRef]" upsert="#[payload.upsert]" multi="#[payload.multi]" writeConcern="#[payload.writeConcern]">
+			function="#[payload.function]" query-ref="#[payload.queryRef]"
+			upsert="#[payload.upsert]" multi="#[payload.multi]" writeConcern="#[payload.writeConcern]">
 		</mongo:update-objects-by-function>
+	</flow>
+
+	<flow name="update-objects-by-function-using-map">
+		<mongo:update-objects-by-function-using-map
+			config-ref="Mongo_DB" collection="#[payload.collection]" upsert="#[payload.upsert]"
+			multi="#[payload.multi]" writeConcern="#[payload.writeConcern]"
+			function="#[payload.function]">
+			<mongo:query-attributes>
+				<mongo:query-attribute key="#[payload.queryKey]">#[payload.queryValue]</mongo:query-attribute>
+			</mongo:query-attributes>
+			<mongo:element-attributes>
+				<mongo:element-attribute key="#[payload.elementKey]">#[payload.elementValue]</mongo:element-attribute>
+			</mongo:element-attributes>
+		</mongo:update-objects-by-function-using-map>
 	</flow>
 
 </mule>

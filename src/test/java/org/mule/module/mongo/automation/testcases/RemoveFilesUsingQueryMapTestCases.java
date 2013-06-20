@@ -36,13 +36,12 @@ public class RemoveFilesUsingQueryMapTestCases extends MongoTestParent {
 		assertEquals("There should be 3 files in total after setting up the test", 3, findFiles());
 	}
 	
-	
 	@After
 	public void tearDown() {
 		deleteFilesCreatedByCreateFileFromPayload();
 		assertEquals("There should be 0 files in total after tearing down the test", 0, findFiles());
 	}
-
+	
 	@Category({ SmokeTests.class, SanityTests.class })
 	@Test
 	public void testRemoveFilesUsingQueryMap_emptyQuery() {
