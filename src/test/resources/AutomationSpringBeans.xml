@@ -22,6 +22,12 @@
 		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
 		<entry key="collection" value="testCollection" />
 	</util:map>
+	
+	<!-- drop database -->
+	<util:map id="dropDatabase" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
+		<entry key="collection" value="testCollection" />
+	</util:map>
 
 	<!-- exists collection -->
 	<util:map id="existsCollection" map-class="java.util.HashMap"

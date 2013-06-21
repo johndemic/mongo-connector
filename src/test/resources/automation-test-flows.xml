@@ -40,7 +40,17 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<mongo:create-collection config-ref="Mongo_DB"
 			collection="#[payload.collection]" doc:name="Mongo DB" />
 	</flow>
+	
+	<flow name="create-collection-for-drop-restore">
+		<mongo:create-collection config-ref="Mongo_DB_for_drop_restore"
+			collection="#[payload.collection]" doc:name="Mongo DB" />
+	</flow>
 
+	<flow name="drop-collection-for-drop-restore">
+		<mongo:drop-collection config-ref="Mongo_DB_for_drop_restore"
+			collection="#[payload.collection]" doc:name="Mongo DB" />
+	</flow>
+	
 	<flow name="drop-collection" doc:name="drop-collection">
 		<mongo:drop-collection config-ref="Mongo_DB"
 			collection="#[payload.collection]" doc:name="Mongo DB" />
@@ -51,6 +61,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			collection="#[payload.collection]" doc:name="Mongo_DB" />
 	</flow>
 
+	<flow name="exists-collection-for-drop-restore">
+		<mongo:exists-collection config-ref="Mongo_DB_for_drop_restore"
+			collection="#[payload.collection]" doc:name="Mongo_DB" />
+	</flow>
+	
 	<flow name="list-collections" doc:name="list-collections">
 		<mongo:list-collections config-ref="Mongo_DB" />
 	</flow>
@@ -85,10 +100,6 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			metadata-ref="#[sessionVars.metaDataRef]" />
 	</flow>
 
-	<flow name="drop-database" doc:name="drop-database">
-		<mongo:drop-database config-ref="Mongo_DB" />
-	</flow>
-
 	<flow name="remove-files-using-query-map-empty-query">
 		<mongo:remove-files-using-query-map
 			config-ref="Mongo_DB" />
@@ -108,6 +119,10 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			inputPath="#[payload.inputPath]" drop="#[payload.drop]" oplogReplay="#[payload.oplogReplay]" />
 	</flow>
 
+	<flow name="drop-database">
+		<mongo:drop-database config-ref="Mongo_DB_for_drop_restore" />
+	</flow>
+	
 	<flow name="createIndex_Dump">
 		<mongo:create-index collection="#[payload.collection]"
 			field="#[payload.field]" order="#[payload.order]" config-ref="Mongo_DB_for_drop_restore" />
