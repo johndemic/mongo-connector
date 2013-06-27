@@ -9,7 +9,7 @@
                            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
 	<!-- Dummy BasicDBObject -->
-	<bean id="myDbObject" class="com.mongodb.BasicDBObject" scope="prototype" />
+<!-- 	<bean id="myDbObject" class="com.mongodb.BasicDBObject" scope="prototype" /> -->
 
 	<!-- create collection -->
 	<util:map id="createCollection" map-class="java.util.HashMap"
@@ -46,7 +46,9 @@
 	<!-- create index -->
 	<util:map id="createIndex" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="dbObject" value-ref="myDbObject" />
+		<entry key="dbObject">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<entry key="collection" value="testCollection" />
 		<entry key="field" value="myField" />
 		<entry key="order" value="ASC" />
@@ -55,7 +57,9 @@
 	<!-- drop index -->
 	<util:map id="dropIndex" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="dbObject" value-ref="myDbObject" />
+		<entry key="dbObject">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<entry key="collection" value="testCollection" />
 		<entry key="field" value="myField" />
 		<entry key="order" value="ASC" />
@@ -66,7 +70,9 @@
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="collection" value="testCollection" />
 		<!-- index to search for -->
-		<entry key="dbObject" value-ref="myDbObject" />
+		<entry key="dbObject">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<entry key="field" value="myField" />
 		<entry key="order" value="ASC" />
 	</util:map>
@@ -103,7 +109,9 @@
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="filename1" value="file1" />
 		<entry key="filename2" value="file2" />
-		<entry key="queryRef" value-ref="myDbObject" />
+		<entry key="queryRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 	</util:map>
 
 	<!-- find one file using query map -->
@@ -130,7 +138,9 @@
 		<entry key="collection" value="testCollection" />
 		<entry key="writeConcern" value="SAFE" />
 		<!-- used by insert-object flow -->
-		<entry key="dbObjectRef" value-ref="myDbObject" />
+		<entry key="dbObjectRef">
+   		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 	</util:map>
 
 	<!-- insert object from map -->
@@ -166,9 +176,13 @@
 		<entry key="collection" value="testCollection" />
 		<entry key="writeConcern" value="SAFE" />
 		<!-- used by find-one-object flow -->
-		<entry key="queryRef" value-ref="myDbObject" />
+		<entry key="queryRef">
+			<bean class="com.mongodb.BasicDBObject" scope="prototype" />    
+		</entry>
 		<!-- used by insert-object flow -->
-		<entry key="dbObjectRef" value-ref="myDbObject" />
+		<entry key="dbObjectRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 	</util:map>
 
 	<!-- find one object using query map -->
@@ -193,9 +207,13 @@
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="collection" value="testCollection" />
 		<!-- used by remove-object flow -->
-		<entry key="queryRef" value-ref="myDbObject" />
+		<entry key="queryRef">
+			<bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<!-- used by insert-object flow -->
-		<entry key="dbObjectRef" value-ref="myDbObject" />
+		<entry key="dbObjectRef">
+			<bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 	</util:map>
 
 	<util:map id="removeUsingQueryMap" map-class="java.util.HashMap"
@@ -215,7 +233,9 @@
 	<util:map id="saveObject" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="collection" value="testCollection" />
-		<entry key="elementRef" value-ref="myDbObject" />
+		<entry key="elementRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<entry key="writeConcern" value="SAFE" />
 		<!-- Add the following key/value pair to modify the object -->
 		<entry key="key" value="mykey" />
@@ -242,7 +262,9 @@
 	<util:map id="countObjects" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
 		<entry key="collection" value="testCollection" />
-		<entry key="dbObject" value-ref="myDbObject" />
+		<entry key="dbObject">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 	</util:map>
 
 	<!-- execute command -->
@@ -258,9 +280,13 @@
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="collection" value="newCollection" />
 		<!-- used for insert-object flow -->
-		<entry key="dbObjectRef" value-ref="myDbObject" />
+		<entry key="dbObjectRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<!-- used for update-objects flow -->
-		<entry key="queryRef" value-ref="myDbObject" />
+		<entry key="queryRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<entry key="writeConcern" value="SAFE" />
 		<!-- Key value pair to be written to the object/s for update -->
 		<entry key="key" value="myKey" />
@@ -381,7 +407,9 @@
 	<!-- get file content -->
 	<util:map id="getFileContent" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="queryRef" value-ref="myDbObject" />
+		<entry key="queryRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<entry key="filename1" value="file1" />
 		<entry key="filename2" value="file2" />
 	</util:map>
@@ -398,7 +426,9 @@
 	<!-- list files -->
 	<util:map id="listFiles" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
-		<entry key="queryRef" value-ref="myDbObject" />
+		<entry key="queryRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 		<entry key="filename1" value="file1" />
 		<entry key="filename2" value="file2" />
 		<entry key="key" value="filename" />
@@ -436,7 +466,9 @@
 	<util:map id="getUsers" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
 		<entry key="collection" value="system.users" />
-		<entry key="dbObject" value-ref="myDbObject" />
+		<entry key="dbObject">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
 	</util:map>
 
 	<!-- Helper beans to test map-reduction -->
