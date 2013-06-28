@@ -27,11 +27,6 @@ import com.mongodb.DBObject;
 
 public class RestoreTestCases extends MongoTestParent {
 	
-	@Override
-	protected String getConfigResources() {
-		return "automation-test-flows.xml";
-	}
-	
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
