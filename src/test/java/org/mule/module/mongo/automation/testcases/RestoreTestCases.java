@@ -19,6 +19,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
@@ -104,6 +105,7 @@ public class RestoreTestCases extends MongoTestParent {
 	
 	@SuppressWarnings("unchecked")
 	@Test
+	@Ignore
 	public void testRestore() {
 		try {
 			MessageProcessor restoreFlow = lookupFlowConstruct("restore");
