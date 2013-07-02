@@ -61,7 +61,7 @@ public class DropDatabaseTestCases extends MongoTestParent {
 	
 	
 	// When DropDatabaseTestCases is executed by itself, the test passes. When executing all test cases, it fails...
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 //	@Test
 	public void testDropDatabase() {
 		MuleEvent response = null;

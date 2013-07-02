@@ -8,7 +8,7 @@
 
 package org.mule.module.mongo.automation.testcases;
 
-public interface SanityTests {
+public interface RegressionTests {
 
 	/* category marker */ 
 

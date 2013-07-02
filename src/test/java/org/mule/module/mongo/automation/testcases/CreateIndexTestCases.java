@@ -40,7 +40,7 @@ public class CreateIndexTestCases extends MongoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testCreateIndex() {
 		try {

@@ -60,7 +60,7 @@ public class FindObjectsTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SanityTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testFindObjects() {
 		try {

@@ -47,7 +47,7 @@ public class FindOneFileUsingQueryMapTestCases extends MongoTestParent {
 		deleteFilesCreatedByCreateFileFromPayload();
 	}
 
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testFindOneFileUsingQueryMap() {
 		try {

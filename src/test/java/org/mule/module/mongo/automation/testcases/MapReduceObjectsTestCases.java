@@ -56,7 +56,7 @@ public class MapReduceObjectsTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testMapReduceObjects() {
 		try {

@@ -52,7 +52,7 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 		}
 	}
 	
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testCountObjectsUsingQueryMap_without_map() {
 		insertObjects(getEmptyDBObjects(2));
@@ -68,7 +68,7 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 		assertEquals(new Long(2), response.getMessage().getPayload());
 	}
 
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testCountObjectsUsingQueryMap_with_map() {
 		List<DBObject> list = getEmptyDBObjects(2);

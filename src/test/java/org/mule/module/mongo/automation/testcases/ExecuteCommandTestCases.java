@@ -40,7 +40,7 @@ public class ExecuteCommandTestCases extends MongoTestParent {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testExecuteCommand() {
 		try {

@@ -43,7 +43,7 @@ public class RemoveFilesTestCases extends MongoTestParent {
 		assertEquals("There should be 0 files in total after tearing down the test", 0, findFiles());
 	}
 
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testRemoveFiles_emptyQuery() {
 		try {

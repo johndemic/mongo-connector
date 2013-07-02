@@ -53,7 +53,7 @@ public class ListFilesTestCases extends MongoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testListFiles_emptyQuery() {
 		MessageProcessor listFilesFlow = lookupFlowConstruct("list-files");
@@ -79,7 +79,7 @@ public class ListFilesTestCases extends MongoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testListFiles_nonemptyQuery() {
 		MessageProcessor listFilesFlow = lookupFlowConstruct("list-files");

@@ -27,7 +27,7 @@ import com.mongodb.DBObject;
 public class AddUserTestCases extends MongoTestParent {
 	
 	@SuppressWarnings("unchecked")
-	@Category({SanityTests.class, SmokeTests.class})
+	@Category({RegressionTests.class, SmokeTests.class})
 	@Test
 	public void testAddUser() {
 		try {

@@ -47,7 +47,7 @@ public class UpdateObjectsByFunctionTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testUpdateObjectsByFunction() {
 		try {

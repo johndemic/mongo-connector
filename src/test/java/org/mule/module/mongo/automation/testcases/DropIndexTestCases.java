@@ -46,7 +46,7 @@ public class DropIndexTestCases extends MongoTestParent {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testDropIndexByName() {
 		try {

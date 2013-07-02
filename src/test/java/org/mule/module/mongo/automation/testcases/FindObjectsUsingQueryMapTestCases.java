@@ -62,7 +62,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SanityTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testFindObjectsUsingQueryMap_WithQuery() {
 		try {
@@ -88,7 +88,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 		}
 	}
 	
-	@Category({SanityTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testFindObjectsUsingQueryMap_WithoutQuery() {
 		try {
@@ -110,7 +110,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SanityTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testFindObjectsUsingQueryMap_WithLimit() {
 		try {

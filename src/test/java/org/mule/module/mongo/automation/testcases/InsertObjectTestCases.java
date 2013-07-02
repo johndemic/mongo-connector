@@ -34,7 +34,7 @@ public class InsertObjectTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testInsertObject() {
 		try {

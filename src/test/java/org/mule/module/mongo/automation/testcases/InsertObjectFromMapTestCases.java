@@ -38,7 +38,7 @@ public class InsertObjectFromMapTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testInsertObjectFromMap_WithElements() {
 		try {
@@ -76,7 +76,7 @@ public class InsertObjectFromMapTestCases extends MongoTestParent {
 	// Evidently, it is not and must be supplied. Otherwise, a NPE is thrown.
 	//
 	// http://mulesoft.github.io/mongo-connector/mule/mongo-config.html#insert-object-from-map
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testInsertObjectFromMap_WithoutElements() {
 		try {

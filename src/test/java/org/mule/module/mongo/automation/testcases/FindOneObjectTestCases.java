@@ -47,7 +47,7 @@ public class FindOneObjectTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({ SanityTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testFindOneObject() {
 		try {

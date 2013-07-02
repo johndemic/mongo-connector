@@ -56,7 +56,7 @@ public class SaveObjectFromMapTestCases extends MongoTestParent {
 		return object;
 	}
 	
-	@Category({SmokeTests.class, SanityTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testSaveObjectFromMap() {
 		try {

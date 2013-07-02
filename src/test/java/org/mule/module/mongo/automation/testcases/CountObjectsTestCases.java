@@ -50,7 +50,7 @@ public class CountObjectsTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testCountObjects() {
 		insertObjects(getEmptyDBObjects(2));

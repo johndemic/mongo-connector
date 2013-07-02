@@ -35,7 +35,7 @@ public class FindFilesTestCases extends MongoTestParent {
 		deleteFilesCreatedByCreateFileFromPayload();
 	}
 
-	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ SmokeTests.class, RegressionTests.class })
 	@Test
 	public void testFindFiles() {
 		assertEquals("There should be 2 files found", 2, findFiles());
