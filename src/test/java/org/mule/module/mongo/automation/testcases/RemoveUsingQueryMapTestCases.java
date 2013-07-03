@@ -104,25 +104,27 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 		}
 	}
 
-//	@Category({SmokeTests.class, SanityTests.class})
-//	@Test
-//	public void testRemoveUsingQueryMap_WithoutQueryMap() {
-//		try {
-//			
-//			// Remove all records
-//			MessageProcessor flow = lookupFlowConstruct("remove-using-query-map-without-query-map");
-//			MuleEvent response = flow.process(getTestEvent(testObjects));
-//			
-//			// Get all objects
-//			flow = lookupFlowConstruct("find-objects");
-//			response = flow.process(getTestEvent(testObjects));
-//			
-//			MongoCollection objects = (MongoCollection) response.getMessage().getPayload();
-//			assertTrue(objects.isEmpty());
-//		}
-//		catch (Exception ex) {
-//			ex.printStackTrace();
-//			fail();
-//		}
-//	}
+	// Test fails since the flow references by this method is commented out
+	// Uncommenting the flow results in a SAXParseException.
+	@Category({SmokeTests.class, RegressionTests.class})
+	@Test
+	public void testRemoveUsingQueryMap_WithoutQueryMap() {
+		try {
+			
+			// Remove all records
+			MessageProcessor flow = lookupFlowConstruct("remove-using-query-map-without-query-map");
+			MuleEvent response = flow.process(getTestEvent(testObjects));
+			
+			// Get all objects
+			flow = lookupFlowConstruct("find-objects");
+			response = flow.process(getTestEvent(testObjects));
+			
+			MongoCollection objects = (MongoCollection) response.getMessage().getPayload();
+			assertTrue(objects.isEmpty());
+		}
+		catch (Exception ex) {
+			ex.printStackTrace();
+			fail();
+		}
+	}
 }
