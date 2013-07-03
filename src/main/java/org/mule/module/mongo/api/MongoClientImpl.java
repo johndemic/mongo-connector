@@ -156,10 +156,7 @@ public class MongoClientImpl implements MongoClient
         Validate.notNull(collection);
         final DBObject element = openSession().getCollection(collection).findOne(query,
             FieldsSet.from(fields));
-        if (element == null)
-        {
-            throw new MongoException("No object found for query " + query);
-        }
+        
         return element;
     }
 

@@ -646,7 +646,7 @@ public class MongoCloudConnector
      * @param collection the target collection
      * @param query the mandatory {@link DBObject} query object that the returned object matches.
      * @param fields alternative way of passing fields as a literal List
-     * @return a non-null {@link DBObject} that matches the query.
+     * @return a {@link DBObject} that matches the query, or null if nothing matched.
      */
     @Processor
     public DBObject findOneObject(final String collection,
@@ -666,7 +666,7 @@ public class MongoCloudConnector
      * @param collection the target collection
      * @param queryAttributes the mandatory query object that the returned object matches.
      * @param fields alternative way of passing fields as a literal List
-     * @return a non-null {@link DBObject} that matches the query.
+     * @return a {@link DBObject} that matches the query, or null if nothing matched.
      */
     @Processor
     public DBObject findOneObjectUsingQueryMap(final String collection,
