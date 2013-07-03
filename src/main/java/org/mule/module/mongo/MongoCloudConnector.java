@@ -305,7 +305,7 @@ public class MongoCloudConnector
      */
     @Processor
     public String insertObjectFromMap(final String collection,
-                                      @Placement(group = "Element Attributes") @Optional final Map<String, Object> elementAttributes,
+                                      @Placement(group = "Element Attributes") final Map<String, Object> elementAttributes,
                                       @Optional @Default(WRITE_CONCERN_DEFAULT_VALUE) final WriteConcern writeConcern)
     {
         return client.insertObject(collection, (DBObject) adapt(elementAttributes), writeConcern);
