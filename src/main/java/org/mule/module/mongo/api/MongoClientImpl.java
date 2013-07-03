@@ -99,7 +99,7 @@ public class MongoClientImpl implements MongoClient
         return openSession().getCollection(collection);
     }
 
-    public void addUser(final String username, final String password)
+    public WriteResult addUser(final String username, final String password)
     {
         Validate.notNull(username);
         Validate.notNull(password);
@@ -108,6 +108,7 @@ public class MongoClientImpl implements MongoClient
         {
             throw new MongoException(writeResult.getLastError().getErrorMessage());
         }
+        return writeResult;
     }
 
     public void dropDatabase()

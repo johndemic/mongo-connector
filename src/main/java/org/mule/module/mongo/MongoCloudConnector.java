@@ -65,6 +65,7 @@ import com.mongodb.Mongo;
 import com.mongodb.MongoException;
 import com.mongodb.MongoOptions;
 import com.mongodb.ServerAddress;
+import com.mongodb.WriteResult;
 import com.mongodb.util.JSON;
 
 /**
@@ -191,11 +192,12 @@ public class MongoCloudConnector
      * 
      * @param newUsername Name of the user
      * @param newPassword Password that will be used for authentication
+     * @return Result of the operation
      */
     @Processor
-    public void addUser(final String newUsername, final String newPassword)
+    public WriteResult addUser(final String newUsername, final String newPassword)
     {
-        client.addUser(newUsername, newPassword);
+        return client.addUser(newUsername, newPassword);
     }
 
     /**
@@ -303,7 +305,7 @@ public class MongoCloudConnector
      */
     @Processor
     public String insertObjectFromMap(final String collection,
-                                      @Placement(group = "Element Attributes") @Optional final Map<String, Object> elementAttributes,
+                                      @Placement(group = "Element Attributes") final Map<String, Object> elementAttributes,
                                       @Optional @Default(WRITE_CONCERN_DEFAULT_VALUE) final WriteConcern writeConcern)
     {
         return client.insertObject(collection, (DBObject) adapt(elementAttributes), writeConcern);
