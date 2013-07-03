@@ -227,18 +227,13 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			collection="#[payload.collection]" dbObject-ref="#[payload.dbObjectRef]" />
 	</flow>
 
-	<flow name="insert-object-from-map-with-elements" doc:name="insert-object-from-map-with-elements">
+	<flow name="insert-object-from-map" doc:name="insert-object-from-map-with-elements">
 		<mongo:insert-object-from-map config-ref="Mongo_DB"
 			writeConcern="#[payload.writeConcern]" collection="#[payload.collection]">
 			<mongo:element-attributes>
 				<mongo:element-attribute key="#[payload.key]">#[payload.value]</mongo:element-attribute>
 			</mongo:element-attributes>
 		</mongo:insert-object-from-map>
-	</flow>
-
-	<flow name="insert-object-from-map-without-elements" doc:name="insert-object-from-map-with-elements">
-		<mongo:insert-object-from-map config-ref="Mongo_DB"
-			writeConcern="#[payload.writeConcern]" collection="#[payload.collection]" />
 	</flow>
 
 	<flow name="remove-objects" doc:name="remove-objects">
