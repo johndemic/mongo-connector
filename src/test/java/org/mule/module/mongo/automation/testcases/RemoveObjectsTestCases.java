@@ -21,7 +21,6 @@ import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.MongoCollection;
 
-// TODO: Depends on the insertObject bean
 public class RemoveObjectsTestCases extends MongoTestParent {
 
 	@Before
@@ -31,7 +30,6 @@ public class RemoveObjectsTestCases extends MongoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			testObjects = (HashMap<String, Object>) context.getBean("insertObject");
 			flow = lookupFlowConstruct("insert-object");
 			response = flow.process(getTestEvent(testObjects));			
 		}
@@ -45,7 +43,6 @@ public class RemoveObjectsTestCases extends MongoTestParent {
 	@Test
 	public void testRemoveObjects() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("removeObjects");
 			MessageProcessor flow = lookupFlowConstruct("remove-objects");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
@@ -53,7 +50,7 @@ public class RemoveObjectsTestCases extends MongoTestParent {
 			response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection payload = (MongoCollection) response.getMessage().getPayload();
-			assertTrue(payload.size() == 0);			
+			assertTrue(payload.isEmpty());			
 		}
 		catch (Exception e) {
 			e.printStackTrace();
