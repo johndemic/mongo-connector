@@ -24,7 +24,6 @@ import com.mongodb.DBObject;
 
 public class FindOneObjectTestCases extends MongoTestParent {
 
-	private DBObject myDbObject;
 	
 	@Before
 	public void setUp() {
@@ -35,12 +34,10 @@ public class FindOneObjectTestCases extends MongoTestParent {
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// create the object
+			// dbObject is modified in the insert-object flow
 			flow = lookupFlowConstruct("insert-object");
 			response = flow.process(getTestEvent(testObjects));
 			
-			// dbObject is modified in the insert-object flow, so just get a reference to it
-			// so we can compare with it later
-			myDbObject = (DBObject) testObjects.get("dbObjectRef");
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -51,14 +48,15 @@ public class FindOneObjectTestCases extends MongoTestParent {
 	@Test
 	public void testFindOneObject() {
 		try {
-			testObjects = (HashMap<String, Object>) context.getBean("findOneObject");
+			DBObject dbObject = (DBObject) testObjects.get("dbObjectRef");
+			
 			MessageProcessor flow = lookupFlowConstruct("find-one-object");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Get the retrieved DBObject
 			// No MongoException means that it found a match (we are matching using ID)
 			DBObject payload = (DBObject) response.getMessage().getPayload();
-			assertTrue(payload.equals(myDbObject));
+			assertTrue(payload.equals(dbObject));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
