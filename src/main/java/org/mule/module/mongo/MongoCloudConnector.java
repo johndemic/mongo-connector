@@ -510,15 +510,15 @@ public class MongoCloudConnector
      * objects are removed. However, please notice that this is normally less performant that
      * dropping the collection and creating it and its indices again
      * <p/>
-     * {@sample.xml ../../../doc/mongo-connector.xml.sample mongo:remove-using-query-map}
+     * {@sample.xml ../../../doc/mongo-connector.xml.sample mongo:remove-objects-using-query-map}
      * 
      * @param collection the collection whose elements will be removed
      * @param queryAttributes the query object. Objects that match it will be removed.
      * @param writeConcern the write concern used to remove the object
      */
     @Processor
-    public void removeUsingQueryMap(final String collection,
-                                    @Placement(group = "Query Attributes") final Map<String, Object> queryAttributes,
+    public void removeObjectsUsingQueryMap(final String collection,
+                                    @Placement(group = "Query Attributes") @Optional final Map<String, Object> queryAttributes,
                                     @Optional @Default(WRITE_CONCERN_DEFAULT_VALUE) final WriteConcern writeConcern)
     {
         client.removeObjects(collection, (DBObject) adapt(queryAttributes), writeConcern);
@@ -646,7 +646,7 @@ public class MongoCloudConnector
      * @param collection the target collection
      * @param query the mandatory {@link DBObject} query object that the returned object matches.
      * @param fields alternative way of passing fields as a literal List
-     * @return a {@link DBObject} that matches the query, or null if nothing matched.
+     * @return a non-null {@link DBObject} that matches the query.
      */
     @Processor
     public DBObject findOneObject(final String collection,
@@ -666,7 +666,7 @@ public class MongoCloudConnector
      * @param collection the target collection
      * @param queryAttributes the mandatory query object that the returned object matches.
      * @param fields alternative way of passing fields as a literal List
-     * @return a {@link DBObject} that matches the query, or null if nothing matched.
+     * @return a non-null {@link DBObject} that matches the query.
      */
     @Processor
     public DBObject findOneObjectUsingQueryMap(final String collection,
