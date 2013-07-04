@@ -719,7 +719,7 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/mongo-config.html#remove-using-query-map">&lt;mongo:remove-using-query-map&gt;</a></nobr>
+        <span class="sympad"><a href="../mule/mongo-config.html#remove-objects-using-query-map">&lt;mongo:remove-objects-using-query-map&gt;</a></nobr>
         
         <div class="jd-descrdiv">Removes all the objects that match the a given optional query.</div>
         
@@ -3506,7 +3506,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              </tr>
              <tr>
                 <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">a DBObject that matches the query, or null if nothing matched.
+                <td class="jd-descrcol">a non-null DBObject that matches the query.
 </td>
              </tr>
          </table>
@@ -3652,7 +3652,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              </tr>
              <tr>
                 <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">a DBObject that matches the query, or null if nothing matched.
+                <td class="jd-descrcol">a non-null DBObject that matches the query.
 </td>
              </tr>
          </table>
@@ -5183,11 +5183,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
 </div>
 
 
-<A NAME="remove-using-query-map"></A>
+<A NAME="remove-objects-using-query-map"></A>
 
 <div class="jd-details api apilevel-">
     <h4 class="jd-details-title">
-      <span class="sympad">&lt;mongo:remove-using-query-map&gt;</span>
+      <span class="sympad">&lt;mongo:remove-objects-using-query-map&gt;</span>
     </h4>
       <div class="api-level">
         <div>
@@ -5200,12 +5200,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
  objects are removed. However, please notice that this is normally less performant that
  dropping the collection and creating it and its indices again
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-using-query-map collection="myCollection"&gt;
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-objects-using-query-map collection="myCollection"&gt;
     &lt;mongo:query-attributes&gt;
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foobar"&gt;baz&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:remove-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:remove-objects-using-query-map&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5300,7 +5300,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                     <tr>
                         <td><nobr>&lt;mongo:query-attributes&gt;</nobr></td>
                         <td></td>
-                        <td>The query object. Objects that match it will be removed.</td>
+                        <td><i>Optional.&nbsp;</i>The query object. Objects that match it will be removed.</td>
                         <td>Map&lt;String,&nbsp;Object&gt;</td>
                     </tr>
                 

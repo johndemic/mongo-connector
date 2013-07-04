@@ -1832,7 +1832,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../org/mule/module/mongo/MongoCloudConnector.html#removeUsingQueryMap(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, org.mule.module.mongo.api.WriteConcern)">removeUsingQueryMap</a></span>(String collection, Map&lt;String,&nbsp;Object&gt; queryAttributes, <a href="../../../../../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a> writeConcern)</nobr>
+        <span class="sympad"><a href="../../../../../org/mule/module/mongo/MongoCloudConnector.html#removeObjectsUsingQueryMap(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, org.mule.module.mongo.api.WriteConcern)">removeObjectsUsingQueryMap</a></span>(String collection, Map&lt;String,&nbsp;Object&gt; queryAttributes, <a href="../../../../../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a> writeConcern)</nobr>
         
         <div class="jd-descrdiv">Removes all the objects that match the a given optional query.</div>
   
@@ -4499,7 +4499,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a DBObject that matches the query, or null if nothing matched.
+      <ul class="nolist"><li>a non-null DBObject that matches the query.
 </li></ul>
   </div>
 
@@ -4555,7 +4555,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>a DBObject that matches the query, or null if nothing matched.
+      <ul class="nolist"><li>a non-null DBObject that matches the query.
 </li></ul>
   </div>
 
@@ -5784,7 +5784,7 @@ From class
 </div>
 
 
-<A NAME="removeUsingQueryMap(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, org.mule.module.mongo.api.WriteConcern)"></A>
+<A NAME="removeObjectsUsingQueryMap(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, org.mule.module.mongo.api.WriteConcern)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -5796,7 +5796,7 @@ From class
          
         void
       </span>
-      <span class="sympad">removeUsingQueryMap</span>
+      <span class="sympad">removeObjectsUsingQueryMap</span>
       <span class="normal">(String collection, Map&lt;String,&nbsp;Object&gt; queryAttributes, <a href="../../../../../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a> writeConcern)</span>
     </h4>
       <div class="api-level">

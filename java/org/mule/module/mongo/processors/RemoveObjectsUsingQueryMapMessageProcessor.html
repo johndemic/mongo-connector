@@ -74,7 +74,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  FindOneFileUsingQueryMapMessageProcessor
+  RemoveObjectsUsingQueryMapMessageProcessor
 
 
 | Mule Mongo Connector
@@ -268,7 +268,7 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/FindObjectsMessageProcessor.html">FindObjectsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/FindObjectsUsingQueryMapMessageProcessor.html">FindObjectsUsingQueryMapMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/FindOneFileMessageProcessor.html">FindOneFileMessageProcessor</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html">FindOneFileUsingQueryMapMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html">FindOneFileUsingQueryMapMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/FindOneObjectMessageProcessor.html">FindOneObjectMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/FindOneObjectUsingQueryMapMessageProcessor.html">FindOneObjectUsingQueryMapMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/GetFileContentMessageProcessor.html">GetFileContentMessageProcessor</a></li>
@@ -284,7 +284,7 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/RemoveFilesMessageProcessor.html">RemoveFilesMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/RemoveFilesUsingQueryMapMessageProcessor.html">RemoveFilesUsingQueryMapMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/RemoveObjectsMessageProcessor.html">RemoveObjectsMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html">RemoveObjectsUsingQueryMapMessageProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html">RemoveObjectsUsingQueryMapMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/RemoveUsingQueryMapMessageProcessor.html">RemoveUsingQueryMapMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/RestoreMessageProcessor.html">RestoreMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/SaveObjectFromMapMessageProcessor.html">SaveObjectFromMapMessageProcessor</a></li>
@@ -483,7 +483,7 @@ Summary:
      
     
     class
-<h1>FindOneFileUsingQueryMapMessageProcessor</h1>
+<h1>RemoveObjectsUsingQueryMapMessageProcessor</h1>
 
 
 
@@ -577,7 +577,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.mongo.processors.FindOneFileUsingQueryMapMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.mongo.processors.RemoveObjectsUsingQueryMapMessageProcessor</td>
     </tr>
     
 
@@ -593,7 +593,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>FindOneFileUsingQueryMapMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html#findOneFileUsingQueryMap(java.util.Map<java.lang.String, java.lang.Object>)">findOneFileUsingQueryMap(java.util.Map)</a></code> method in <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html">MongoCloudConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>RemoveObjectsUsingQueryMapMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html#removeObjectsUsingQueryMap(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, org.mule.module.mongo.api.WriteConcern)">removeObjectsUsingQueryMap(java.lang.String, java.util.Map, org.mule.module.mongo.api.WriteConcern)</a></code> method in <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html">MongoCloudConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -796,8 +796,30 @@ org.mule.api.lifecycle.Stoppable
           protected
           
           
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#_collectionType">_collectionType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
           Map&lt;String,&nbsp;Object&gt;</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#_queryAttributesType">_queryAttributesType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#_queryAttributesType">_queryAttributesType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          <a href="../../../../../../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#_writeConcernType">_writeConcernType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -808,7 +830,29 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#queryAttributes">queryAttributes</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#collection">collection</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#queryAttributes">queryAttributes</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#writeConcern">writeConcern</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1017,7 +1061,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#FindOneFileUsingQueryMapMessageProcessor()">FindOneFileUsingQueryMapMessageProcessor</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#RemoveObjectsUsingQueryMapMessageProcessor()">RemoveObjectsUsingQueryMapMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -1046,7 +1090,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
         
   </td></tr>
 
@@ -1062,7 +1106,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -1080,7 +1124,7 @@ org.mule.api.lifecycle.Stoppable
             MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
         <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
@@ -1098,7 +1142,25 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#setCollection(java.lang.Object)">setCollection</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets collection</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
   
@@ -1106,7 +1168,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1116,7 +1178,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
         
         <div class="jd-descrdiv">Set the Mule context</div>
   
@@ -1124,6 +1186,24 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#setQueryAttributes(java.lang.Object)">setQueryAttributes</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets queryAttributes</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1134,9 +1214,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#setQueryAttributes(java.lang.Object)">setQueryAttributes</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#setWriteConcern(java.lang.Object)">setWriteConcern</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets queryAttributes</div>
+        <div class="jd-descrdiv">Sets writeConcern</div>
   
   </td></tr>
 
@@ -1152,7 +1232,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#start()">start</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#start()">start</a></span>()</nobr>
         
   </td></tr>
 
@@ -1168,7 +1248,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneFileUsingQueryMapMessageProcessor.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/RemoveObjectsUsingQueryMapMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
   </td></tr>
 
@@ -2237,6 +2317,36 @@ From interface
 
 
 
+<A NAME="_collectionType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        String
+      </span>
+        _collectionType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="_queryAttributesType"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2248,6 +2358,66 @@ From interface
         Map&lt;String,&nbsp;Object&gt;
       </span>
         _queryAttributesType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="_writeConcernType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        <a href="../../../../../../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a>
+      </span>
+        _writeConcernType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="collection"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Object
+      </span>
+        collection
     </h4>
       <div class="api-level">
         
@@ -2297,6 +2467,36 @@ From interface
 
 
 
+<A NAME="writeConcern"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Object
+      </span>
+        writeConcern
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 
 <!-- Public ctors -->
 
@@ -2306,7 +2506,7 @@ From interface
 
 
 
-<A NAME="FindOneFileUsingQueryMapMessageProcessor()"></A>
+<A NAME="RemoveObjectsUsingQueryMapMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2318,7 +2518,7 @@ From interface
          
         
       </span>
-      <span class="sympad">FindOneFileUsingQueryMapMessageProcessor</span>
+      <span class="sympad">RemoveObjectsUsingQueryMapMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2472,6 +2672,47 @@ From interface
 </div>
 
 
+<A NAME="setCollection(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setCollection</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets collection</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="setFlowConstruct(org.mule.api.construct.FlowConstruct)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2580,6 +2821,47 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets queryAttributes</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setWriteConcern(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setWriteConcern</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets writeConcern</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
