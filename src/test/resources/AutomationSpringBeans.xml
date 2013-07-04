@@ -260,11 +260,9 @@
 
 	<!-- count objects -->
 	<util:map id="countObjects" map-class="java.util.HashMap"
-		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="collection" value="testCollection" />
-		<entry key="dbObject">
-		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
-		</entry>
+		<entry key="numObjects" value="#{5}" />
 	</util:map>
 
 	<!-- execute command -->
