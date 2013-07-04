@@ -43,7 +43,6 @@ public class InsertObjectFromMapTestCases extends MongoTestParent {
 	public void testInsertObjectFromMap() {
 		try {
 
-			testObjects = (HashMap<String, Object>) context.getBean("insertObjectFromMap");
 			String key = testObjects.get("key").toString();
 			String value = testObjects.get("value").toString();
 			
