@@ -16,6 +16,8 @@ import java.util.HashMap;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
@@ -62,7 +64,8 @@ public class DropDatabaseTestCases extends MongoTestParent {
 	
 	// When DropDatabaseTestCases is executed by itself, the test passes. When executing all test cases, it fails...
 	@Category({ SmokeTests.class, RegressionTests.class })
-//	@Test
+	@Test
+	@Ignore
 	public void testDropDatabase() {
 		MuleEvent response = null;
 		try {
