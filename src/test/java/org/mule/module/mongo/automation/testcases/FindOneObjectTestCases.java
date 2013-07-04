@@ -8,6 +8,7 @@
 
 package org.mule.module.mongo.automation.testcases;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -56,6 +57,7 @@ public class FindOneObjectTestCases extends MongoTestParent {
 			// Get the retrieved DBObject
 			// No MongoException means that it found a match (we are matching using ID)
 			DBObject payload = (DBObject) response.getMessage().getPayload();
+			assertNotNull(payload);
 			assertTrue(payload.equals(dbObject));
 			
 		} catch (Exception e) {
