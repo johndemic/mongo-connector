@@ -62,7 +62,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({RegressionTests.class})
+	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testFindObjectsUsingQueryMap_WithQuery() {
 		try {

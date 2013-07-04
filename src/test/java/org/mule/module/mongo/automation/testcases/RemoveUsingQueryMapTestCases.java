@@ -73,7 +73,7 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testRemoveUsingQueryMap_WithQueryMap() {
 		try {
@@ -106,7 +106,7 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 
 	// Test fails since the flow references by this method is commented out
 	// Uncommenting the flow results in a SAXParseException.
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({ RegressionTests.class})
 	@Test
 	public void testRemoveUsingQueryMap_WithoutQueryMap() {
 		try {

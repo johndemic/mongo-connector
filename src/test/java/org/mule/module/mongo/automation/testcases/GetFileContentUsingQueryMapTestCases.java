@@ -23,8 +23,6 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
-import com.mongodb.DBObject;
-
 public class GetFileContentUsingQueryMapTestCases extends MongoTestParent {
 	
 	@SuppressWarnings("unchecked")
@@ -46,7 +44,7 @@ public class GetFileContentUsingQueryMapTestCases extends MongoTestParent {
 		assertEquals("There should be 0 files in total after tearing down the test", 0, findFiles());
 	}
 
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testGetFileContentUsingQueryMap() {
 		try {

@@ -12,21 +12,28 @@ import org.junit.experimental.categories.Categories;
 import org.junit.experimental.categories.Categories.IncludeCategory;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite.SuiteClasses;
-import org.mule.module.mongo.automation.testcases.AddUserTestCases;
 import org.mule.module.mongo.automation.testcases.CreateCollectionTestCases;
+import org.mule.module.mongo.automation.testcases.CreateFileFromPayloadTestCases;
 import org.mule.module.mongo.automation.testcases.CreateIndexTestCases;
+import org.mule.module.mongo.automation.testcases.DropCollectionTestCases;
 import org.mule.module.mongo.automation.testcases.DropIndexTestCases;
 import org.mule.module.mongo.automation.testcases.ExistsCollectionTestCases;
+import org.mule.module.mongo.automation.testcases.FindObjectsTestCases;
+import org.mule.module.mongo.automation.testcases.FindOneObjectUsingQueryMapTestCases;
 import org.mule.module.mongo.automation.testcases.InsertObjectTestCases;
-import org.mule.module.mongo.automation.testcases.ListCollectionTestCases;
-import org.mule.module.mongo.automation.testcases.RemoveObjectsTestCases;
+import org.mule.module.mongo.automation.testcases.ListIndicesTestCases;
+import org.mule.module.mongo.automation.testcases.SaveObjectFromMapTestCases;
+import org.mule.module.mongo.automation.testcases.SaveObjectTestCases;
 import org.mule.module.mongo.automation.testcases.SmokeTests;
 
 @RunWith(Categories.class)
 @IncludeCategory(SmokeTests.class)
-@SuiteClasses({ AddUserTestCases.class, CreateCollectionTestCases.class,
-		CreateIndexTestCases.class, DropIndexTestCases.class,
-		ExistsCollectionTestCases.class, InsertObjectTestCases.class,
-		ListCollectionTestCases.class, RemoveObjectsTestCases.class})
+@SuiteClasses({ CreateCollectionTestCases.class,
+		CreateFileFromPayloadTestCases.class, CreateIndexTestCases.class,
+		DropCollectionTestCases.class, DropIndexTestCases.class,
+		ExistsCollectionTestCases.class, FindObjectsTestCases.class,
+		FindOneObjectUsingQueryMapTestCases.class, ListIndicesTestCases.class,
+		InsertObjectTestCases.class, SaveObjectFromMapTestCases.class,
+		SaveObjectTestCases.class })
 public class SmokeTestSuite {
 }

@@ -100,7 +100,7 @@ public class RestoreTestCases extends MongoTestParent {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	@Ignore
 	public void testRestore() {

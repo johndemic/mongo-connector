@@ -42,7 +42,7 @@ public class RemoveFilesUsingQueryMapTestCases extends MongoTestParent {
 		assertEquals("There should be 0 files in total after tearing down the test", 0, findFiles());
 	}
 	
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testRemoveFilesUsingQueryMap_emptyQuery() {
 		try {
@@ -59,7 +59,7 @@ public class RemoveFilesUsingQueryMapTestCases extends MongoTestParent {
 
 	}
 
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testRemoveFilesUsingQueryMap_nonemptyQuery() {
 		try {

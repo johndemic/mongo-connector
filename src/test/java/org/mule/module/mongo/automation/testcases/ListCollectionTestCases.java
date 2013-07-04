@@ -44,7 +44,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({ RegressionTests.class})
 	@Test
 	public void testListCollections() {
 		try {

@@ -53,7 +53,7 @@ public class ListFilesUsingQueryMapTestCases extends MongoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testListFilesUsingQueryMap_emptyQuery() {
 		MessageProcessor listFilesFlow = lookupFlowConstruct("list-files-using-query-map-empty-query");
@@ -79,7 +79,7 @@ public class ListFilesUsingQueryMapTestCases extends MongoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testListFilesUsingQueryMap_nonemptyQuery() {
 		MessageProcessor listFilesFlow = lookupFlowConstruct("list-files-using-query-map-non-empty-query");

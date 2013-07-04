@@ -56,7 +56,7 @@ public class UpdateObjectsUsingQueryMapTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testUpdateObjectsUsingQueryMap() {
 		try {

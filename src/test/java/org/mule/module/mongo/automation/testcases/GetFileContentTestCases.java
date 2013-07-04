@@ -46,7 +46,7 @@ public class GetFileContentTestCases extends MongoTestParent {
 		assertEquals("There should be 0 files in total after tearing down the test", 0, findFiles());
 	}
 
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testGetFileContent() {
 		try {

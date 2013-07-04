@@ -48,7 +48,7 @@ public class FindFilesUsingQueryMapTestCases extends MongoTestParent {
 	}
 
 	@SuppressWarnings("unchecked")
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testFindFilesUsingQueryMap() {
 		MuleEvent response = null;

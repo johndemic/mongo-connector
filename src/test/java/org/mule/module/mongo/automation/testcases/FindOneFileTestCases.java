@@ -47,7 +47,7 @@ public class FindOneFileTestCases extends MongoTestParent {
 		deleteFilesCreatedByCreateFileFromPayload();
 	}
 
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testFindOneFile() {
 		try {

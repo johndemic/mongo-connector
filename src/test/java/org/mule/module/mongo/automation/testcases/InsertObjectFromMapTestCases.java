@@ -38,7 +38,7 @@ public class InsertObjectFromMapTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({ RegressionTests.class})
 	@Test
 	public void testInsertObjectFromMap() {
 		try {

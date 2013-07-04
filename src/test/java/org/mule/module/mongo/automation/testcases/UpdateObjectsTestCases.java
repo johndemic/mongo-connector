@@ -56,7 +56,7 @@ public class UpdateObjectsTestCases extends MongoTestParent {
 		}
 	}
 	
-	@Category({SmokeTests.class, RegressionTests.class})
+	@Category({RegressionTests.class})
 	@Test
 	public void testUpdateObjects_OneObject() {
 		try {

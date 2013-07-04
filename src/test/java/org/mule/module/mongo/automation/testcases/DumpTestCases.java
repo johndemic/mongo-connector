@@ -46,7 +46,7 @@ public class DumpTestCases extends MongoTestParent {
 		}
 	}
 
-	@Category({ SmokeTests.class, RegressionTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testDump() {
 		try {
