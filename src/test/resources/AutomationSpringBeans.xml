@@ -265,6 +265,17 @@
 		<entry key="numObjects" value="#{5}" />
 	</util:map>
 
+	<!-- count objects using query map -->
+	<util:map id="countObjectsUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="object">
+			<bean scope="prototype" class="com.mongodb.BasicDBObject" />
+		</entry>
+		<entry key="queryAttribKey" value="foo" />
+		<entry key="queryAttribVal" value="bar" />
+		<entry key="numObjects" value="#{5}" />
+	</util:map>
+
 	<!-- execute command -->
 	<util:map id="executeCommand" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">

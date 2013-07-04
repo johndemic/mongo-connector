@@ -31,7 +31,7 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			// Create collection
-			testObjects = (HashMap<String, Object>) context.getBean("insertObject");
+			testObjects = (HashMap<String, Object>) context.getBean("countObjectsUsingQueryMap");
 			lookupFlowConstruct("create-collection").process(getTestEvent(testObjects));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -44,7 +44,6 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			// Delete collection
-			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
 			lookupFlowConstruct("drop-collection").process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,7 +54,8 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@Category({ RegressionTests.class })
 	@Test
 	public void testCountObjectsUsingQueryMap_without_map() {
-		insertObjects(getEmptyDBObjects(2));
+		int numObjects = (Integer) testObjects.get("numObjects");
+		insertObjects(getEmptyDBObjects(numObjects));
 
 		MuleEvent response = null;
 		try {
@@ -65,15 +65,19 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 			e.printStackTrace();
 			fail();
 		}
-		assertEquals(new Long(2), response.getMessage().getPayload());
+		assertEquals(new Long(numObjects), response.getMessage().getPayload());
 	}
 
 	@Category({ RegressionTests.class })
 	@Test
 	public void testCountObjectsUsingQueryMap_with_map() {
 		List<DBObject> list = getEmptyDBObjects(2);
+
+		String queryAttribKey = testObjects.get("queryAttribKey").toString();
+		String queryAttribVal = testObjects.get("queryAttribVal").toString();
+		
 		DBObject dbObj = new BasicDBObject();
-		dbObj.put("foo", "bar");
+		dbObj.put(queryAttribKey, queryAttribVal);
 		list.add(dbObj);
 
 		insertObjects(list);
@@ -81,8 +85,6 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 		MuleEvent response = null;
 		try {
 			MessageProcessor countFlow = lookupFlowConstruct("count-objects-using-query-map-with-query");
-			testObjects.put("queryAttribKey", "foo");
-			testObjects.put("queryAttribVal", "bar");
 			response = countFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
