@@ -66,7 +66,6 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@Test
 	public void testFindObjectsUsingQueryMap_WithQuery() {
 		try {
-			testObjects = (Map<String, Object>) context.getBean("findObjectsUsingQueryMap");
 			int numberOfObjects = Integer.parseInt(testObjects.get("numObjects").toString());
 			String queryKey = testObjects.get("queryKey").toString();
 			String queryValue = testObjects.get("queryValue").toString();
@@ -92,7 +91,6 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@Test
 	public void testFindObjectsUsingQueryMap_WithoutQuery() {
 		try {
-			testObjects = (Map<String, Object>) context.getBean("findObjectsUsingQueryMap");
 			int extraObjects = Integer.parseInt(testObjects.get("extraObjects").toString());
 			int numberOfObjects = Integer.parseInt(testObjects.get("numObjects").toString());
 			
@@ -114,7 +112,6 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@Test
 	public void testFindObjectsUsingQueryMap_WithLimit() {
 		try {
-			testObjects = (Map<String, Object>) context.getBean("findObjectsUsingQueryMap");
 		
 			int limit = Integer.parseInt(testObjects.get("limit").toString());
 			
