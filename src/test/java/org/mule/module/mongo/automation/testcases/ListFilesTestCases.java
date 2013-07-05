@@ -21,6 +21,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
+import org.mule.module.mongo.api.automation.MongoHelper;
 
 import com.mongodb.DBObject;
 
@@ -69,13 +70,9 @@ public class ListFilesTestCases extends MongoTestParent {
 		assertNotNull(response.getMessage().getPayload());
 		assertTrue(response.getMessage().getPayload() instanceof Iterable);
 
-		Iterable<DBObject> iterable = (Iterable<DBObject>) response
-				.getMessage().getPayload();
+		Iterable<DBObject> iterable = (Iterable<DBObject>) response.getMessage().getPayload();
 
-		assertEquals(
-				"An empty DBObject for the query should list all the files", 3,
-				iterableSize(iterable));
-
+		assertEquals("An empty DBObject for the query should list all the files", 3, MongoHelper.getIterableSize(iterable));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -103,7 +100,7 @@ public class ListFilesTestCases extends MongoTestParent {
 		assertEquals(
 				"Listing files with a query with key " + testObjects.get("key")
 						+ " and value " + testObjects.get("value")
-						+ " should give 2 results", 2, iterableSize(iterable));
+						+ " should give 2 results", 2, MongoHelper.getIterableSize(iterable));
 
 	}
 }

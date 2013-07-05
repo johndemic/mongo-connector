@@ -25,6 +25,8 @@ import org.junit.rules.Timeout;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.IndexOrder;
+import org.mule.module.mongo.api.MongoCollection;
+import org.mule.module.mongo.api.automation.MongoHelper;
 import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -106,22 +108,9 @@ public class MongoTestParent extends FunctionalTestCase {
 		}
 
 		iterable = (Iterable<DBObject>) response.getMessage().getPayload();
-		return iterableSize(iterable);
+		return MongoHelper.getIterableSize(iterable);
 	}
 	
-	protected int iterableSize(Iterable<?> iterable) {
-		if (iterable instanceof Collection<?>) {
-			return ((Collection<?>) iterable).size();
-		} else {
-			Iterator<?> it = iterable.iterator();
-			int i = 0;
-			while (it.hasNext()) {
-				i++;
-			}
-			return i;
-		}
-	}
-
 	protected GridFSInputFile createFileFromPayload(DBObject dbObj, String filename) {
 		if(testObjects == null) {
 			setTestObjects(new HashMap<String, Object>());
@@ -172,23 +161,7 @@ public class MongoTestParent extends FunctionalTestCase {
 			fail();
 		}
 	}
-	
-	protected boolean existsInList(List<DBObject> objects, String indexName) {
-		for (DBObject obj : objects) {
-			if (obj.get("name").equals(indexName)) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	protected String getIndexName() {
-		String indexKey = (String) testObjects.get("field");
-		IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
-		
-		return indexKey + "_" + indexOrder.getValue();
-	}
-	
+
 	protected void dropIndex(String indexName) {
 		testObjects.put("index", indexName);			
 		MessageProcessor dropIndexFlow = lookupFlowConstruct("drop-index");
@@ -198,6 +171,12 @@ public class MongoTestParent extends FunctionalTestCase {
 			e.printStackTrace();
 			fail();
 		}
+	}
+	
+	protected MongoCollection getObjects(Map<String, Object> testObjects) throws Exception {
+		MessageProcessor flow = lookupFlowConstruct("find-objects");
+		MuleEvent response = flow.process(getTestEvent(testObjects));
+		return (MongoCollection) response.getMessage().getPayload();
 	}
 	
 }

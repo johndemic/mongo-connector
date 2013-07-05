@@ -19,6 +19,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
+import org.mule.module.mongo.api.automation.MongoHelper;
 
 import com.mongodb.DBObject;
 
@@ -63,7 +64,7 @@ public class FindFilesUsingQueryMapTestCases extends MongoTestParent {
 					.process(getTestEvent(testObjects));
 			Iterable<DBObject> iterable = (Iterable<DBObject>) response
 					.getMessage().getPayload();
-			int filesFoundUsingQueryMap = iterableSize(iterable);
+			int filesFoundUsingQueryMap = MongoHelper.getIterableSize(iterable);
 
 			assertEquals(
 					"There should be 1 file with the name "

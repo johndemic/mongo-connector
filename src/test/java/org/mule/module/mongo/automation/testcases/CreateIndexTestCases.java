@@ -22,6 +22,7 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.IndexOrder;
+import org.mule.module.mongo.api.automation.MongoHelper;
 
 import com.mongodb.DBObject;
 
@@ -56,7 +57,7 @@ public class CreateIndexTestCases extends MongoTestParent {
 			response = flow.process(getTestEvent(testObjects));
 			List<DBObject> payload = (ArrayList<DBObject>) response.getMessage().getPayload();
 								
-			assertTrue(existsInList(payload, indexName));
+			assertTrue(MongoHelper.indexExistsInList(payload, indexName));
 		}
 		catch (Exception e) {
 			e.printStackTrace();

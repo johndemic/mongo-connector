@@ -21,6 +21,7 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
+import org.mule.module.mongo.api.automation.MongoHelper;
 
 import com.mongodb.DBObject;
 
@@ -74,7 +75,7 @@ public class ListFilesUsingQueryMapTestCases extends MongoTestParent {
 
 		assertEquals(
 				"An empty query map for the query should list all the files", 3,
-				iterableSize(iterable));
+				MongoHelper.getIterableSize(iterable));
 
 	}
 
@@ -101,7 +102,7 @@ public class ListFilesUsingQueryMapTestCases extends MongoTestParent {
 		assertEquals(
 				"Listing files with a query with key " + testObjects.get("key")
 						+ " and value " + testObjects.get("value")
-						+ " should give 2 results", 2, iterableSize(iterable));
+						+ " should give 2 results", 2, MongoHelper.getIterableSize(iterable));
 
 	}
 }

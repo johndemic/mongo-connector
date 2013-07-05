@@ -49,13 +49,6 @@ public class SaveObjectFromMapTestCases extends MongoTestParent {
 		}
 	}
 	
-	private DBObject getSingleObjectFromMap(Map<String, Object> testObjs) throws Exception {
-		MessageProcessor flow = lookupFlowConstruct("find-one-object-using-query-map");
-		MuleEvent response = flow.process(getTestEvent(testObjects));
-		DBObject object = (DBObject) response.getMessage().getPayload();
-		return object;
-	}
-	
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testSaveObjectFromMap() {
@@ -68,8 +61,11 @@ public class SaveObjectFromMapTestCases extends MongoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("save-object-from-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			// Check whether it was saved
-			DBObject object = getSingleObjectFromMap(testObjects);
+			// Check whether it was saved			
+			flow = lookupFlowConstruct("find-one-object-using-query-map");
+			response = flow.process(getTestEvent(testObjects));
+						
+			DBObject object = (DBObject) response.getMessage().getPayload();
 			assertTrue(object.containsField(key));
 			assertTrue(object.get(key).equals(value));
 			
@@ -80,7 +76,10 @@ public class SaveObjectFromMapTestCases extends MongoTestParent {
 			response = flow.process(getTestEvent(testObjects));
 			
 			// Check that modifications were saved
-			object = getSingleObjectFromMap(testObjects);
+			flow = lookupFlowConstruct("find-one-object-using-query-map");
+			response = flow.process(getTestEvent(testObjects));
+						
+			object = (DBObject) response.getMessage().getPayload();
 			assertTrue(object.containsField(key));
 			assertFalse(object.get(key).equals(value));
 			assertTrue(object.get(key).equals(differentValue));

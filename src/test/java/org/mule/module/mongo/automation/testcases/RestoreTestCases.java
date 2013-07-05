@@ -24,6 +24,8 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
+import org.mule.module.mongo.api.IndexOrder;
+import org.mule.module.mongo.api.automation.MongoHelper;
 
 import com.mongodb.DBObject;
 
@@ -34,7 +36,10 @@ public class RestoreTestCases extends MongoTestParent {
 	public void setUp() {
 		testObjects = (HashMap<String, Object>) context.getBean("restore");
 		try {
-			String indexName = getIndexName();
+			String indexKey = testObjects.get("field").toString();
+			IndexOrder indexOrder =(IndexOrder) testObjects.get("order");
+			
+			String indexName = MongoHelper.getIndexName(indexKey, indexOrder);
 			File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
 			
 			MessageProcessor restoreTestCaseSetupFlow = lookupFlowConstruct("createIndex_Dump");
@@ -46,7 +51,7 @@ public class RestoreTestCases extends MongoTestParent {
 			MuleEvent responseEvent = listIndicesFlow.process(getTestEvent(testObjects));
 			
 			List<DBObject> payload = (List<DBObject>) responseEvent.getMessage().getPayload();
-			assertTrue("After creating the index with index name = " + indexName + " it should exist", existsInList(payload, indexName));
+			assertTrue("After creating the index with index name = " + indexName + " it should exist", MongoHelper.indexExistsInList(payload, indexName));
 			
 			// drop index
 			testObjects.put("index", indexName);			
@@ -61,7 +66,7 @@ public class RestoreTestCases extends MongoTestParent {
 			MuleEvent listIndicesResponse = listIndicesFlow.process(getTestEvent(testObjects));
 			
 			List<DBObject> listIndicesResponsePayload = (List<DBObject>) listIndicesResponse.getMessage().getPayload();
-			assertFalse("After dropping the index with index name = " + indexName + " it should not exist", existsInList(listIndicesResponsePayload, indexName));
+			assertFalse("After dropping the index with index name = " + indexName + " it should not exist", MongoHelper.indexExistsInList(listIndicesResponsePayload, indexName));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -76,7 +81,10 @@ public class RestoreTestCases extends MongoTestParent {
 			FileUtils.deleteDirectory(dumpOutputDir);
 			assertFalse("dump directory should not exist after test runs", dumpOutputDir.exists());
 			
-			String indexName = getIndexName();
+			String indexKey = testObjects.get("field").toString();
+			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
+			
+			String indexName = MongoHelper.getIndexName(indexKey, indexOrder);
 			
 			// drop index
 			testObjects.put("index", indexName);			
@@ -92,7 +100,7 @@ public class RestoreTestCases extends MongoTestParent {
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			List<DBObject> payload = (List<DBObject>) response.getMessage().getPayload();
 			
-			assertFalse("After deleting the index with index name = " + indexName + " it should not exist", existsInList(payload, indexName));
+			assertFalse("After deleting the index with index name = " + indexName + " it should not exist", MongoHelper.indexExistsInList(payload, indexName));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -109,14 +117,17 @@ public class RestoreTestCases extends MongoTestParent {
 			
 			restoreFlow.process(getTestEvent(testObjects));
 			
-			String indexName = getIndexName();
-
+			String indexKey = testObjects.get("field").toString();
+			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
+			
+			String indexName = MongoHelper.getIndexName(indexKey, indexOrder);
+			
 			MessageProcessor listIndicesFlow = lookupFlowConstruct("list-indices-for-drop-restore");
 			MuleEvent responseEvent = listIndicesFlow.process(getTestEvent(testObjects));
 			
 			List<DBObject> payload = (List<DBObject>) responseEvent.getMessage().getPayload();
 			
-			assertTrue("After restoring the database, the index with index name = " + indexName + " should exist", existsInList(payload, indexName));
+			assertTrue("After restoring the database, the index with index name = " + indexName + " should exist", MongoHelper.indexExistsInList(payload, indexName));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

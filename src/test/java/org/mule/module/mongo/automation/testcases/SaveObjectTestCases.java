@@ -71,13 +71,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 			fail();
 		}
 	}
-	
-	private MongoCollection getObjects(Map<String, Object> testObjects) throws Exception {
-		MessageProcessor flow = lookupFlowConstruct("find-objects");
-		MuleEvent response = flow.process(getTestEvent(testObjects));
-		return (MongoCollection) response.getMessage().getPayload();
-	}
-	
+		
 	@After
 	public void tearDown() {
 		try {
