@@ -32,7 +32,7 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 	public void setUp() {
 		try {
 			// Create the collection
-			testObjects = (HashMap<String, Object>) context.getBean("removeUsingQueryMap");
+			testObjects = (HashMap<String, Object>) context.getBean("removeObjectsUsingQueryMap");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 
@@ -81,7 +81,7 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 			String key = testObjects.get("key").toString();
 			
 			// Remove all records matching key-value pair
-			MessageProcessor flow = lookupFlowConstruct("remove-using-query-map-with-query-map");
+			MessageProcessor flow = lookupFlowConstruct("remove-objects-using-query-map-with-query-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Get all objects
@@ -104,15 +104,13 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 		}
 	}
 
-	// Test fails since the flow references by this method is commented out
-	// Uncommenting the flow results in a SAXParseException.
 	@Category({ RegressionTests.class})
 	@Test
 	public void testRemoveUsingQueryMap_WithoutQueryMap() {
 		try {
 			
 			// Remove all records
-			MessageProcessor flow = lookupFlowConstruct("remove-using-query-map-without-query-map");
+			MessageProcessor flow = lookupFlowConstruct("remove-objects-using-query-map-without-query-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Get all objects

@@ -241,20 +241,20 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			collection="#[payload.collection]" query-ref="#[payload.queryRef]" />
 	</flow>
 
-	<flow name="remove-using-query-map-with-query-map" doc:name="remove-using-query-maps">
-		<mongo:remove-using-query-map config-ref="Mongo_DB"
+	<flow name="remove-objects-using-query-map-with-query-map" doc:name="remove-objects-using-query-map-with-query-map">
+		<mongo:remove-objects-using-query-map config-ref="Mongo_DB"
 			collection="#[payload.collection]" writeConcern="#[payload.writeConcern]">
 			<mongo:query-attributes>
 				<mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
 			</mongo:query-attributes>
-		</mongo:remove-using-query-map>
+		</mongo:remove-objects-using-query-map>
 	</flow>
 
 	<!-- THIS IS NOT SUPPORTED, WHEN IN FACT, IT SHOULD BE -->
-	<!-- <flow name="remove-using-query-map-without-query-map" doc:name="remove-using-query-map-without-query-map"> -->
-	<!-- <mongo:remove-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]" 
-		writeConcern="#[payload.writeConcern]" /> -->
-	<!-- </flow> -->
+	<flow name="remove-objects-using-query-map-without-query-map" doc:name="remove-objects-using-query-map-without-query-map">
+		<mongo:remove-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]" 
+			writeConcern="#[payload.writeConcern]" />
+	</flow>
 
 	<flow name="find-objects" doc:name="find-objects">
 		<mongo:find-objects config-ref="Mongo_DB"
