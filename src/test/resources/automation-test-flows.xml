@@ -331,13 +331,6 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			reduceFunction="#[payload.reduceFunction]" outputCollection="#[payload.outputCollection]" />
 	</flow>
 
-	<!-- THIS IS BROKEN -->
-	<!-- As a user of this connector, I should not have to set the $set operator 
-		when I want to update multiple objects. Since multi is automatically set 
-		to true, it be set automatically At the moment, I am passing the operator, 
-		and the updated DBObject. This is incorrect behaviour, all I need to do is 
-		pass the latest key/s and value/s and the connector should place the $set 
-		operator automatically -->
 	<flow name="update-objects-using-map" doc:name="update-objects-using-map">
 		<mongo:update-objects-using-map
 			collection="#[payload.collection]" config-ref="Mongo_DB"
@@ -345,9 +338,6 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			<mongo:query-attributes>
 				<mongo:query-attribute key="#[payload.queryKey]">#[payload.queryValue]</mongo:query-attribute>
 			</mongo:query-attributes>
-			<!-- <mongo:element-attributes> -->
-			<!-- <mongo:element-attribute key="#[payload.elementKey]">#[payload.elementValue]</mongo:element-attribute> -->
-			<!-- </mongo:element-attributes> -->
 			<mongo:element-attributes>
 				<mongo:element-attribute key="#[payload.operator]">#[payload.dbObject]</mongo:element-attribute>
 			</mongo:element-attributes>
