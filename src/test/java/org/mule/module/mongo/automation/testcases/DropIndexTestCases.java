@@ -51,8 +51,6 @@ public class DropIndexTestCases extends MongoTestParent {
 	public void testDropIndexByName() {
 		try {
 
-			testObjects = (HashMap<String, Object>) context.getBean("dropIndex");
-			
 			String indexKey = testObjects.get("field").toString();
 			IndexOrder indexOrder = IndexOrder.valueOf(testObjects.get("order").toString());
 			
