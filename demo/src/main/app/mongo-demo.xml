@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="CE-3.3.0" xsi:schemaLocation="
-http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
-http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/2.0/mule-mongo.xsd 
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd 
-http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd 
-http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd ">
-    <mongo:config name="Mongo_DB" username="${username}" password="${password}" doc:name="Mongo DB"/>
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="EE-3.4.0" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/2.0/mule-mongo.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <mongo:config name="Mongo_DB" username="{username}" password="{password}" doc:name="Mongo DB" database="{database}" host="{host}" port="{port}">
+        <mongo:connection-pooling-profile initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW"/>
+    </mongo:config>
+    <data-mapper:config name="InputToUpdate" transformationGraphPath="inputtoupdate.grf" doc:name="DataMapper"/>
     <flow name="mongo-demo" doc:name="mongo-demo">
         <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" doc:name="HTTP"/>
         <mongo:create-collection config-ref="Mongo_DB" collection="movies" doc:name="Create movies collection"/>
@@ -21,5 +25,42 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
         <mongo:find-objects config-ref="Mongo_DB" collection="movies" doc:name="Get all movies"/>
         <mongo:mongo-collection-to-json doc:name="Transform objects to json"/>
         <mongo:drop-collection config-ref="Mongo_DB" collection="movies" doc:name="Drop movies collection"/>
+    </flow>
+<flow name="mongo-drop-directors" doc:name="mongo-drop-directors">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="directors/drop" doc:name="HTTP"/>
+        <mongo:drop-collection config-ref="Mongo_DB" collection="directors" doc:name="Mongo DB"/>
+        <set-payload value="Directors collection dropped" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mongo-update-directors" doc:name="mongo-update-directors">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="directors/update" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="InputToUpdate" doc:name="DataMapper"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <mongo:update-objects-using-map config-ref="Mongo_DB" collection="directors" doc:name="Mongo DB">
+            <mongo:query-attributes>
+                <mongo:query-attribute key="name" value-ref="#[payload.name]" />
+            </mongo:query-attributes>
+            <mongo:element-attributes>
+            	<mongo:element-attribute key="$set" value-ref="#[payload.newName]" />
+            </mongo:element-attributes> 
+        </mongo:update-objects-using-map>
+    </flow>
+    <flow name="mongo-list-directors" doc:name="mongo-list-directors">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" path="directors/list" doc:name="HTTP"/>
+        <mongo:find-objects config-ref="Mongo_DB" collection="directors" doc:name="Get all directors"/>
+        <mongo:mongo-collection-to-json doc:name="Transform objects to json"/>
+    </flow>
+    <flow name="mongo-create-and-populate-directors" doc:name="mongo-create-and-populate-directors">
+        <http:inbound-endpoint exchange-pattern="request-response" host="localhost" port="8081" doc:name="HTTP" path="directors/create"/>
+        <mongo:create-collection config-ref="Mongo_DB" collection="directors" doc:name="Create directors collection"/>
+        <expression-transformer expression="#[['Woody Allen', 'Werner Herzog', 'Alejandro Jodorowsky', 'John Cassavetes', 'Ingmar Bergman']]" doc:name="Define directors"/>
+        <foreach collection="#[payload]" doc:name="Insert all directors">
+            <mongo:insert-object-from-map config-ref="Mongo_DB" collection="directors" doc:name="Insert a director">
+                <mongo:element-attributes>
+                    <mongo:element-attribute key="name" value-ref="#[payload]"/>
+                </mongo:element-attributes>
+            </mongo:insert-object-from-map>
+        </foreach>
+        <mongo:find-objects config-ref="Mongo_DB" collection="directors" doc:name="Get all directors"/>
+        <mongo:mongo-collection-to-json doc:name="Transform objects to json"/>
     </flow>
 </mule>

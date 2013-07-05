@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Graph author="pablocabrera" created="Thu Jul 04 17:41:06 GMT-03:00 2013" guiVersion="3.3.0.M2" id="1372972879175" licenseCode="Unlicensed" licenseType="Commercial" modified="Thu Jul 04 17:41:06 GMT-03:00 2013" modifiedBy="pablocabrera" name="InputToUpdate" preview-file="/Users/pablocabrera/Desktop/Input.json" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="2797aee1-a83e-4c7f-aeb1-3d65fc3b328c">
+<Record fieldDelimiter="|" name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" label="__id" name="__id" type="string"/>
+<Field __sourcePath="{}/object/name" containerType="SINGLE" label="name" name="name" type="string"/>
+<Field __sourcePath="{}/object/newName" containerType="SINGLE" label="newName" name="newName" type="string"/>
+</Record>
+</Metadata>
+<Metadata __sourcePath="{}/parameters" _dataStructure="OBJECT" _id="__id" _type="Output" id="9fe8c226-c4d3-4652-9272-24a447270f36">
+<Record fieldDelimiter="|" name="parameters" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __sourcePath="{}/parameters/name" containerType="SINGLE" label="name" name="name" type="string"/>
+<Field __sourcePath="{}/parameters/newName" containerType="SINGLE" label="newName" name="newName" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiHeight="0" guiName="JSON READER" guiWidth="0" guiX="20" guiY="20" id="JSON_READER0" type="JSON_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context xpath="/root">
+  <Context outPort="0" sequenceField="__id" xpath="object">
+    <Mapping cloverField="name" trim="true" xpath="name"/>
+    <Mapping cloverField="newName" trim="true" xpath="newName"/>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+<attr name="jsonSchemaURL"><![CDATA[/Users/pablocabrera/Desktop/Input.json]]></attr>
+</Node>
+<Node enabled="enabled" fileURL="dict:outputPayload" guiHeight="0" guiName="Maps / List of Maps  WRITER" guiWidth="0" guiX="900" guiY="20" id="MAP_WRITER0" type="MAP_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<parameters xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <name>$0.name</name>
+  <newName>$0.newName</newName>
+</parameters>]]></attr>
+<attr name="_data_format"><![CDATA[MAP]]></attr>
+</Node>
+<Node enabled="enabled" guiHeight="0" guiName="Foreach 'object' -&gt; 'parameters'" guiWidth="0" guiX="460" guiY="20" id="REFORMAT0" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.name = input.name;
+output.newName = input.newName;
+]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="JSON_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="2797aee1-a83e-4c7f-aeb1-3d65fc3b328c" outPort="Port 0 (out)" toNode="REFORMAT0:0"/>
+<Edge debugMode="true" fromNode="REFORMAT0:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="9fe8c226-c4d3-4652-9272-24a447270f36" outPort="Port 0 (out)" toNode="MAP_WRITER0:0"/>
+</Phase>
+</Graph>
