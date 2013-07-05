@@ -77,7 +77,7 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 	@Test
 	public void testRemoveUsingQueryMap_WithQueryMap() {
 		try {
-			int extraObjects = Integer.parseInt(testObjects.get("extraObjects").toString());
+			int extraObjects = (Integer) testObjects.get("extraObjects");
 			String key = testObjects.get("key").toString();
 			
 			// Remove all records matching key-value pair
