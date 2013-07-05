@@ -319,7 +319,7 @@ public class MongoCloudConnector
      * {@sample.xml ../../../doc/mongo-connector.xml.sample mongo:update-objects}
      * 
      * @param collection the name of the collection to update
-     * @param query the {@link DBObject} query object used to detect the element to update. To use object id you need to specify the value pair as map with the following structure:
+     * @param query the {@link DBObject} query object used to detect the element to update. If the object Id is an instance of ObjectId you need to specify the value pair as map with the following structure:
      * { "_id" : "ObjectId(OBJECT_ID_VALUE)"}
      * @param element the {@link DBObject} mandatory object that will replace that one which matches
      *            the query.
@@ -346,7 +346,7 @@ public class MongoCloudConnector
      * {@sample.xml ../../../doc/mongo-connector.xml.sample mongo:update-objects-using-query-map}
      * 
      * @param collection the name of the collection to update
-     * @param queryAttributes the query object used to detect the element to update. To use object id you need to specify the value pair as map with the following structure:
+     * @param queryAttributes the query object used to detect the element to update. If the object Id is an instance of ObjectId you need to specify the value pair as map with the following structure:
      * { "_id" : "ObjectId(OBJECT_ID_VALUE)"}
      * @param element the {@link DBObject} mandatory object that will replace that one which matches
      *            the query.
