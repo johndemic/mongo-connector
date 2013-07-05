@@ -26,7 +26,7 @@ import org.mule.module.mongo.api.MongoCollection;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 
-public class RemoveUsingQueryMapTestCases extends MongoTestParent{
+public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 
 	@Before
 	public void setUp() {

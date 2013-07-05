@@ -46,7 +46,7 @@ import org.mule.module.mongo.automation.testcases.RegressionTests;
 import org.mule.module.mongo.automation.testcases.RemoveFilesTestCases;
 import org.mule.module.mongo.automation.testcases.RemoveFilesUsingQueryMapTestCases;
 import org.mule.module.mongo.automation.testcases.RemoveObjectsTestCases;
-import org.mule.module.mongo.automation.testcases.RemoveUsingQueryMapTestCases;
+import org.mule.module.mongo.automation.testcases.RemoveObjectsUsingQueryMapTestCases;
 import org.mule.module.mongo.automation.testcases.RestoreTestCases;
 import org.mule.module.mongo.automation.testcases.SaveObjectFromMapTestCases;
 import org.mule.module.mongo.automation.testcases.SaveObjectTestCases;
@@ -76,7 +76,7 @@ import org.mule.module.mongo.automation.testcases.UpdateObjectsUsingQueryMapTest
 		ListFilesTestCases.class, ListFilesUsingQueryMapTestCases.class,
 		ListIndicesTestCases.class, MapReduceObjectsTestCases.class,
 		RemoveFilesTestCases.class, RemoveFilesUsingQueryMapTestCases.class,
-		RemoveObjectsTestCases.class, RemoveUsingQueryMapTestCases.class,
+		RemoveObjectsTestCases.class, RemoveObjectsUsingQueryMapTestCases.class,
 		RestoreTestCases.class, SaveObjectFromMapTestCases.class,
 		SaveObjectTestCases.class, UpdateObjectsByFunctionTestCases.class,
 		UpdateObjectsByFunctionUsingMapTestCases.class,
