@@ -150,7 +150,7 @@ public class MongoTestDriver
 
         assertEquals(1, connector.countObjects(MAIN_COLLECTION, acmeQuery()));
         DBObject employee = connector.findOneObject(MAIN_COLLECTION, acmeQuery(),
-            Arrays.asList("name"));
+            Arrays.asList("name"),false);
         assertNotNull(employee);
         assertEquals("John", employee.get("name"));
         assertNull(employee.get("company"));
@@ -162,7 +162,7 @@ public class MongoTestDriver
     @Test(expected = MongoException.class)
     public void findOneObjectNotExists() throws Exception
     {
-        connector.findOneObject(MAIN_COLLECTION, acmeQuery(), null);
+        connector.findOneObject(MAIN_COLLECTION, acmeQuery(), null,true);
     }
 
     /**

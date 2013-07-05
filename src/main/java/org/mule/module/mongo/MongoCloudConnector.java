@@ -646,14 +646,16 @@ public class MongoCloudConnector
      * @param collection the target collection
      * @param query the mandatory {@link DBObject} query object that the returned object matches.
      * @param fields alternative way of passing fields as a literal List
-     * @return a non-null {@link DBObject} that matches the query.
+     * @param failOnNotFound Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.
+     * @return a {@link DBObject} that matches the query. If nothing matches and the failOnNotFound is set to false, null will be returned
      */
     @Processor
     public DBObject findOneObject(final String collection,
                                   @Optional @Default("#[payload]") final DBObject query,
-                                  @Placement(group = "Fields") @Optional final List<String> fields)
+                                  @Placement(group = "Fields") @Optional final List<String> fields,
+                                  @Optional @Default("true") Boolean failOnNotFound)
     {
-        return client.findOneObject(collection, query, fields);
+        return client.findOneObject(collection, query, fields, failOnNotFound);
 
     }
 
@@ -666,14 +668,16 @@ public class MongoCloudConnector
      * @param collection the target collection
      * @param queryAttributes the mandatory query object that the returned object matches.
      * @param fields alternative way of passing fields as a literal List
-     * @return a non-null {@link DBObject} that matches the query.
+     * @param failOnNotFound Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.
+     * @return a {@link DBObject} that matches the query. If nothing matches and the failOnNotFound is set to false, null will be returned
      */
     @Processor
     public DBObject findOneObjectUsingQueryMap(final String collection,
                                                @Placement(group = "Query Attributes") final Map<String, Object> queryAttributes,
-                                               @Placement(group = "Fields") @Optional final List<String> fields)
+                                               @Placement(group = "Fields") @Optional final List<String> fields,
+                                               @Optional @Default("true") Boolean failOnNotFound)
     {
-        return client.findOneObject(collection, (DBObject) adapt(queryAttributes), fields);
+        return client.findOneObject(collection, (DBObject) adapt(queryAttributes), fields, failOnNotFound);
 
     }
 

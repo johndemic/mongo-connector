@@ -62,7 +62,7 @@ public interface MongoClient extends Closeable
                                    Integer numToSkip,
                                    Integer limit);
 
-    DBObject findOneObject(@NotNull String collection, DBObject query, List<String> fields);
+    DBObject findOneObject(@NotNull String collection, DBObject query, List<String> fields, boolean failOnNotFound);
 
     void createIndex(String collection, String field, IndexOrder order);
 

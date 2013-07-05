@@ -151,12 +151,16 @@ public class MongoClientImpl implements MongoClient
 
     public DBObject findOneObject(@NotNull final String collection,
                                   final DBObject query,
-                                  final List<String> fields)
+                                  final List<String> fields, boolean failOnNotFound)
     {
         Validate.notNull(collection);
         final DBObject element = openSession().getCollection(collection).findOne(query,
             FieldsSet.from(fields));
         
+		if (element == null && failOnNotFound)
+		{
+			throw new MongoException("No object found for query " + query);
+		}
         return element;
     }
 
