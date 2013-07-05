@@ -25,7 +25,7 @@ public class RemoveFilesUsingQueryMapTestCases extends MongoTestParent {
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
-		testObjects = (HashMap<String, Object>) context.getBean("removeFiles");
+		testObjects = (HashMap<String, Object>) context.getBean("removeFilesUsingQueryMap");
 		
 		assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
 		
