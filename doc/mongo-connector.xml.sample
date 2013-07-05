@@ -68,14 +68,14 @@
         <mongo:remove-objects collection="myCollection" query-ref="dbObject"/>
 <!-- END_INCLUDE(mongo:remove-objects) -->
 
-<!-- BEGIN_INCLUDE(mongo:remove-using-query-map) -->
-        <mongo:remove-using-query-map collection="myCollection">
+<!-- BEGIN_INCLUDE(mongo:remove-objects-using-query-map) -->
+        <mongo:remove-objects-using-query-map collection="myCollection">
             <mongo:query-attributes>
                 <mongo:query-attribute key="foo">bar</mongo:query-attribute>
                 <mongo:query-attribute key="foobar">baz</mongo:query-attribute>
             </mongo:query-attributes>
-        </mongo:remove-using-query-map>
-<!-- END_INCLUDE(mongo:remove-using-query-map) -->
+        </mongo:remove-objects-using-query-map>
+<!-- END_INCLUDE(mongo:remove-objects-using-query-map) -->
 
 <!-- BEGIN_INCLUDE(mongo:map-reduce-objects) -->
         <mongo:map-reduce-objects collection="myCollection" mapFunction="myMapFunction" reduceFunction="myReduceFunction"/>

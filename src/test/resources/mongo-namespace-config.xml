@@ -255,12 +255,12 @@
     </flow>
 
     <flow name="RemoveUsingQueryMap">
-        <mongo:remove-using-query-map collection="myCollection">
+        <mongo:remove-objects-using-query-map collection="myCollection">
             <mongo:query-attributes>
                 <mongo:query-attribute key="foo">bar</mongo:query-attribute>
                 <mongo:query-attribute key="foobar">baz</mongo:query-attribute>
             </mongo:query-attributes>
-        </mongo:remove-using-query-map>
+        </mongo:remove-objects-using-query-map>
     </flow>
     
     
