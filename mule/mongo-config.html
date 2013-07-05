@@ -3433,10 +3433,22 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
                 
           
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>failOnNotFound</nobr></td>
+                        <td class="jd-descrcol">true</td>
+                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.</td>
+                        <td class="jd-descrcol">Boolean</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol"></td>
+                    </tr>
+                
+                
+          
           
               <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
                 
-                    <tr class=" api apilevel-" >
+                    <tr class="alt-color api apilevel-" >
                         <td class="jd-linkcol"><nobr>username</nobr></td>
                         <td class="jd-descrcol"></td>
                         <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The username to use for authentication. NOTE: Please use a dummy user if you
@@ -3447,7 +3459,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                     </tr>
                     
                 
-                    <tr class="alt-color api apilevel-" >
+                    <tr class=" api apilevel-" >
                         <td class="jd-linkcol"><nobr>password</nobr></td>
                         <td class="jd-descrcol"></td>
                         <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The password to use for authentication. NOTE: Please use a dummy password if
@@ -3458,7 +3470,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                     </tr>
                     
                 
-                    <tr class=" api apilevel-" >
+                    <tr class="alt-color api apilevel-" >
                         <td class="jd-linkcol"><nobr>database</nobr></td>
                         <td class="jd-descrcol">test</td>
                         <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Name of the database</td>
@@ -3493,6 +3505,8 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 
                 
               
+                
+              
           </table>
       </div>
   
@@ -3506,7 +3520,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              </tr>
              <tr>
                 <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">a non-null DBObject that matches the query.
+                <td class="jd-descrcol">a DBObject that matches the query. If nothing matches and the failOnNotFound is set to false, null will be returned
 </td>
              </tr>
          </table>
@@ -3571,10 +3585,22 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
                 
           
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>failOnNotFound</nobr></td>
+                        <td class="jd-descrcol">true</td>
+                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.</td>
+                        <td class="jd-descrcol">Boolean</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol"></td>
+                    </tr>
+                
+                
+          
           
               <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
                 
-                    <tr class="alt-color api apilevel-" >
+                    <tr class=" api apilevel-" >
                         <td class="jd-linkcol"><nobr>username</nobr></td>
                         <td class="jd-descrcol"></td>
                         <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The username to use for authentication. NOTE: Please use a dummy user if you
@@ -3585,7 +3611,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                     </tr>
                     
                 
-                    <tr class=" api apilevel-" >
+                    <tr class="alt-color api apilevel-" >
                         <td class="jd-linkcol"><nobr>password</nobr></td>
                         <td class="jd-descrcol"></td>
                         <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The password to use for authentication. NOTE: Please use a dummy password if
@@ -3596,7 +3622,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                     </tr>
                     
                 
-                    <tr class="alt-color api apilevel-" >
+                    <tr class=" api apilevel-" >
                         <td class="jd-linkcol"><nobr>database</nobr></td>
                         <td class="jd-descrcol">test</td>
                         <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Name of the database</td>
@@ -3639,6 +3665,8 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 
                 
               
+                
+              
           </table>
       </div>
   
@@ -3652,7 +3680,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              </tr>
              <tr>
                 <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">a non-null DBObject that matches the query.
+                <td class="jd-descrcol">a DBObject that matches the query. If nothing matches and the failOnNotFound is set to false, null will be returned
 </td>
              </tr>
          </table>

@@ -1807,6 +1807,11 @@ matches the given query
             &lt;xs:documentation&gt;the mandatory  query object that the returned object matches.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; name=&quot;failOnNotFound&quot; default=&quot;true&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
         &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;the username to use for authentication. NOTE: Please use a dummy user if you have disabled Mongo authentication&lt;/xs:documentation&gt;
@@ -1897,6 +1902,11 @@ matches the given query
         &lt;xs:attribute name=&quot;collection&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;the target collection&lt;/xs:documentation&gt;
+          &lt;/xs:annotation&gt;
+        &lt;/xs:attribute&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/mongo&quot; name=&quot;failOnNotFound&quot; default=&quot;true&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+          &lt;xs:annotation&gt;
+            &lt;xs:documentation&gt;Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
         &lt;xs:attribute name=&quot;username&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;

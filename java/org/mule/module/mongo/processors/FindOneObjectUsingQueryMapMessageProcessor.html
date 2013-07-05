@@ -593,7 +593,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>FindOneObjectUsingQueryMapMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html#findOneObjectUsingQueryMap(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.List<java.lang.String>)">findOneObjectUsingQueryMap(java.lang.String, java.util.Map, java.util.List)</a></code> method in <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html">MongoCloudConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>FindOneObjectUsingQueryMapMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html#findOneObjectUsingQueryMap(java.lang.String, java.util.Map<java.lang.String, java.lang.Object>, java.util.List<java.lang.String>, java.lang.Boolean)">findOneObjectUsingQueryMap(java.lang.String, java.util.Map, java.util.List, java.lang.Boolean)</a></code> method in <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html">MongoCloudConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -807,13 +807,24 @@ org.mule.api.lifecycle.Stoppable
           protected
           
           
+          Boolean</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/FindOneObjectUsingQueryMapMessageProcessor.html#_failOnNotFoundType">_failOnNotFoundType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
           List&lt;String&gt;</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/FindOneObjectUsingQueryMapMessageProcessor.html#_fieldsType">_fieldsType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
-      <tr class="alt-color api apilevel-" >
+      <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           protected
           
@@ -824,13 +835,24 @@ org.mule.api.lifecycle.Stoppable
       </tr>
       
     
-      <tr class=" api apilevel-" >
+      <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
           protected
           
           
           Object</nobr></td>
           <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/FindOneObjectUsingQueryMapMessageProcessor.html#collection">collection</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/FindOneObjectUsingQueryMapMessageProcessor.html#failOnNotFound">failOnNotFound</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1160,6 +1182,24 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneObjectUsingQueryMapMessageProcessor.html#setFailOnNotFound(java.lang.Object)">setFailOnNotFound</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets failOnNotFound</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/FindOneObjectUsingQueryMapMessageProcessor.html#setFields(java.lang.Object)">setFields</a></span>(Object value)</nobr>
         
         <div class="jd-descrdiv">Sets fields</div>
@@ -1168,7 +1208,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1186,7 +1226,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1204,7 +1244,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1222,7 +1262,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -1238,7 +1278,7 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -2347,6 +2387,36 @@ From interface
 
 
 
+<A NAME="_failOnNotFoundType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Boolean
+      </span>
+        _failOnNotFoundType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 <A NAME="_fieldsType"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2418,6 +2488,36 @@ From interface
         Object
       </span>
         collection
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="failOnNotFound"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Object
+      </span>
+        failOnNotFound
     </h4>
       <div class="api-level">
         
@@ -2698,6 +2798,47 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p>Sets collection</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setFailOnNotFound(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setFailOnNotFound</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets failOnNotFound</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">

@@ -782,7 +782,7 @@ Summary:
             DBObject</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/api/MongoClientImpl.html#findOneObject(java.lang.String, com.mongodb.DBObject, java.util.List<java.lang.String>)">findOneObject</a></span>(String collection, DBObject query, List&lt;String&gt; fields)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/api/MongoClientImpl.html#findOneObject(java.lang.String, com.mongodb.DBObject, java.util.List<java.lang.String>, boolean)">findOneObject</a></span>(String collection, DBObject query, List&lt;String&gt; fields, boolean failOnNotFound)</nobr>
         
   </td></tr>
 
@@ -1501,7 +1501,7 @@ From interface
             DBObject</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/api/MongoClient.html#findOneObject(java.lang.String, com.mongodb.DBObject, java.util.List<java.lang.String>)">findOneObject</a></span>(String collection, DBObject query, List&lt;String&gt; fields)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/api/MongoClient.html#findOneObject(java.lang.String, com.mongodb.DBObject, java.util.List<java.lang.String>, boolean)">findOneObject</a></span>(String collection, DBObject query, List&lt;String&gt; fields, boolean failOnNotFound)</nobr>
         
   </td></tr>
 
@@ -2455,7 +2455,7 @@ From interface
 </div>
 
 
-<A NAME="findOneObject(java.lang.String, com.mongodb.DBObject, java.util.List<java.lang.String>)"></A>
+<A NAME="findOneObject(java.lang.String, com.mongodb.DBObject, java.util.List<java.lang.String>, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2468,7 +2468,7 @@ From interface
         DBObject
       </span>
       <span class="sympad">findOneObject</span>
-      <span class="normal">(String collection, DBObject query, List&lt;String&gt; fields)</span>
+      <span class="normal">(String collection, DBObject query, List&lt;String&gt; fields, boolean failOnNotFound)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2494,6 +2494,10 @@ From interface
         </tr>
         <tr>
           <th>fields</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>failOnNotFound</td>
           <td></td>
         </tr>
       </table>
