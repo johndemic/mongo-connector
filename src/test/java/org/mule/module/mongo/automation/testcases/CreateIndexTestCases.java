@@ -46,7 +46,7 @@ public class CreateIndexTestCases extends MongoTestParent {
 		try {
 
 			String indexKey = testObjects.get("field").toString();
-			IndexOrder indexOrder = IndexOrder.valueOf(testObjects.get("order").toString());
+			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
 			String indexName = indexKey + "_" + indexOrder.getValue();
 	
 			MessageProcessor flow = lookupFlowConstruct("create-index");
@@ -69,7 +69,7 @@ public class CreateIndexTestCases extends MongoTestParent {
 		try {
 			// Drop the created index
 			String indexKey = testObjects.get("field").toString();
-			IndexOrder indexOrder = IndexOrder.valueOf(testObjects.get("order").toString());
+			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
 			
 			String indexName = indexKey + "_" + indexOrder.getValue();
 			testObjects.put("index", indexName);

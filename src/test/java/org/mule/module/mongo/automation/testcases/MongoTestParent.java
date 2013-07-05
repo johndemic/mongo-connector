@@ -184,7 +184,7 @@ public class MongoTestParent extends FunctionalTestCase {
 	
 	protected String getIndexName() {
 		String indexKey = (String) testObjects.get("field");
-		IndexOrder indexOrder = IndexOrder.valueOf((String) testObjects.get("order"));
+		IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
 		
 		return indexKey + "_" + indexOrder.getValue();
 	}

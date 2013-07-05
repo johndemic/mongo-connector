@@ -51,7 +51,7 @@
 		</entry>
 		<entry key="collection" value="testCollection" />
 		<entry key="field" value="myField" />
-		<entry key="order" value="ASC" />
+		<entry key="order" value="#{T(org.mule.module.mongo.api.IndexOrder).ASC}" />
 	</util:map>
 
 	<!-- drop index -->
@@ -62,7 +62,7 @@
 		</entry>
 		<entry key="collection" value="testCollection" />
 		<entry key="field" value="myField" />
-		<entry key="order" value="ASC" />
+		<entry key="order" value="#{T(org.mule.module.mongo.api.IndexOrder).ASC}" />
 	</util:map>
 
 	<!-- list indices -->
@@ -74,7 +74,7 @@
 		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
 		</entry>
 		<entry key="field" value="myField" />
-		<entry key="order" value="ASC" />
+		<entry key="order" value="#{T(org.mule.module.mongo.api.IndexOrder).ASC}" />
 	</util:map>
 
 	<!-- create file from payload -->

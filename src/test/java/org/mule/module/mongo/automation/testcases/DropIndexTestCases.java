@@ -52,7 +52,7 @@ public class DropIndexTestCases extends MongoTestParent {
 		try {
 
 			String indexKey = testObjects.get("field").toString();
-			IndexOrder indexOrder = IndexOrder.valueOf(testObjects.get("order").toString());
+			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
 			
 			String indexName = indexKey + "_" + indexOrder.getValue();
 			
