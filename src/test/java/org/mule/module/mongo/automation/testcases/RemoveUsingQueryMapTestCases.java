@@ -39,8 +39,8 @@ public class RemoveUsingQueryMapTestCases extends MongoTestParent{
 			// Load variables from testObjects
 			String key = testObjects.get("key").toString();
 			String value = testObjects.get("value").toString();
-			int numberOfObjects = Integer.parseInt(testObjects.get("numberOfObjects").toString());
-			int extraObjects = Integer.parseInt(testObjects.get("extraObjects").toString());
+			int numberOfObjects = (Integer) testObjects.get("numberOfObjects");
+			int extraObjects = (Integer) testObjects.get("extraObjects");
 			
 			// Create list of objects, some with key-value pair, some without
 			List<DBObject> objects = new ArrayList<DBObject>();

@@ -40,8 +40,8 @@ public class MapReduceObjectsTestCases extends MongoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 
-			int numApples = Integer.parseInt(testObjects.get("numApples").toString());
-			int numOranges = Integer.parseInt(testObjects.get("numOranges").toString());
+			int numApples = (Integer) testObjects.get("numApples");
+			int numOranges = (Integer) testObjects.get("numOranges");
 			
 			// Create sample objects with which we can map reduce
 			List<DBObject> objects = new ArrayList<DBObject>();
@@ -69,8 +69,8 @@ public class MapReduceObjectsTestCases extends MongoTestParent {
 	public void testMapReduceObjects() {
 		try {
 
-			int numApples = Integer.parseInt(testObjects.get("numApples").toString());
-			int numOranges = Integer.parseInt(testObjects.get("numOranges").toString());
+			int numApples = (Integer) testObjects.get("numApples");
+			int numOranges = (Integer) testObjects.get("numOranges");
 						
 			MessageProcessor flow = lookupFlowConstruct("map-reduce-objects");
 			MuleEvent response = flow.process(getTestEvent(testObjects));

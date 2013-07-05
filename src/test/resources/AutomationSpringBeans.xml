@@ -202,12 +202,12 @@
 		<entry key="value" value="bar" />
 	</util:map>
 
-	<!-- insert multiple objects -->
-	<util:map id="insertMultipleObjects" map-class="java.util.HashMap"
+	<!-- find objects -->
+	<util:map id="findObjects" map-class="java.util.HashMap"
 		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
 		<entry key="collection" value="testCollection" />
 		<entry key="writeConcern" value="SAFE" />
-		<entry key="numberOfObjects" value="25" />
+		<entry key="numberOfObjects" value="#{25}" />
 	</util:map>
 
 	<!-- remove objects -->
@@ -232,9 +232,9 @@
 		<entry key="value" value="someValue" />
 
 		<!-- Empty DBObjects to create -->
-		<entry key="extraObjects" value="10" />
+		<entry key="extraObjects" value="#{10}" />
 		<!-- DBObjects to create with the above key-value pair -->
-		<entry key="numberOfObjects" value="25" />
+		<entry key="numberOfObjects" value="#{25}" />
 	</util:map>
 
 	<!-- save object -->
@@ -403,8 +403,8 @@
 		<entry key="reduceFunction"
 			value="function(key, values) { var result = 0;	values.forEach(function(value) { result += 1 }); return {count: result}; }" />
 		<!-- <entry key="objects" value-ref="mapReduceBeanList" /> -->
-		<entry key="numApples" value="10" />
-		<entry key="numOranges" value="5" />
+		<entry key="numApples" value="#{10}" />
+		<entry key="numOranges" value="#{5}" />
 	</util:map>
 
 	<util:map id="dump" map-class="java.util.HashMap" key-type="java.lang.String"
