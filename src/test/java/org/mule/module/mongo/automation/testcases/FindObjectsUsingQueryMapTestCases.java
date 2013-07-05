@@ -38,8 +38,8 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Create a number of objects
-			int extraObjects = Integer.parseInt(testObjects.get("extraObjects").toString());
-			int numberOfObjects = Integer.parseInt(testObjects.get("numObjects").toString());
+			int extraObjects = (Integer) testObjects.get("extraObjects");
+			int numberOfObjects = (Integer) testObjects.get("numObjects");
 			String queryKey = testObjects.get("queryKey").toString();
 			String queryValue = testObjects.get("queryValue").toString();
 			
@@ -66,7 +66,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@Test
 	public void testFindObjectsUsingQueryMap_WithQuery() {
 		try {
-			int numberOfObjects = Integer.parseInt(testObjects.get("numObjects").toString());
+			int numberOfObjects = (Integer) testObjects.get("numObjects");
 			String queryKey = testObjects.get("queryKey").toString();
 			String queryValue = testObjects.get("queryValue").toString();
 			
@@ -91,8 +91,8 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@Test
 	public void testFindObjectsUsingQueryMap_WithoutQuery() {
 		try {
-			int extraObjects = Integer.parseInt(testObjects.get("extraObjects").toString());
-			int numberOfObjects = Integer.parseInt(testObjects.get("numObjects").toString());
+			int extraObjects = (Integer) testObjects.get("extraObjects");
+			int numberOfObjects = (Integer) testObjects.get("numObjects");
 			
 			MessageProcessor flow = lookupFlowConstruct("find-objects-using-query-map-without-query");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
@@ -113,7 +113,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 	public void testFindObjectsUsingQueryMap_WithLimit() {
 		try {
 		
-			int limit = Integer.parseInt(testObjects.get("limit").toString());
+			int limit = (Integer) testObjects.get("limit");
 			
 			MessageProcessor flow = lookupFlowConstruct("find-objects-using-query-map-with-limit");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
