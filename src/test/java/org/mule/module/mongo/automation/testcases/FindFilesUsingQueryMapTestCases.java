@@ -31,16 +31,10 @@ public class FindFilesUsingQueryMapTestCases extends MongoTestParent {
 		testObjects = (HashMap<String, Object>) context
 				.getBean("findFilesUsingQueryMap");
 
-		assertEquals(
-				"There should be 0 files in total before setting up the test",
-				0, findFiles());
 		createFileFromPayload(testObjects.get("filename1"));
 
 		// create another file with a different name
 		createFileFromPayload(testObjects.get("filename2"));
-		assertEquals(
-				"There should be 2 files in total after setting up the test",
-				2, findFiles());
 	}
 
 	@After

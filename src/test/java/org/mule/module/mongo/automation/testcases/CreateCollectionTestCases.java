@@ -16,7 +16,6 @@ import java.util.HashMap;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 
 public class CreateCollectionTestCases extends MongoTestParent {
@@ -42,7 +41,7 @@ public class CreateCollectionTestCases extends MongoTestParent {
 			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
 			
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			flow = lookupFlowConstruct("exists-collection");
 			Boolean collection = (Boolean) flow.process(getTestEvent(testObjects)).getMessage().getPayload();

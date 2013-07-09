@@ -21,6 +21,7 @@ import org.mule.api.processor.MessageProcessor;
 
 public class DropCollectionTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

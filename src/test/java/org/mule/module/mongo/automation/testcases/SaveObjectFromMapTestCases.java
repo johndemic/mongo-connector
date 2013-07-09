@@ -25,6 +25,7 @@ import com.mongodb.DBObject;
 
 public class SaveObjectFromMapTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

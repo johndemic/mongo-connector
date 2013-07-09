@@ -12,13 +12,11 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.MongoCollection;
 
@@ -26,12 +24,13 @@ import com.mongodb.DBObject;
 
 public class SaveObjectTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("saveObject");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));				
+			flow.process(getTestEvent(testObjects));				
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -44,7 +43,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 	public void testSaveObject() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("save-object");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			DBObject element = (DBObject) testObjects.get("elementRef");
 			
@@ -59,7 +58,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 			// Modify object and save
 			element.put(key, value);
 			flow = lookupFlowConstruct("save-object");
-			response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			// Check that object was changed in MongoDB
 			dbObjects = getObjects(testObjects);
@@ -76,7 +75,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("drop-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();

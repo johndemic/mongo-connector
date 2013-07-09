@@ -27,15 +27,16 @@ import com.mongodb.DBObject;
 
 public class ListIndicesTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("listIndices");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			flow = lookupFlowConstruct("create-index");
-			response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -43,11 +44,11 @@ public class ListIndicesTestCases extends MongoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testListIndices() {
 		try {
-		
 			String indexKey = testObjects.get("field").toString();
 			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
 			
@@ -78,10 +79,10 @@ public class ListIndicesTestCases extends MongoTestParent {
 			testObjects.put("index", indexName);
 			
 			MessageProcessor flow = lookupFlowConstruct("drop-index");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			flow = lookupFlowConstruct("drop-collection");
-			response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();

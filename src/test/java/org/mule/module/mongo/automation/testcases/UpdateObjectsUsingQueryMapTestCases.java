@@ -28,6 +28,7 @@ import com.mongodb.DBObject;
 
 public class UpdateObjectsUsingQueryMapTestCases extends MongoTestParent {
 	
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

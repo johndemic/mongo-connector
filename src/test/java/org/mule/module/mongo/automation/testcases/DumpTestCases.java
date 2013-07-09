@@ -29,9 +29,7 @@ public class DumpTestCases extends MongoTestParent {
 	public void setUp() {
 		testObjects = (HashMap<String, Object>) context.getBean("dump");
 		
-		File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
-		
-		assertFalse("dump directory should not exist before test runs", dumpOutputDir.exists());
+		new File("./" + testObjects.get("outputDirectory"));
 	}
 
 	@After
@@ -39,7 +37,6 @@ public class DumpTestCases extends MongoTestParent {
 		try {
 			File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
 			FileUtils.deleteDirectory(dumpOutputDir);
-			assertFalse("dump directory should not exist after test runs", dumpOutputDir.exists());
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

@@ -24,14 +24,14 @@ import com.mongodb.CommandResult;
 
 public class ExecuteCommandTestCases extends MongoTestParent {
 
-	@SuppressWarnings("unused")
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
 			// Get the collectionName and create a collection
 			testObjects = (HashMap<String, Object>) context.getBean("executeCommand");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));	
+			flow.process(getTestEvent(testObjects));	
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -39,7 +39,6 @@ public class ExecuteCommandTestCases extends MongoTestParent {
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Category({ RegressionTests.class})
 	@Test
 	public void testExecuteCommand() {

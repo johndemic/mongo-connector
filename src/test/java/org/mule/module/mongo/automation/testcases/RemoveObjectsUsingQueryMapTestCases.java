@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
@@ -28,6 +29,7 @@ import com.mongodb.DBObject;
 
 public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -75,6 +77,7 @@ public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 	
 	@Category({RegressionTests.class})
 	@Test
+	@Ignore
 	public void testRemoveUsingQueryMap_WithQueryMap() {
 		try {
 			int extraObjects = (Integer) testObjects.get("extraObjects");
@@ -106,6 +109,7 @@ public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 
 	@Category({ RegressionTests.class})
 	@Test
+	@Ignore
 	public void testRemoveUsingQueryMap_WithoutQueryMap() {
 		try {
 			

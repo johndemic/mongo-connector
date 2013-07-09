@@ -29,17 +29,9 @@ public class FindOneFileUsingQueryMapTestCases extends MongoTestParent {
 	public void setUp() {
 		testObjects = (HashMap<String, Object>) context.getBean("findOneFileUsingQueryMap");
 
-		assertEquals(
-				"There should be 0 files in total before setting up the test",
-				0, findFiles());
-
 		createFileFromPayload(testObjects.get("filename1"));
 		createFileFromPayload(testObjects.get("filename1"));
 		createFileFromPayload(testObjects.get("filename2"));
-		
-		assertEquals(
-				"There should be 3 files in total after setting up the test",
-				3, findFiles());
 	}
 
 	@After

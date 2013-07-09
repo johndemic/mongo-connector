@@ -8,7 +8,6 @@
 
 package org.mule.module.mongo.automation.testcases;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -28,10 +27,6 @@ public class IncrementalDumpTestCases extends MongoTestParent {
 	@Before
 	public void setUp() {
 		testObjects = (HashMap<String, Object>) context.getBean("dump");
-		
-		File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
-		
-		assertFalse("dump directory should not exist before test runs", dumpOutputDir.exists());
 	}
 
 	@After

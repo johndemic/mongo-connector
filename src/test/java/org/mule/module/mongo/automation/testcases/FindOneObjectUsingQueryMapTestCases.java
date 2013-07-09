@@ -24,6 +24,7 @@ import com.mongodb.DBObject;
 
 public class FindOneObjectUsingQueryMapTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

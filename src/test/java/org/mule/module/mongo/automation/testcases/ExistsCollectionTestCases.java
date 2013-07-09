@@ -22,12 +22,13 @@ import org.mule.api.processor.MessageProcessor;
 
 public class ExistsCollectionTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {			
 			testObjects = (Map<String, Object>) context.getBean("existsCollection");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -38,7 +39,7 @@ public class ExistsCollectionTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("drop-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

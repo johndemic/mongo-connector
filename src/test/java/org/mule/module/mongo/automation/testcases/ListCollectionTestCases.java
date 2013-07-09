@@ -27,6 +27,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 
 	private List<String> collectionNames;
 	
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
@@ -36,7 +37,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
 			for (String collectionName : collectionNames) {
 				testObjects.put("collection", collectionName);
-				MuleEvent response = flow.process(getTestEvent(testObjects));
+				flow.process(getTestEvent(testObjects));
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -44,6 +45,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Category({ RegressionTests.class})
 	@Test
 	public void testListCollections() {
@@ -71,7 +73,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 
 			for (String collectionName : collectionNames) {
 				testObjects.put("collection", collectionName);
-				MuleEvent response = flow.process(getTestEvent(testObjects));
+				flow.process(getTestEvent(testObjects));
 			}
 		}
 		catch (Exception ex) {

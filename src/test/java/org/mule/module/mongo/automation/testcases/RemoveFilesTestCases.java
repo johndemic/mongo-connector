@@ -27,20 +27,15 @@ public class RemoveFilesTestCases extends MongoTestParent {
 	public void setUp() {
 		testObjects = (HashMap<String, Object>) context.getBean("removeFiles");
 		
-		assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
-		
 		createFileFromPayload(testObjects.get("filename1"));
 		createFileFromPayload(testObjects.get("filename1"));
 		createFileFromPayload(testObjects.get("filename2"));
-		
-		assertEquals("There should be 3 files in total after setting up the test", 3, findFiles());
 	}
 	
 	
 	@After
 	public void tearDown() {
 		deleteFilesCreatedByCreateFileFromPayload();
-		assertEquals("There should be 0 files in total after tearing down the test", 0, findFiles());
 	}
 
 	@Category({ RegressionTests.class })
@@ -63,19 +58,19 @@ public class RemoveFilesTestCases extends MongoTestParent {
 	
 	// For some reason, when running all test cases together, this test fails sometimes (not always). When only the RemoveFilesTestCases is executed, both tests pass
 //	@Category({ SmokeTests.class, SanityTests.class })
-//	@Test
-//	public void testRemoveFiles_nonemptyQuery() {
-//		try {
-//			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files-using-query-map-non-empty-query");
-//			MuleEvent event = getTestEvent(testObjects);
-//			removeFilesFlow.process(event);
-//
-//			assertEquals("There should be 1 files found after remove-files with a non-empty query, which deletes all files of name " + testObjects.get("value"), 1,
-//					findFiles());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			fail();
-//		}
-//
-//	}
+	@Test
+	public void testRemoveFiles_nonemptyQuery() {
+		try {
+			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files-using-query-map-non-empty-query");
+			MuleEvent event = getTestEvent(testObjects);
+			removeFilesFlow.process(event);
+
+			assertEquals("There should be 1 files found after remove-files with a non-empty query, which deletes all files of name " + testObjects.get("value"), 1,
+					findFiles());
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail();
+		}
+
+	}
 }

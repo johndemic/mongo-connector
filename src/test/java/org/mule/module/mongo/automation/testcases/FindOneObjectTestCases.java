@@ -26,18 +26,19 @@ import com.mongodb.DBObject;
 public class FindOneObjectTestCases extends MongoTestParent {
 
 	
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
 			// create the collection
 			testObjects = (HashMap<String, Object>) context.getBean("findOneObject");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			// create the object
 			// dbObject is modified in the insert-object flow
 			flow = lookupFlowConstruct("insert-object");
-			response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,7 +72,7 @@ public class FindOneObjectTestCases extends MongoTestParent {
 		try {
 			// drop the collection
 			MessageProcessor flow = lookupFlowConstruct("drop-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();

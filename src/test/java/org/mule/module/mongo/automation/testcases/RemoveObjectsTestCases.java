@@ -23,15 +23,16 @@ import org.mule.module.mongo.api.MongoCollection;
 
 public class RemoveObjectsTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("removeObjects");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			flow = lookupFlowConstruct("insert-object");
-			response = flow.process(getTestEvent(testObjects));			
+			flow.process(getTestEvent(testObjects));			
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -62,7 +63,7 @@ public class RemoveObjectsTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("drop-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();

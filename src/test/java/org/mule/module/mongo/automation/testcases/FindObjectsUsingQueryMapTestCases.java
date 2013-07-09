@@ -35,7 +35,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 			// create collection
 			testObjects = (Map<String, Object>) context.getBean("findObjectsUsingQueryMap");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			// Create a number of objects
 			int extraObjects = (Integer) testObjects.get("extraObjects");
@@ -133,7 +133,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			MessageProcessor flow = lookupFlowConstruct("drop-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();

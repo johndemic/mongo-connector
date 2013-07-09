@@ -26,8 +26,6 @@ public class CreateFileFromPayloadTestCases extends MongoTestParent {
 	@Before
 	public void setUp() {
 		testObjects = (HashMap<String, Object>) context.getBean("createFileFromPayload");
-		
-		assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
 	}
 	
 	@After

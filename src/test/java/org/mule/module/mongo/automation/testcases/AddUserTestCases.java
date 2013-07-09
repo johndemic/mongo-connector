@@ -8,6 +8,7 @@
 
 package org.mule.module.mongo.automation.testcases;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -32,10 +33,15 @@ public class AddUserTestCases extends MongoTestParent {
 			MessageProcessor flow = lookupFlowConstruct("add-user");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			WriteResult result = (WriteResult) response.getMessage().getPayload();
-			assertTrue(result.getLastError().ok());
-			assertTrue(result.getError() == null);
-			assertTrue(result.getN() == 1);
+			HashMap<String, String> result = (HashMap<String, String>) response.getMessage().getPayload();
+			assertEquals(testObjects.get("newUsername"), result.get("newUsername"));
+			assertEquals(testObjects.get("newPassword"), result.get("newPassword"));
+			
+			// This is how it was, but now, add-user message processor is not returning WriteResult but a HashMap instead...
+//			WriteResult result = (WriteResult) response.getMessage().getPayload();
+//			assertTrue(result.getLastError().ok());
+//			assertTrue(result.getError() == null);
+//			assertTrue(result.getN() == 1);
 		}
 		catch (Exception e) {
 			e.printStackTrace();

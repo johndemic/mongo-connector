@@ -37,7 +37,6 @@ public class CountObjectsTestCases extends MongoTestParent {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

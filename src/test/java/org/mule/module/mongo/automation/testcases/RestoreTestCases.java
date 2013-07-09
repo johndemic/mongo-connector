@@ -8,7 +8,6 @@
 
 package org.mule.module.mongo.automation.testcases;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -19,7 +18,6 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
@@ -37,24 +35,15 @@ public class RestoreTestCases extends MongoTestParent {
 		testObjects = (HashMap<String, Object>) context.getBean("restore");
 		try {
 			String indexKey = testObjects.get("field").toString();
-			IndexOrder indexOrder =(IndexOrder) testObjects.get("order");
+			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
 			
 			String indexName = MongoHelper.getIndexName(indexKey, indexOrder);
-			File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
 			
 			MessageProcessor restoreTestCaseSetupFlow = lookupFlowConstruct("createIndex_Dump");
 			restoreTestCaseSetupFlow.process(getTestEvent(testObjects));
 			
-			assertTrue("dump directory should exist after creating it", dumpOutputDir.exists());
-			
-			MessageProcessor listIndicesFlow = lookupFlowConstruct("list-indices-for-drop-restore");
-			MuleEvent responseEvent = listIndicesFlow.process(getTestEvent(testObjects));
-			
-			List<DBObject> payload = (List<DBObject>) responseEvent.getMessage().getPayload();
-			assertTrue("After creating the index with index name = " + indexName + " it should exist", MongoHelper.indexExistsInList(payload, indexName));
-			
 			// drop index
-			testObjects.put("index", indexName);			
+			testObjects.put("index", indexName);
 			MessageProcessor dropIndexFlow = lookupFlowConstruct("drop-index-for-drop-restore");
 			try {
 				dropIndexFlow.process(getTestEvent(testObjects));
@@ -62,24 +51,17 @@ public class RestoreTestCases extends MongoTestParent {
 				e.printStackTrace();
 				fail();
 			}
-			
-			MuleEvent listIndicesResponse = listIndicesFlow.process(getTestEvent(testObjects));
-			
-			List<DBObject> listIndicesResponsePayload = (List<DBObject>) listIndicesResponse.getMessage().getPayload();
-			assertFalse("After dropping the index with index name = " + indexName + " it should not exist", MongoHelper.indexExistsInList(listIndicesResponsePayload, indexName));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {
 			File dumpOutputDir = new File("./" + testObjects.get("outputDirectory"));
 			FileUtils.deleteDirectory(dumpOutputDir);
-			assertFalse("dump directory should not exist after test runs", dumpOutputDir.exists());
 			
 			String indexKey = testObjects.get("field").toString();
 			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
@@ -91,16 +73,12 @@ public class RestoreTestCases extends MongoTestParent {
 			MessageProcessor dropIndexFlow = lookupFlowConstruct("drop-index-for-drop-restore");
 			try {
 				dropIndexFlow.process(getTestEvent(testObjects));
+				// Need to drop the collection becuase creating the index creates the collection
+				lookupFlowConstruct("drop-collection-for-drop-restore").process(getTestEvent(testObjects));
 			} catch (Exception e) {
 				e.printStackTrace();
 				fail();
 			}
-						
-			MessageProcessor flow = lookupFlowConstruct("list-indices-for-drop-restore");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
-			List<DBObject> payload = (List<DBObject>) response.getMessage().getPayload();
-			
-			assertFalse("After deleting the index with index name = " + indexName + " it should not exist", MongoHelper.indexExistsInList(payload, indexName));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -110,7 +88,6 @@ public class RestoreTestCases extends MongoTestParent {
 	@SuppressWarnings("unchecked")
 	@Category({RegressionTests.class})
 	@Test
-	@Ignore
 	public void testRestore() {
 		try {
 			MessageProcessor restoreFlow = lookupFlowConstruct("restore");

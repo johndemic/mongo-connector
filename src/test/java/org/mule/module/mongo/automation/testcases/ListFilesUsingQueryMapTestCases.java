@@ -32,25 +32,14 @@ public class ListFilesUsingQueryMapTestCases extends MongoTestParent {
 	public void setUp() {
 		testObjects = (HashMap<String, Object>) context.getBean("listFilesUsingQueryMap");
 
-		assertEquals(
-				"There should be 0 files in total before setting up the test",
-				0, findFiles());
-
 		createFileFromPayload(testObjects.get("filename1"));
 		createFileFromPayload(testObjects.get("filename1"));
 		createFileFromPayload(testObjects.get("filename2"));
-
-		assertEquals(
-				"There should be 3 files in total after setting up the test",
-				3, findFiles());
 	}
 
 	@After
 	public void tearDown() {
 		deleteFilesCreatedByCreateFileFromPayload();
-		assertEquals(
-				"There should be 0 files in total after tearing down the test",
-				0, findFiles());
 	}
 
 	@SuppressWarnings("unchecked")

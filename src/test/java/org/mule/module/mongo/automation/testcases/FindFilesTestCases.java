@@ -24,8 +24,6 @@ public class FindFilesTestCases extends MongoTestParent {
 	public void setUp() {
 		testObjects = (HashMap<String, Object>) context.getBean("findFiles");
 		
-		assertEquals("There should be 0 files in total before setting up the test", 0, findFiles());
-		
 		createFileFromPayload(testObjects.get("filename1"));
 		createFileFromPayload(testObjects.get("filename1"));
 	}

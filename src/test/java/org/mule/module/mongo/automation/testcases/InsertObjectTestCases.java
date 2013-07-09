@@ -22,6 +22,7 @@ import org.mule.api.processor.MessageProcessor;
 
 public class InsertObjectTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {

@@ -23,7 +23,6 @@ import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.MongoCollection;
-import org.mvel2.ast.AssertNode;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
@@ -104,8 +103,6 @@ public class MapReduceObjectsTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			
-			String collection = testObjects.get("collection").toString();
 			String outputCollection = testObjects.get("outputCollection").toString();
 			
 			// drop the collection

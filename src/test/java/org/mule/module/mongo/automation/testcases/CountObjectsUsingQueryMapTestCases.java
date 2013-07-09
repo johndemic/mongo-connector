@@ -39,7 +39,6 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@After
 	public void tearDown() {
 		try {

@@ -471,7 +471,7 @@
 		<entry key="oplog" value="false" />
 		<entry key="threads" value="5" />
 		<entry key="field" value="myField" />
-		<entry key="order" value="ASC" />
+		<entry key="order" value="#{T(org.mule.module.mongo.api.IndexOrder).ASC}" />
 	</util:map>
 
 	<!-- HELPER STUFF BELOW -->

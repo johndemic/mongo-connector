@@ -28,12 +28,13 @@ import com.mongodb.DBObject;
 
 public class CreateIndexTestCases extends MongoTestParent {
 
+	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("createIndex");
 			MessageProcessor flow = lookupFlowConstruct("create-collection");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -41,6 +42,7 @@ public class CreateIndexTestCases extends MongoTestParent {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Category({SmokeTests.class, RegressionTests.class})
 	@Test
 	public void testCreateIndex() {
@@ -76,11 +78,11 @@ public class CreateIndexTestCases extends MongoTestParent {
 			testObjects.put("index", indexName);
 			
 			MessageProcessor flow = lookupFlowConstruct("drop-index");
-			MuleEvent response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 			
 			// Drop the collection
 			flow = lookupFlowConstruct("drop-collection");
-			response = flow.process(getTestEvent(testObjects));
+			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
