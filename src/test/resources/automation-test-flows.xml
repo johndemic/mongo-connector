@@ -15,32 +15,18 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<mongo:connection-pooling-profile
 			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" />
 	</mongo:config>
-	<!-- <mongo:config name="Mongo_DB" host="${mongo.host}" port="${mongo.port}" 
-		username="${mongo.username}" password="${mongo.password}" -->
-	<!-- database="${mongo.database}" doc:name="Mongo DB"> -->
-	<!-- <mongo:connection-pooling-profile -->
-	<!-- initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" 
-		/> -->
-	<!-- </mongo:config> -->
-
+	
 	<mongo:config name="Mongo_DB_for_drop_restore" host="${mongo.host}"
 		port="${mongo.port}" database="${mongo.database.drop.restore}">
 		<mongo:connection-pooling-profile
 			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" />
 	</mongo:config>
-	<!-- <mongo:config name="Mongo_DB_for_drop_restore" host="${mongo.host}" 
-		port="${mongo.port}" database="${mongo.database.drop.restore}" -->
-	<!-- username="${mongo.username}" password="${mongo.password}"> -->
-	<!-- <mongo:connection-pooling-profile -->
-	<!-- initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" 
-		/> -->
-	<!-- </mongo:config> -->
 
 	<flow name="create-collection" doc:name="create-collection">
 		<mongo:create-collection config-ref="Mongo_DB"
 			collection="#[payload.collection]" doc:name="Mongo DB" />
 	</flow>
-	
+
 	<flow name="create-collection-for-drop-restore">
 		<mongo:create-collection config-ref="Mongo_DB_for_drop_restore"
 			collection="#[payload.collection]" doc:name="Mongo DB" />
@@ -50,7 +36,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<mongo:drop-collection config-ref="Mongo_DB_for_drop_restore"
 			collection="#[payload.collection]" doc:name="Mongo DB" />
 	</flow>
-	
+
 	<flow name="drop-collection" doc:name="drop-collection">
 		<mongo:drop-collection config-ref="Mongo_DB"
 			collection="#[payload.collection]" doc:name="Mongo DB" />
@@ -65,7 +51,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 		<mongo:exists-collection config-ref="Mongo_DB_for_drop_restore"
 			collection="#[payload.collection]" doc:name="Mongo_DB" />
 	</flow>
-	
+
 	<flow name="list-collections" doc:name="list-collections">
 		<mongo:list-collections config-ref="Mongo_DB" />
 	</flow>
@@ -122,7 +108,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	<flow name="drop-database">
 		<mongo:drop-database config-ref="Mongo_DB_for_drop_restore" />
 	</flow>
-	
+
 	<flow name="createIndex_Dump">
 		<mongo:create-index collection="#[payload.collection]"
 			field="#[payload.field]" order="#[payload.order]" config-ref="Mongo_DB_for_drop_restore" />
@@ -241,9 +227,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			collection="#[payload.collection]" query-ref="#[payload.queryRef]" />
 	</flow>
 
-	<flow name="remove-objects-using-query-map-with-query-map" doc:name="remove-objects-using-query-map-with-query-map">
-		<mongo:remove-objects-using-query-map config-ref="Mongo_DB"
-			collection="#[payload.collection]" writeConcern="#[payload.writeConcern]">
+	<flow name="remove-objects-using-query-map-with-query-map"
+		doc:name="remove-objects-using-query-map-with-query-map">
+		<mongo:remove-objects-using-query-map
+			config-ref="Mongo_DB" collection="#[payload.collection]"
+			writeConcern="#[payload.writeConcern]">
 			<mongo:query-attributes>
 				<mongo:query-attribute key="#[payload.key]">#[payload.value]</mongo:query-attribute>
 			</mongo:query-attributes>
@@ -251,10 +239,12 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	</flow>
 
 	<!-- THIS IS NOT SUPPORTED, WHEN IN FACT, IT SHOULD BE -->
-	<flow name="remove-objects-using-query-map-without-query-map" doc:name="remove-objects-using-query-map-without-query-map">
-		<mongo:remove-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]" 
+	<flow name="remove-objects-using-query-map-without-query-map"
+		doc:name="remove-objects-using-query-map-without-query-map">
+		<mongo:remove-objects-using-query-map
+			config-ref="Mongo_DB" collection="#[payload.collection]"
 			writeConcern="#[payload.writeConcern]" />
-	</flow>	
+	</flow>
 
 	<flow name="find-objects" doc:name="find-objects">
 		<mongo:find-objects config-ref="Mongo_DB"
