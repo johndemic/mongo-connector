@@ -57,7 +57,7 @@ public class RemoveFilesTestCases extends MongoTestParent {
 
 	
 	// For some reason, when running all test cases together, this test fails sometimes (not always). When only the RemoveFilesTestCases is executed, both tests pass
-//	@Category({ SmokeTests.class, SanityTests.class })
+	@Category({ RegressionTests.class })
 	@Test
 	public void testRemoveFiles_nonemptyQuery() {
 		try {

@@ -254,7 +254,7 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 	<flow name="remove-objects-using-query-map-without-query-map" doc:name="remove-objects-using-query-map-without-query-map">
 		<mongo:remove-objects-using-query-map config-ref="Mongo_DB" collection="#[payload.collection]" 
 			writeConcern="#[payload.writeConcern]" />
-	</flow>
+	</flow>	
 
 	<flow name="find-objects" doc:name="find-objects">
 		<mongo:find-objects config-ref="Mongo_DB"

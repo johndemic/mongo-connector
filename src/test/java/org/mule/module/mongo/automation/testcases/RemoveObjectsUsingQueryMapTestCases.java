@@ -77,7 +77,6 @@ public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 	
 	@Category({RegressionTests.class})
 	@Test
-	@Ignore
 	public void testRemoveUsingQueryMap_WithQueryMap() {
 		try {
 			int extraObjects = (Integer) testObjects.get("extraObjects");
@@ -109,7 +108,6 @@ public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 
 	@Category({ RegressionTests.class})
 	@Test
-	@Ignore
 	public void testRemoveUsingQueryMap_WithoutQueryMap() {
 		try {
 			

@@ -8,7 +8,6 @@
 
 package org.mule.module.mongo.automation.testcases;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
