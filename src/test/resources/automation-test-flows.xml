@@ -27,11 +27,12 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			collection="#[payload.collection]" doc:name="Mongo DB" />
 	</flow>
 
-	<flow name="create-collection-for-drop-restore">
-		<mongo:create-collection config-ref="Mongo_DB_for_drop_restore"
-			collection="#[payload.collection]" doc:name="Mongo DB" />
+	<flow name="save-object-for-drop-restore" doc:name="save-object">
+		<mongo:save-object config-ref="Mongo_DB_for_drop_restore"
+			collection="#[payload.collection]" element-ref="#[payload.elementRef]"
+			writeConcern="#[payload.writeConcern]" />
 	</flow>
-
+	
 	<flow name="drop-collection-for-drop-restore">
 		<mongo:drop-collection config-ref="Mongo_DB_for_drop_restore"
 			collection="#[payload.collection]" doc:name="Mongo DB" />

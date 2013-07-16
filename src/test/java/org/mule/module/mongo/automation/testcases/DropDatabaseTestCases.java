@@ -26,9 +26,8 @@ public class DropDatabaseTestCases extends MongoTestParent {
 	@Before
 	public void setUp() {
 		try {
-			// Create the collection
 			testObjects = (HashMap<String, Object>) context.getBean("dropDatabase");
-			MessageProcessor createCollectionFlow = lookupFlowConstruct("create-collection-for-drop-restore");
+			MessageProcessor createCollectionFlow = lookupFlowConstruct("save-object-for-drop-restore");
 			createCollectionFlow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
@@ -48,10 +47,8 @@ public class DropDatabaseTestCases extends MongoTestParent {
 	}	
 	
 	
-	// When DropDatabaseTestCases is executed by itself, the test passes. When executing all test cases, it fails...
 	@Category({ RegressionTests.class })
 	@Test
-//	@Ignore
 	public void testDropDatabase() {
 		MuleEvent response = null;
 		try {

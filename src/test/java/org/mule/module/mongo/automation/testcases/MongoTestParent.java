@@ -12,9 +12,7 @@ import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -24,9 +22,7 @@ import org.junit.rules.TemporaryFolder;
 import org.junit.rules.Timeout;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
-import org.mule.module.mongo.api.IndexOrder;
 import org.mule.module.mongo.api.MongoCollection;
-import org.mule.module.mongo.api.automation.MongoHelper;
 import org.mule.tck.junit4.FunctionalTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -108,7 +104,13 @@ public class MongoTestParent extends FunctionalTestCase {
 		}
 
 		iterable = (Iterable<DBObject>) response.getMessage().getPayload();
-		return MongoHelper.getIterableSize(iterable);
+		int size = 0;
+		for(DBObject dbObj : iterable) {
+			if(dbObj.containsField("filename")) {
+				size++;
+			}
+		}
+		return size;
 	}
 	
 	protected GridFSInputFile createFileFromPayload(DBObject dbObj, String filename) {
