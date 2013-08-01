@@ -8,7 +8,7 @@
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/2.0/mule-mongo.xsd">
 
-	<context:property-placeholder location="automation-credentials.properties" />
+	<context:property-placeholder location="${MONGO_CREDENTIALS}" />
 
 	<mongo:config name="Mongo_DB" host="${mongo.host}" port="${mongo.port}"
 		database="${mongo.database}" doc:name="Mongo DB">
