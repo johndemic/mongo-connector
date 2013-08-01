@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- create collection -->
+	<util:map id="createCollection" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
+		<entry key="collection" value="testCollection" />
+	</util:map>
+
+	<!-- drop collection -->
+	<util:map id="dropCollection" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
+		<entry key="collection" value="testCollection" />
+	</util:map>
+	
+	<!-- drop database -->
+	<util:map id="dropDatabase" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="elementRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<entry key="writeConcern" value="SAFE" />
+		<!-- Add the following key/value pair to modify the object -->
+		<entry key="key" value="mykey" />
+		<entry key="value" value="myvalue" />
+	</util:map>
+
+	<!-- exists collection -->
+	<util:map id="existsCollection" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
+		<entry key="collection" value="testCollection" />
+	</util:map>
+
+	<!-- list collection -->
+	<util:list id="listCollections" value-type="java.lang.String"
+		scope="prototype">
+		<value>FirstCollection</value>
+		<value>SecondCollection</value>
+		<value>ThirdCollection</value>
+	</util:list>
+
+	<!-- create index -->
+	<util:map id="createIndex" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="dbObject">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<entry key="collection" value="testCollection" />
+		<entry key="field" value="myField" />
+		<entry key="order" value="#{T(org.mule.module.mongo.api.IndexOrder).ASC}" />
+	</util:map>
+
+	<!-- drop index -->
+	<util:map id="dropIndex" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="dbObject">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<entry key="collection" value="testCollection" />
+		<entry key="field" value="myField" />
+		<entry key="order" value="#{T(org.mule.module.mongo.api.IndexOrder).ASC}" />
+	</util:map>
+
+	<!-- list indices -->
+	<util:map id="listIndices" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<!-- index to search for -->
+		<entry key="dbObject">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<entry key="field" value="myField" />
+		<entry key="order" value="#{T(org.mule.module.mongo.api.IndexOrder).ASC}" />
+	</util:map>
+
+	<!-- create file from payload -->
+	<util:map id="createFileFromPayload" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+	</util:map>
+
+	<!-- remove files -->
+	<util:map id="removeFiles" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+		<entry key="queryRef">
+			<bean class="com.mongodb.BasicDBObject">
+				<constructor-arg index="0" value="filename" />
+				<constructor-arg index="1" value="file1" />
+			</bean>
+		</entry>
+		<entry key="key" value="filename" />
+		<entry key="value" value="file1" />
+	</util:map>
+
+	<!-- remove files using query map -->
+	<util:map id="removeFilesUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+		<entry key="key" value="filename" />
+		<entry key="value" value="file1" />
+	</util:map>
+
+	<!-- find files -->
+	<util:map id="findFiles" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+	</util:map>
+
+	<!-- find one file -->
+	<util:map id="findOneFile" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+		<entry key="queryRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+	</util:map>
+
+	<!-- find one file using query map -->
+	<util:map id="findOneFileUsingQueryMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+		<entry key="key" value="filename" />
+		<entry key="value" value="file1" />
+	</util:map>
+
+	<!-- find files using query map -->
+	<util:map id="findFilesUsingQueryMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+		<entry key="queryAttribKey" value="filename" />
+		<entry key="queryAttribVal" value="file2" />
+	</util:map>
+
+	<!-- insert object -->
+	<util:map id="insertObject" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<!-- used by insert-object flow -->
+		<entry key="dbObjectRef">
+   		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+	</util:map>
+
+	<!-- insert object from map -->
+	<util:map id="insertObjectFromMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<entry key="key" value="objectKey" />
+		<entry key="value" value="objectValue" />
+	</util:map>
+
+	<!-- find objects using query map (with query | without query | with limit) -->
+	<util:map id="findObjectsUsingQueryMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<!-- Number of objects without the key-value pair -->
+		<entry key="extraObjects" value="#{10}" />
+		<entry key="numObjects" value="#{25}" />
+		<!-- The following key-value pair are set to each and every DBObject -->
+		<!-- Number of DBObjects is defined using the "numObjects" value in this 
+			bean -->
+		<entry key="queryKey" value="myKey" />
+		<entry key="queryValue" value="myValue" />
+		<!-- This value is only used in the "testFindObjectsUsingQueryMap_WithLimit" 
+			test -->
+		<entry key="limit" value="#{10}" />
+	</util:map>
+
+	<!-- find one object -->
+	<util:map id="findOneObject" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<!-- used by find-one-object flow -->
+		<entry key="queryRef">
+			<bean class="com.mongodb.BasicDBObject" scope="prototype" />    
+		</entry>
+		<!-- used by insert-object flow -->
+		<entry key="dbObjectRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+	</util:map>
+
+	<!-- find one object using query map -->
+	<util:map id="findOneObjectUsingQueryMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<entry key="key" value="foo" />
+		<entry key="value" value="bar" />
+	</util:map>
+
+	<!-- find objects -->
+	<util:map id="findObjects" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<entry key="numberOfObjects" value="#{25}" />
+	</util:map>
+
+	<!-- remove objects -->
+	<util:map id="removeObjects" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<!-- used by remove-object flow -->
+		<entry key="queryRef">
+			<bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<!-- used by insert-object flow -->
+		<entry key="dbObjectRef">
+			<bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+	</util:map>
+
+	<util:map id="removeObjectsUsingQueryMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<entry key="key" value="someKey" />
+		<entry key="value" value="someValue" />
+
+		<!-- Empty DBObjects to create -->
+		<entry key="extraObjects" value="#{10}" />
+		<!-- DBObjects to create with the above key-value pair -->
+		<entry key="numberOfObjects" value="#{25}" />
+	</util:map>
+
+	<!-- save object -->
+	<util:map id="saveObject" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="elementRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<entry key="writeConcern" value="SAFE" />
+		<!-- Add the following key/value pair to modify the object -->
+		<entry key="key" value="mykey" />
+		<entry key="value" value="myvalue" />
+	</util:map>
+
+	<!-- save object -->
+	<util:map id="saveObjectFromMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<entry key="key" value="someKey" />
+		<entry key="value" value="someValue" />
+	</util:map>
+
+	<!-- add user -->
+	<util:map id="addUser" map-class="java.util.HashMap" key-type="java.lang.String"
+		value-type="java.lang.String" scope="prototype">
+		<entry key="newUsername" value="newUsername" />
+		<entry key="newPassword" value="newPassword" />
+	</util:map>
+
+	<!-- count objects -->
+	<util:map id="countObjects" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="numObjects" value="#{5}" />
+	</util:map>
+
+	<!-- count objects using query map -->
+	<util:map id="countObjectsUsingQueryMap" map-class="java.util.HashMap" key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="testCollection" />
+		<entry key="object">
+			<bean scope="prototype" class="com.mongodb.BasicDBObject" />
+		</entry>
+		<entry key="queryAttribKey" value="foo" />
+		<entry key="queryAttribVal" value="bar" />
+		<entry key="numObjects" value="#{5}" />
+	</util:map>
+
+	<!-- execute command -->
+	<util:map id="executeCommand" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.String" scope="prototype">
+		<entry key="collection" value="newCollection" />
+		<entry key="commandName" value="drop" />
+		<entry key="commandValue" value="newCollection" />
+	</util:map>
+
+	<!-- update object -->
+	<util:map id="updateObjects" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="newCollection" />
+		<!-- used for insert-object flow -->
+		<entry key="dbObjectRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<!-- used for update-objects flow -->
+		<entry key="queryRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<entry key="writeConcern" value="SAFE" />
+		<!-- Key value pair to be written to the object/s for update -->
+		<entry key="key" value="myKey" />
+		<entry key="value" value="myValue" />
+	</util:map>
+
+	<!-- update object using query map -->
+	<util:map id="updateObjectsUsingQueryMap" map-class="java.util.HashMap"
+		value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="newCollection" />
+		<entry key="upsert" value="false" />
+		<entry key="multi" value="true" />
+		<entry key="writeConcern" value="DATABASE_DEFAULT" />
+		<entry key="queryKey" value="key" />
+		<entry key="queryValue" value="oldValue" />
+		<entry key="numberOfObjects" value="#{10}" />
+		<entry key="dbObject">
+			<bean class="com.mongodb.BasicDBObject">
+				<constructor-arg index="0" value="$set" />
+				<constructor-arg index="1">
+					<bean class="com.mongodb.BasicDBObject">
+						<constructor-arg index="0" value="key" />
+						<constructor-arg index="1" value="newValue" />
+					</bean>
+				</constructor-arg>
+			</bean>
+		</entry>
+	</util:map>
+	
+	<!-- update objects by function using map -->
+	<util:map id="updateObjectsByFunctionUsingMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="newCollection" />
+		<entry key="upsert" value="false" />
+		<entry key="multi" value="true" />
+		<entry key="writeConcern" value="DATABASE_DEFAULT" />
+		<entry key="function" value="$set" />
+		<!-- number of objects to create with queryKey and queryValue -->
+		<entry key="numberOfObjects" value="#{10}" />
+		<entry key="queryKey" value="key" />
+		<entry key="queryValue" value="oldValue" />
+		<entry key="elementKey" value="key" />
+		<entry key="elementValue" value="newValue" />
+	</util:map>
+
+	<!-- update objects by function -->
+	<util:map id="updateObjectsByFunction" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="newCollection" />
+		<entry key="upsert" value="false" />
+		<entry key="multi" value="true" />
+		<entry key="writeConcern" value="DATABASE_DEFAULT" />
+		<entry key="function" value="$set" />
+		<!-- number of objects to create with queryKey and queryValue -->
+		<entry key="numberOfObjects" value="#{10}" />
+		<entry key="queryKey" value="key" />
+		<entry key="queryRef">
+			<bean class="com.mongodb.BasicDBObject">
+				<constructor-arg index="0" value="key" />
+				<constructor-arg index="1" value="oldValue" />
+			</bean>
+		</entry>
+		<entry key="elementRef">
+			<bean class="com.mongodb.BasicDBObject">
+				<constructor-arg index="0" value="key" />
+				<constructor-arg index="1" value="newValue" />
+			</bean>
+		</entry>
+	</util:map>
+
+	<!-- update object using map -->
+	<util:map id="updateObjectsUsingMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="newCollection" />
+		<entry key="writeConcern" value="SAFE" />
+		<entry key="operator" value="$set" />
+		<!-- number of objects to create with queryKey and queryValue -->
+		<entry key="numberOfObjects" value="#{10}" />
+		<entry key="queryKey" value="key" />
+		<entry key="queryValue" value="oldValue" />
+		<entry key="elementKey" value="key" />
+		<entry key="elementValue" value="newValue" />
+		<entry key="dbObject">
+			<bean class="com.mongodb.BasicDBObject">
+				<constructor-arg index="0" value="key" />
+				<constructor-arg index="1" value="newValue" />
+			</bean>
+		</entry>
+	</util:map>
+
+	<!-- map reduce objects -->
+	<util:map id="mapReduceObjects" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="collection" value="itemsCollection" />
+		<entry key="outputCollection" value="resultCollection" />
+		<entry key="mapFunction" value="function() { emit(this.item, 1); }" />
+		<entry key="reduceFunction"
+			value="function(key, values) { var result = 0;	values.forEach(function(value) { result += 1 }); return {count: result}; }" />
+		<!-- <entry key="objects" value-ref="mapReduceBeanList" /> -->
+		<entry key="numApples" value="#{10}" />
+		<entry key="numOranges" value="#{5}" />
+	</util:map>
+
+	<util:map id="dump" map-class="java.util.HashMap" key-type="java.lang.String"
+		value-type="java.lang.Object" scope="prototype">
+		<entry key="outputDirectory" value="dump" />
+		<entry key="outputName" value="test" />
+		<entry key="zip" value="false" />
+		<entry key="oplog" value="false" />
+		<entry key="threads" value="5" />
+	</util:map>
+
+	<util:map id="incrementalDump" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="outputDirectory" value="dump" />
+	</util:map>
+
+	<!-- get file content -->
+	<util:map id="getFileContent" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="queryRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+	</util:map>
+
+	<!-- get file contents using query map -->
+	<util:map id="getFileContentUsingQueryMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+		<entry key="key" value="filename" />
+		<entry key="value" value="file1" />
+	</util:map>
+
+	<!-- list files -->
+	<util:map id="listFiles" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="queryRef">
+		    <bean class="com.mongodb.BasicDBObject" scope="prototype" />
+		</entry>
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+		<entry key="key" value="filename" />
+		<entry key="value" value="file1" />
+	</util:map>
+
+	<!-- list files using query map -->
+	<util:map id="listFilesUsingQueryMap" map-class="java.util.HashMap"
+		key-type="java.lang.String" value-type="java.lang.Object" scope="prototype">
+		<entry key="filename1" value="file1" />
+		<entry key="filename2" value="file2" />
+		<entry key="key" value="filename" />
+		<entry key="value" value="file1" />
+	</util:map>
+
+	<!-- restore -->
+	<util:map id="restore" map-class="java.util.HashMap" key-type="java.lang.String"
+		value-type="java.lang.Object" scope="prototype">
+		<entry key="inputPath" value="dump" />
+		<entry key="drop" value="false" />
+		<entry key="oplogReplay" value="false" />
+		<entry key="collection" value="testCollection" />
+		<entry key="outputDirectory" value="dump" />
+		<entry key="outputName" value="test" />
+		<entry key="zip" value="false" />
+		<entry key="oplog" value="false" />
+		<entry key="threads" value="5" />
+		<entry key="field" value="myField" />
+		<entry key="order" value="#{T(org.mule.module.mongo.api.IndexOrder).ASC}" />
+	</util:map>
+
+	<!-- HELPER STUFF BELOW -->
+
+	<!-- Helper beans to test map-reduction -->
+
+	<util:list id="mapReduceBeanList" scope="prototype"
+		value-type="com.mongodb.DBObject">
+		<ref bean="appleBean_1" />
+		<ref bean="appleBean_2" />
+		<ref bean="appleBean_3" />
+		<ref bean="appleBean_4" />
+		<ref bean="orangeBean_1" />
+		<ref bean="orangeBean_2" />
+	</util:list>
+
+	<bean id="appleBean_1" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.Object">
+				<entry key="item" value="apple" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="appleBean_2" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.Object">
+				<entry key="item" value="apple" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="appleBean_3" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.Object">
+				<entry key="item" value="apple" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="appleBean_4" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.Object">
+				<entry key="item" value="apple" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="orangeBean_1" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.Object">
+				<entry key="item" value="orange" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="orangeBean_2" class="com.mongodb.BasicDBObject" scope="prototype">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.Object">
+				<entry key="item" value="orange" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+
+</beans>
