@@ -4,16 +4,18 @@
 	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.4.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mongo="http://www.mulesoft.org/schema/mule/mongo"
+    xmlns:json="http://www.mulesoft.org/schema/mule/json"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/2.0/mule-mongo.xsd">
+http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mongo/2.0/mule-mongo.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
 
 	<context:property-placeholder location="${MONGO_CREDENTIALS}" />
 
 	<mongo:config name="Mongo_DB" host="${mongo.host}" port="${mongo.port}"
-		database="${mongo.database}" doc:name="Mongo DB">
-		<mongo:connection-pooling-profile
-			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_GROW" />
+		database="${mongo.database}" doc:name="Mongo DB" connectionsPerHost="2">
+		<mongo:connection-pooling-profile maxActive="4"
+			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_WAIT" />
 	</mongo:config>
 	
 	<mongo:config name="Mongo_DB_for_drop_restore" host="${mongo.host}"
@@ -367,5 +369,11 @@ http://www.mulesoft.org/schema/mule/mongo http://www.mulesoft.org/schema/mule/mo
 			</mongo:element-attributes>
 		</mongo:update-objects-by-function-using-map>
 	</flow>
+    
+    <flow name="count-open-connections">
+        <mongo:execute-command commandName="serverStatus"
+                config-ref="Mongo_DB"/>
+        <set-payload value="#[json:connections/current]" />
+    </flow>
 
 </mule>
