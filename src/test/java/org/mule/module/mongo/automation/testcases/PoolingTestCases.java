@@ -64,9 +64,6 @@ public class PoolingTestCases extends MongoTestParent {
             }
         }
 
-
-        Thread.sleep(2000);
         int newConnections = lookupFlowConstruct("count-open-connections").process(getTestEvent("")).getMessage().getPayload(Integer.class) - startingConnections;
         assertTrue("Too many new connections (" + newConnections + ", ", newConnections <= 2);
-        Thread.sleep(20000);
     }}

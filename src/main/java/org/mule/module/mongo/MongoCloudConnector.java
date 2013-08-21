@@ -982,6 +982,16 @@ public class MongoCloudConnector
         mongoRestore.restore(inputPath);
     }
 
+    @Processor
+    public void startConsistentRequest() {
+        client.requestStart();
+    }
+
+    @Processor
+    public void endConsistentRequest() {
+        client.requestDone();
+    }
+
     /**
      * Convert JSON to DBObject.
      * <p/>

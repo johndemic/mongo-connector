@@ -306,6 +306,14 @@ public class MongoClientImpl implements MongoClient
         return db.command(command);
     }
 
+    public void requestStart() {
+        db.requestStart();
+    }
+
+    public void requestDone() {
+        db.requestDone();
+    }
+
     protected GridFS getGridFs()
     {
         return new GridFS(db);
@@ -323,8 +331,6 @@ public class MongoClientImpl implements MongoClient
         }
         return new MongoCollection(o);
     }
-
-
 
     public DB getDb()
     {

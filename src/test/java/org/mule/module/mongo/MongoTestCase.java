@@ -219,4 +219,16 @@ public class MongoTestCase
         when(gridFsMock.findOne(eq(q))).thenReturn(new GridFSDBFile());
         client.getFileContent(q);
     }
+
+    @Test
+    public void startConsistentRequest() {
+        client.requestStart();
+        verify(dbMock).requestStart();
+    }
+
+    @Test
+    public void endConsistentRequest() {
+        client.requestDone();
+        verify(dbMock).requestDone();
+    }
 }

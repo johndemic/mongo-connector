@@ -87,4 +87,8 @@ public interface MongoClient extends Closeable
     WriteResult addUser(String username, String password);
 
     void dropDatabase();
+
+    void requestStart();
+
+    void requestDone();
 }
