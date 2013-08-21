@@ -52,10 +52,11 @@ public class PoolingTestCases extends MongoTestParent {
 
         int startingConnections = lookupFlowConstruct("count-open-connections").process(getTestEvent("")).getMessage().getPayload(Integer.class);
 
+        MessageProcessor countFlow = lookupFlowConstruct("count-objects");
+        testObjects.put("queryRef", new BasicDBObject());
+
         for (int i = 0; i < 32; i++) {
             try {
-                MessageProcessor countFlow = lookupFlowConstruct("count-objects");
-                testObjects.put("queryRef", new BasicDBObject());
                 countFlow.process(getTestEvent(testObjects));
             } catch (Exception e) {
                 e.printStackTrace();

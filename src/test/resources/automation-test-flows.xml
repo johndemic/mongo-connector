@@ -13,9 +13,9 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 	<context:property-placeholder location="${MONGO_CREDENTIALS}" />
 
 	<mongo:config name="Mongo_DB" host="${mongo.host}" port="${mongo.port}"
-		database="${mongo.database}" doc:name="Mongo DB" connectionsPerHost="2">
-		<mongo:connection-pooling-profile maxActive="4"
-			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_WAIT" />
+		database="${mongo.database}" doc:name="Mongo DB" connectionsPerHost="4" maxWaitTime="5000">
+		<mongo:connection-pooling-profile maxActive="2"
+			initialisationPolicy="INITIALISE_ONE" exhaustedAction="WHEN_EXHAUSTED_WAIT" maxWait="5000" />
 	</mongo:config>
 	
 	<mongo:config name="Mongo_DB_for_drop_restore" host="${mongo.host}"

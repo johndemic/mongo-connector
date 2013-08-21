@@ -20,11 +20,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.UnknownHostException;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import com.mongodb.*;
 import org.apache.commons.lang.Validate;
 import org.bson.types.BasicBSONList;
 import org.mule.api.ConnectionException;
@@ -56,16 +57,10 @@ import org.mule.module.mongo.tools.IncrementalMongoDump;
 import org.mule.module.mongo.tools.MongoDump;
 import org.mule.module.mongo.tools.MongoRestore;
 import org.mule.transformer.types.MimeTypes;
+import org.mule.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.mongodb.DB;
-import com.mongodb.DBObject;
-import com.mongodb.Mongo;
-import com.mongodb.MongoException;
-import com.mongodb.MongoOptions;
-import com.mongodb.ServerAddress;
-import com.mongodb.WriteResult;
 import com.mongodb.util.JSON;
 
 /**
@@ -83,6 +78,8 @@ public class MongoCloudConnector
     private static final String WRITE_CONCERN_DEFAULT_VALUE = "DATABASE_DEFAULT";
     private static final String BACKUP_THREADS = "5";
     private static final String DEFAULT_OUTPUT_DIRECTORY = "dump";
+
+    private final Mongo.Holder mongoClientHolder = Mongo.Holder.singleton();
 
     /**
      * The host of the Mongo server, it can also be a list of comma separated hosts for replicas
@@ -143,41 +140,6 @@ public class MongoCloudConnector
     @Configurable
     @Optional
     private Boolean autoConnectRetry;
-
-    /**
-     * Specifies if the driver is allowed to read from secondaries or slaves.
-     */
-    @Configurable
-    @Optional
-    private Boolean slaveOk;
-
-    /**
-     * If the driver sends a getLastError command after every update to ensure it succeeded.
-     */
-    @Configurable
-    @Optional
-    public Boolean safe;
-
-    /**
-     * If set, the w value of WriteConcern for the connection is set to this.
-     */
-    @Configurable
-    @Optional
-    public Integer w;
-
-    /**
-     * If set, the wtimeout value of WriteConcern for the connection is set to this.
-     */
-    @Configurable
-    @Optional
-    public Integer wtimeout;
-
-    /**
-     * Sets the fsync value of WriteConcern for the connection.
-     */
-    @Configurable
-    @Optional
-    public Boolean fsync;
 
     private String database;
 
@@ -1108,77 +1070,14 @@ public class MongoCloudConnector
     @Connect
     public void connect(@ConnectionKey final String username,
                         @Password final String password,
-                        @Optional @Default("test") final String database) throws ConnectionException
+                        @ConnectionKey @Optional @Default("test") final String database) throws ConnectionException
     {
-        DB db = null;
         try
         {
-            final MongoOptions options = new MongoOptions();
+            // TODO: use MongoClient instead of Mongo once the Holder supports it (in driver version 2.12.0)
+            mongo = mongoClientHolder.connect(new MongoURI(getMongoClientURI(username, password, database)));
 
-            if (connectionsPerHost != null)
-            {
-                options.connectionsPerHost = connectionsPerHost;
-            }
-            if (threadsAllowedToBlockForConnectionMultiplier != null)
-            {
-                options.threadsAllowedToBlockForConnectionMultiplier = threadsAllowedToBlockForConnectionMultiplier;
-            }
-            if (maxWaitTime != null)
-            {
-                options.maxWaitTime = maxWaitTime;
-            }
-            if (connectTimeout != null)
-            {
-                options.connectTimeout = connectTimeout;
-            }
-            if (socketTimeout != null)
-            {
-                options.socketTimeout = socketTimeout;
-            }
-            if (autoConnectRetry != null)
-            {
-                options.autoConnectRetry = autoConnectRetry;
-            }
-            if (slaveOk != null)
-            {
-                options.slaveOk = slaveOk;
-            }
-            if (safe != null)
-            {
-                options.safe = safe;
-            }
-            if (w != null)
-            {
-                options.w = w;
-            }
-            if (wtimeout != null)
-            {
-                options.wtimeout = wtimeout;
-            }
-            if (fsync != null)
-            {
-                options.fsync = fsync;
-            }
-            if (database != null)
-            {
-                this.database = database;
-            }
-
-            final String[] hosts = host.split(",\\s?");
-            if (hosts.length == 1)
-            {
-                mongo = new Mongo(new ServerAddress(host, port), options);
-            }
-            else
-            {
-                final List<ServerAddress> servers = new ArrayList<ServerAddress>();
-                for (final String host : hosts)
-                {
-                    servers.add(new ServerAddress(host, port));
-                }
-                mongo = new Mongo(servers, options);
-            }
-            db = getDatabase(mongo, username, password, database);
+            this.client = new MongoClientImpl(getDatabase(mongo, username, password, database));
         }
         catch (final MongoException me)
         {
@@ -1188,7 +1087,52 @@ public class MongoCloudConnector
         {
             throw new ConnectionException(ConnectionExceptionCode.UNKNOWN_HOST, null, e.getMessage());
         }
-        this.client = new MongoClientImpl(db);
+    }
+
+    private MongoClientURI getMongoClientURI(final String username, final String password, final String database) {
+        List<String> hostsWithPort = new LinkedList<String>();
+        for (String hostname : host.split(",\\s?")) {
+            hostsWithPort.add(hostname + ":" + port);
+        }
+        return new MongoClientURI(MongoURI.MONGODB_PREFIX +
+//                        username + ":" + password + "@" +
+                        StringUtils.join(hostsWithPort, ",") +
+                        "/" + database
+                , getMongoOptions(database));
+    }
+
+    private MongoClientOptions.Builder getMongoOptions(String database) {
+        final MongoClientOptions.Builder options = MongoClientOptions.builder();
+
+        if (connectionsPerHost != null)
+        {
+            options.connectionsPerHost(connectionsPerHost);
+        }
+        if (threadsAllowedToBlockForConnectionMultiplier != null)
+        {
+            options.threadsAllowedToBlockForConnectionMultiplier(threadsAllowedToBlockForConnectionMultiplier);
+        }
+        if (maxWaitTime != null)
+        {
+            options.maxWaitTime(maxWaitTime);
+        }
+        if (connectTimeout != null)
+        {
+            options.connectTimeout(connectTimeout);
+        }
+        if (socketTimeout != null)
+        {
+            options.socketTimeout(socketTimeout);
+        }
+        if (autoConnectRetry != null)
+        {
+            options.autoConnectRetry(autoConnectRetry);
+        }
+        if (database != null)
+        {
+            this.database = database;
+        }
+        return options;
     }
 
     /**
@@ -1241,7 +1185,7 @@ public class MongoCloudConnector
     @ConnectionIdentifier
     public String connectionId()
     {
-        return mongo == null ? "n/a" : Mongo.class.getName() + System.identityHashCode(mongo);
+        return mongo == null ? "n/a" : mongo.toString();
     }
 
     private DB getDatabase(final Mongo mongo,
@@ -1360,53 +1304,4 @@ public class MongoCloudConnector
         this.autoConnectRetry = autoConnectRetry;
     }
 
-    public Boolean getSlaveOk()
-    {
-        return slaveOk;
-    }
-
-    public void setSlaveOk(final Boolean slaveOk)
-    {
-        this.slaveOk = slaveOk;
-    }
-
-    public Boolean getSafe()
-    {
-        return safe;
-    }
-
-    public void setSafe(final Boolean safe)
-    {
-        this.safe = safe;
-    }
-
-    public Integer getW()
-    {
-        return w;
-    }
-
-    public void setW(final Integer w)
-    {
-        this.w = w;
-    }
-
-    public Integer getWtimeout()
-    {
-        return wtimeout;
-    }
-
-    public void setWtimeout(final Integer wtimeout)
-    {
-        this.wtimeout = wtimeout;
-    }
-
-    public Boolean getFsync()
-    {
-        return fsync;
-    }
-
-    public void setFsync(final Boolean fsync)
-    {
-        this.fsync = fsync;
-    }
 }

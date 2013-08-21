@@ -70,9 +70,9 @@ public class MongoClientImpl implements MongoClient
         Validate.notNull(collection);
         if (query == null)
         {
-            return openSession().getCollection(collection).count();
+            return db.getCollection(collection).count();
         }
-        return openSession().getCollection(collection).count(query);
+        return db.getCollection(collection).count(query);
     }
 
     public void createCollection(@NotNull final String collection,
@@ -90,20 +90,20 @@ public class MongoClientImpl implements MongoClient
         {
             options.put("size", size);
         }
-        openSession().createCollection(collection, options);
+        db.createCollection(collection, options);
     }
 
     public DBCollection getCollection(@NotNull final String collection)
     {
         Validate.notNull(collection);
-        return openSession().getCollection(collection);
+        return db.getCollection(collection);
     }
 
     public WriteResult addUser(final String username, final String password)
     {
         Validate.notNull(username);
         Validate.notNull(password);
-        final WriteResult writeResult = openSession().addUser(username, password.toCharArray());
+        final WriteResult writeResult = db.addUser(username, password.toCharArray());
         if (!writeResult.getLastError().ok())
         {
             throw new MongoException(writeResult.getLastError().getErrorMessage());
@@ -113,19 +113,19 @@ public class MongoClientImpl implements MongoClient
 
     public void dropDatabase()
     {
-        openSession().dropDatabase();
+        db.dropDatabase();
     }
 
     public void dropCollection(@NotNull final String collection)
     {
         Validate.notNull(collection);
-        openSession().getCollection(collection).drop();
+        db.getCollection(collection).drop();
     }
 
     public boolean existsCollection(@NotNull final String collection)
     {
         Validate.notNull(collection);
-        return openSession().collectionExists(collection);
+        return db.collectionExists(collection);
     }
 
     public Iterable<DBObject> findObjects(@NotNull final String collection,
@@ -136,7 +136,7 @@ public class MongoClientImpl implements MongoClient
     {
         Validate.notNull(collection);
 
-        DBCursor dbCursor = openSession().getCollection(collection).find(query, FieldsSet.from(fields));
+        DBCursor dbCursor = db.getCollection(collection).find(query, FieldsSet.from(fields));
         if (numToSkip != null)
         {
             dbCursor = dbCursor.skip(numToSkip);
@@ -154,7 +154,7 @@ public class MongoClientImpl implements MongoClient
                                   final List<String> fields, boolean failOnNotFound)
     {
         Validate.notNull(collection);
-        final DBObject element = openSession().getCollection(collection).findOne(query,
+        final DBObject element = db.getCollection(collection).findOne(query,
             FieldsSet.from(fields));
         
 		if (element == null && failOnNotFound)
@@ -171,8 +171,8 @@ public class MongoClientImpl implements MongoClient
         Validate.notNull(collection);
         Validate.notNull(object);
         Validate.notNull(writeConcern);
-        openSession().getCollection(collection).insert(object,
-            writeConcern.toMongoWriteConcern(openSession()));
+        db.getCollection(collection).insert(object,
+            writeConcern.toMongoWriteConcern(db));
         final ObjectId id = (ObjectId) object.get("_id");
         if (id == null) return null;
 
@@ -181,7 +181,7 @@ public class MongoClientImpl implements MongoClient
 
     public Collection<String> listCollections()
     {
-        return openSession().getCollectionNames();
+        return db.getCollectionNames();
     }
 
     public Iterable<DBObject> mapReduceObjects(@NotNull final String collection,
@@ -192,7 +192,7 @@ public class MongoClientImpl implements MongoClient
         Validate.notNull(collection);
         Validate.notEmpty(mapFunction);
         Validate.notEmpty(reduceFunction);
-        return bug5588Workaround(openSession().getCollection(collection)
+        return bug5588Workaround(db.getCollection(collection)
             .mapReduce(mapFunction, reduceFunction, outputCollection, outputTypeFor(outputCollection), null)
             .results());
     }
@@ -208,8 +208,8 @@ public class MongoClientImpl implements MongoClient
     {
         Validate.notNull(collection);
         Validate.notNull(writeConcern);
-        openSession().getCollection(collection).remove(query != null ? query : new BasicDBObject(),
-            writeConcern.toMongoWriteConcern(openSession()));
+        db.getCollection(collection).remove(query != null ? query : new BasicDBObject(),
+            writeConcern.toMongoWriteConcern(db));
     }
 
     public void saveObject(@NotNull final String collection,
@@ -219,7 +219,7 @@ public class MongoClientImpl implements MongoClient
         Validate.notNull(collection);
         Validate.notNull(object);
         Validate.notNull(writeConcern);
-        openSession().getCollection(collection).save(object, writeConcern.toMongoWriteConcern(openSession()));
+        db.getCollection(collection).save(object, writeConcern.toMongoWriteConcern(db));
     }
 
     public void updateObjects(@NotNull final String collection,
@@ -231,24 +231,24 @@ public class MongoClientImpl implements MongoClient
     {
         Validate.notNull(collection);
         Validate.notNull(writeConcern);
-        openSession().getCollection(collection).update(query, object, upsert, multi,
-            writeConcern.toMongoWriteConcern(openSession()));
+        db.getCollection(collection).update(query, object, upsert, multi,
+            writeConcern.toMongoWriteConcern(db));
 
     }
 
     public void createIndex(final String collection, final String field, final IndexOrder order)
     {
-        openSession().getCollection(collection).createIndex(new BasicDBObject(field, order.getValue()));
+        db.getCollection(collection).createIndex(new BasicDBObject(field, order.getValue()));
     }
 
     public void dropIndex(final String collection, final String name)
     {
-        openSession().getCollection(collection).dropIndex(name);
+        db.getCollection(collection).dropIndex(name);
     }
 
     public Collection<DBObject> listIndices(final String collection)
     {
-        return openSession().getCollection(collection).getIndexInfo();
+        return db.getCollection(collection).getIndexInfo();
     }
 
     public DBObject createFile(final InputStream content,
@@ -303,12 +303,12 @@ public class MongoClientImpl implements MongoClient
 
     public DBObject executeComamnd(final DBObject command)
     {
-        return openSession().command(command);
+        return db.command(command);
     }
 
     protected GridFS getGridFs()
     {
-        return new GridFS(openSession());
+        return new GridFS(db);
     }
 
     /*
@@ -324,16 +324,7 @@ public class MongoClientImpl implements MongoClient
         return new MongoCollection(o);
     }
 
-    /**
-     * Gets the DB objects, ensuring that a consistent request is in progress. Consistent requests
-     * are never ended, they end when the current thread finishes
-     */
-    private DB openSession()
-    {
-        db.requestStart();
-        db.requestEnsureConnection();
-        return db;
-    }
+
 
     public DB getDb()
     {
