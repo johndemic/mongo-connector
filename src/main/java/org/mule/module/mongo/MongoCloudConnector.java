@@ -982,11 +982,24 @@ public class MongoCloudConnector
         mongoRestore.restore(inputPath);
     }
 
+    /**
+     * Begins a consistent request, which allows you to be sure that each subsequent request to MongoDB happens in sequence.
+     * {@sample.xml ../../../doc/mongo-connector.xml.sample mongo:start-consistent-request}
+     *
+     * @see <a href="http://docs.mongodb.org/ecosystem/drivers/java-concurrency/">MongoDB: Java Driver Concurrency</a>
+     */
     @Processor
     public void startConsistentRequest() {
         client.requestStart();
     }
 
+    /**
+     * Ends a consistent request.
+     * {@sample.xml ../../../doc/mongo-connector.xml.sample mongo:end-consistent-request}
+     *
+     * @see org.mule.module.mongo.MongoCloudConnector#startConsistentRequest()
+     * @see <a href="http://docs.mongodb.org/ecosystem/drivers/java-concurrency/">MongoDB: Java Driver Concurrency</a>
+     */
     @Processor
     public void endConsistentRequest() {
         client.requestDone();

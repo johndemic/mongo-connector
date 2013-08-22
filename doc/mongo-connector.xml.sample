@@ -279,3 +279,11 @@
 <!-- BEGIN_INCLUDE(mongo:dbObjectToMap) -->
         <mongo:db-object-to-map />
 <!-- END_INCLUDE(mongo:dbObjectToMap) -->
+
+<!-- BEGIN_INCLUDE(mongo:start-consistent-request) -->
+        <mongo:start-consistent-request />
+<!-- END_INCLUDE(mongo:start-consistent-request) -->
+
+<!-- BEGIN_INCLUDE(mongo:end-consistent-request) -->
+        <mongo:end-consistent-request />
+<!-- END_INCLUDE(mongo:end-consistent-request) -->
