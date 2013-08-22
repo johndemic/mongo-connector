@@ -35,7 +35,8 @@ public class AddUserTestCases extends MongoTestParent {
 			WriteResult result = (WriteResult) response.getMessage().getPayload();
 			assertTrue(result.getLastError().ok());
 			assertTrue(result.getError() == null);
-			assertTrue(result.getN() == 1);
+			// For an insert, getN() always return 0
+//			assertTrue(result.getN() == 1);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
