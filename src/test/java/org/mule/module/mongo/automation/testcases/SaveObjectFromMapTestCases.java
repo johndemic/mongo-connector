@@ -30,7 +30,7 @@ public class SaveObjectFromMapTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (Map<String, Object>) context.getBean("saveObjectFromMap");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -41,7 +41,7 @@ public class SaveObjectFromMapTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {
@@ -59,11 +59,11 @@ public class SaveObjectFromMapTestCases extends MongoTestParent {
 			String value = testObjects.get("value").toString();
 		
 			// Save object to MongoDB
-			MessageProcessor flow = lookupFlowConstruct("save-object-from-map");
+			MessageProcessor flow = lookupMessageProcessorConstruct("save-object-from-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Check whether it was saved			
-			flow = lookupFlowConstruct("find-one-object-using-query-map");
+			flow = lookupMessageProcessorConstruct("find-one-object-using-query-map");
 			response = flow.process(getTestEvent(testObjects));
 						
 			DBObject object = (DBObject) response.getMessage().getPayload();
@@ -73,11 +73,11 @@ public class SaveObjectFromMapTestCases extends MongoTestParent {
 			// Modify object and save to MongoDB
 			testObjects.put("value", "differentValue");
 			String differentValue = testObjects.get("value").toString();
-			flow = lookupFlowConstruct("save-object-from-map");
+			flow = lookupMessageProcessorConstruct("save-object-from-map");
 			response = flow.process(getTestEvent(testObjects));
 			
 			// Check that modifications were saved
-			flow = lookupFlowConstruct("find-one-object-using-query-map");
+			flow = lookupMessageProcessorConstruct("find-one-object-using-query-map");
 			response = flow.process(getTestEvent(testObjects));
 						
 			object = (DBObject) response.getMessage().getPayload();

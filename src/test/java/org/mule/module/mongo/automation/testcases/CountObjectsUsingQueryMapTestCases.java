@@ -32,7 +32,7 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 		try {
 			// Create collection
 			testObjects = (HashMap<String, Object>) context.getBean("countObjectsUsingQueryMap");
-			lookupFlowConstruct("create-collection").process(getTestEvent(testObjects));
+			lookupMessageProcessorConstruct("create-collection").process(getTestEvent(testObjects));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			fail();
@@ -43,7 +43,7 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			// Delete collection
-			lookupFlowConstruct("drop-collection").process(getTestEvent(testObjects));
+			lookupMessageProcessorConstruct("drop-collection").process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -58,7 +58,7 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 
 		MuleEvent response = null;
 		try {
-			MessageProcessor countFlow = lookupFlowConstruct("count-objects-using-query-map-without-query");
+			MessageProcessor countFlow = lookupMessageProcessorConstruct("count-objects-using-query-map-without-query");
 			response = countFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -83,7 +83,7 @@ public class CountObjectsUsingQueryMapTestCases extends MongoTestParent {
 
 		MuleEvent response = null;
 		try {
-			MessageProcessor countFlow = lookupFlowConstruct("count-objects-using-query-map-with-query");
+			MessageProcessor countFlow = lookupMessageProcessorConstruct("count-objects-using-query-map-with-query");
 			response = countFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();

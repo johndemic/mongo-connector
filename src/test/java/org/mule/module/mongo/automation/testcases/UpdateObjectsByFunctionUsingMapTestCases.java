@@ -34,7 +34,7 @@ public class UpdateObjectsByFunctionUsingMapTestCases extends MongoTestParent {
 		try {
 			// Create the collection
 			testObjects = (HashMap<String, Object>) context.getBean("updateObjectsByFunctionUsingMap");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 			
 			String queryKey = testObjects.get("queryKey").toString();
@@ -65,11 +65,11 @@ public class UpdateObjectsByFunctionUsingMapTestCases extends MongoTestParent {
 			int numberOfObjects = (Integer) testObjects.get("numberOfObjects");
 			
 			// Update objects
-			MessageProcessor updateObjectsByFunctionUsingMap = lookupFlowConstruct("update-objects-by-function-using-map");
+			MessageProcessor updateObjectsByFunctionUsingMap = lookupMessageProcessorConstruct("update-objects-by-function-using-map");
 			MuleEvent response = updateObjectsByFunctionUsingMap.process(getTestEvent(testObjects));
 			
 			// Get all objects
-			updateObjectsByFunctionUsingMap = lookupFlowConstruct("find-objects");
+			updateObjectsByFunctionUsingMap = lookupMessageProcessorConstruct("find-objects");
 			response = updateObjectsByFunctionUsingMap.process(getTestEvent(testObjects));
 			
 			MongoCollection objects = (MongoCollection) response.getMessage().getPayload();
@@ -89,7 +89,7 @@ public class UpdateObjectsByFunctionUsingMapTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {

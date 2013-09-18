@@ -36,11 +36,11 @@ public class FindObjectsTestCases extends MongoTestParent {
 		try {
 			// create collection
 			testObjects = (HashMap<String, Object>) context.getBean("findObjects");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// create sample objects			
-			flow = lookupFlowConstruct("insert-object");
+			flow = lookupMessageProcessorConstruct("insert-object");
 
 			int numberOfObjects = (Integer) testObjects.get("numberOfObjects");
 			
@@ -64,7 +64,7 @@ public class FindObjectsTestCases extends MongoTestParent {
 	@Test
 	public void testFindObjects() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("find-objects");
+			MessageProcessor flow = lookupMessageProcessorConstruct("find-objects");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection payload = (MongoCollection) response.getMessage().getPayload();
@@ -84,7 +84,7 @@ public class FindObjectsTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {

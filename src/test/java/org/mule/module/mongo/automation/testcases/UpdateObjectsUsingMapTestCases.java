@@ -34,7 +34,7 @@ public class UpdateObjectsUsingMapTestCases extends MongoTestParent {
 		try {
 			// Create the collection
 			testObjects = (HashMap<String, Object>) context.getBean("updateObjectsUsingMap");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 
 			String queryKey = testObjects.get("queryKey").toString();
@@ -66,11 +66,11 @@ public class UpdateObjectsUsingMapTestCases extends MongoTestParent {
 			int numberOfObjects = (Integer) testObjects.get("numberOfObjects");
 			
 			// Update objects
-			MessageProcessor flow = lookupFlowConstruct("update-objects-using-map");
+			MessageProcessor flow = lookupMessageProcessorConstruct("update-objects-using-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Get all objects
-			flow = lookupFlowConstruct("find-objects");
+			flow = lookupMessageProcessorConstruct("find-objects");
 			response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection objects = (MongoCollection) response.getMessage().getPayload();
@@ -90,7 +90,7 @@ public class UpdateObjectsUsingMapTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {

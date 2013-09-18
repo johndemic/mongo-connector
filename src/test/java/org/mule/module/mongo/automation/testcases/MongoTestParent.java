@@ -49,7 +49,7 @@ public class MongoTestParent extends FunctionalTestCase {
 		return "automation-test-flows.xml";
 	}
 
-	protected MessageProcessor lookupFlowConstruct(String name) {
+	protected MessageProcessor lookupMessageProcessorConstruct(String name) {
 		return (MessageProcessor) muleContext.getRegistry()
 				.lookupFlowConstruct(name);
 	}
@@ -77,7 +77,7 @@ public class MongoTestParent extends FunctionalTestCase {
 		}
 		
 		try {
-			MessageProcessor insertFlow = lookupFlowConstruct("insert-object");
+			MessageProcessor insertFlow = lookupMessageProcessorConstruct("insert-object");
 
 			for (DBObject obj : objs) {
 				testObjects.put("dbObjectRef", obj);
@@ -95,7 +95,7 @@ public class MongoTestParent extends FunctionalTestCase {
 		Iterable<DBObject> iterable = null;
 		MuleEvent response = null;
 		try {
-			MessageProcessor findFilesFlow = lookupFlowConstruct("find-files");
+			MessageProcessor findFilesFlow = lookupMessageProcessorConstruct("find-files");
 			MuleEvent event = getTestEvent(new BasicDBObject());
 			response = findFilesFlow.process(event);
 		} catch (Exception e) {
@@ -122,7 +122,7 @@ public class MongoTestParent extends FunctionalTestCase {
 		try {
 			File file = folder.newFile(filename);
 
-			MessageProcessor createFileFromPayloadFlow = lookupFlowConstruct("create-file-from-payload");
+			MessageProcessor createFileFromPayloadFlow = lookupMessageProcessorConstruct("create-file-from-payload");
 			testObjects.put("filename", filename);
 			MuleEvent event = getTestEvent(file);
 			event.setSessionVariable("filename", filename);
@@ -151,13 +151,13 @@ public class MongoTestParent extends FunctionalTestCase {
 			setTestObjects(new HashMap<String, Object>());
 		}
 		try {
-			MessageProcessor dropCollectionFlow = lookupFlowConstruct("drop-collection");
+			MessageProcessor dropCollectionFlow = lookupMessageProcessorConstruct("drop-collection");
 			
 			testObjects.put("collection", "fs.chunks");
 			dropCollectionFlow.process(getTestEvent(testObjects));
 			
 			testObjects.put("collection", "fs.files");
-			lookupFlowConstruct("drop-collection").process(getTestEvent(testObjects));
+			lookupMessageProcessorConstruct("drop-collection").process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -166,7 +166,7 @@ public class MongoTestParent extends FunctionalTestCase {
 
 	protected void dropIndex(String indexName) {
 		testObjects.put("index", indexName);			
-		MessageProcessor dropIndexFlow = lookupFlowConstruct("drop-index");
+		MessageProcessor dropIndexFlow = lookupMessageProcessorConstruct("drop-index");
 		try {
 			dropIndexFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
@@ -176,7 +176,7 @@ public class MongoTestParent extends FunctionalTestCase {
 	}
 	
 	protected MongoCollection getObjects(Map<String, Object> testObjects) throws Exception {
-		MessageProcessor flow = lookupFlowConstruct("find-objects");
+		MessageProcessor flow = lookupMessageProcessorConstruct("find-objects");
 		MuleEvent response = flow.process(getTestEvent(testObjects));
 		return (MongoCollection) response.getMessage().getPayload();
 	}

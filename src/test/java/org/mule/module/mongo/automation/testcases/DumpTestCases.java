@@ -46,7 +46,7 @@ public class DumpTestCases extends MongoTestParent {
 	@Test
 	public void testDump() {
 		try {
-			MessageProcessor dumpFlow = lookupFlowConstruct("dump");
+			MessageProcessor dumpFlow = lookupMessageProcessorConstruct("dump");
 			
 			dumpFlow.process(getTestEvent(testObjects));
 			

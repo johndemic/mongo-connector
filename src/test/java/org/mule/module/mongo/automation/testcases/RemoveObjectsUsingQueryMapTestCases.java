@@ -17,7 +17,6 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.mule.api.MuleEvent;
@@ -35,7 +34,7 @@ public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 		try {
 			// Create the collection
 			testObjects = (HashMap<String, Object>) context.getBean("removeObjectsUsingQueryMap");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 
 			// Load variables from testObjects
@@ -66,7 +65,7 @@ public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 	public void tearDown() {
 		try {
 			// Drop the collection
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {
@@ -83,11 +82,11 @@ public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 			String key = testObjects.get("key").toString();
 			
 			// Remove all records matching key-value pair
-			MessageProcessor flow = lookupFlowConstruct("remove-objects-using-query-map-with-query-map");
+			MessageProcessor flow = lookupMessageProcessorConstruct("remove-objects-using-query-map-with-query-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Get all objects
-			flow = lookupFlowConstruct("find-objects");
+			flow = lookupMessageProcessorConstruct("find-objects");
 			response = flow.process(getTestEvent(testObjects));
 			
 			// Only objects which should be returned are those without the key value pairs
@@ -112,11 +111,11 @@ public class RemoveObjectsUsingQueryMapTestCases extends MongoTestParent{
 		try {
 			
 			// Remove all records
-			MessageProcessor flow = lookupFlowConstruct("remove-objects-using-query-map-without-query-map");
+			MessageProcessor flow = lookupMessageProcessorConstruct("remove-objects-using-query-map-without-query-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Get all objects
-			flow = lookupFlowConstruct("find-objects");
+			flow = lookupMessageProcessorConstruct("find-objects");
 			response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection objects = (MongoCollection) response.getMessage().getPayload();

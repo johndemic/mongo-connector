@@ -43,7 +43,7 @@ public class GetFileContentUsingQueryMapTestCases extends MongoTestParent {
 	@Test
 	public void testGetFileContentUsingQueryMap() {
 		try {
-			MessageProcessor getFileContentFlow = lookupFlowConstruct("get-file-content-using-query-map");
+			MessageProcessor getFileContentFlow = lookupMessageProcessorConstruct("get-file-content-using-query-map");
 			
 			MuleEvent response = getFileContentFlow.process(getTestEvent(testObjects));
 			

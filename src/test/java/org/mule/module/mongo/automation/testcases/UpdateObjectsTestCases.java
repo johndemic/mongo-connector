@@ -31,11 +31,11 @@ public class UpdateObjectsTestCases extends MongoTestParent {
 		try {
 			// Create the collection
 			testObjects = (Map<String, Object>) context.getBean("updateObjects");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 			
 			// Insert object
-			flow = lookupFlowConstruct("insert-object");
+			flow = lookupMessageProcessorConstruct("insert-object");
 			flow.process(getTestEvent(testObjects));
 			
 		} catch (Exception ex) {
@@ -48,7 +48,7 @@ public class UpdateObjectsTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			// Drop the collection
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {
@@ -73,11 +73,11 @@ public class UpdateObjectsTestCases extends MongoTestParent {
 			testObjects.put("elementRef", newDBObject);
 			
 			// Update the object
-			MessageProcessor flow = lookupFlowConstruct("update-objects-single-object");
+			MessageProcessor flow = lookupMessageProcessorConstruct("update-objects-single-object");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Attempt to find the object
-			flow = lookupFlowConstruct("find-one-object");
+			flow = lookupMessageProcessorConstruct("find-one-object");
 			response = flow.process(getTestEvent(testObjects));
 			
 			DBObject obj = (DBObject) response.getMessage().getPayload();

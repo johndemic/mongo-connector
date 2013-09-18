@@ -46,7 +46,7 @@ public class ListFilesTestCases extends MongoTestParent {
 	@Category({ RegressionTests.class })
 	@Test
 	public void testListFiles_emptyQuery() {
-		MessageProcessor listFilesFlow = lookupFlowConstruct("list-files");
+		MessageProcessor listFilesFlow = lookupMessageProcessorConstruct("list-files");
 		MuleEvent response = null;
 		try {
 			response = listFilesFlow.process(getTestEvent(testObjects));
@@ -68,7 +68,7 @@ public class ListFilesTestCases extends MongoTestParent {
 	@Category({ RegressionTests.class })
 	@Test
 	public void testListFiles_nonemptyQuery() {
-		MessageProcessor listFilesFlow = lookupFlowConstruct("list-files");
+		MessageProcessor listFilesFlow = lookupMessageProcessorConstruct("list-files");
 		DBObject queryRef = (DBObject) testObjects.get("queryRef");
 		queryRef.put((String) testObjects.get("key"), testObjects.get("value"));
 		MuleEvent response = null;

@@ -42,7 +42,7 @@ public class RemoveFilesTestCases extends MongoTestParent {
 	@Test
 	public void testRemoveFiles_emptyQuery() {
 		try {
-			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files-using-query-map-empty-query");
+			MessageProcessor removeFilesFlow = lookupMessageProcessorConstruct("remove-files-using-query-map-empty-query");
 			MuleEvent event = getTestEvent(testObjects);
 			removeFilesFlow.process(event);
 
@@ -61,7 +61,7 @@ public class RemoveFilesTestCases extends MongoTestParent {
 	@Test
 	public void testRemoveFiles_nonemptyQuery() {
 		try {
-			MessageProcessor removeFilesFlow = lookupFlowConstruct("remove-files-using-query-map-non-empty-query");
+			MessageProcessor removeFilesFlow = lookupMessageProcessorConstruct("remove-files-using-query-map-non-empty-query");
 			MuleEvent event = getTestEvent(testObjects);
 			removeFilesFlow.process(event);
 

@@ -36,7 +36,7 @@ public class MapReduceObjectsTestCases extends MongoTestParent {
 		try {
 			// Create the collection
 			testObjects = (Map<String, Object>) context.getBean("mapReduceObjects");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 
 			int numApples = (Integer) testObjects.get("numApples");
@@ -71,7 +71,7 @@ public class MapReduceObjectsTestCases extends MongoTestParent {
 			int numApples = (Integer) testObjects.get("numApples");
 			int numOranges = (Integer) testObjects.get("numOranges");
 						
-			MessageProcessor flow = lookupFlowConstruct("map-reduce-objects");
+			MessageProcessor flow = lookupMessageProcessorConstruct("map-reduce-objects");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection resultCollection = (MongoCollection) response.getMessage().getPayload();
@@ -106,13 +106,13 @@ public class MapReduceObjectsTestCases extends MongoTestParent {
 			String outputCollection = testObjects.get("outputCollection").toString();
 			
 			// drop the collection
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 			
 			// drop the output collection
 			// replace the "collection" entry so that the drop-collection flow drops the correct collection
 			testObjects.put("collection", outputCollection);
-			flow = lookupFlowConstruct("drop-collection");
+			flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {

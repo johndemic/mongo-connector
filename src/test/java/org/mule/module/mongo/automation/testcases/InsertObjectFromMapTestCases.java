@@ -30,7 +30,7 @@ public class InsertObjectFromMapTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("insertObjectFromMap");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -46,14 +46,14 @@ public class InsertObjectFromMapTestCases extends MongoTestParent {
 			String key = testObjects.get("key").toString();
 			String value = testObjects.get("value").toString();
 			
-			MessageProcessor flow = lookupFlowConstruct("insert-object-from-map");
+			MessageProcessor flow = lookupMessageProcessorConstruct("insert-object-from-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			MuleMessage message = response.getMessage();
 			String objectID = message.getPayload().toString();
 			
 			assertTrue(objectID != null && !objectID.equals("") && !objectID.trim().equals(""));
 			
-			flow = lookupFlowConstruct("find-one-object-using-query-map");
+			flow = lookupMessageProcessorConstruct("find-one-object-using-query-map");
 			response = flow.process(getTestEvent(testObjects));
 			
 			DBObject object = (DBObject) response.getMessage().getPayload();
@@ -72,7 +72,7 @@ public class InsertObjectFromMapTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {

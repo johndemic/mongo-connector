@@ -34,7 +34,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 			testObjects = new HashMap<String, Object>();
 			collectionNames = (List<String>) context.getBean("listCollections");
 			
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			for (String collectionName : collectionNames) {
 				testObjects.put("collection", collectionName);
 				flow.process(getTestEvent(testObjects));
@@ -50,7 +50,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 	@Test
 	public void testListCollections() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("list-collections");
+			MessageProcessor flow = lookupMessageProcessorConstruct("list-collections");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			MuleMessage message = response.getMessage();
 			Collection<String> payload = (Collection<String>) message.getPayload();
@@ -69,7 +69,7 @@ public class ListCollectionTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 
 			for (String collectionName : collectionNames) {
 				testObjects.put("collection", collectionName);

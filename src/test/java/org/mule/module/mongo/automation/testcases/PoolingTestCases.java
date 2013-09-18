@@ -13,14 +13,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.mule.api.MuleEvent;
-import org.mule.api.MuleMessage;
 import org.mule.api.processor.MessageProcessor;
-import org.mule.api.transport.Connector;
 
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -32,7 +27,7 @@ public class PoolingTestCases extends MongoTestParent {
         try {
             // Create collection
             testObjects = (HashMap<String, Object>) context.getBean("countObjects");
-            lookupFlowConstruct("create-collection").process(getTestEvent(testObjects));
+            lookupMessageProcessorConstruct("create-collection").process(getTestEvent(testObjects));
         } catch (Exception ex) {
             ex.printStackTrace();
             fail();
@@ -43,7 +38,7 @@ public class PoolingTestCases extends MongoTestParent {
     public void tearDown() {
         try {
             // Delete collection
-            lookupFlowConstruct("drop-collection").process(getTestEvent(testObjects));
+            lookupMessageProcessorConstruct("drop-collection").process(getTestEvent(testObjects));
         } catch (Exception e) {
             e.printStackTrace();
             fail();
@@ -58,9 +53,9 @@ public class PoolingTestCases extends MongoTestParent {
 
         insertObjects(getEmptyDBObjects(numObjects));
 
-        int startingConnections = lookupFlowConstruct("count-open-connections").process(getTestEvent("")).getMessage().getPayload(Integer.class);
+        int startingConnections = lookupMessageProcessorConstruct("count-open-connections").process(getTestEvent("")).getMessage().getPayload(Integer.class);
 
-        MessageProcessor countFlow = lookupFlowConstruct("count-objects");
+        MessageProcessor countFlow = lookupMessageProcessorConstruct("count-objects");
         testObjects.put("queryRef", new BasicDBObject());
 
         for (int i = 0; i < 32; i++) {
@@ -72,6 +67,6 @@ public class PoolingTestCases extends MongoTestParent {
             }
         }
 
-        int newConnections = lookupFlowConstruct("count-open-connections").process(getTestEvent("")).getMessage().getPayload(Integer.class) - startingConnections;
+        int newConnections = lookupMessageProcessorConstruct("count-open-connections").process(getTestEvent("")).getMessage().getPayload(Integer.class) - startingConnections;
         assertTrue("Too many new connections (" + newConnections + ", ", newConnections <= 2);
     }}

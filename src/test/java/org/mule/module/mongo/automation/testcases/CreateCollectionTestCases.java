@@ -23,7 +23,7 @@ public class CreateCollectionTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
@@ -40,10 +40,10 @@ public class CreateCollectionTestCases extends MongoTestParent {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("createCollection");
 			
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 			
-			flow = lookupFlowConstruct("exists-collection");
+			flow = lookupMessageProcessorConstruct("exists-collection");
 			Boolean collection = (Boolean) flow.process(getTestEvent(testObjects)).getMessage().getPayload();
 			assertTrue(collection);
 		}

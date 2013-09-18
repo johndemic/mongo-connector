@@ -44,7 +44,7 @@ public class GetFileContentTestCases extends MongoTestParent {
 	@Test
 	public void testGetFileContent() {
 		try {
-			MessageProcessor getFileContentFlow = lookupFlowConstruct("get-file-content");
+			MessageProcessor getFileContentFlow = lookupMessageProcessorConstruct("get-file-content");
 			
 			DBObject queryRef = (DBObject) testObjects.get("queryRef");
 			queryRef.put("filename", testObjects.get("filename1"));

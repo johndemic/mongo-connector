@@ -32,12 +32,12 @@ public class FindOneObjectTestCases extends MongoTestParent {
 		try {
 			// create the collection
 			testObjects = (HashMap<String, Object>) context.getBean("findOneObject");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 			
 			// create the object
 			// dbObject is modified in the insert-object flow
-			flow = lookupFlowConstruct("insert-object");
+			flow = lookupMessageProcessorConstruct("insert-object");
 			flow.process(getTestEvent(testObjects));
 			
 		} catch (Exception e) {
@@ -52,7 +52,7 @@ public class FindOneObjectTestCases extends MongoTestParent {
 		try {
 			DBObject dbObject = (DBObject) testObjects.get("dbObjectRef");
 			
-			MessageProcessor flow = lookupFlowConstruct("find-one-object");
+			MessageProcessor flow = lookupMessageProcessorConstruct("find-one-object");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			// Get the retrieved DBObject
@@ -71,7 +71,7 @@ public class FindOneObjectTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			// drop the collection
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();

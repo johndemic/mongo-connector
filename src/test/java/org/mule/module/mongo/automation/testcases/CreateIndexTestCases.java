@@ -33,7 +33,7 @@ public class CreateIndexTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("createIndex");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
@@ -52,10 +52,10 @@ public class CreateIndexTestCases extends MongoTestParent {
 			IndexOrder indexOrder = (IndexOrder) testObjects.get("order");
 			String indexName = indexKey + "_" + indexOrder.getValue();
 	
-			MessageProcessor flow = lookupFlowConstruct("create-index");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-index");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 						
-			flow = lookupFlowConstruct("list-indices");
+			flow = lookupMessageProcessorConstruct("list-indices");
 			response = flow.process(getTestEvent(testObjects));
 			List<DBObject> payload = (ArrayList<DBObject>) response.getMessage().getPayload();
 								
@@ -77,11 +77,11 @@ public class CreateIndexTestCases extends MongoTestParent {
 			String indexName = indexKey + "_" + indexOrder.getValue();
 			testObjects.put("index", indexName);
 			
-			MessageProcessor flow = lookupFlowConstruct("drop-index");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-index");
 			flow.process(getTestEvent(testObjects));
 			
 			// Drop the collection
-			flow = lookupFlowConstruct("drop-collection");
+			flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {

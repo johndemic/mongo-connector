@@ -30,7 +30,7 @@ public class ExecuteCommandTestCases extends MongoTestParent {
 		try {
 			// Get the collectionName and create a collection
 			testObjects = (HashMap<String, Object>) context.getBean("executeCommand");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));	
 		}
 		catch(Exception e) {
@@ -44,12 +44,12 @@ public class ExecuteCommandTestCases extends MongoTestParent {
 	public void testExecuteCommand() {
 		try {
 			// Drop the collection using command
-			MessageProcessor flow = lookupFlowConstruct("execute-command");
+			MessageProcessor flow = lookupMessageProcessorConstruct("execute-command");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			CommandResult cmdResult = (CommandResult) response.getMessage().getPayload();
 			assertTrue(cmdResult.ok());
 			
-			flow = lookupFlowConstruct("exists-collection");
+			flow = lookupMessageProcessorConstruct("exists-collection");
 			response = flow.process(getTestEvent(testObjects));
 			Boolean exists = (Boolean) response.getMessage().getPayload();
 			assertFalse(exists);

@@ -27,7 +27,7 @@ public class DropDatabaseTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("dropDatabase");
-			MessageProcessor createCollectionFlow = lookupFlowConstruct("save-object-for-drop-restore");
+			MessageProcessor createCollectionFlow = lookupMessageProcessorConstruct("save-object-for-drop-restore");
 			createCollectionFlow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
@@ -38,7 +38,7 @@ public class DropDatabaseTestCases extends MongoTestParent {
 	
 	@After
 	public void tearDown() {
-		MessageProcessor dropCollectionFlow = lookupFlowConstruct("drop-collection-for-drop-restore");
+		MessageProcessor dropCollectionFlow = lookupMessageProcessorConstruct("drop-collection-for-drop-restore");
 		try {
 			dropCollectionFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
@@ -52,10 +52,10 @@ public class DropDatabaseTestCases extends MongoTestParent {
 	public void testDropDatabase() {
 		MuleEvent response = null;
 		try {
-			MessageProcessor dropDBFlow = lookupFlowConstruct("drop-database");
+			MessageProcessor dropDBFlow = lookupMessageProcessorConstruct("drop-database");
 			dropDBFlow.process(getTestEvent(testObjects));
 			
-			MessageProcessor flow = lookupFlowConstruct("exists-collection-for-drop-restore");
+			MessageProcessor flow = lookupMessageProcessorConstruct("exists-collection-for-drop-restore");
 			response = flow.process(getTestEvent(testObjects));
 			
 			Object payload = response.getMessage().getPayload();

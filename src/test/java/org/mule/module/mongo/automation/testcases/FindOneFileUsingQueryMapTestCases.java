@@ -43,7 +43,7 @@ public class FindOneFileUsingQueryMapTestCases extends MongoTestParent {
 	@Test
 	public void testFindOneFileUsingQueryMap() {
 		try {
-			MessageProcessor findOneUsingQueryMapFile = lookupFlowConstruct("find-one-file-using-query-map");
+			MessageProcessor findOneUsingQueryMapFile = lookupMessageProcessorConstruct("find-one-file-using-query-map");
 			
 			MuleEvent response = findOneUsingQueryMapFile.process(getTestEvent(testObjects));
 			

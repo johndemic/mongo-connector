@@ -39,12 +39,12 @@ public class RestoreTestCases extends MongoTestParent {
 			
 			String indexName = MongoHelper.getIndexName(indexKey, indexOrder);
 			
-			MessageProcessor restoreTestCaseSetupFlow = lookupFlowConstruct("createIndex_Dump");
+			MessageProcessor restoreTestCaseSetupFlow = lookupMessageProcessorConstruct("createIndex_Dump");
 			restoreTestCaseSetupFlow.process(getTestEvent(testObjects));
 			
 			// drop index
 			testObjects.put("index", indexName);
-			MessageProcessor dropIndexFlow = lookupFlowConstruct("drop-index-for-drop-restore");
+			MessageProcessor dropIndexFlow = lookupMessageProcessorConstruct("drop-index-for-drop-restore");
 			try {
 				dropIndexFlow.process(getTestEvent(testObjects));
 			} catch (Exception e) {
@@ -70,11 +70,11 @@ public class RestoreTestCases extends MongoTestParent {
 			
 			// drop index
 			testObjects.put("index", indexName);			
-			MessageProcessor dropIndexFlow = lookupFlowConstruct("drop-index-for-drop-restore");
+			MessageProcessor dropIndexFlow = lookupMessageProcessorConstruct("drop-index-for-drop-restore");
 			try {
 				dropIndexFlow.process(getTestEvent(testObjects));
 				// Need to drop the collection becuase creating the index creates the collection
-				lookupFlowConstruct("drop-collection-for-drop-restore").process(getTestEvent(testObjects));
+				lookupMessageProcessorConstruct("drop-collection-for-drop-restore").process(getTestEvent(testObjects));
 			} catch (Exception e) {
 				e.printStackTrace();
 				fail();
@@ -90,7 +90,7 @@ public class RestoreTestCases extends MongoTestParent {
 	@Test
 	public void testRestore() {
 		try {
-			MessageProcessor restoreFlow = lookupFlowConstruct("restore");
+			MessageProcessor restoreFlow = lookupMessageProcessorConstruct("restore");
 			
 			restoreFlow.process(getTestEvent(testObjects));
 			
@@ -99,7 +99,7 @@ public class RestoreTestCases extends MongoTestParent {
 			
 			String indexName = MongoHelper.getIndexName(indexKey, indexOrder);
 			
-			MessageProcessor listIndicesFlow = lookupFlowConstruct("list-indices-for-drop-restore");
+			MessageProcessor listIndicesFlow = lookupMessageProcessorConstruct("list-indices-for-drop-restore");
 			MuleEvent responseEvent = listIndicesFlow.process(getTestEvent(testObjects));
 			
 			List<DBObject> payload = (List<DBObject>) responseEvent.getMessage().getPayload();

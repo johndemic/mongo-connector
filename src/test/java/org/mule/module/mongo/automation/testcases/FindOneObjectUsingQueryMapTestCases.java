@@ -29,10 +29,10 @@ public class FindOneObjectUsingQueryMapTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("findOneObjectUsingQueryMap");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 			
-			flow = lookupFlowConstruct("save-object-from-map");
+			flow = lookupMessageProcessorConstruct("save-object-from-map");
 			flow.process(getTestEvent(testObjects));
 		} catch (Exception ex) {
 			ex.printStackTrace();
@@ -43,7 +43,7 @@ public class FindOneObjectUsingQueryMapTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception ex) {
@@ -59,7 +59,7 @@ public class FindOneObjectUsingQueryMapTestCases extends MongoTestParent {
 			String key = testObjects.get("key").toString();
 			String value = testObjects.get("value").toString();
 			
-			MessageProcessor flow = lookupFlowConstruct("find-one-object-using-query-map");
+			MessageProcessor flow = lookupMessageProcessorConstruct("find-one-object-using-query-map");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			DBObject dbObject = (DBObject) response.getMessage().getPayload();

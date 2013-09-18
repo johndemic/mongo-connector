@@ -27,7 +27,7 @@ public class ExistsCollectionTestCases extends MongoTestParent {
 	public void setUp() {
 		try {			
 			testObjects = (Map<String, Object>) context.getBean("existsCollection");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -38,7 +38,7 @@ public class ExistsCollectionTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,7 +50,7 @@ public class ExistsCollectionTestCases extends MongoTestParent {
 	@Test
 	public void testExistsCollection() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("exists-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("exists-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			Object payload = response.getMessage().getPayload();

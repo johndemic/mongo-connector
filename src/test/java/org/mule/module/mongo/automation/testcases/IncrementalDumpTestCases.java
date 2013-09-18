@@ -43,7 +43,7 @@ public class IncrementalDumpTestCases extends MongoTestParent {
 	@Test
 	public void testIncrementalDump() {
 		try {
-			MessageProcessor dumpFlow = lookupFlowConstruct("dump");
+			MessageProcessor dumpFlow = lookupMessageProcessorConstruct("dump");
 			
 			dumpFlow.process(getTestEvent(testObjects));
 			

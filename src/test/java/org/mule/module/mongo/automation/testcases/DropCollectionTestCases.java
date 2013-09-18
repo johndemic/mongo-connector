@@ -26,7 +26,7 @@ public class DropCollectionTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("dropCollection");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
@@ -40,10 +40,10 @@ public class DropCollectionTestCases extends MongoTestParent {
 	public void testDropCollection() {
 		
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			flow = lookupFlowConstruct("exists-collection");
+			flow = lookupMessageProcessorConstruct("exists-collection");
 			response = flow.process(getTestEvent(testObjects));
 			
 			Object payload = response.getMessage().getPayload();

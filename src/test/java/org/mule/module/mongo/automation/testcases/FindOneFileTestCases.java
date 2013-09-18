@@ -44,7 +44,7 @@ public class FindOneFileTestCases extends MongoTestParent {
 	public void testFindOneFile() {
 		try {
 			((DBObject) testObjects.get("queryRef")).put("filename", testObjects.get("filename1"));
-			MessageProcessor findOneFile = lookupFlowConstruct("find-one-file");
+			MessageProcessor findOneFile = lookupMessageProcessorConstruct("find-one-file");
 			
 			MuleEvent response = findOneFile.process(getTestEvent(testObjects));
 			

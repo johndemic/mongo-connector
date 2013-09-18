@@ -33,11 +33,11 @@ public class DropIndexTestCases extends MongoTestParent {
 		try {
 			// Create the collection
 			testObjects = (HashMap<String, Object>) context.getBean("dropIndex");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 			
 			// Create the index
-			flow = lookupFlowConstruct("create-index");
+			flow = lookupMessageProcessorConstruct("create-index");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {
@@ -59,10 +59,10 @@ public class DropIndexTestCases extends MongoTestParent {
 			
 			testObjects.put("index", indexName);
 			
-			MessageProcessor flow = lookupFlowConstruct("drop-index");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-index");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 						
-			flow = lookupFlowConstruct("list-indices");
+			flow = lookupMessageProcessorConstruct("list-indices");
 			response = flow.process(getTestEvent(testObjects));
 			List<DBObject> payload = (List<DBObject>) response.getMessage().getPayload();
 						
@@ -78,7 +78,7 @@ public class DropIndexTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {

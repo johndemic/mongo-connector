@@ -48,7 +48,7 @@ public class FindFilesUsingQueryMapTestCases extends MongoTestParent {
 	public void testFindFilesUsingQueryMap() {
 		MuleEvent response = null;
 		try {
-			MessageProcessor findFilesUsingQueryMapFlow = lookupFlowConstruct("find-files-using-query-map");
+			MessageProcessor findFilesUsingQueryMapFlow = lookupMessageProcessorConstruct("find-files-using-query-map");
 
 			// queryAttribKey and queryAttribVal in testObjects are used in
 			// findFilesUsingQueryMapFlow to query for a file with filename of

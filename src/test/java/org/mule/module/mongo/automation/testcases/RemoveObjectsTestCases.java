@@ -28,10 +28,10 @@ public class RemoveObjectsTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("removeObjects");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 			
-			flow = lookupFlowConstruct("insert-object");
+			flow = lookupMessageProcessorConstruct("insert-object");
 			flow.process(getTestEvent(testObjects));			
 		}
 		catch(Exception e) {
@@ -44,10 +44,10 @@ public class RemoveObjectsTestCases extends MongoTestParent {
 	@Test
 	public void testRemoveObjects() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("remove-objects");
+			MessageProcessor flow = lookupMessageProcessorConstruct("remove-objects");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
-			flow = lookupFlowConstruct("find-objects");
+			flow = lookupMessageProcessorConstruct("find-objects");
 			response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection payload = (MongoCollection) response.getMessage().getPayload();
@@ -62,7 +62,7 @@ public class RemoveObjectsTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {

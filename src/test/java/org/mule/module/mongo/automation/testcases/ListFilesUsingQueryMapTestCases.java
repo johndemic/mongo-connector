@@ -46,7 +46,7 @@ public class ListFilesUsingQueryMapTestCases extends MongoTestParent {
 	@Category({ RegressionTests.class })
 	@Test
 	public void testListFilesUsingQueryMap_emptyQuery() {
-		MessageProcessor listFilesFlow = lookupFlowConstruct("list-files-using-query-map-empty-query");
+		MessageProcessor listFilesFlow = lookupMessageProcessorConstruct("list-files-using-query-map-empty-query");
 		MuleEvent response = null;
 		try {
 			response = listFilesFlow.process(getTestEvent(testObjects));
@@ -72,7 +72,7 @@ public class ListFilesUsingQueryMapTestCases extends MongoTestParent {
 	@Category({ RegressionTests.class })
 	@Test
 	public void testListFilesUsingQueryMap_nonemptyQuery() {
-		MessageProcessor listFilesFlow = lookupFlowConstruct("list-files-using-query-map-non-empty-query");
+		MessageProcessor listFilesFlow = lookupMessageProcessorConstruct("list-files-using-query-map-non-empty-query");
 		MuleEvent response = null;
 		try {
 			response = listFilesFlow.process(getTestEvent(testObjects));

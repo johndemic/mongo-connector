@@ -29,7 +29,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 	public void setUp() {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("saveObject");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));				
 		}
 		catch(Exception e) {
@@ -42,7 +42,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 	@Test
 	public void testSaveObject() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("save-object");
+			MessageProcessor flow = lookupMessageProcessorConstruct("save-object");
 			flow.process(getTestEvent(testObjects));
 			
 			DBObject element = (DBObject) testObjects.get("elementRef");
@@ -57,7 +57,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 			
 			// Modify object and save
 			element.put(key, value);
-			flow = lookupFlowConstruct("save-object");
+			flow = lookupMessageProcessorConstruct("save-object");
 			flow.process(getTestEvent(testObjects));
 			
 			// Check that object was changed in MongoDB
@@ -74,7 +74,7 @@ public class SaveObjectTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {

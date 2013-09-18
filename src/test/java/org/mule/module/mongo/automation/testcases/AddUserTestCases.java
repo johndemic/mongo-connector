@@ -29,7 +29,7 @@ public class AddUserTestCases extends MongoTestParent {
 		try {
 			testObjects = (HashMap<String, Object>) context.getBean("addUser");
 			
-			MessageProcessor flow = lookupFlowConstruct("add-user");
+			MessageProcessor flow = lookupMessageProcessorConstruct("add-user");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			WriteResult result = (WriteResult) response.getMessage().getPayload();

@@ -34,7 +34,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 		try {
 			// create collection
 			testObjects = (Map<String, Object>) context.getBean("findObjectsUsingQueryMap");
-			MessageProcessor flow = lookupFlowConstruct("create-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("create-collection");
 			flow.process(getTestEvent(testObjects));
 			
 			// Create a number of objects
@@ -70,7 +70,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 			String queryKey = testObjects.get("queryKey").toString();
 			String queryValue = testObjects.get("queryValue").toString();
 			
-			MessageProcessor flow = lookupFlowConstruct("find-objects-using-query-map-with-query");
+			MessageProcessor flow = lookupMessageProcessorConstruct("find-objects-using-query-map-with-query");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection collection = (MongoCollection) response.getMessage().getPayload();
@@ -94,7 +94,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 			int extraObjects = (Integer) testObjects.get("extraObjects");
 			int numberOfObjects = (Integer) testObjects.get("numObjects");
 			
-			MessageProcessor flow = lookupFlowConstruct("find-objects-using-query-map-without-query");
+			MessageProcessor flow = lookupMessageProcessorConstruct("find-objects-using-query-map-without-query");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection collection = (MongoCollection) response.getMessage().getPayload();
@@ -115,7 +115,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 		
 			int limit = (Integer) testObjects.get("limit");
 			
-			MessageProcessor flow = lookupFlowConstruct("find-objects-using-query-map-with-limit");
+			MessageProcessor flow = lookupMessageProcessorConstruct("find-objects-using-query-map-with-limit");
 			MuleEvent response = flow.process(getTestEvent(testObjects));
 			
 			MongoCollection collection = (MongoCollection) response.getMessage().getPayload();
@@ -132,7 +132,7 @@ public class FindObjectsUsingQueryMapTestCases extends MongoTestParent {
 	@After
 	public void tearDown() {
 		try {
-			MessageProcessor flow = lookupFlowConstruct("drop-collection");
+			MessageProcessor flow = lookupMessageProcessorConstruct("drop-collection");
 			flow.process(getTestEvent(testObjects));
 		}
 		catch (Exception e) {

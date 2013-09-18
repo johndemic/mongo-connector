@@ -30,7 +30,7 @@ public class CountObjectsTestCases extends MongoTestParent {
 		try {
 			// Create collection
 			testObjects = (HashMap<String, Object>) context.getBean("countObjects");
-			lookupFlowConstruct("create-collection").process(getTestEvent(testObjects));
+			lookupMessageProcessorConstruct("create-collection").process(getTestEvent(testObjects));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			fail();
@@ -41,7 +41,7 @@ public class CountObjectsTestCases extends MongoTestParent {
 	public void tearDown() {
 		try {
 			// Delete collection
-			lookupFlowConstruct("drop-collection").process(getTestEvent(testObjects));
+			lookupMessageProcessorConstruct("drop-collection").process(getTestEvent(testObjects));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fail();
@@ -58,7 +58,7 @@ public class CountObjectsTestCases extends MongoTestParent {
 		
 		MuleEvent response = null;
 		try {
-			MessageProcessor countFlow = lookupFlowConstruct("count-objects");
+			MessageProcessor countFlow = lookupMessageProcessorConstruct("count-objects");
 			testObjects.put("queryRef", new BasicDBObject());
 			response = countFlow.process(getTestEvent(testObjects));
 		} catch (Exception e) {
