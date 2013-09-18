@@ -117,7 +117,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
 <title>
 
-  DropCollectionMessageProcessor
+  AbstractPagedConnectedProcessor
 
 
 | Mule Mongo Connector
@@ -294,14 +294,14 @@
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/AbstractExpressionEvaluator.html">AbstractExpressionEvaluator</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;</li>
-          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html">AbstractPagedConnectedProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html">AbstractPagedConnectedProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/AddUserMessageProcessor.html">AddUserMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/CountObjectsMessageProcessor.html">CountObjectsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/CountObjectsUsingQueryMapMessageProcessor.html">CountObjectsUsingQueryMapMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/CreateCollectionMessageProcessor.html">CreateCollectionMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/CreateFileFromPayloadMessageProcessor.html">CreateFileFromPayloadMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/CreateIndexMessageProcessor.html">CreateIndexMessageProcessor</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/DropCollectionMessageProcessor.html">DropCollectionMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/DropCollectionMessageProcessor.html">DropCollectionMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/DropDatabaseMessageProcessor.html">DropDatabaseMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/DropIndexMessageProcessor.html">DropIndexMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../java/org/mule/module/mongo/processors/DumpMessageProcessor.html">DumpMessageProcessor</a></li>
@@ -465,13 +465,6 @@
   
   
 
-  
-   
-  
-  
-  
-  
-
 
 <div class="sum-details-links">
 
@@ -527,9 +520,9 @@ Summary:
     public
      
      
-    
+    abstract
     class
-<h1>DropCollectionMessageProcessor</h1>
+<h1>AbstractPagedConnectedProcessor</h1>
 
 
 
@@ -546,17 +539,12 @@ Summary:
   
 
   
-    extends <a href="../../../../../../java/org/mule/module/mongo/processors/AbstractConnectedProcessor.html">AbstractConnectedProcessor</a><br/>
+    extends AbstractDevkitBasedPageableMessageProcessor<br/>
   
   
   
 
   
-  
-      implements 
-      
-        MessageProcessor 
-      
   
   
 
@@ -601,7 +589,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../../java/org/mule/module/mongo/processors/AbstractConnectedProcessor.html">org.mule.module.mongo.processors.AbstractConnectedProcessor</a></td>
+        <td colspan="2" class="jd-inheritance-class-cell">org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor</td>
     </tr>
     
 
@@ -615,7 +603,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.mongo.processors.DropCollectionMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.module.mongo.processors.AbstractPagedConnectedProcessor</td>
     </tr>
     
 
@@ -629,11 +617,6 @@ Summary:
 
 <div class="jd-descr">
 
-
-<h2>Class Overview</h2>
-<p>DropCollectionMessageProcessor invokes the <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html#dropCollection(java.lang.String)">dropCollection(java.lang.String)</a></code> method in <code><a href="../../../../../../java/org/mule/module/mongo/MongoCloudConnector.html">MongoCloudConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
- 
-</p>
 
 
 
@@ -817,8 +800,6 @@ org.mule.api.lifecycle.Stoppable
 </td></tr>
 
 
-
-
 </table>
 
 
@@ -835,7 +816,29 @@ org.mule.api.lifecycle.Stoppable
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#_collectionType">_collectionType</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#_databaseType">_databaseType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#_passwordType">_passwordType</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#_usernameType">_usernameType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -846,7 +849,29 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#collection">collection</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#database">database</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#password">password</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          protected
+          
+          
+          Object</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#username">username</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -867,82 +892,27 @@ org.mule.api.lifecycle.Stoppable
 <tr class="api apilevel-" >
 <td colspan="12">
 
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-org.mule.module.mongo.processors.AbstractConnectedProcessor" class="jd-expando-trigger closed"
-          ><img id="inherited-fields-org.mule.module.mongo.processors.AbstractConnectedProcessor-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-fields-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-fields-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>From class
-<a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html">org.mule.module.mongo.processors.AbstractConnectedProcessor</a>
-<div id="inherited-fields-org.mule.module.mongo.processors.AbstractConnectedProcessor">
-  <div id="inherited-fields-org.mule.module.mongo.processors.AbstractConnectedProcessor-list"
+org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor
+<div id="inherited-fields-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor">
+  <div id="inherited-fields-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-fields-org.mule.module.mongo.processors.AbstractConnectedProcessor-summary" style="display: none;">
+  <div id="inherited-fields-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
     
       <tr class="alt-color api apilevel-" >
           <td class="jd-typecol"><nobr>
-          protected
+          private
           
           
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#_databaseType">_databaseType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#_passwordType">_passwordType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#_usernameType">_usernameType</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#database">database</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class="alt-color api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#password">password</a></td>
-          <td class="jd-descrcol" width="100%"></td>
-      </tr>
-      
-    
-      <tr class=" api apilevel-" >
-          <td class="jd-typecol"><nobr>
-          protected
-          
-          
-          Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#username">username</a></td>
+          <td class="jd-linkcol">fetchSize</td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -1048,8 +1018,6 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
 
 
 
-
-
 </table>
 
 
@@ -1071,7 +1039,7 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#DropCollectionMessageProcessor(java.lang.String)">DropCollectionMessageProcessor</a></span>(String operationName)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#AbstractPagedConnectedProcessor(java.lang.String)">AbstractPagedConnectedProcessor</a></span>(String operationName)</nobr>
         
   </td></tr>
 
@@ -1097,11 +1065,15 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
             
             
             
-            void</nobr>
+            Object</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#getDatabase()">getDatabase</a></span>()</nobr>
         
+        <div class="jd-descrdiv">Retrieves database
+ 
+</div>
+  
   </td></tr>
 
 
@@ -1113,12 +1085,52 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
             
             
             
-            MuleEvent</nobr>
+            Object</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#doProcess(org.mule.api.MuleEvent)">doProcess</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#getPassword()">getPassword</a></span>()</nobr>
         
-        <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
+        <div class="jd-descrdiv">Retrieves password
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#getUsername()">getUsername</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Retrieves username
+ 
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#setDatabase(java.lang.Object)">setDatabase</a></span>(Object value)</nobr>
+        
+        <div class="jd-descrdiv">Sets database</div>
   
   </td></tr>
 
@@ -1134,9 +1146,9 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
+        <div class="jd-descrdiv">Sets password</div>
   
   </td></tr>
 
@@ -1152,42 +1164,10 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#setCollection(java.lang.Object)">setCollection</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractPagedConnectedProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets collection</div>
+        <div class="jd-descrdiv">Sets username</div>
   
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#start()">start</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/DropCollectionMessageProcessor.html#stop()">stop</a></span>()</nobr>
-        
   </td></tr>
 
 
@@ -1208,19 +1188,19 @@ org.mule.devkit.processor.DevkitBasedMessageProcessor
 
 <tr class="api apilevel-" >
 <td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.module.mongo.processors.AbstractConnectedProcessor" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.module.mongo.processors.AbstractConnectedProcessor-trigger"
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor-trigger"
           src="../../../../../../assets/images/triangle-closed.png"
           class="jd-expando-trigger-img" /></a>
 From class
 
-  <a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html">org.mule.module.mongo.processors.AbstractConnectedProcessor</a>
+  org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor
 
-<div id="inherited-methods-org.mule.module.mongo.processors.AbstractConnectedProcessor">
-  <div id="inherited-methods-org.mule.module.mongo.processors.AbstractConnectedProcessor-list"
+<div id="inherited-methods-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor">
+  <div id="inherited-methods-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor-list"
         class="jd-inheritedlinks">
   </div>
-  <div id="inherited-methods-org.mule.module.mongo.processors.AbstractConnectedProcessor-summary" style="display: none;">
+  <div id="inherited-methods-org.mule.streaming.processor.AbstractDevkitBasedPageableMessageProcessor-summary" style="display: none;">
     <table class="jd-sumtable-expando">
     
 
@@ -1230,76 +1210,30 @@ From class
         <td class="jd-typecol"><nobr>
             
             
+            final
             
             
-            
-            Object</nobr>
+            MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#getDatabase()">getDatabase</a></span>()</nobr>
+        <span class="sympad">doProcess</span>(MuleEvent arg0)</nobr>
         
-        <div class="jd-descrdiv">Retrieves database
- 
-</div>
-  
   </td></tr>
 
 
 	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
+            abstract
             
             
             
             
-            
-            Object</nobr>
+            PagingDelegate&lt;?&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#getPassword()">getPassword</a></span>()</nobr>
+        <span class="sympad">getPagingDelegate</span>(MuleEvent arg0, PagingConfiguration arg1)</nobr>
         
-        <div class="jd-descrdiv">Retrieves password
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            Object</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#getUsername()">getUsername</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Retrieves username
- 
-</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#setDatabase(java.lang.Object)">setDatabase</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets database</div>
-  
   </td></tr>
 
 
@@ -1314,28 +1248,8 @@ From class
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#setPassword(java.lang.Object)">setPassword</a></span>(Object value)</nobr>
+        <span class="sympad">setFetchSize</span>(String arg0)</nobr>
         
-        <div class="jd-descrdiv">Sets password</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/module/mongo/processors/AbstractConnectedProcessor.html#setUsername(java.lang.Object)">setUsername</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets username</div>
-  
   </td></tr>
 
 
@@ -2299,48 +2213,6 @@ From interface
 </td></tr>
 
 
-
-<tr class="api apilevel-" >
-<td colspan="12">
-  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.api.processor.MessageProcessor" class="jd-expando-trigger closed"
-          ><img id="inherited-methods-org.mule.api.processor.MessageProcessor-trigger"
-          src="../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>
-From interface
-
-  org.mule.api.processor.MessageProcessor
-
-<div id="inherited-methods-org.mule.api.processor.MessageProcessor">
-  <div id="inherited-methods-org.mule.api.processor.MessageProcessor-list"
-        class="jd-inheritedlinks">
-  </div>
-  <div id="inherited-methods-org.mule.api.processor.MessageProcessor-summary" style="display: none;">
-    <table class="jd-sumtable-expando">
-    
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            MuleEvent</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad">process</span>(MuleEvent arg0)</nobr>
-        
-  </td></tr>
-
-
-</table>
-  </div>
-</div>
-</td></tr>
-
-
 </table>
 
 
@@ -2373,7 +2245,7 @@ From interface
 
 
 
-<A NAME="_collectionType"></A>
+<A NAME="_databaseType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2383,7 +2255,7 @@ From interface
          
         String
       </span>
-        _collectionType
+        _databaseType
     </h4>
       <div class="api-level">
         
@@ -2403,7 +2275,67 @@ From interface
 
 
 
-<A NAME="collection"></A>
+<A NAME="_passwordType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        String
+      </span>
+        _passwordType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="_usernameType"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        String
+      </span>
+        _usernameType
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="database"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2413,7 +2345,67 @@ From interface
          
         Object
       </span>
-        collection
+        database
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="password"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Object
+      </span>
+        password
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="username"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        protected 
+         
+         
+        Object
+      </span>
+        username
     </h4>
       <div class="api-level">
         
@@ -2442,7 +2434,7 @@ From interface
 
 
 
-<A NAME="DropCollectionMessageProcessor(java.lang.String)"></A>
+<A NAME="AbstractPagedConnectedProcessor(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2454,7 +2446,7 @@ From interface
          
         
       </span>
-      <span class="sympad">DropCollectionMessageProcessor</span>
+      <span class="sympad">AbstractPagedConnectedProcessor</span>
       <span class="normal">(String operationName)</span>
     </h4>
       <div class="api-level">
@@ -2497,7 +2489,7 @@ From interface
 
 
 
-<A NAME="dispose()"></A>
+<A NAME="getDatabase()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2507,9 +2499,9 @@ From interface
          
          
          
-        void
+        Object
       </span>
-      <span class="sympad">dispose</span>
+      <span class="sympad">getDatabase</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2522,13 +2514,15 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves database
+ 
+</p></div>
 
     </div>
 </div>
 
 
-<A NAME="doProcess(org.mule.api.MuleEvent)"></A>
+<A NAME="getPassword()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2538,58 +2532,9 @@ From interface
          
          
          
-        MuleEvent
+        Object
       </span>
-      <span class="sympad">doProcess</span>
-      <span class="normal">(MuleEvent event)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Invokes the MessageProcessor.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>event</td>
-          <td>MuleEvent to be processed</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>Exception</td>
-            <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="initialise()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">initialise</span>
+      <span class="sympad">getPassword</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2602,22 +2547,48 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Obtains the expression manager from the Mule context and initialises the connector. If a target object  has not been set already it will search the Mule registry for a default one.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>InitialisationException</td>
-            <td></td>
-        </tr>
-      </table>
-  </div>
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves password
+ 
+</p></div>
 
     </div>
 </div>
 
 
-<A NAME="setCollection(java.lang.Object)"></A>
+<A NAME="getUsername()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Object
+      </span>
+      <span class="sympad">getUsername</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Retrieves username
+ 
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="setDatabase(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2629,7 +2600,7 @@ From interface
          
         void
       </span>
-      <span class="sympad">setCollection</span>
+      <span class="sympad">setDatabase</span>
       <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
@@ -2642,7 +2613,7 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Sets collection</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets database</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -2658,7 +2629,7 @@ From interface
 </div>
 
 
-<A NAME="start()"></A>
+<A NAME="setPassword(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2670,8 +2641,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">start</span>
-      <span class="normal">()</span>
+      <span class="sympad">setPassword</span>
+      <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2683,13 +2654,14 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets password</p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
         <tr>
-            <th>MuleException</td>
-            <td></td>
+          <th>value</td>
+          <td>Value to set
+</td>
         </tr>
       </table>
   </div>
@@ -2698,7 +2670,7 @@ From interface
 </div>
 
 
-<A NAME="stop()"></A>
+<A NAME="setUsername(java.lang.Object)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2710,8 +2682,8 @@ From interface
          
         void
       </span>
-      <span class="sympad">stop</span>
-      <span class="normal">()</span>
+      <span class="sympad">setUsername</span>
+      <span class="normal">(Object value)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2723,13 +2695,14 @@ From interface
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Sets username</p></div>
   <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
         <tr>
-            <th>MuleException</td>
-            <td></td>
+          <th>value</td>
+          <td>Value to set
+</td>
         </tr>
       </table>
   </div>

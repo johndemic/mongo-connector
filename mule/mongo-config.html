@@ -66,6 +66,49 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -1095,6 +1138,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
 
 
 
+
+
+
+
+
 <!-- ========= MESSAGE PROCESSOR DETAIL ======== -->
 <!-- Message Processors -->
 <h2>Message Processors</h2>
@@ -1119,9 +1167,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Adds a new user for this db
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Adds a new user for this db
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:add-user newUsername="myUser" newPassword="myPassword"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:add-user newUsername="myUser" newPassword="myPassword"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1138,26 +1190,30 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>newUsername</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">Name of the user</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>newUsername</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">Name of the user</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>newPassword</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">Password that will be used for authentication</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>newPassword</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">Password that will be used for authentication</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -1210,9 +1266,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">WriteResult</td>
-                <td class="jd-descrcol">Result of the operation
+                
+                    <td class="jd-descrcol">WriteResult</td>
+                    <td class="jd-descrcol">Result of the operation
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1236,10 +1295,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Counts the number of objects that match the given query. If no query is passed, returns the
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Counts the number of objects that match the given query. If no query is passed, returns the
  number of elements in the collection
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:count-objects collection="myCollection" query-ref="dbObject"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:count-objects collection="myCollection" query-ref="dbObject"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1256,27 +1319,31 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The target collection</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The target collection</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional DBObject query for counting objects. Only objects matching
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional DBObject query for counting objects. Only objects matching
             it will be counted. If unspecified, all objects are counted.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1329,9 +1396,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">long</td>
-                <td class="jd-descrcol">the amount of objects that matches the query
+                
+                    <td class="jd-descrcol">long</td>
+                    <td class="jd-descrcol">the amount of objects that matches the query
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1355,7 +1425,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Counts the number of objects that match the given query. If no query is passed, returns the
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Counts the number of objects that match the given query. If no query is passed, returns the
  number of elements in the collection
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:count-objects-using-query-map collection="myCollection"&gt;
@@ -1363,7 +1435,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:count-objects-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:count-objects-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1380,14 +1454,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The target collection</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The target collection</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -1464,9 +1540,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">long</td>
-                <td class="jd-descrcol">the amount of objects that matches the query
+                
+                    <td class="jd-descrcol">long</td>
+                    <td class="jd-descrcol">the amount of objects that matches the query
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -1490,9 +1569,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a new collection. If the collection already exists, a MongoException will be thrown.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Creates a new collection. If the collection already exists, a MongoException will be thrown.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:create-collection collection="aCollection" capped="true"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:create-collection collection="aCollection" capped="true"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1509,51 +1592,59 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection to create</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection to create</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>capped</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the collection will be capped</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>capped</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the collection will be capped</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>maxObjects</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The maximum number of documents the new collection is able to contain</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>maxObjects</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The maximum number of documents the new collection is able to contain</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>size</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The maximum size of the new collection
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>size</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The maximum size of the new collection
 </td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1618,10 +1709,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a new GridFSFile in the database, saving the given content, filename, contentType,
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Creates a new GridFSFile in the database, saving the given content, filename, contentType,
  and extraData, and answers it.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:create-file-from-payload filename="#[variable:filename]" metadata-ref="myDbObject"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:create-file-from-payload filename="#[variable:filename]" metadata-ref="myDbObject"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1638,51 +1733,59 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>payload</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The mandatory content of the new gridfs file. It may be a java.io.File, a
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>payload</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The mandatory content of the new gridfs file. It may be a java.io.File, a
             byte[] or an InputStream.</td>
-                        <td class="jd-descrcol">Object</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">Object</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>filename</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The mandatory name of new file.</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>filename</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The mandatory name of new file.</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>contentType</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional content type of the new file</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>contentType</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional content type of the new file</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>metadata</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional DBObject metadata of the new content type</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>metadata</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional DBObject metadata of the new content type</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1735,8 +1838,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">the new GridFSFile DBObject</td>
+                
+                    <td class="jd-descrcol">DBObject</td>
+                    <td class="jd-descrcol">the new GridFSFile DBObject</td>
+                
+
              </tr>
          </table>
   </div>
@@ -1772,9 +1878,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a new index
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Creates a new index
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:create-index collection="myCollection" field="myField" order="DESC"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:create-index collection="myCollection" field="myField" order="DESC"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1791,39 +1901,45 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection where the index will be created</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection where the index will be created</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>field</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the field which will be indexed</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>field</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the field which will be indexed</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>order</nobr></td>
-                        <td class="jd-descrcol">ASC</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The indexing order
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>order</nobr></td>
+                            <td class="jd-descrcol">ASC</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The indexing order
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/IndexOrder.html">IndexOrder</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/IndexOrder.html">IndexOrder</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -1888,10 +2004,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Deletes a collection and all the objects it contains. If the collection does not exist, does
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Deletes a collection and all the objects it contains. If the collection does not exist, does
  nothing.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:drop-collection collection="aCollection"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:drop-collection collection="aCollection"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1908,15 +2028,17 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection to drop
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection to drop
 </td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -1981,10 +2103,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Drop the current database
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Drop the current database
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:drop-database/&gt;</pre></div>
-</p></div>
+
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2061,9 +2187,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Drops an existing index
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Drops an existing index
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:drop-index collection="myCollection" index="myIndex"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:drop-index collection="myCollection" index="myIndex"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2080,27 +2210,31 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection where the index is</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection where the index is</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>index</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the index to drop
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>index</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the index to drop
 </td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -2165,11 +2299,15 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Executes a dump of the database to the specified output directory. If no output directory is
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Executes a dump of the database to the specified output directory. If no output directory is
  provided then the default /dump directory is used.
  <p/>
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:dump oplog="true"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:dump oplog="true"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2186,63 +2324,73 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>outputDirectory</nobr></td>
-                        <td class="jd-descrcol">dump</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Output directory path, if no output directory is provided the default
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>outputDirectory</nobr></td>
+                            <td class="jd-descrcol">dump</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Output directory path, if no output directory is provided the default
             /dump directory is assumed</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>outputName</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Output file name, if it's not specified the database name is used</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>outputName</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Output file name, if it's not specified the database name is used</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>zip</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to zip the created dump file or not</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>zip</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to zip the created dump file or not</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>oplog</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Point in time backup (requires an oplog)</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>oplog</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Point in time backup (requires an oplog)</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>threads</nobr></td>
-                        <td class="jd-descrcol">5</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Amount of threads to execute the dump</td>
-                        <td class="jd-descrcol">int</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>threads</nobr></td>
+                            <td class="jd-descrcol">5</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Amount of threads to execute the dump</td>
+                            <td class="jd-descrcol">int</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -2319,8 +2467,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Ends a consistent request.
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:end-consistent-request /&gt;</pre></div></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Ends a consistent request.
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:end-consistent-request /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2402,10 +2554,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Executes a command on the database
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Executes a command on the database
  <p/>
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-files query-ref="myDbObject"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-files query-ref="myDbObject"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2422,26 +2578,30 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>commandName</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The command to execute on the database</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>commandName</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The command to execute on the database</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>commandValue</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The value for the command</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>commandValue</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The value for the command</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -2494,9 +2654,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">The result of the command
+                
+                    <td class="jd-descrcol">DBObject</td>
+                    <td class="jd-descrcol">The result of the command
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -2520,9 +2683,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers if a collection exists given its name
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Answers if a collection exists given its name
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:exists-collection collection="aColllection"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:exists-collection collection="aColllection"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2539,14 +2706,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -2599,9 +2768,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">boolean</td>
-                <td class="jd-descrcol">if the collection exists
+                
+                    <td class="jd-descrcol">boolean</td>
+                    <td class="jd-descrcol">if the collection exists
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -2625,9 +2797,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Lists all the files that match the given query
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Lists all the files that match the given query
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-files query-ref="myDbObject" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-files query-ref="myDbObject" /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2644,14 +2820,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>A DBObject query the optional query</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>A DBObject query the optional query</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -2704,9 +2882,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
-                <td class="jd-descrcol">a DBObject files iterable
+                
+                    <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
+                    <td class="jd-descrcol">a DBObject files iterable
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -2730,14 +2911,18 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Lists all the files that match the given query
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Lists all the files that match the given query
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-files-using-query-map&gt;
     &lt;mongo:query-attributes&gt;
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foos"&gt;bars&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:find-files-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:find-files-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2823,9 +3008,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
-                <td class="jd-descrcol">a DBObject files iterable
+                
+                    <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
+                    <td class="jd-descrcol">a DBObject files iterable
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -2849,7 +3037,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Finds all objects that match a given query. If no query is specified, all objects of the
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Finds all objects that match a given query. If no query is specified, all objects of the
  collection are retrieved. If no fields object is specified, all fields are retrieved.
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-objects collection="myCollection" query-ref="dbObject" limit="5" numToSkip="10"&gt;
@@ -2857,7 +3047,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:field&gt;field1&lt;/mongo:field&gt;
         &lt;mongo:field&gt;field2&lt;/mongo:field&gt;
     &lt;/mongo:fields&gt;
-&lt;/mongo:find-objects&gt;</pre></div></p></div>
+&lt;/mongo:find-objects&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -2874,53 +3066,61 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The target collection</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The target collection</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional DBObject query object. If unspecified, all documents are
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional DBObject query object. If unspecified, all documents are
             returned.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>numToSkip</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Number of objects skip (offset)</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>numToSkip</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Number of objects skip (offset)</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>limit</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Limit of objects to return</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>limit</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Limit of objects to return</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -3000,9 +3200,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
-                <td class="jd-descrcol">an iterable of DBObject
+                
+                    <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
+                    <td class="jd-descrcol">an iterable of DBObject
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3026,7 +3229,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Finds all objects that match a given query. If no query is specified, all objects of the
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Finds all objects that match a given query. If no query is specified, all objects of the
  collection are retrieved. If no fields object is specified, all fields are retrieved.
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-objects-using-query-map collection="myCollection" limit="5" numToSkip="10"&gt;
@@ -3034,7 +3239,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
          &lt;mongo:field&gt;field1&lt;/mongo:field&gt;
          &lt;mongo:field&gt;field2&lt;/mongo:field&gt;
      &lt;/mongo:fields&gt;
-&lt;/mongo:find-objects-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:find-objects-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3051,14 +3258,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The target collection</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The target collection</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -3067,26 +3276,30 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>numToSkip</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Number of objects skip (offset)</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>numToSkip</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Number of objects skip (offset)</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>limit</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Limit of objects to return</td>
-                        <td class="jd-descrcol">Integer</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>limit</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Limit of objects to return</td>
+                            <td class="jd-descrcol">Integer</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -3174,9 +3387,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
-                <td class="jd-descrcol">an iterable of DBObject
+                
+                    <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
+                    <td class="jd-descrcol">an iterable of DBObject
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3200,10 +3416,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers the first file that matches the given query. If no object matches it, a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Answers the first file that matches the given query. If no object matches it, a
  MongoException is thrown.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-one-file query-ref="myDbObject" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-one-file query-ref="myDbObject" /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3220,14 +3440,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The DBObject mandatory query</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The DBObject mandatory query</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -3280,9 +3502,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">a DBObject
+                
+                    <td class="jd-descrcol">DBObject</td>
+                    <td class="jd-descrcol">a DBObject
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3306,7 +3531,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers the first file that matches the given query. If no object matches it, a
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Answers the first file that matches the given query. If no object matches it, a
  MongoException is thrown.
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-one-file-using-query-map&gt;
@@ -3314,7 +3541,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foos"&gt;bars&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:find-one-file-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:find-one-file-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3400,9 +3629,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">a DBObject
+                
+                    <td class="jd-descrcol">DBObject</td>
+                    <td class="jd-descrcol">a DBObject
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3426,7 +3658,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Finds the first object that matches a given query. Throws a MongoException if no one
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Finds the first object that matches a given query. Throws a MongoException if no one
  matches the given query
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-one-object collection="myCollection" query-ref="dbObject"&gt;
@@ -3434,7 +3668,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:field&gt;field1&lt;/mongo:field&gt;
         &lt;mongo:field&gt;field2&lt;/mongo:field&gt;
     &lt;/mongo:fields&gt;
-&lt;/mongo:find-one-object&gt;</pre></div></p></div>
+&lt;/mongo:find-one-object&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3451,40 +3687,46 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The target collection</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The target collection</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The mandatory DBObject query object that the returned object matches.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The mandatory DBObject query object that the returned object matches.</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>failOnNotFound</nobr></td>
-                        <td class="jd-descrcol">true</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.</td>
-                        <td class="jd-descrcol">Boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>failOnNotFound</nobr></td>
+                            <td class="jd-descrcol">true</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.</td>
+                            <td class="jd-descrcol">Boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -3562,9 +3804,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">a DBObject that matches the query. If nothing matches and the failOnNotFound is set to false, null will be returned
+                
+                    <td class="jd-descrcol">DBObject</td>
+                    <td class="jd-descrcol">a DBObject that matches the query. If nothing matches and the failOnNotFound is set to false, null will be returned
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3588,7 +3833,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Finds the first object that matches a given query. Throws a MongoException if no one
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Finds the first object that matches a given query. Throws a MongoException if no one
  matches the given query
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:find-one-object-using-query-map collection="myCollection"&gt;
@@ -3596,7 +3843,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:find-one-object-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:find-one-object-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3613,14 +3862,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The target collection</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The target collection</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -3629,14 +3880,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>failOnNotFound</nobr></td>
-                        <td class="jd-descrcol">true</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.</td>
-                        <td class="jd-descrcol">Boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>failOnNotFound</nobr></td>
+                            <td class="jd-descrcol">true</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Flag to specify if an exception will be thrown when no object is found. For backward compatibility the default value is true.</td>
+                            <td class="jd-descrcol">Boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -3722,9 +3975,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">a DBObject that matches the query. If nothing matches and the failOnNotFound is set to false, null will be returned
+                
+                    <td class="jd-descrcol">DBObject</td>
+                    <td class="jd-descrcol">a DBObject that matches the query. If nothing matches and the failOnNotFound is set to false, null will be returned
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3748,10 +4004,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers an inputstream to the contents of the first file that matches the given query. If no
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Answers an inputstream to the contents of the first file that matches the given query. If no
  object matches it, a MongoException is thrown.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:get-file-content query-ref="myDbObject" /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:get-file-content query-ref="myDbObject" /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3768,14 +4028,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The DBObject mandatory query</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The DBObject mandatory query</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -3828,9 +4090,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">InputStream</td>
-                <td class="jd-descrcol">an InputStream to the file contents
+                
+                    <td class="jd-descrcol">InputStream</td>
+                    <td class="jd-descrcol">an InputStream to the file contents
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3854,7 +4119,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Answers an inputstream to the contents of the first file that matches the given
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Answers an inputstream to the contents of the first file that matches the given
  queryAttributes. If no object matches it, a MongoException is thrown.
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:get-file-content-using-query-map&gt;
@@ -3862,7 +4129,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foos"&gt;bars&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:get-file-content-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:get-file-content-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3948,9 +4217,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">InputStream</td>
-                <td class="jd-descrcol">an InputStream to the file contents
+                
+                    <td class="jd-descrcol">InputStream</td>
+                    <td class="jd-descrcol">an InputStream to the file contents
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -3974,10 +4246,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Executes an incremental dump of the database
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Executes an incremental dump of the database
  <p/>
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:incremental-dump /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:incremental-dump /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -3994,28 +4270,32 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>outputDirectory</nobr></td>
-                        <td class="jd-descrcol">dump</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Output directory path, if no output directory is provided the default
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>outputDirectory</nobr></td>
+                            <td class="jd-descrcol">dump</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Output directory path, if no output directory is provided the default
             /dump directory is assumed</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>incrementalTimestampFile</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>File that keeps track of the last timestamp processed, if no
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>incrementalTimestampFile</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>File that keeps track of the last timestamp processed, if no
             file is provided one is created on the output directory</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -4092,9 +4372,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Inserts an object in a collection, setting its id if necessary.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Inserts an object in a collection, setting its id if necessary.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:insert-object collection="Employees" dbObject-ref="dbObject" writeConcern="SAFE"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:insert-object collection="Employees" dbObject-ref="dbObject" writeConcern="SAFE"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4111,38 +4395,44 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection where to insert the given object</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection where to insert the given object</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>dbObject</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>A DBObject instance.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>dbObject</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>A DBObject instance.</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional write concern of insertion</td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional write concern of insertion</td>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -4195,9 +4485,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">String</td>
-                <td class="jd-descrcol">the id that was just insterted
+                
+                    <td class="jd-descrcol">String</td>
+                    <td class="jd-descrcol">the id that was just insterted
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -4221,7 +4514,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Inserts an object in a collection, setting its id if necessary.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Inserts an object in a collection, setting its id if necessary.
  <p/>
  A shallow conversion into DBObject is performed - that is, no conversion is performed to its
  values.
@@ -4231,7 +4526,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:element-attribute key="foo"&gt;bar&lt;/mongo:element-attribute&gt;
         &lt;mongo:element-attribute key="foobar"&gt;baz&lt;/mongo:element-attribute&gt;
     &lt;/mongo:element-attributes&gt;
-&lt;/mongo:insert-object-from-map&gt;</pre></div></p></div>
+&lt;/mongo:insert-object-from-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4248,28 +4545,32 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection where to insert the given object</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection where to insert the given object</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional write concern of insertion</td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional write concern of insertion</td>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -4346,9 +4647,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">String</td>
-                <td class="jd-descrcol">the id that was just insterted
+                
+                    <td class="jd-descrcol">String</td>
+                    <td class="jd-descrcol">the id that was just insterted
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -4372,9 +4676,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Lists names of collections available at this database
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Lists names of collections available at this database
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:list-collections/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:list-collections/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4439,9 +4747,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Collection&lt;String&gt;</td>
-                <td class="jd-descrcol">the list of names of collections available at this database
+                
+                    <td class="jd-descrcol">Collection&lt;String&gt;</td>
+                    <td class="jd-descrcol">the list of names of collections available at this database
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -4465,10 +4776,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Lists all the files that match the given query, sorting them by filename. If no query is
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Lists all the files that match the given query, sorting them by filename. If no query is
  specified, all files are listed.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:list-files query-ref="myDbObject"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:list-files query-ref="myDbObject"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4485,14 +4800,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The DBObject optional query</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The DBObject optional query</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -4545,9 +4862,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
-                <td class="jd-descrcol">an iterable of DBObject
+                
+                    <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
+                    <td class="jd-descrcol">an iterable of DBObject
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -4571,7 +4891,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Lists all the files that match the given query, sorting them by filename. If no query is
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Lists all the files that match the given query, sorting them by filename. If no query is
  specified, all files are listed.
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:list-files-using-query-map&gt;
@@ -4579,7 +4901,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:query-attribute key="foo"&gt;foobaz&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foobar"&gt;foobaz&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:list-files-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:list-files-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4665,9 +4989,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
-                <td class="jd-descrcol">an iterable of DBObject
+                
+                    <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
+                    <td class="jd-descrcol">an iterable of DBObject
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -4691,9 +5018,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>List existent indices in a collection
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        List existent indices in a collection
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:list-indices collection="myCollection"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:list-indices collection="myCollection"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4710,14 +5041,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -4770,9 +5103,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Collection&lt;DBObject&gt;</td>
-                <td class="jd-descrcol">a collection of DBObject with indices information
+                
+                    <td class="jd-descrcol">Collection&lt;DBObject&gt;</td>
+                    <td class="jd-descrcol">a collection of DBObject with indices information
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -4796,7 +5132,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Transforms a collection into a collection of aggregated groups, by applying a supplied
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Transforms a collection into a collection of aggregated groups, by applying a supplied
  element-mapping function to each element, that transforms each one into a key-value pair,
  grouping the resulting pairs by key, and finally reducing values in each group applying a
  suppling 'reduce' function.
@@ -4806,7 +5144,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
  Note that the correct way of writing those functions may not be obvious; please consult
  MongoDB documentation for writing them.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:map-reduce-objects collection="myCollection" mapFunction="myMapFunction" reduceFunction="myReduceFunction"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:map-reduce-objects collection="myCollection" mapFunction="myMapFunction" reduceFunction="myReduceFunction"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4823,53 +5163,61 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection to map and reduce</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection to map and reduce</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>mapFunction</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">A JavaScript encoded mapping function</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>mapFunction</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">A JavaScript encoded mapping function</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>reduceFunction</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">A JavaScript encoded reducing function</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>reduceFunction</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">A JavaScript encoded reducing function</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>outputCollection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The name of the output collection to write the results, replacing
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>outputCollection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The name of the output collection to write the results, replacing
             previous collection if existed, mandatory when results may be larger than 16MB. If
             outputCollection is unspecified, the computation is performed in-memory and not
             persisted.</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -4922,9 +5270,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
-                <td class="jd-descrcol">an iterable that retrieves the resulting collection of DBObject
+                
+                    <td class="jd-descrcol">Iterable&lt;DBObject&gt;</td>
+                    <td class="jd-descrcol">an iterable that retrieves the resulting collection of DBObject
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -4948,10 +5299,14 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all the files that match the given query. If no query is specified, all files are
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Removes all the files that match the given query. If no query is specified, all files are
  removed
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-files query-ref="myDbObject"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-files query-ref="myDbObject"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -4968,15 +5323,17 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The DBObject optional query
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The DBObject optional query
 </td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -5041,7 +5398,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all the files that match the given query. If no query is specified, all files are
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Removes all the files that match the given query. If no query is specified, all files are
  removed
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-files-using-query-map&gt;
@@ -5049,7 +5408,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:query-attribute key="foo"&gt;foobaz&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foobar"&gt;foobaz&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:remove-files-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:remove-files-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5148,11 +5509,15 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all the objects that match the a given optional query. If query is not specified, all
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Removes all the objects that match the a given optional query. If query is not specified, all
  objects are removed. However, please notice that this is normally less performant that
  dropping the collection and creating it and its indices again
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-objects collection="myCollection" query-ref="dbObject"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:remove-objects collection="myCollection" query-ref="dbObject"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5169,40 +5534,46 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The collection whose elements will be removed</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The collection whose elements will be removed</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional DBObject query object. Objects that match it will be
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The optional DBObject query object. Objects that match it will be
             removed.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to remove the object
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to remove the object
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -5267,7 +5638,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Removes all the objects that match the a given optional query. If query is not specified, all
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Removes all the objects that match the a given optional query. If query is not specified, all
  objects are removed. However, please notice that this is normally less performant that
  dropping the collection and creating it and its indices again
  <p/>
@@ -5276,7 +5649,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foobar"&gt;baz&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:remove-objects-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:remove-objects-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5293,29 +5668,33 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The collection whose elements will be removed</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The collection whose elements will be removed</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to remove the object
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to remove the object
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -5403,11 +5782,15 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Takes the output from the dump and restores it. Indexes will be created on a restore. It only
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Takes the output from the dump and restores it. Indexes will be created on a restore. It only
  does inserts with the data to restore, if existing data is there, it will not be replaced.
  <p/>
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:restore inputPath="dump/test.zip" oplogReplay="true"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:restore inputPath="dump/test.zip" oplogReplay="true"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5424,39 +5807,45 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>inputPath</nobr></td>
-                        <td class="jd-descrcol">dump</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Input path to the dump files, it can be a directory, a zip file or just a
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>inputPath</nobr></td>
+                            <td class="jd-descrcol">dump</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Input path to the dump files, it can be a directory, a zip file or just a
             bson file</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>drop</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to drop existing collections before restore</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>drop</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Whether to drop existing collections before restore</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>oplogReplay</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>Replay oplog for point-in-time restore</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>oplogReplay</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>Replay oplog for point-in-time restore</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -5533,9 +5922,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Inserts or updates an object based on its object _id.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Inserts or updates an object based on its object _id.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:save-object collection="myCollection" element-ref="dbObject"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:save-object collection="myCollection" element-ref="dbObject"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5552,39 +5945,45 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The collection where to insert the object</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The collection where to insert the object</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>element</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The mandatory DBObject object to insert.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>element</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The mandatory DBObject object to insert.</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to persist the object
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to persist the object
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -5649,14 +6048,18 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Inserts or updates an object based on its object _id.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Inserts or updates an object based on its object _id.
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:save-object-from-map collection="myCollection"&gt;
     &lt;mongo:element-attributes&gt;
         &lt;mongo:element-attribute key="foo"&gt;bar&lt;/mongo:element-attribute&gt;
         &lt;mongo:element-attribute key="foobar"&gt;baz&lt;/mongo:element-attribute&gt;
     &lt;/mongo:element-attributes&gt;
-&lt;/mongo:save-object-from-map&gt;</pre></div></p></div>
+&lt;/mongo:save-object-from-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5673,29 +6076,33 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The collection where to insert the object</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The collection where to insert the object</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to persist the object
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to persist the object
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -5783,8 +6190,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Begins a consistent request, which allows you to be sure that each subsequent request to MongoDB happens in sequence.
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:start-consistent-request /&gt;</pre></div></p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Begins a consistent request, which allows you to be sure that each subsequent request to MongoDB happens in sequence.
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:start-consistent-request /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5866,11 +6277,15 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to false, only the
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Updates objects that matches the given query. If parameter multi is set to false, only the
  first document matching it will be updated. Otherwise, all the documents matching it will be
  updated.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:update-objects collection="myCollection" query-ref="dbObject" element-ref="dbObject" upsert="true"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:update-objects collection="myCollection" query-ref="dbObject" element-ref="dbObject" upsert="true"/&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -5887,77 +6302,89 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection to update</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection to update</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The DBObject query object used to detect the element to update. If the object Id is an instance of ObjectId you need to specify the value pair as map with the following structure:
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The DBObject query object used to detect the element to update. If the object Id is an instance of ObjectId you need to specify the value pair as map with the following structure:
  { "_id" : "ObjectId(OBJECT_ID_VALUE)"}</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>element</nobr></td>
-                        <td class="jd-descrcol">#[payload]</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The DBObject mandatory object that will replace that one which matches
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>element</nobr></td>
+                            <td class="jd-descrcol">#[payload]</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The DBObject mandatory object that will replace that one which matches
             the query.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>upsert</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>upsert</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>multi</nobr></td>
-                        <td class="jd-descrcol">true</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>multi</nobr></td>
+                            <td class="jd-descrcol">true</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -6022,11 +6449,15 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Update objects using a mongo function
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Update objects using a mongo function
  <p/>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:update-objects-by-function collection="myCollection" upsert="true" element-ref="elementObject" query-ref="queryObject" function="$set"&gt;
-&lt;/mongo:update-objects-by-function&gt;</pre></div></p></div>
+&lt;/mongo:update-objects-by-function&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -6043,88 +6474,102 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection to update</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection to update</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>function</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The function used to execute the update</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>function</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The function used to execute the update</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>query</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The DBObject query object used to detect the element to update.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>query</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The DBObject query object used to detect the element to update.</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>element</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The DBObject mandatory object that will replace that one which matches
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>element</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The DBObject mandatory object that will replace that one which matches
             the query.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>upsert</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>upsert</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>multi</nobr></td>
-                        <td class="jd-descrcol">true</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>multi</nobr></td>
+                            <td class="jd-descrcol">true</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -6189,7 +6634,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Update objects using a mongo function
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Update objects using a mongo function
  <p/>
  <p/>
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:update-objects-by-function-using-map collection="myCollection" upsert="true" function="$set"&gt;
@@ -6201,7 +6648,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:element-attribute key="foo"&gt;bar&lt;/mongo:element-attribute&gt;
         &lt;mongo:element-attribute key="foobar"&gt;baz&lt;/mongo:element-attribute&gt;
     &lt;/mongo:element-attributes&gt;
-&lt;/mongo:update-objects-by-function-using-map&gt;</pre></div></p></div>
+&lt;/mongo:update-objects-by-function-using-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -6218,26 +6667,30 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection to update</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection to update</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>function</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The function used to execute the update</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>function</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The function used to execute the update</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -6246,39 +6699,45 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>upsert</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>upsert</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>multi</nobr></td>
-                        <td class="jd-descrcol">true</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>multi</nobr></td>
+                            <td class="jd-descrcol">true</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -6383,7 +6842,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to false, only the
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Updates objects that matches the given query. If parameter multi is set to false, only the
  first document matching it will be updated. Otherwise, all the documents matching it will be
  updated.
  <p/>
@@ -6396,7 +6857,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:element-attribute key="foo"&gt;bar&lt;/mongo:element-attribute&gt;
         &lt;mongo:element-attribute key="foobar"&gt;baz&lt;/mongo:element-attribute&gt;
     &lt;/mongo:element-attributes&gt;
-&lt;/mongo:update-objects-using-map&gt;</pre></div></p></div>
+&lt;/mongo:update-objects-using-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -6413,14 +6876,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection to update</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection to update</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -6429,39 +6894,45 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>upsert</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>upsert</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>multi</nobr></td>
-                        <td class="jd-descrcol">true</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>multi</nobr></td>
+                            <td class="jd-descrcol">true</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -6564,7 +7035,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Updates objects that matches the given query. If parameter multi is set to false, only the
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Updates objects that matches the given query. If parameter multi is set to false, only the
  first document matching it will be updated. Otherwise, all the documents matching it will be
  updated.
  <p/>
@@ -6573,7 +7046,9 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
         &lt;mongo:query-attribute key="foo"&gt;bar&lt;/mongo:query-attribute&gt;
     &lt;/mongo:query-attributes&gt;
-&lt;/mongo:update-objects-using-query-map&gt;</pre></div></p></div>
+&lt;/mongo:update-objects-using-query-map&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -6590,66 +7065,76 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>collection</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The name of the collection to update</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>collection</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The name of the collection to update</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>element</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The DBObject mandatory object that will replace that one which matches
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>element</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The DBObject mandatory object that will replace that one which matches
             the query.</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>upsert</nobr></td>
-                        <td class="jd-descrcol">false</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>upsert</nobr></td>
+                            <td class="jd-descrcol">false</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If the database should create the element if it does not exist</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>multi</nobr></td>
-                        <td class="jd-descrcol">true</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
-                        <td class="jd-descrcol">boolean</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class="alt-color api apilevel-" >
+                            <td class="jd-linkcol"><nobr>multi</nobr></td>
+                            <td class="jd-descrcol">true</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>If all or just the first object matching the query will be updated</td>
+                            <td class="jd-descrcol">boolean</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
-                        <td class="jd-descrcol">DATABASE_DEFAULT</td>
-                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>writeConcern</nobr></td>
+                            <td class="jd-descrcol">DATABASE_DEFAULT</td>
+                            <td class="jd-descrcol"><i>Optional.&nbsp;</i>The write concern used to update
 </td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/WriteConcern.html">WriteConcern</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -6772,9 +7257,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Convert a BasicBSONList into Json.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Convert a BasicBSONList into Json.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:bson-list-to-json /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:bson-list-to-json /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -6791,14 +7280,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>input</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The input for this transformer</td>
-                        <td class="jd-descrcol">BasicBSONList</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>input</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The input for this transformer</td>
+                            <td class="jd-descrcol">BasicBSONList</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -6851,9 +7342,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">String</td>
-                <td class="jd-descrcol">the converted string representation
+                
+                    <td class="jd-descrcol">String</td>
+                    <td class="jd-descrcol">the converted string representation
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -6877,9 +7371,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Convert a DBObject into Map.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Convert a DBObject into Map.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:db-object-to-map /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:db-object-to-map /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -6896,14 +7394,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>input</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The input for this transformer</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>input</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The input for this transformer</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -6956,9 +7456,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">Map</td>
-                <td class="jd-descrcol">the converted Map representation
+                
+                    <td class="jd-descrcol">Map</td>
+                    <td class="jd-descrcol">the converted Map representation
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -6982,9 +7485,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Convert DBObject to Json.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Convert DBObject to Json.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:json-to-dbobject /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:json-to-dbobject /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -7001,14 +7508,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>input</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The input for this transformer</td>
-                        <td class="jd-descrcol">DBObject</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>input</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The input for this transformer</td>
+                            <td class="jd-descrcol">DBObject</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -7061,9 +7570,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">String</td>
-                <td class="jd-descrcol">the converted string representation
+                
+                    <td class="jd-descrcol">String</td>
+                    <td class="jd-descrcol">the converted string representation
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -7087,9 +7599,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Convert JSON to DBObject.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Convert JSON to DBObject.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:json-to-dbobject /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:json-to-dbobject /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -7106,14 +7622,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>input</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The input for this transformer</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>input</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The input for this transformer</td>
+                            <td class="jd-descrcol">String</td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol">UTF-8</td>
+                        </tr>
+                    
                 
                 
           
@@ -7166,9 +7684,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">DBObject</td>
-                <td class="jd-descrcol">the converted DBObject
+                
+                    <td class="jd-descrcol">DBObject</td>
+                    <td class="jd-descrcol">the converted DBObject
 </td>
+                
+
              </tr>
          </table>
   </div>
@@ -7192,9 +7713,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Convert a BasicBSONList into Json.
+  <div class="jd-tagdata jd-tagdescr"><p>
+      
+        Convert a BasicBSONList into Json.
  <p/>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:mongo-collection-to-json /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;mongo:mongo-collection-to-json /&gt;</pre></div>
+      
+  </p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -7211,14 +7736,16 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
           
                 
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>input</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">The input for this transformer</td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/MongoCollection.html">MongoCollection</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
+                    
+                        <tr class=" api apilevel-" >
+                            <td class="jd-linkcol"><nobr>input</nobr></td>
+                            <td class="jd-descrcol"></td>
+                            <td class="jd-descrcol">The input for this transformer</td>
+                            <td class="jd-descrcol"><a href="../java/org/mule/module/mongo/api/MongoCollection.html">MongoCollection</a></td>
+                            <td class="jd-descrcol">*/*</td>
+                            <td class="jd-descrcol"></td>
+                        </tr>
+                    
                 
                 
           
@@ -7271,9 +7798,12 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 <th>Description</th>
              </tr>
              <tr>
-                <td class="jd-descrcol">String</td>
-                <td class="jd-descrcol">the converted string representation
+                
+                    <td class="jd-descrcol">String</td>
+                    <td class="jd-descrcol">the converted string representation
 </td>
+                
+
              </tr>
          </table>
   </div>
