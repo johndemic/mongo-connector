@@ -58,6 +58,11 @@
             <version>${mule.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+			<groupId>org.mule.modules</groupId>
+    		<artifactId>mule-connector-test</artifactId>
+    		<version>${project.parent.version}</version>
+		</dependency>
     </dependencies>
 
     <repositories>

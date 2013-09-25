@@ -23,7 +23,7 @@ import org.junit.rules.Timeout;
 import org.mule.api.MuleEvent;
 import org.mule.api.processor.MessageProcessor;
 import org.mule.module.mongo.api.MongoCollection;
-import org.mule.tck.junit4.FunctionalTestCase;
+import org.mule.modules.tests.ConnectorTestCase;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -31,7 +31,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFSInputFile;
 
-public class MongoTestParent extends FunctionalTestCase {
+public class MongoTestParent extends ConnectorTestCase {
 
 	@Rule
 	public TemporaryFolder folder = new TemporaryFolder();
