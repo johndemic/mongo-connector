@@ -69,7 +69,7 @@ import com.mongodb.util.JSON;
  * 
  * @author MuleSoft, inc.
  */
-@Connector(name = "mongo", schemaVersion = "2.0", friendlyName = "Mongo DB", minMuleVersion = "3.4", metaData = MetaDataSwitch.OFF)
+@Connector(name = "mongo", schemaVersion = "2.0", friendlyName = "Mongo DB", minMuleVersion = "3.5", metaData = MetaDataSwitch.OFF)
 public class MongoCloudConnector
 {
     private static final Logger LOGGER = LoggerFactory.getLogger(MongoCloudConnector.class);
